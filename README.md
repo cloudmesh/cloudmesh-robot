@@ -10,6 +10,11 @@ more easily with it.
 We believe that the interface is so simple that it can also be used in
 STEM activities and not just in the university or by advanced hobbyists.
 
+## Notation
+
+In this document the `$`  character at a beginning of a command block is used to indicate the terminal prompt. 
+When executing the command do not copy it.
+
 ## Steup
 
 First we must install a number of tools on the machine connecting to the board.
@@ -191,7 +196,29 @@ Now ou can place python with the command
 #### Testing if it works
 
 
- TBD
+To test running a pyton program execute
+
+    $ cms robot test
+    
+Be careful as it overwrites the file `test.py`.
+
+#### Execute an arbitrary progarm
+
+Lets assume you have placed a progarnm in the file `prg.py` than you can 
+run it with the following command
+
+    $ cms robot run prg.py
+
+#### INteractive Python shell on the board
+
+To get into the interactive python shell on the board you need to make sure that you have 
+reset the esp8266 once after flashing. You need to press the reset button.
+
+Than you can use the following command to login
+
+    $ cms robot login
+    
+    
 
 
 
