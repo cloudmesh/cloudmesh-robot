@@ -86,12 +86,15 @@ class RobotCommand(PluginCommand):
                 robot probe [--format=FORMAT]
                 robot flash erase [--dryrun]
                 robot flash python [--dryrun]
-                robot set PORT
-                robot put PATH
-                robot get PATH
-                robot rm PATH
-                robot rmdir PATH
-                robot ls PATH
+                robot test
+                robot run PROGRAM
+                robot login
+                robot set PORT NOT IMPLEMENTED
+                robot put PATH NOT IMPLEMENTED
+                robot get PATH NOT IMPLEMENTED
+                robot rm PATH NOT IMPLEMENTED
+                robot rmdir PATH NOT IMPLEMENTED
+                robot ls PATH NOT IMPLEMENTED
                 
                 
           This command does some useful things.
@@ -123,6 +126,12 @@ class RobotCommand(PluginCommand):
 
         if arguments.welcome:
             print(self.Banner.show())
+
+        elif arguments.login:
+
+            p = Probe()
+            Console.error("If you do not see a >>> please press the reset button.")
+            os.system("picocom --imap lfcrlf -b 115200 " + p.tty)
 
         elif arguments.flash and arguments.erase:
 
@@ -204,6 +213,29 @@ class RobotCommand(PluginCommand):
                 Error.traceback(error=e, debug=True, trace=True)
 
             return ""
+
+        elif arguments.run:
+
+            p = Probe()
+            d = {
+                "port": p.tty,
+                "program": arguments.PROGRAM
+            }
+            os.system("ampy --port {port} run {program}".format(**d))
+
+        elif arguments.test:
+
+            p = Probe()
+            d = {"port": p.tty}
+            test = textwrap.dedent("""
+            n=3
+            print('Count to', n)
+            for i in range(1, n+1):
+                print(i)
+            """)
+            with open("test.py", "w") as f:
+                f.write(test)
+            os.system("ampy --port {port} run test.py".format(**d))
 
         '''
         elif arguments.image and arguments.list:

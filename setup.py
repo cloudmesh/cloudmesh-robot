@@ -25,18 +25,17 @@ def readfile(filename):
 
 #requiers = readfile ('requirements.txt')
 requiers = """
-psutil
-pygments
-tox
-detox
-coverage
-flake8
+cloudmesh.common
+cloudmesh.cmd5
+esptool
+pyserial
+adafruit-ampy
 """.split("\n")
 
 # dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']
 
 version = readfile("VERSION")[0].strip()
-readme = readfile('README.rst')
+readme = readfile('README.md')
 
 NAME = "cloudmesh.robot"
 DESCRIPTION = "A command called robot and foo for the cloudmesh shell"
