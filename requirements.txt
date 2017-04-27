@@ -1,0 +1,5 @@
+cloudmesh.common
+cloudmesh.cmd5
+esptool
+pyserial
+adafruit-ampy
