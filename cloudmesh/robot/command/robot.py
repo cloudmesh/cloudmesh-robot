@@ -10,8 +10,37 @@ import os
 import sys
 from cloudmesh.robot.api import Probe, Git
 from pprint import pprint
+import textwrap
 
 class RobotCommand(PluginCommand):
+
+# characters from towel.blinkenlights.nl
+
+
+    class Banner(object):
+
+        @classmethod
+        def show(cls):
+
+            banner = textwrap.dedent("""
+                +-----------------------------------+
+                |                        /~\        |                  
+                | Power us on!          |oo )       |
+                |                       _\=/_       |                  
+                |       ___            /  _  \      |                  
+                |      /() \          |||/.\|||     |                  
+                |    _|_____|_        || \_/ ||     |                  
+                |   | | === | |       # |\ /| #     |                  
+                |   |_|  O  |_|         \_ _/       |                  
+                |    ||  O  ||          | | |       |                  
+                |    ||__*__||          | | |       |                  
+                |   |~ \___/ ~|         []|[]       |                  
+                |   /=\ /=\ /=\         | | |       |                   
+                +___[_]_[_]_[_]________/_]_[_\______+
+                |          cloudmesh.robot          |
+                +------------------------------------
+                """)
+            return banner
 
     class ampy(object):
 
@@ -51,6 +80,7 @@ class RobotCommand(PluginCommand):
         ::
 
           Usage:
+                robot welcome
                 robot osx install
                 robot image fetch
                 robot probe [--format=FORMAT]
@@ -73,7 +103,8 @@ class RobotCommand(PluginCommand):
               -f      specify the file
 
         """
-        pprint(arguments)
+
+        # pprint(arguments)
 
         # "wget http://micropython.org/resources/firmware/esp8266-20170108-v1.8.7.bin"
 
@@ -90,7 +121,10 @@ class RobotCommand(PluginCommand):
             if not arguments.dryrun:
                 c = yn_choice(msg, default='y')
 
-        if arguments.flash and arguments.erase:
+        if arguments.welcome:
+            print(self.Banner.show())
+
+        elif arguments.flash and arguments.erase:
 
             p = Probe()
             print (p.tty)
@@ -116,21 +150,13 @@ class RobotCommand(PluginCommand):
 
             command = "esptool.py --port {port} --baud {baud} write_flash --flash_size=detect -fm dio 0x00000 {image}".format(**d)
             _run(command)
-
-
             #"esptool.py --port /dev/tty.wchusbserial1410 --baud 9600 write_flash --flash_size=detect -fm dio 0x00000 esp8266-20170108-v1.8.7.bin"
 
         elif arguments.osx and arguments.install:
 
-
             o = sys.platform
 
             print (o)
-
-            for package in ["esptool", "pyserial", "adafruit-ampy"]:
-                print("installing", package)
-                Pip.install(package)
-
 
             if sys.platform == 'darwin':
                 if Shell.command_exists("brew"):
@@ -139,7 +165,7 @@ class RobotCommand(PluginCommand):
                     os.system(
                         '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
 
-                for package in ["lua", "picocom"]:
+                for package in ["lua", "picocom", "wget"]:
                     print("installing", package)
                     Brew.install(package)
 
