@@ -2,8 +2,41 @@ import glob
 import os
 from subprocess import Popen, PIPE
 from pprint import pprint
+from cloudmesh.common.Shell import Shell
+from cloudmesh.common.util import path_expand
 import sys
 import requests
+
+
+class Ampy(object):
+    def __init__(self, port=None):
+
+        self.port = port
+
+    def ls(self, path):
+        self._execute("ls", path)
+
+    def rm(self, path):
+        self._execute("rm", path)
+
+    def rmdir(self, path):
+        self._execute("rmdir", path)
+
+    def put(self, src, dest=None):
+        return self._execute_src_dest("put", src, dest)
+
+    def get(self, src, dest=None):
+        return self._execute_src_dest("get", src, dest)
+
+    def _execute_src_dest(self, cmd, src, dest=None):
+        if dest is None:
+            return Shell.execute('ampy', ['--port', self.port, cmd, src])
+        else:
+            return Shell.execute('ampy', ['--port', self.port, cmd, src, dest])
+
+    def _execute(self, cmd, src):
+        return Shell.execute('ampy', ['--port', self.port, cmd, src])
+
 
 class Git(object):
     '''
@@ -86,6 +119,27 @@ class Probe(object):
             "mac": str(mac[2]).replace("MAC:", "").strip(),
         }
         return data
+
+class Network(object):
+
+    def __init__(self, ssid=None, username=None, password=None):
+        self.filename = path_expand("~/.cloudmesh/robot/credentials.txt")
+        Shell.mkdir("~/.cloudmesh/robot")
+        self.credentials = {
+            'ssid': ssid,
+            'username': username,
+            'password': password,
+        }
+        with open(self.filename, 'w') as f:
+            for e in self.credentials:
+                f.write(e + ": " + self.credentials[e] + "\n")
+
+
+    def __str__(self):
+        with open(self.filename, 'r') as f:
+            contents = f.read()
+
+        print (contents)
 
 
 #p = Probe()

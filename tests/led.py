@@ -51,26 +51,45 @@ mac = ubinascii.hexlify(network.WLAN().config('mac'),':').decode()
 print ('MAC:', mac)
 
 
-import socket
-import machine
+LED = machine.Pin(2, machine.Pin.OUT)
+
+def led(on):
+    if on:
+        LED.low()
+    else:
+        LED.high()
+
+status = False
+led(status)
 
 
 html = """<!DOCTYPE html>
 <html>
 <head> <title>ESP8266 LED ON/OFF</title> </head>
 <center>
-<h3>Cloudmesh.robot</h3>
+<h3>cloudmesh.robot</h3>
 <h2>ESP8266 LED on and off Test</h2>
 </center>
 <form>
+<center>
 LED: 
 <button name="LED" value="ON" type="submit">LED ON</button>
 <button name="LED" value="OFF" type="submit">LED OFF</button>
+</center>
+<br/>
+<center>
+Status: {status}
+{msg}
+</center>
 </form>
 </html>
 """
 
-LED = machine.Pin(2, machine.Pin.OUT)
+def bar(status):
+    if status:
+        return '<p style="color: #ffffff; background-color: #3333ff"> LED ON </p>'
+    else:
+        return '<p style="color: #000000; background-color: #ffffff"> LED OFF </p>'
 
 #Setup Socket WebServer
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -85,48 +104,19 @@ while True:
     LEDON = request.find('/?LED=ON')
     LEDOFF = request.find('/?LED=OFF')
     if LEDON == 6:
-        print('TURN LED2 ON')
-        LED.low()
+        #print('TURN LED ON')
+        status = True
     if LEDOFF == 6:
-        print('TURN LED2 OFF')
-        LED.high()
-    response = html
+        status = False
+    led(status)
+
+    data = {
+        'status': status,
+        'msg': bar(status)
+    }
+
+    response = html.format(**data)
     conn.send(response)
     conn.close()
 
 
-
-#pins = [machine.Pin(i, machine.Pin.IN) for i in (0, 2, 4, 5, 12, 13, 14, 15)]
-'''
-html = """<!DOCTYPE html>
-<html>
-    <head> <title>ESP8266 Pins</title> </head>
-    <body> <h1>ESP8266 Pins</h1>
-        <table border="1"> <tr><th>Pin</th><th>Value</th></tr> %s </table>
-    </body>
-</html>
-"""
-
-
-
-addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
-
-s = socket.socket()
-s.bind(addr)
-s.listen(1)
-
-print('listening on', addr)
-
-while True:
-    cl, addr = s.accept()
-    print('client connected from', addr)
-    cl_file = cl.makefile('rwb', 0)
-    while True:
-        line = cl_file.readline()
-        if not line or line == b'\r\n':
-            break
-    rows = ['<tr><td>%s</td><td>%d</td></tr>' % (str(p), p.value()) for p in pins]
-    response = html % '\n'.join(rows)
-    cl.send(response)
-    cl.close()
-'''

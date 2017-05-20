@@ -8,7 +8,7 @@ from cloudmesh.common.Printer import Printer
 from cloudmesh.common.util import yn_choice, path_expand
 import os
 import sys
-from cloudmesh.robot.api import Probe, Git
+from cloudmesh.robot.api import Probe, Git, Network, Ampy
 from pprint import pprint
 import textwrap
 
@@ -42,36 +42,6 @@ class RobotCommand(PluginCommand):
                 """)
             return banner
 
-    class ampy(object):
-
-
-        def __init__(self, port=None):
-
-            self.port = port
-
-        def ls(self, path):
-            self._execute("ls", path)
-
-        def rm(self, path):
-            self._execute("rm", path)
-
-        def rmdir(self, path):
-            self._execute("rmdir", path)
-
-        def put(self, src, dest=None):
-            return self._execute_src_dest("put", src, dest)
-
-        def get(self, src, dest=None):
-            return self._execute_src_dest("get", src, dest)
-
-        def _execute_src_dest(self, cmd, src, dest=None):
-            if dest is None:
-                return Shell.execute('ampy', ['--port', self.port, cmd, src])
-            else:
-                return Shell.execute('ampy', ['--port', self.port, cmd, src, dest])
-
-        def _execute(self, cmd, src):
-            return Shell.execute('ampy', ['--port', self.port, cmd, src])
 
 
     @command
@@ -88,6 +58,9 @@ class RobotCommand(PluginCommand):
                 robot flash python [--dryrun]
                 robot test
                 robot run PROGRAM
+                robot credentials set SSID USERNAME PASSWORD
+                robot credentials put
+                robot credentials list
                 robot login
                 robot set PORT NOT IMPLEMENTED
                 robot put PATH NOT IMPLEMENTED
@@ -236,6 +209,40 @@ class RobotCommand(PluginCommand):
             with open("test.py", "w") as f:
                 f.write(test)
             os.system("ampy --port {port} run test.py".format(**d))
+
+        elif arguments.credentials and arguments.set:
+            try:
+                net = Network(ssid=arguments.SSID,
+                              username=arguments.USERNAME,
+                              password=arguments.PASSWORD)
+
+                #print (net)
+            except Exception as e:
+                Error.traceback(e)
+
+        elif arguments.credentials and arguments.put:
+            try:
+                filename = path_expand("~/.cloudmesh/robot/credentials.txt")
+                p = Probe()
+                #   print (p.tty)
+                ampy = Ampy(p.tty)
+
+                ampy.put(filename, "credentials.txt")
+            except Exception as e:
+                Error.traceback(e)
+
+        elif arguments.credentials and arguments.list:
+            try:
+                p = Probe()
+                ampy = Ampy(p.tty)
+                filename = path_expand("~/.cloudmesh/robot/credentials.txt.robot")
+                ampy.get("credentials.txt", filename)
+                r = Shell.cat(filename)
+                print (r)
+                os.remove(filename)
+            except Exception as e:
+                Error.traceback(e)
+
 
         '''
         elif arguments.image and arguments.list:
