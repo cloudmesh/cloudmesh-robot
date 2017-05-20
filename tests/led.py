@@ -1,3 +1,22 @@
+"""
+First create a credentials file with::
+
+    cms robot credential set SSID USERNAME PASSWORD
+
+username is not used for now, make sure you match your ssid and password
+it writes a file ~/.cloudmesh/robot/credentials.txt. You can copy that with::
+
+    cms robot credential put
+
+onto the robot. Than you can run the program with:
+
+  cd tests
+  cms robot run led.py
+
+Connect to the ip that you get for teh robot (simply run the prg without 
+the loop, to get it, or look up in your modem)
+Now you can switch on and off the LED viw the web page provided.
+"""
 import network
 import ubinascii
 import time
