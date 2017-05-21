@@ -452,3 +452,24 @@ https://learn.adafruit.com/micropython-basics-load-files-and-run-code/install-am
 
 # Resources
 
+login
+-----
+
+    picocom v2.2
+    
+    port is        : /dev/tty.wchusbserial1460
+    flowcontrol    : none
+    baudrate is    : 115200
+    parity is      : none
+    databits are   : 8
+    stopbits are   : 1
+    escape is      : C-a
+    local echo is  : no
+    noinit is      : no
+    noreset is     : no
+    nolock is      : no
+    send_cmd is    : sz -vv
+    receive_cmd is : rz -vv -E
+    imap is        : lfcrlf,
+    omap is        : 
+    emap is        : crcrlf,delbs,
