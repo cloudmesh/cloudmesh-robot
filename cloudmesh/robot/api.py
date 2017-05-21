@@ -13,8 +13,10 @@ class Ampy(object):
 
         self.port = port
 
-    def ls(self, path):
-        self._execute("ls", path)
+    def ls(self, path=None):
+        if path is None:
+            path ="/"
+        return self._execute("ls", path)
 
     def rm(self, path):
         self._execute("rm", path)
@@ -22,7 +24,12 @@ class Ampy(object):
     def rmdir(self, path):
         self._execute("rmdir", path)
 
+    def mkdir(self, path):
+        self._execute("mkdir", path)
+
     def put(self, src, dest=None):
+        if dest is None:
+            dest = os.path.basename(src)
         return self._execute_src_dest("put", src, dest)
 
     def get(self, src, dest=None):

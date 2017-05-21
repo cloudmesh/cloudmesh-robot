@@ -63,12 +63,11 @@ class RobotCommand(PluginCommand):
                 robot credentials list
                 robot login
                 robot set PORT NOT IMPLEMENTED
-                robot put PATH NOT IMPLEMENTED
-                robot get PATH NOT IMPLEMENTED
-                robot rm PATH NOT IMPLEMENTED
-                robot rmdir PATH NOT IMPLEMENTED
-                robot ls PATH NOT IMPLEMENTED
-                
+                robot ls [PATH]
+                robot put SOURCE [DESTINATION]
+                robot get PATH
+                robot rm PATH
+                robot rmdir PATH
                 
           This command does some useful things.
 
@@ -243,6 +242,46 @@ class RobotCommand(PluginCommand):
             except Exception as e:
                 Error.traceback(e)
 
+        elif arguments.ls:
+            try:
+                p = Probe()
+                ampy = Ampy(p.tty)
+                r = ampy.ls()
+                print (r)
+            except Exception as e:
+                Error.traceback(e)
+
+        elif arguments.put:
+            try:
+                p = Probe()
+                ampy = Ampy(p.tty)
+                ampy.put(arguments.SOURCE, arguments.DESTINATION)
+            except Exception as e:
+                Error.traceback(e)
+
+        elif arguments.rm:
+            try:
+                p = Probe()
+                ampy = Ampy(p.tty)
+                ampy.rm(arguments.PATH)
+            except Exception as e:
+                Error.traceback(e)
+
+        elif arguments.rmdir:
+            try:
+                p = Probe()
+                ampy = Ampy(p.tty)
+                ampy.rmdir(arguments.PATH)
+            except Exception as e:
+                Error.traceback(e)
+
+        elif arguments.mkdir:
+            try:
+                p = Probe()
+                ampy = Ampy(p.tty)
+                ampy.mkdir(arguments.PATH)
+            except Exception as e:
+                Error.traceback(e)
 
         '''
         elif arguments.image and arguments.list:

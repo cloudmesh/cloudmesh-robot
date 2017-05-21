@@ -6,26 +6,38 @@ import socket
 from machine import Pin, PWM
 
 
-class motor
+class motor(object):
+
+    def __init__(self, name):
+        if name == "left":
+            self.pin_speed = 4
+            self.pin_direction = 2
+        elif name == "right":
+            self.pin_speed = 5
+            self.pin_direction = 0
+
+        self.speed = PWM(Pin(self.pin_speed), freq=1000, duty=0)
+        self.direction = Pin(self.pin_direction, Pin.OUT)
+        self.name = name
+
+    def forward(self):
+        self.direction.low()
+        self.duty(1023)
+
+    def backward(self):
+        self.direction.high()
+        self.duty(1023)
+
+    def stop(self):
+        self.duty(0)
+
+    def duty(self, d):
+        PWM(Pin(self.pin_speed), freq=1000, duty=d)
 
 
-p = Pin(2, Pin.OUT)
-p = Pin(0, Pin.OUT)
 
-
-
-
-right = 4
-left = 5
-
-direction_right = Pin(2, Pin.OUT)
-
-
-def motor (pin, status):
-    if status:
-        pwm = PWM(Pin(pin), freq=1000, duty=1023)
-    else:
-        pwm = PWM(Pin(pin), freq=1000, duty=0)
+right = motor("right")
+left = motor("left")
 
 
 def get_attributes(filename):
@@ -96,16 +108,15 @@ html = """<!DOCTYPE html>
 <td><button name="RIGHT" value="OFF" type="submit">OFF</button></td>
 </tr>
 <tr>
-<td>FORWARD:</td>
-<td><button name="FORWARD" value="ON" type="submit">ON</button></td>
-<td><button name="FORWARD" value="OFF" type="submit">OFF</button></td>
+<td>DIRECTION:</td>
+<td><button name="FORWARD" value="ON" type="submit">FORWARD</button></td>
+<td><button name="STOP" value="ON" type="submit">STOP</button></td>
+<td><button name="BACK" value="ON" type="submit">BACKWARD</button></td>
 </tr>
 </table>
 </form>
 </html>
 """
-
-LED = machine.Pin(2, machine.Pin.OUT)
 
 #Setup Socket WebServer
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -121,28 +132,29 @@ while True:
     LEFTOFF = request.find('/?LEFT=OFF')
     RIGHTON = request.find('/?RIGHT=ON')
     RIGHTOFF = request.find('/?RIGHT=OFF')
-    FORWARDON = request.find('/?FORWARD=ON')
-    FORWARDOFF = request.find('/?FORWARD=OFF')
+    FORWARD = request.find('/?FORWARD=ON')
+    STOP = request.find('/?STOP=ON')
+    BACK = request.find('/?BACK=ON')
 
     left_on = False
     right_on = False
     if LEFTON == 6:
-        left_on = True
+        left.forward()
     if LEFTOFF == 6:
-        left_on = False
+        left.stop()
     if RIGHTON == 6:
-        right_on = True
+        right.forward()
     if RIGHTOFF == 6:
-        right_on = False
-    if FORWARDOFF == 6:
-        right_on = False
-        left_on = False
-    if FORWARDON == 6:
-        right_on = True
-        left_on = True
-
-    motor(left, left_on)
-    motor(right, right_on)
+        right.stop()
+    if STOP == 6:
+        right.stop()
+        left.stop()
+    if FORWARD == 6:
+        right.forward()
+        left.forward()
+    if BACK == 6:
+        right.backward()
+        left.backward()
 
     response = html
     conn.send(response)
