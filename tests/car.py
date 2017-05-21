@@ -72,17 +72,23 @@ html = """<!DOCTYPE html>
 <h2>ESP8266 Car Test</h2>
 </center>
 <form>
-LEFT: 
-<button name="LEFT" value="ON" type="submit">ON</button>
-<button name="LEFT" value="OFF" type="submit">OFF</button>
-<br/>
-RIGHT:
-<button name="RIGHT" value="ON" type="submit">ON</button>
-<button name="RIGHT" value="OFF" type="submit">OFF</button>
-<br/>
-FORWARD:
-<button name="FORWARD" value="ON" type="submit">ON</button>
-<button name="FORWARD" value="OFF" type="submit">OFF</button>
+<table>
+<tr>
+<td>LEFT:</td> 
+<td><button name="LEFT" value="ON" type="submit">ON</button></td>
+<td><button name="LEFT" value="OFF" type="submit">OFF</button></td>
+</tr>
+<tr>
+<td>RIGHT:</td>
+<td><button name="RIGHT" value="ON" type="submit">ON</button></td>
+<td><button name="RIGHT" value="OFF" type="submit">OFF</button></td>
+</tr>
+<tr>
+<td>FORWARD:</td>
+<td><button name="FORWARD" value="ON" type="submit">ON</button></td>
+<td><button name="FORWARD" value="OFF" type="submit">OFF</button></td>
+</tr>
+</table>
 </form>
 </html>
 """
