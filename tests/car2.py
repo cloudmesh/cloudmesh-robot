@@ -8,6 +8,7 @@ from machine import Pin, PWM
 
 class motor(object):
 
+
     def __init__(self, name):
         if name == "left":
             self.pin_speed = 4

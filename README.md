@@ -1,14 +1,13 @@
 # ESP8266
 
-When working with a external hardware such as the nodeMCU it can be at
-time a bit difficult to find the information and make the system work for you.
+When working with a external hardware such as the nodeMCU you will find a lot of information on the internet about it. It is a bit difficult at times to assess what you need to program it. You are exposed to many choices. A NodeMcu typically comes with Lua. However you have many other choices.
+Such choices include multiple programming languages such as Lua, MicroPython, Arduino/C, Go and others.
 
-To simplify the setup and use of the esp8266 we developed an easy to use
-commandline tool that allows users to set up their machine and interact
-more easily with it.
-
-We believe that the interface is so simple that it can also be used in
-STEM activities and not just in the university or by advanced hobbyists.
+As all of them are slightly different you need to identify which works best for you. In addition you need to install programs, images and libraries that support your specific language choice.
+ 
+For our first experiments we will be using MicroPython. This choce is motivated by the fact that Python is a well established and easy to learn programming language. Many other programs can be conducted in Python. Rescently many educational istitutions are offering Python as an introductory programming language.  
+ 
+To simplify the setup and use of the esp8266 for MicroPython we developed an easy to use commandline tool that allows users to set up their machine and interact more easily with it. We believe that the interface is so simple that it can also be used in STEM activities and not just in the university or by advanced hobbyists.
 
 ## Notation
 
@@ -19,9 +18,11 @@ When executing the command do not copy it.
 
 First we must install a number of tools on the machine connecting to the board.
 
-
-
 ### OSX
+
+In our guide we will focus on OSX, however, there should not be any issues with modifying our instalations to work with other operating systems, such as Linux or even Windows. If you have improvements in regards to our code, please let us know.
+
+On OSX we will be using homebrew and pyenv to leverage existing libraries and to allow the use of a user managed Python envireonment.
 
 #### Homebrew
 
@@ -41,6 +42,24 @@ versions of python. This is done with the commands
     $ brew install pyenv
     $ brew install pyenv-virtualenv
 
+#### Install Aquaemacs
+
+You will need an editor to make some modifications to files and write programs. Certainly you can use `vi` or `emacs`. As we are on OSX we can also use an editor such as `aquaemacs`. Let us assume you have installed it on your computer, we recommend to add a shortcut so you can call it from the commandline. This can be done by editing the `~/.bash_profile` and add the following to it:
+
+open_emacs() {
+    # open -na Aquamacs $*
+    open -a Aquamacs $*    
+}
+
+alias emacs=open_emacs
+
+Once done you can start the editor while using the command
+
+	emacs FILENAME
+	
+where FILENAME is the name of the file you like to edit.
+
+
 #### Install python 3.6.1
 
 As we want to develop our programs in python we will install it with pyenve as follows
@@ -49,9 +68,9 @@ As we want to develop our programs in python we will install it with pyenve as f
     $ pyenv virtualenv 3.6.1 ENV3
 
 To not forget that you are using python 3 and automatically loading it
-we maust add it to our `~/.bash_profile` file.
+we must add it to our `~/.bash_profile` file.
 
-    vi ~/.bash_profile
+    emacs ~/.bash_profile
 
 Add the following lines at the end of the file
 
@@ -473,3 +492,37 @@ login
     imap is        : lfcrlf,
     omap is        : 
     emap is        : crcrlf,delbs,
+    
+    
+Links
+-----
+
+* http://micropython.org/resources/docs/en/latest/esp8266/esp8266/tutorial/pins.html?highlight=gpio
+* https://cdn.hackaday.io/files/8856378895104/user-mannual-for-esp-12e-motor-shield.pdf
+* https://smartarduino.gitbooks.io/user-manual-for-wifi-car-by-nodemcu-doitcar-/content/31_code_for_ap_case_on_doitcar.html
+* https://blog.squix.org/2015/09/esp8266-nodemcu-motor-shield-review.html
+* https://www.losant.com/blog/top-6-esp8266-modules
+* 
+
+Jumper
+------
+* http://www.instructables.com/id/Motorize-IoT-With-ESP8266/
+* https://blog.the-jedi.co.uk/2015/11/26/nodemcu-motor-shield-review/
+
+Projects
+--------
+
+* https://www.google.com/search?q=esp8266+projects&rlz=1C5CHFA_enUS727US727&oq=esp8266+&aqs=chrome.0.69i59l3j69i61j69i60l2.3594j0j4&sourceid=chrome&ie=UTF-8
+* http://randomnerdtutorials.com/getting-started-with-esp8266-wifi-transceiver-review/
+
+Grove
+-----
+
+* https://cknodemcu.wordpress.com/2016/04/21/esp8266-grove-kit-arrived/
+* https://www.amazon.com/Seeedstudio-Grove-Base-Shield-NodeMCU/dp/B018FNOWFM/ref=pd_lpo_sbs_504_t_0?_encoding=UTF8&psc=1&refRID=PG5ZRRG08AYRA5XYNF5E
+* https://www.seeedstudio.com/Grove-Base-Shield-for-NodeMCU-p-2513.html
+* https://www.digikey.com/en/maker/blogs/wio-node-grove-esp8266-wifi-module/57ad3656de7a4e8bb1ba5b2c82d4352f
+* http://bbs.smartarduino.com/attachment.php?aid=20
+* https://solarbotics.com/product/30316/
+* https://solarbotics.com/product/30314/
+* 
