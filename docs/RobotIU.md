@@ -6,10 +6,10 @@ Programs to install:
 
 * [XCode](https://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osxhttps://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osx)
 * [Macdown](https://macdown.uranusjr.com/)
-* [AquaEmacs] (http://aquamacs.org/download.shtml)
-* [Homebrew] (https://brew.sh)
-* [Pyenv] (https://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osxhttps://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osx)
-* [PyCharm] (https://www.jetbrains.com/pycharm/download/#section=mac)
+* [AquaEmacs](http://aquamacs.org/download.shtml)
+* [Homebrew](https://brew.sh)
+* [Pyenv](https://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osxhttps://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osx)
+* [PyCharm](https://www.jetbrains.com/pycharm/download/#section=mac)
 
 # Installations
 
@@ -27,8 +27,8 @@ Macdown **is** an open source editor for **Markdown**. In order to **install** i
 
 ## AquaEmacs
 
-**Aquamacs** is an **emac editor** for Mac devices which allows the user **to edit** text, HTML, LaTeX, C++, Java, Python, R, Perl, Ruby, PHP, and more. In order to run Aquamacs, you have to go to [Aquamacs]((http://aquamacs.org/download.shtml))
-and click on the topmost link, which should be the newest version of the program. If the order changes, look for a link title Aquamacs Emacs X.XX (Right now the version is 3.3). A download should start. Once it's finished finished installing, you should go to the "Downloads" folder in Finder, and open the installed file. You are now ready to use Aquamacs.
+**Aquamacs** is an **emac editor** for Mac devices which allows the user **to edit** text, HTML, LaTeX, C++, Java, Python, R, Perl, Ruby, PHP, and more. In order to run Aquamacs, you have to go to [Aquamacs](http://aquamacs.org/download.shtml)
+and click on the topmost link, which should be the newest version of the program. If the order changes, look for a link title Aquamacs Emacs X.XX (Right now the version is 3.3). A download should start. Once it's finished finished installing, you should go to the *Downloads* folder in Finder, and open the installed file. You are now ready to use Aquamacs.
 
 ## Homebrew
 
@@ -36,7 +36,7 @@ and click on the topmost link, which should be the newest version of the program
 
 In order to install Homebrew, open the Terminal app, and type in the command 
 
-`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 and press the return key.
 
@@ -52,12 +52,12 @@ PyCharm is an Integrated Development Environment for Python. In order to start u
 
 Tutorials we need:
 
-* [Terminal] (http://www.imore.com/how-use-terminal-mac-when-you-have-no-idea-where-start)
-* [Bash] (https://www.hastac.org/blogs/joe-cutajar/2015/04/21/how-make-simple-bash-script-mac)
+* [Terminal](http://www.imore.com/how-use-terminal-mac-when-you-have-no-idea-where-start)
+* [Bash](https://www.hastac.org/blogs/joe-cutajar/2015/04/21/how-make-simple-bash-script-mac)
 * [Markdown](https://blog.ghost.org/markdown/)
-* [Emacs] (http://oracc.museum.upenn.edu/doc/help/usingemacs/aquamacs/)
+* [Emacs](http://oracc.museum.upenn.edu/doc/help/usingemacs/aquamacs/)
 * [Pyenv](https://github.com/pyenv/pyenv#how-it-works)
-* Pycharm
+* Pycharm (MISSING))
 
 ## Terminal
 
@@ -68,11 +68,11 @@ In utilities, you will find the **Terminal** application. Open it and you will b
 
 ## Bash
 
-A **Bash** script contains **commands** in plain text. These usually consist of commands one would typically type into a command line and also commands we could not normally type into a command line.
+A *bash* script contains *commands* in plain text. These usually consist of commands one would typically type into a command line and also commands we could not normally type into a command line.
 
 In order to start using Bash in Terminal, you must type 
 
-`!/bin/bash`
+	!/bin/bash
 
 into the white text box. The `echo` command allows you to print the plain text that follows it, which will allow you to type in Bash scripts.
 
@@ -81,14 +81,14 @@ You can now save and start executing your script. Click "File" and then "Save", 
 Open Terminal and type in `cd` followed by the name of the folder you put the document in. Now we need to execute the script.
 
 **Executing** a Bash script is rather easy. In order to execute a script, we need to first execute the **permission set**. In order to give Terminal permission to read/execute a Bash script, you have to type 
-
-`chmod 700 scriptname`
+	
+	chmod a+x sciptname
 
 into **Terminal** (scriptname should be replaced with the name of your scripts)
 
 After the script has been granted permission to be executed, you can test it by typing
 
-`./scriptname` 
+	./scriptname 
 
 into **Terminal**
 
@@ -111,17 +111,20 @@ And text in between two tripple asterisks becomes ***bold-italic***
 * In order to hyperlink text, you can wrap them in brackets, and then put the link in parenthesis after the bracketed text.
 
 Example:
-[Bracketed Text]+(link)
+
+	[Bracketed Text]+(link)
 
 Type this without the plus sign and you will have a hyperlink.
 
-* Formatting images have the same format as links, preceded by a "!".
+* Formatting images have the same format as links, preceded by a `!`.
 
-Example: !+[Bracketed Text]+(link)
+Example: 
+
+	![Bracketed Text]+(link)
 
 Type this without the plus signs and you will have an image and the bracketed text is now the alt text.
 
-*In order to make lists, you have to:
+* In order to make lists, you have to:
 
 Make sure each item is preceded by a "*", a "-", or a "+"
 
@@ -131,12 +134,13 @@ If you need to indent items underneath already bulleted items, precede the inden
 
 For numbered lists, just use numbers instead of bullets, but the format remains the same.
 
-*To qoute text:
+* To qoute text:
 
 Precede it with a ">".
 
-Example >+"Quote" =
->Quote
+Example >"Quote" =
+
+	>Quote
 
 Other syntax options can be found in the Format drop-down at the top of the screen between View and Plug-ins.
 
@@ -165,8 +169,8 @@ While the Ctrl key is the Mac's control key, the Meta key is the esc key. Theref
 **Keyboard Shortcuts:**
 
 * File>Undo will cancel any command that you did not want done.
-* Ctrl-x will cancel any command you are in the middle of.
-* You can break paragraph lines with Ctrl-x W, where W will wrap text around word boundaries.
+* `Ctrl-x` will cancel any command you are in the middle of.
+* You can break paragraph lines with `Ctrl-x W`, where `W` will wrap text around word boundaries.
 * To change case, position the cursor at the end of the current word, and press M-u for uppercase, M-l for lower case, and M-c for initial capital.
 
 * To delete text to the end of the current word, press M-d.
