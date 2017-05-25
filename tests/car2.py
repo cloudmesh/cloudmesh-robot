@@ -6,6 +6,24 @@ import socket
 from machine import Pin, PWM
 
 
+
+
+class LED(object):
+
+    # pin = 2
+    def __init__(self, pin):
+        self.light = machine.Pin(pin, machine.Pin.OUT)
+
+
+    def on(self):
+        self.light.low()
+
+    def off(self):
+        self.light.high()
+
+
+
+
 class motor(object):
 
 
@@ -36,10 +54,16 @@ class motor(object):
         PWM(Pin(self.pin_speed), freq=1000, duty=d)
 
 
-
+led = LED(2)
 right = motor("right")
 left = motor("left")
 
+def blink(n):
+    for i in range(0,n):
+        led.on()
+        time.sleep(0.1)
+        led.off()
+        time.sleep(0.1)
 
 def get_attributes(filename):
     f = open(filename)
@@ -119,6 +143,13 @@ html = """<!DOCTYPE html>
 </html>
 """
 
+for i in range(0,5):
+    led.on()
+    time.sleep(0.1)
+    led.off()
+    time.sleep(0.1)
+
+    led.on()
 #Setup Socket WebServer
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
@@ -137,27 +168,62 @@ while True:
     STOP = request.find('/?STOP=ON')
     BACK = request.find('/?BACK=ON')
 
+    direction = 'STOP'
     left_on = False
     right_on = False
     if LEFTON == 6:
         left.forward()
+        direction = 'LEFT'
     if LEFTOFF == 6:
         left.stop()
     if RIGHTON == 6:
         right.forward()
+        direction = 'LEFT'
     if RIGHTOFF == 6:
         right.stop()
     if STOP == 6:
         right.stop()
         left.stop()
+        direction = 'STOP'
     if FORWARD == 6:
         right.forward()
         left.forward()
+        direction = 'FORWARD'
     if BACK == 6:
         right.backward()
         left.backward()
+        direction = 'BACKWARD'
 
-    response = html
+    response = ''.join(html.split('\n')[1:])
+
+    #blink (3)
+    #time.sleep(0.5)
+
+
+    response_headers = {
+        'Content-Type': 'text/html; encoding=utf8',
+        'Content-Length': len(response),
+        'Connection': 'close',
+    }
+
+
+    response_headers_raw = ''.join('%s: %s\n' % (k, v) for k, v in response_headers.items())
+
+
+    # Reply as HTTP/1.1 server, saying "HTTP OK" (code 200).
+    response_proto = 'HTTP/1.1'
+    response_status = '200'
+    response_status_text = 'OK'  # this can be random
+
+    # sending all this stuff
+    conn.send('%s %s %s' % (response_proto, response_status, response_status_text))
+    conn.send(response_headers_raw)
+    conn.send('\n')  # to separate headers from body
+
+
     conn.send(response)
+    #blink (5)
+    #time.sleep(0.5)
+
     conn.close()
 
