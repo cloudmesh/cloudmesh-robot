@@ -44,14 +44,17 @@ versions of python. This is done with the commands
 
 #### Install Aquaemacs
 
-You will need an editor to make some modifications to files and write programs. Certainly you can use `vi` or `emacs`. As we are on OSX we can also use an editor such as `aquaemacs`. Let us assume you have installed it on your computer, we recommend to add a shortcut so you can call it from the commandline. This can be done by editing the `~/.bash_profile` and add the following to it:
+You will need an editor to make some modifications to files and write programs. Certainly you can use `vi` or `emacs`. As we are on OSX we can also use an editor such as `aquaemacs`. Let us assume you have installed it on your computer, we recommend to add a shortcut so you can call it from the commandline. This can be done by editing the `~/.bash_profile` and add the following to it.
 
-open_emacs() {
-    # open -na Aquamacs $*
-    open -a Aquamacs $*    
-}
+	####################################################################### 
+	# PYENV
+	######################################################################
+	open_emacs() {
+    	# open -na Aquamacs $*
+    	open -a Aquamacs $*    
+	}
 
-alias emacs=open_emacs
+	alias emacs=open_emacs
 
 Once done you can start the editor while using the command
 
@@ -62,13 +65,13 @@ where FILENAME is the name of the file you like to edit.
 
 #### Install python 3.6.1
 
-As we want to develop our programs in python we will install it with pyenve as follows
+As we want to develop our programs in python we will install it with `pyenv` as follows
 
     $ pyenv install 3.6.1
     $ pyenv virtualenv 3.6.1 ENV3
 
 To not forget that you are using python 3 and automatically loading it
-we must add it to our `~/.bash_profile` file.
+we simply add it to our `~/.bash_profile` file.
 
     emacs ~/.bash_profile
 
@@ -97,7 +100,7 @@ Add the following lines at the end of the file
     ENV3
 
 
-The above steps have to be done only once
+The above steps have to be done only once. Now evert time you start a new
 
 ### Instalation of the robot Interafce
 
@@ -228,7 +231,7 @@ run it with the following command
 
     $ cms robot run prg.py
 
-#### INteractive Python shell on the board
+#### Interactive Python shell on the board
 
 To get into the interactive python shell on the board you need to make sure that you have 
 reset the esp8266 once after flashing. You need to press the reset button.
@@ -252,15 +255,15 @@ To contribute to the code and develop new commands we recommend the following se
 	cd cloudmesh.robot
 	make source
 
-### Tools
+# Tools
+
+## Markdown
 
 Markdown has very good support for editors that render the final
 output in a view windo next to the editor pane.  Two such editors are
 
-* Macdown: MacDown provides a nice integrated editor that works well.
-* pyCharm: We have successfully used Vladimir Schhneiders plugin. When
-  you click on a .md file pycharm will automatically ask to install the
-  plugins from Markdown for you.
+* [Macdown](https://macdown.uranusjr.com/): MacDown provides a nice integrated editor that works well.
+* [pyCharm](https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&code=PCC): We have successfully used Vladimir Schhneiders [Markdown Navigator plugin](https://plugins.jetbrains.com/plugin/7896-markdown-navigator). Once installes you click on a .md file pycharm will automatically ask to install the plugins from Markdown for you.
 
 
 
@@ -494,6 +497,28 @@ login
     emap is        : crcrlf,delbs,
     
     
+Brew
+----
+
+* http://blog.coldflake.com/posts/Minimal-Development-Setup-for-Mac-OS/
+* brew install tree
+* brew install wget
+* brew install picocom
+* brew install htop-osx
+* brew install dos2unix 
+* brew install jq 
+* brew install tig  # git ascii browser
+* brew install sqlite
+* 
+* brew cask install omnigraffle
+* brew cask install virtualbox
+
+* brew tap homebrew/science
+* brew install opencv
+* brew link opencv
+* https://books.google.com/books?id=zOx3CgAAQBAJ&pg=PA20&lpg=PA20&dq=useful+homebrew+packages+arduino&source=bl&ots=LifN_I7SJK&sig=6CW-ph8l05Jf4gqkP6NzK7uV9qc&hl=en&sa=X&ved=0ahUKEwjcifT-tYjUAhVI7YMKHdSKAXoQ6AEITjAH#v=onepage&q=useful%20homebrew%20packages%20arduino&f=false
+* 
+
 Links
 -----
 

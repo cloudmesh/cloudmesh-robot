@@ -146,9 +146,13 @@ class RobotCommand(PluginCommand):
                     os.system(
                         '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
 
-                for package in ["lua", "picocom", "wget"]:
+                for package in ["lua", "picocom", "wget", "libsub"]:
                     print("installing", package)
                     Brew.install(package)
+                os.system("pip install pyserial")
+                os.system("brew cask install adafruit-arduino")
+                # os.system("brew cask install aquamacs")
+                os.system("brew cask install pycharm-ce")
 
             if sys.platform == 'linux':
                 Console.error("Linux not yet supported. Install lua and picocom.")
