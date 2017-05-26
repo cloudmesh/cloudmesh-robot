@@ -66,7 +66,7 @@ and press the return key.
 Allow a few moments for Homebrew to install. Now you have access to
 Homebrew.
 
-##Pyenv
+## Pyenv
 
 Python is a tool that allows you to manage Python versions on your
 divice. Pyenv lets you change your python version and also allows you
@@ -77,7 +77,7 @@ and you should no be able to use pyenv. to upgrade pyenv in the
 future, simply switch the word "install" with "upgrade" in the
 aforementioned command.
 
-##PyCharm
+## PyCharm
 
 PyCharm is an Integrated Development Environment for Python. In order
 to start using PyCharm, go to
@@ -86,7 +86,7 @@ download the community version for MacOS. After the program has
 downloaded and installed, you may transfer it to your Applications
 folder. Otherwise, you are ready to use PyCharm.
 
-##Arduino
+## Arduino
 
 In the event that there is a TTY error, you will need to install
 Arduino, since your Mac may be missing some drivers that are included
