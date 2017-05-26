@@ -2,7 +2,7 @@ import time
 import requests
 import os
 
-ips = ['10.0.1.16', '10.0.1.15']
+ips = ['10.0.1.19']
 
 
 def move(ip, direction):

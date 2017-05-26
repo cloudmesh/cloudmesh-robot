@@ -27,6 +27,7 @@ def readfile(filename):
 requiers = """
 cloudmesh.common
 cloudmesh.cmd5
+requests
 esptool
 pyserial
 adafruit-ampy
