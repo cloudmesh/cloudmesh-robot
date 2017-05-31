@@ -55,9 +55,10 @@ Mon 22, 2017 - Fri 27, 2017
 
 # Week 2
 
-* **[-]** Figure out how to use python library to get coordinates from Marvelmind system.
+* **[x]** Figure out how to use python library to get coordinates from Marvelmind system.
+* **[-]** Revise pseudocode to final form.
 * **[-]** Use coordinates given by Marvelmind system to make robots navigate between 2 points using X and Y measurements.
-* **[-]** Marvelmind tutorial (tutorial)
+* **[x]** Marvelmind tutorial (tutorial)
 * **[-]** If done with the navigation system early, create light show with ESPY8266
  
 From last week
@@ -70,7 +71,7 @@ From last week
 * **[-]** get cable stripper
 * **[?]** get router (Gregor -> Gary)
 * **[-]** osx setup (tutorial)
-* **[-]** windows setup (marvelmind) (tutorial)
+* **[x]** windows setup (marvelmind) (tutorial)
 
 # Week 3
 

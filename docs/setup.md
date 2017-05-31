@@ -111,6 +111,7 @@ Tutorials we need:
 * [Emacs](http://oracc.museum.upenn.edu/doc/help/usingemacs/aquamacs/)
 * [Pyenv](https://github.com/pyenv/pyenv#how-it-works)
 * Pycharm (MISSING))
+* [Marvelmind](http://marvelmind.com/)
 
 ## Terminal
 
@@ -305,4 +306,16 @@ Python:
 
 ##Marvelmind
 
-Go to [Link](http://marvelmind.com) and scroll down to the *Latest stable SW to download* section and click the link to download the *Dashboard SW v5.16 + Beacon SW v5.51 + Modem SW 5.51*. After installation completes, open the dashboard file in the downloaded folder. If there is a virus warning for the dashboard download, type in the chatbox in the bottom right for help, the Marvelmind team will most likely send you download links to malware free versions of the download. When you are ready to use the dashboard, open the dashboard program file, and plug in the Marvelmind router/modem, turn on the beacons you want to use as stationary, and click freeze on the bottom right of the menu once you have set them up in the positions you want. This will create a field for the portable beacons to move in. Now turn on the beacon(s) you plan to use as portable ones and scroll down to them in the directory at the bottom of the screen. Find the beacons in the directory, and click on them. The menu on the right should change, at the top there is a Hedgehog Mode option. Enable this option and the portable beacon now shows up blue on the map while the rest show up green. You can now move the portable beacon around and it should move on your minimap.
+Go to [Link](http://marvelmind.com) and scroll down to the *Latest stable SW to download* section and click the link to download the *Dashboard SW v5.16 + Beacon SW v5.51 + Modem SW 5.51*. After installation completes, open the dashboard file in the downloaded folder. If there is a virus warning for the dashboard download, type in the chatbox in the bottom right for help, the Marvelmind team will most likely send you download links to malware free versions of the download. When you are ready to use the dashboard, open the dashboard program file, and plug in the Marvelmind router/modem, turn on the beacons you want to use as stationary, and click freeze on the bottom right of the menu once you have set them up in the positions you want. This will create a field for the portable beacons to move in. Now turn on the beacon(s) you plan to use as portable ones and scroll down to them in the directory at the bottom of the screen. Find the beacons in the directory, and click on them. The menu on the right should change, at the top there is a Hedgehog Mode option. Enable this option and the portable beacon now shows up blue on the map while the rest show up green. You can now move the portable beacon around and it should move on your minimap. 
+
+**Note:** the stationary beacons have to be frozen before you introduce hedgehog beacons.
+
+If the frozen minimap shows up uneven, you may have to reset the beacons at the (0,0) coordinates by pressing the reset button on the side. If this does not work, then you may continue to reset each beacon and it should eventually even out your map.
+
+**Using the python program:**
+
+In order to get coordinates of the beacons from the python program. Unplug the router from the Windows PC after you have frozen your beacons and introduced the hedgehog beacons. Plug it into your mac computer. Run the marvelmind.py program included in the dashboard package that you downloaded by typing
+	
+	python marvelmind.py
+	
+into Terminal. The program should start outputting coordinates of the remote beacons. You can now move the remote beacons around and the marvelmind.py program will pick up on the movement, even if the dashboard on the Windows PC says no connection. You can now implement these coordinates into your python programs.
