@@ -319,3 +319,7 @@ In order to get coordinates of the beacons from the python program. Unplug the r
 	python marvelmind.py
 	
 into Terminal. The program should start outputting coordinates of the remote beacons. You can now move the remote beacons around and the marvelmind.py program will pick up on the movement, even if the dashboard on the Windows PC says no connection. You can now implement these coordinates into your python programs.
+
+**Assigning point of origin to a stationary beacon:**
+
+While you're setting up your stationary beacons, keep track of what numbers Marvelmind assigns to each beacon. Whichever beacon you choose to be at the point (0,0,Z), Z being whatever the height of each beacon is, enter the number of that beacon into the *starting beacon tritalateration* box on the table on the right side of the dashboard screen. Now Marvelmind will assign said beacon the x and y coodinates of (0,0) and will assign all other beacons coordinates based on their position in relation to this beacon.
