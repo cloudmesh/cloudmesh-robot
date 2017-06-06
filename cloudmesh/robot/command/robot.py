@@ -185,7 +185,7 @@ class RobotCommand(PluginCommand):
         elif arguments.osx and arguments.driver:
 
             os.system("brew tap mengbo/ch340g-ch34g-ch34x-mac-os-x-driver https://github.com/mengbo/ch340g-ch34g-ch34x-mac-os-x-driver")
-            os.syetem ("brew cask install wch-ch34x-usb-serial-driver")
+            os.system("brew cask install wch-ch34x-usb-serial-driver")
 
 
         elif arguments.probe:

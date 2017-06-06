@@ -48,7 +48,13 @@ eve:
 	$(call terminal, $(EVE))
 
 source:
-	python setup.py install; pip install -e .
+	pip install setuptools pip -U
+	$(call banner, "cloudmesh common")
+	cd ../cloudmesh.common; make clean; python setup.py install; pip install .
+	$(call banner, "cloudmesh cmd5")
+	cd ../cloudmesh.cmd5;   make clean; python setup.py install; pip install .
+	$(call banner, "cloudmesh robot")
+	cd ../cloudmesh.robot;  make clean; python setup.py install; pip install .
 	cms help
 
 test:
