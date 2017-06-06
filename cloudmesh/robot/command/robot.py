@@ -52,6 +52,7 @@ class RobotCommand(PluginCommand):
           Usage:
                 robot welcome
                 robot osx install
+                robot osx driver
                 robot image fetch
                 robot probe [--format=FORMAT]
                 robot flash erase [--dryrun]
@@ -146,9 +147,31 @@ class RobotCommand(PluginCommand):
                     os.system(
                         '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
 
-                for package in ["lua", "picocom", "wget", "libsub"]:
-                    print("installing", package)
-                    Brew.install(package)
+                #
+                # INSTALLING COMMANDS WITH BREW
+                #
+                for package in ["lua", "picocom", "wget"]:
+                    try:
+                        print("installing command", package)
+                        r = Shell.which(package)
+                        if r is None:
+                            r = Brew.install(package)
+                        else:
+                            print ("    [OK]",  package, "already installed")
+                    except Exception as e:
+                        print ("Error", e, type(e))
+                #
+                # INSTALLING LIBRARIES WITH BREW
+                #
+                # libusb-compat
+                for package in ["libusb"]:
+                    try:
+                        print("installing", package)
+
+                        r = Brew.install(package)
+                    except Exception as e:
+                        print("Error", e, type(e))
+
                 os.system("pip install pyserial")
                 os.system("brew cask install adafruit-arduino")
                 # os.system("brew cask install aquamacs")
@@ -158,12 +181,20 @@ class RobotCommand(PluginCommand):
                 Console.error("Linux not yet supported. Install lua and picocom.")
             return ""
 
+
+        elif arguments.osx and arguments.driver:
+
+            os.system("brew tap mengbo/ch340g-ch34g-ch34x-mac-os-x-driver https://github.com/mengbo/ch340g-ch34g-ch34x-mac-os-x-driver")
+            os.syetem ("brew cask install wch-ch34x-usb-serial-driver")
+
+
         elif arguments.probe:
 
             output_format = arguments["--format"] or "table"
             try:
                 p = Probe()
                 d = p.probe()
+
                 print (Printer.attribute(d, output=output_format))
 
             except Exception as e:
