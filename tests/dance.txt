@@ -1,5 +1,8 @@
+mode turtle
+distance 200
 forward 1.0
-left 1.0
+left 90
+forward 1.0
+right 90
 backward 1.0
-right 1.0
 stop 0

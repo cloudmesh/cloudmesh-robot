@@ -120,10 +120,11 @@ class Probe(object):
         id = self._run("esptool.py -p " + self.tty + " chip_id")
         mac = self._run("esptool.py -p " + self.tty + " read_mac")
 
+        print ("ID", str(id))
         data = {
             "tty": self.tty,
-            "chipid": str(id[2]).replace("Chip ID:", "").strip(),
-            "mac": str(mac[2]).replace("MAC:", "").strip(),
+            "chipid": str(id[2].decode('ascii')).replace("Chip ID:", "").strip(),
+            "mac": str(mac[2].decode('ascii')).replace("MAC:", "").strip(),
         }
         return data
 
