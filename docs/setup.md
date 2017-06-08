@@ -324,7 +324,7 @@ The error in *Figure 1* essentially signals that you have not plugged in the Mar
 
 *Figure 2: Marvelmind modem.*
 
-![Figure 2](images/Figure2.jpg)
+![Figure 2](images/Figure2.JPG)
 
 Once the modem is plugged into the Windows PC using a USB cable, with the Marvelmind dashboard running, the error should go away, and you will be presented with a coordinate plane, as demonstrated in *Figure 3*. There should be an error at the top left corner of the coordinate plane stating that not enough beacons are available. This error is due to the fact that you have not turned on enough beacons (minimum of 2) required to track movement with the dashboard environment. You now need to set up stationary and mobile beacons, as needed, to fit your navigational needs.
 
@@ -338,11 +338,11 @@ Marvelmind uses stationary beacons in order to track its mobile beacons. Any Mar
 
 *Figure 4: Marvelmind beacon.*
 
-![Figure 4](images/Figure4.jpg)
+![Figure 4](images/Figure4.JPG)
 
 *Figure 5: Stand used to hold Marvelmind stationary beacon in place above recommended height.*
 
-![Figure 5](images/Figure5.jpg)
+![Figure 5](images/Figure5.JPG)
 
 Now that you have set up your beacons on top of the stands. You may turn them on one by one. The beacons will start showing up on the Marvelmind dashboard, they take approximaely 8 seconds to wake up, as green circles with random device addresses assigned to them, consisting of numbers between 1 and 99, as shown in *Figure 6*. Keep track of the numbers Marvelmind assigns to each beacon, as you can name them to your liking. You can now assign one of the beacons the coordinates (0,0,Z), Z being the height of the beacon, by making it the starting beacon. The menu to the right of the dashboard interface, *Figure 7*, has an option labeled **starting beacon tritalateration**. You can type the device address number of whichever beacon you would like to use as your point (0,0, Z) in terms of the x and y value, respectibly. The other beacons will now remap themselves around this beacon on the dashboard interface.
 
@@ -380,7 +380,7 @@ You can now move the beacon around as it is mobile, while the frozen beacons rem
 
 *Figure 12: Selfie stick used as a hedgehog beacon holder (note how the sound receptors are elevated above the grip of the beacons).*
 
-![Figure 12](images/Figure12.jpg)
+![Figure 12](images/Figure12.JPG)
 
 **Using the python program:**
 
