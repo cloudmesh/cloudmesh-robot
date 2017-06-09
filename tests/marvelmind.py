@@ -172,7 +172,7 @@ class MarvelmindHedge (Thread):
 
 
 if __name__ == '__main__':
-    m = MarvelmindHedge(tty='/dev/tty.usbmodem')   # for macOS
+    m = MarvelmindHedge(tty='/dev/tty.usbmodemFD121')   # for macOS
     # m.debug = True
     m.start()
     while True:
