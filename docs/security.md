@@ -57,3 +57,7 @@ In case drones will be used in the camp, drones must not be flown in the open ar
 ## Recreational Recess Activities
 
 As part of the camp, instructors may decide to do some recreational outdoor activities. As part of this camp participants are required to follow instructions from instructors and to avoid dangerous activities. Same recess rules as in your school applies.
+
+## Soldering
+
+For the robot camp soldering will be conducted by a qualified instructor. 
