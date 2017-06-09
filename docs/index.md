@@ -8,31 +8,29 @@
 2. [Setup](setup.md)
 
 
-	3.1.	[Terminal](terminal.md)
+	2.1.	[Terminal](terminal.md)
 
-	3.2.	[Xcode](xcode.md)
+	2.2.	[Xcode](xcode.md)
 	
-	3.3.	[Bash](bash.md)	
+	2.3.	[Bash](bash.md)	
 	
-	3.4.	[Macdown](macdown.md)
+	2.4.	[Macdown](macdown.md)
 	
-	3.5.	[AquaEmacs](aquaemacs.md)
+	2.5.	[AquaEmacs](aquaemacs.md)
 	
-	3.6.	[Homebrew](homebrew.md)
+	2.6.	[Homebrew](homebrew.md)
 	
-	3.7.	[Pyenv](pyenv.md)
+	2.7.	[Pyenv](pyenv.md)
 	
-	3.8.	[Pycharm](pycharm.md)
+	2.8.	[Pycharm](pycharm.md)
 	
-	3.9.	[Arduino](arduino.md)		
+	2.9.	[Arduino](arduino.md)		
 	
 3. [Marvelmind](marvelmind.md) 
 	
 4. Technology
 
-	3.1. Emacs
-
-5. INtor dto python
+5. Intro to python
 	
 6. Robot Car
 
