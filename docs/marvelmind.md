@@ -1,11 +1,11 @@
-##Marvelmind
+## Marvelmind
 
-###Introduction to Marvelmind Positioning System.
+### Introduction to Marvelmind Positioning System.
 
 Marvelmind Indoor Navigation System is an off-the-shelf indoor navigation system designed for
 providing precise (+-2cm) location data to autonomous robots, vehicles (AGV) and copters.
 
-###Marvelmind Environment Setup.
+### Marvelmind Environment Setup.
 
 Go to [this link](https://github.com/cloudmesh/cloudmesh.robot/tree/master/marvelminddashboard) and download all the files in the directory. After installation completes, open the dashboard file in the downloaded folder. The dashboard interface should give you an error as shown in *Figure 1*.
 
@@ -25,7 +25,7 @@ Once the modem is plugged into the Windows PC using a USB cable, with the Marvel
 
 *Figure 3: Marvelmind coordinate plane.*
 
-###Marvelmind Stationary Beacon Setup.
+### Marvelmind Stationary Beacon Setup.
 
 Marvelmind uses stationary beacons in order to track its mobile beacons. Any Marvelmind beacon, *Figure 4*, can be assigned the duty of being stationary or mobile, and it is up to you to decide how many beacons you would like to set up as stationary, or tracker, beacons. The larger the space you operate your environment in, the larger the amount of tracker beacons you should use. Keep in mind, the stationary beacons need to be a good distance apart, 3 meters is a good measure, and their recommended height is at least 1.85 meters. Therefore it is a good idea to mount the stationary beacons on stands of heights equal to or greater than 1.85 meters using velcro tape, as shown in *Figure 5*. 
 
