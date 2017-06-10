@@ -22,6 +22,8 @@ We experience an average of more than 20 tornadoes a year in Indiana, and the be
 
 ## Fire
 
+![fire](https://protect.iu.edu/images/emergency-planning/fire-evacuation.jpg)
+
 Evacuate if
 
 * A fire alarm is sounding
