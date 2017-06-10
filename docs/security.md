@@ -54,10 +54,27 @@ A number of tripods are placed in the room. The tripods have a positioning senso
 
 In case drones will be used in the camp, drones must not be flown in the open areas. Instead they will be positioned behind a net. In case you experiment with drones on your desk, they must be secured with a fishing line and you must wear safety goggles. These nets are not climbing nets. They should also not be used to hang on them. They present a safety barrier between you and the area where the drones fly. Other than opening the dedicated entry points to the flying area the nets must not be touched. Failure to do so may result in expulsion from the lab.
 
+## Soldering
+
+For the robot camp soldering will be conducted by a qualified instructor. 
+
 ## Recreational Recess Activities
 
 As part of the camp, instructors may decide to do some recreational outdoor activities. As part of this camp participants are required to follow instructions from instructors and to avoid dangerous activities. Same recess rules as in your school applies.
 
-## Soldering
+Rules and expectations:
 
-For the robot camp soldering will be conducted by a qualified instructor. 
+* No physical contact (i.e., pushing, hitting, fighting, kicking) or tackle sports on the playground.
+* No carrying others on your back.
+* Keep sticks, rocks, and snow on the ground and do not throw them.
+* There will be NO jumping off of equipment, tables, benches.
+* Soccer balls, kickballs, footballs, etc. may be brought onto the field.
+* Enjoy playing in the green space around the rugby are, but stay close to the building and in sight.
+* No climbing on the fences or running through plants/ trees.
+
+Character expectations:
+
+* Students need to follow the teacher’s/associate’s directions 
+* Use only acceptable language–swearing, name-calling is not allowed. Give put-ups instead!
+* Invite and include all when playing on the playground – “Don’t say, you can’t play!”
+* No bullying
