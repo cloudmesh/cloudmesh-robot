@@ -5,37 +5,34 @@
 
 1. [Preface](preface.md)
 
-2. [Setup](setup.md)
+1. [Security](security.md) 
+
+2. [Tools](setup.md)
 
 
-	2.1.	[Terminal](terminal.md)
-
-	2.2.	[Xcode](xcode.md)
-	
-	2.3.	[Bash](bash.md)	
-	
-	2.4.	[Macdown](macdown.md)
-	
-	2.5.	[AquaEmacs](aquaemacs.md)
-	
-	2.6.	[Homebrew](homebrew.md)
-	
-	2.7.	[Pyenv](pyenv.md)
-	
-	2.8.	[Pycharm](pycharm.md)
-	
-	2.9.	[Arduino](arduino.md)		
+	1. [Terminal](terminal.md)
+	2. [Xcode](xcode.md)
+	3.	[Bash](bash.md)	
+	4.	[Macdown](macdown.md)
+	5.	[AquaEmacs](aquaemacs.md)	
+	6.	[Homebrew](homebrew.md)
+	7.	[Pyenv](pyenv.md)
+	8.	[Pycharm](pycharm.md)
+	9.	[Arduino](arduino.md)		
 	
 3. [Marvelmind](marvelmind.md) 
 	
 4. Technology
 
-5. Intro to python
+	1. Introduction to OSX
+	2. Introduction to terminal
+	3. Editing programs
+	1. Introduction to Python
 	
 6. Robot Car
 
-	* build
-	* promming environment
+	* Build
+	* Promming environment
 	* LED
 	* LED string
 	* distance sensor
