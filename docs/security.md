@@ -58,6 +58,10 @@ In case drones will be used in the camp, drones must not be flown in the open ar
 
 For the robot camp soldering will be conducted by a qualified instructor. 
 
+## Windows and sliding doors
+
+The building has a small number of windows and sliding doors that can be opened. They are not to be used.
+
 ## Recreational Recess Activities
 
 As part of the camp, instructors may decide to do some recreational outdoor activities. As part of this camp participants are required to follow instructions from instructors and to avoid dangerous activities. Same recess rules as in your school applies.
