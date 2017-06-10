@@ -11,6 +11,7 @@ import sys
 from cloudmesh.robot.api import Probe, Git, Network, Ampy
 from pprint import pprint
 import textwrap
+from cloudmesh.common.hostlist import Parameter
 
 class RobotCommand(PluginCommand):
 
@@ -69,6 +70,7 @@ class RobotCommand(PluginCommand):
                 robot get PATH
                 robot rm PATH
                 robot rmdir PATH
+                robot dance FILE IPS
                 
           This command does some useful things.
 
@@ -315,6 +317,49 @@ class RobotCommand(PluginCommand):
                 p = Probe()
                 ampy = Ampy(p.tty)
                 ampy.mkdir(arguments.PATH)
+            except Exception as e:
+                Error.traceback(e)
+
+        elif arguments.dance:
+
+            pprint (arguments)
+
+            from cloudmesh.robot.turtles import Car, Cars
+            import turtle
+
+            iplist = Parameter.expand(arguments.IPS)
+
+            print (iplist)
+
+            ips = []
+            i = 1
+            for ip in iplist:
+                spec = [i, ip]
+                ips.append(spec)
+                i = i + 1
+            print ("IPS", ips)
+
+            try:
+
+                colors = ['blue', 'red', 'green', 'oragne', 'gray', 'brown', 'cyan', 'pink', 'purple', 'tomato']
+
+                cars = Cars(ips)
+
+                print(cars)
+                cars.read_dance(arguments.FILE)
+
+                wn = turtle.Screen()  # creates a graphics window
+
+                # def a():
+                for i in range(0, len(ips)):
+                    car = Car(i+1, "robi" + str(i+1), ips[i], colors[i])
+                    cars.add(car)
+
+
+                cars.run()
+
+                wn.exitonclick()
+
             except Exception as e:
                 Error.traceback(e)
 
