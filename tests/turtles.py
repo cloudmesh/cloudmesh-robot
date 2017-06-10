@@ -42,7 +42,6 @@ class Car(object):
 
     def move(self, direction, unit):
 
-        print ("X", self.name, direction, unit, self.environment)
         if self.environment is "robot":
             if direction == 'left':
                 payload = {'LEFT': 'ON'}
@@ -63,7 +62,6 @@ class Car(object):
             except Exception as e:
                 print (type(e), e)
         elif self.environment == "turtle":
-            print ("TURTLE")
             turtle.setpos(self.last)
             if direction == 'left':
                 self.car.left(unit)
@@ -72,7 +70,6 @@ class Car(object):
             elif  direction == 'stop':
                 pass
             elif direction == 'forward':
-                print ("FFFF", self.DT, unit)
                 self.car.forward(int(self.DT*unit))
             elif direction == 'backward':
                 self.car.forward(int(-1.0 * self.DT * unit))
