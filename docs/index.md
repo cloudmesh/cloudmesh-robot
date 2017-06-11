@@ -28,7 +28,11 @@
 	2. Introduction to terminal
 	3. Editing programs
 	1. Introduction to Python
-	
+
+5. Turtle
+
+    1. [Turtle](turtle.md)
+
 6. Robot Car
 
 	* Build
