@@ -1,4 +1,6 @@
-# OSX Development Setup
+# Setup
+
+## OSX Development Setup
 
 In order for us to program robots, we need to install a development environment on our computer. We only need a very small number of tools as all other wiill be installed automatically if you like.
 In particular we need the following tools:
@@ -50,9 +52,38 @@ Other tools such as
 * [AquaEmacs](http://aquamacs.org/download.shtml)
 * [PyCharm](https://www.jetbrains.com/pycharm/download/#section=mac)
 
-Will be automatically installed for you if you like our automated scripts
+Will be automatically installed for you if you like our automated scripts. To use them we need to install the cloudmeshrobot commands. 
 
-# External Tutorials
+In our final version this will be done with (whic is not yet working)
+
+	pip install cloudmesh.robot
+	
+Developers are however encouraged to work with the source code. THus you will need to first obtain it as follows
+
+	mkdir github
+	cd github
+	git clone https://github.com/cloudmesh/cloudmesh.common.git
+	git clone https://github.com/cloudmesh/cloudmesh.cmd5.git
+	git clone https://github.com/cloudmesh/cloudmesh.robot.git
+	cd cloudmesh.robot
+	make source
+	
+If things work out you will see something like this:
+	
+	$ cms help
+
+	Documented commands (type help <topic>):
+	========================================
+	EOF     clear    echo  info   q     robot  sleep      usb  version
+	banner  default  help  pause  quit  shell  stopwatch  var
+
+To install the rest of the tools we recommend you use the following commands.
+Note, that you will need sudo previledges for some of the tools.
+
+	cms osx install
+	cms osx driver
+
+## External Tutorials
 
 The following links include tutorials or additional material that may be useful for you to learn more about each tool.
 
@@ -61,5 +92,5 @@ The following links include tutorials or additional material that may be useful 
 * [Bash]() < identify new link as previos link was inaproriate
 * [Markdown](https://blog.ghost.org/markdown/)
 * [Emacs](http://oracc.museum.upenn.edu/doc/help/usingemacs/aquamacs/)
-* [Marvelmind](http://marvelmind.com/)
+* [Marvelmind](http://marvelmind.com/) 
 * [Arduino](https://www.arduino.cc/en/guide/macOSX)
