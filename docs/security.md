@@ -8,19 +8,19 @@ The building has a small number of windows and sliding doors that can be opened.
 
 ![Tornato](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Funnel_near_Eads%2C_Colorado.jpg/600px-Funnel_near_Eads%2C_Colorado.jpg)
 
-We experience an average of more than 20 tornadoes a year in Indiana, and the best way to protect yourself should one strike your location is to be prepared. Knowing the difference between a watch and warning can help you determine the risks you may face.
+We experience an average of more than 20 tornadoes a year in Indiana, and the best way to protect yourself should one strike your location is to be prepared. Knowing the difference between a watch and warning can help you determine the risks you may face. A tornado "watch" means that weather conditions have the potential to create a tornado in the area, while a "warning" means that a tornado has been sighted.  
 
 ### Things you should do
 
-* When you find out there is a tornado warning for your location, get inside a building, get away from exterior walls, and go down as far as you can.
+* When you find out there is a tornado warning for your location, get inside a building, get away from exterior walls and windows, and go down as far as you can.
 * If you are in a car and a tornado is near, get out of your car and get inside a building, or lie in a ditch and protect your head with your hands.
-* Instructors will get a weather radio and ensure it has full batteries in it.
-* Instructors will take the weather radio with them to where you seek shelter so you can learn when a tornado warning expires.
+* Instructors will have a weather radio and ensure it has full batteries in it.
+* Instructors will take the weather radio with them to where you seek shelter to stay updated on the situation.
 
-### Donot do these
+### Things you should NOT do
 
-* Never wait for a siren to be sure if the danger is real; always head for shelter as soon as you get an alert from the National Weather Service or IU-Notify.
-* Don’t rely on just IU-Notify for weather warnings. If you don’t have a weather radio, get an app for phone with tornado alerts.
+* Never wait for a siren to be sure if the danger is real; always head for shelter as soon as you get an alert from the National Weather Service. IU-Notify, or an Instructor or other IU employees.
+* Don’t rely on IU-Notify for weather warnings. Your instructors will be paying attention to the weather radio and/or the National Weather Service apps on their phones.  
 * Don’t leave your shelter until an all clear has been given.
 * Never seek shelter under a bridge; the bridge will act as a funnel and strengthen the winds underneath.
 
@@ -32,18 +32,18 @@ Evacuate if
 
 * A fire alarm is sounding
 * There is the presence of fire, smoke, or the odor of burning in the building
-* If you discover a fire, explosion or smoke in a building, inform your instructor that will activate the nearest fire alarm and proceed to evacuate, following the evacuation procedures here. 
+* If you discover a fire, explosion or smoke in a building, inform your instructor who will activate the nearest fire alarm and proceed to evacuate, following the evacuation procedures here. 
 
 ## Drills
 
-* Showcase the students the location where to meet in a case of a Tornado.
-* Showcase the students how to leave the building in case of a fire. Showcase where to meet. Be prepared for a headcount. Identify if one of your classmates is missing.
+* Instructors will inform students of the location to meet in a case of a Tornado.
+* Instructors will inform students how to leave the building in case of a fire and where to meet. Be prepared for a headcount and let an isntructor know if one of your classmates is missing.
 
 ## Workspace Security
 
 ### Scissors, Knifes and other Sharp tools
 
-You are not allowed to use scissors, knifes, or other sharp tools including screwdrivers without supervision. Such tools must not be used inappropriately. Failure to use them appropriately may result in expulsion from the camp.
+Students are not allowed to use scissors, knifes, or other sharp tools including screwdrivers without supervision. Such tools must not be used inappropriately. Failure to use them appropriately can result in expulsion from the camp.
 
 ## Soldering
 
@@ -52,7 +52,7 @@ For the robot camp soldering will be conducted by a qualified instructor.
 ### Robot Car Security
 #### Robot Floor
 
-Robots are run on white boards in the middle of the room. You are not allowed to walk without reason across these boards as they need to be kept clean for the robots. If you need to pick up a robot please make sure to have clean shoes. If you do leave marks on the board we may ask you to clean them up yourself. 
+Robots are run on white boards in the middle of the room. You are not allowed to walk without permission across these boards as they need to be kept clean for the robots. If you need to pick up a robot please make sure to have clean shoes. If you do leave marks on the board we may ask you to clean them up yourself. 
 
 #### Robot Table Frames
 
@@ -60,7 +60,7 @@ Before running robots on the table you will get a table frame so that the robots
 
 #### Robot Tripods
 
-A number of tripods are placed in the room. The tripods have a positioning sensor mounted on them and moving or touching the tripots will effect the sensors. The tripods are not to be touched. Failure may result in expulsion from the camp.
+A number of tripods are placed in the room. The tripods have a positioning sensor mounted on them and moving or touching the tripots will affect the sensors. The tripods are not to be touched. Failure may result in expulsion from the camp.
 
 ### Drone Security
 
