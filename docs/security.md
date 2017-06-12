@@ -1,5 +1,9 @@
 # Security
 
+## Windows and sliding doors
+
+The building has a small number of windows and sliding doors that can be opened. They are not to be used.
+
 ## Tornado
 
 ![Tornato](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Funnel_near_Eads%2C_Colorado.jpg/600px-Funnel_near_Eads%2C_Colorado.jpg)
@@ -35,48 +39,52 @@ Evacuate if
 * Showcase the students the location where to meet in a case of a Tornado.
 * Showcase the students how to leave the building in case of a fire. Showcase where to meet. Be prepared for a headcount. Identify if one of your classmates is missing.
 
+## Workspace Security
 
-## Scissors, Knifes and other Sharp tools
+### Scissors, Knifes and other Sharp tools
 
 You are not allowed to use scissors, knifes, or other sharp tools including screwdrivers without supervision. Such tools must not be used inappropriately. Failure to use them appropriately may result in expulsion from the camp.
-
-## Robot Floor
-
-Robots are run on white boards in the middle of the room. You are not allowed to walk without reason across these boards as they need to be kept clean for the robots. If you need to pick up a robot please make sure to have clean shoes. If you do leave marks on the board we may ask you to clean them up yourself. 
-
-## Robot Table Frames
-
-Before running robots on the table you will get a table frame so that the robots is prevented to fall off the table.  
-
-## Robot Tripods
-
-A number of tripods are placed in the room. The tripods have a positioning sensor mounted on them and moving or touching the tripots will effect the sensors. The tripods are not to be touched. Failure may result in expulsion from the camp.
-
-## Drone Nets
-
-In case drones will be used in the camp, drones must not be flown in the open areas. Instead they will be positioned behind a net. In case you experiment with drones on your desk, they must be secured with a fishing line and you must wear safety goggles. These nets are not climbing nets. They should also not be used to hang on them. They present a safety barrier between you and the area where the drones fly. Other than opening the dedicated entry points to the flying area the nets must not be touched. Failure to do so may result in expulsion from the lab.
 
 ## Soldering
 
 For the robot camp soldering will be conducted by a qualified instructor. 
 
-## Windows and sliding doors
+### Robot Car Security
+#### Robot Floor
 
-The building has a small number of windows and sliding doors that can be opened. They are not to be used.
+Robots are run on white boards in the middle of the room. You are not allowed to walk without reason across these boards as they need to be kept clean for the robots. If you need to pick up a robot please make sure to have clean shoes. If you do leave marks on the board we may ask you to clean them up yourself. 
+
+#### Robot Table Frames
+
+Before running robots on the table you will get a table frame so that the robots is prevented to fall off the table.  
+
+#### Robot Tripods
+
+A number of tripods are placed in the room. The tripods have a positioning sensor mounted on them and moving or touching the tripots will effect the sensors. The tripods are not to be touched. Failure may result in expulsion from the camp.
+
+### Drone Security
+
+#### Drone Tripods
+
+A number of tripods are placed in the room. The tripods have a positioning sensor mounted on them and moving or touching the tripots will effect the sensors. The tripods are not to be touched. Failure may result in expulsion from the camp.
+
+#### Drone Nets
+
+In case drones will be used in the camp, drones must not be flown in the open areas. Instead they will be positioned behind a net. In case you experiment with drones on your desk, they must be secured with a fishing line and you must wear safety goggles. These nets are not climbing nets. They should also not be used to hang on them. They present a safety barrier between you and the area where the drones fly. Other than opening the dedicated entry points to the flying area the nets must not be touched. Failure to do so may result in expulsion from the lab.
 
 ## Recreational Recess Activities
 
-As part of the camp, instructors may decide to do some recreational outdoor activities. As part of this camp participants are required to follow instructions from instructors and to avoid dangerous activities. Same recess rules as in your school applies.
+As part of the camp, instructors may decide to do some recreational indoor and outdoor activities. Camp participants are required to follow instructions from instructors and avoiding dangerous activities. The same recess rules as in your school apply. If in doubt, ask.
 
 Rules and expectations:
 
-* No physical contact (i.e., pushing, hitting, fighting, kicking) or tackle sports on the playground.
+* No physical contact (i.e., pushing, hitting, fighting, kicking) or tackle sports.
 * No carrying others on your back.
 * Keep sticks, rocks, and snow on the ground and do not throw them.
 * There will be NO jumping off of equipment, tables, benches.
-* Soccer balls, kickballs, footballs, etc. may be brought onto the field.
+* Soccer balls, kickballs, footballs, etc. may be brought onto the field. Be carefull not to hurt others.
 * Enjoy playing in the green space around the rugby are, but stay close to the building and in sight.
-* No climbing on the fences or running through plants/ trees.
+* No climbing on the fences and trees or running through plants/ trees.
 
 Character expectations:
 
@@ -84,3 +92,4 @@ Character expectations:
 * Use only acceptable language–swearing, name-calling is not allowed. Give put-ups instead!
 * Invite and include all when playing on the playground – “Don’t say, you can’t play!”
 * No bullying
+
