@@ -9,7 +9,7 @@ and you should no be able to use pyenv. to upgrade pyenv in the
 future, simply switch the word "install" with "upgrade" in the
 aforementioned command.
 
-##Pyenv Tutorial
+## Pyenv Tutorial
 
 As mentioned in the "Installation" section, Pyenv is a program that
 allows you to install and manage different versions of Python
