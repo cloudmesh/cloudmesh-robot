@@ -1,8 +1,11 @@
-mode turtle
-distance 200
-forward 1.0
-left 90
-forward 1.0
-right 90
-backward 1.0
-stop 0
+mode turtle [0-2]
+distance 100 [0-2]
+place 0 0 0
+place 10 10 1
+place 20 20 2
+forward 1.0 [0-2]
+left 90 [0-2]
+forward 1.0 [0-2]
+right 90 [0-2]
+backward 1.0 [0-2]
+stop 0 [0-2]

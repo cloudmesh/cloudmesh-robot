@@ -123,7 +123,6 @@ class Cars(object):
         return '\n'.join(lines)
 
     def read_dance(self, filename):
-        filename="dance.txt"
         f = open(filename)
         self.lines = f.read().splitlines()
         f.close()
@@ -170,8 +169,8 @@ class Cars(object):
                 else:
                     pass
 
-def names(ips):
-    print (ips.keys())
+#def names(ips):
+#    print (ips.keys())
 
 if __name__ == "__main__":
 
