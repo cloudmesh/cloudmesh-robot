@@ -1,6 +1,6 @@
 # Making ESP8266 robots move straight.
 
-In the method definitions of the `motor` class in car4.py, which you can download on [this](https://github.com/cloudmesh/cloudmesh.robot/tree/master/tests0, find the lines 42 to 48:
+In the method definitions of the `motor` class in car4.py, which you can download on [this](https://github.com/cloudmesh/cloudmesh.robot/tree/master/tests0), find the lines 42 to 48:
 
 	def forward(self):
         self.direction.low()
