@@ -51,7 +51,7 @@ class motor(object):
             self.pin_speed = 5
             self.pin_direction = 0
 
-00        self.speed = PWM(Pin(self.pin_speed), freq=1000, duty=0)
+        self.speed = PWM(Pin(self.pin_speed), freq=1000, duty=0)
         self.direction = Pin(self.pin_direction, Pin.OUT)
         self.name = name
         self.forward_duty = forward_duty
@@ -72,7 +72,7 @@ class motor(object):
         self.duty(0)
 
     def duty(self, d):
-        """specifies the duty associated with the pin"""
+        """specifies the duty associated with the pin """
         PWM(Pin(self.pin_speed), freq=1000, duty=d)
 
 
