@@ -1,0 +1,43 @@
+<html>
+<head> <title>ESP8266 Car</title> </head>
+<center>
+<h3>Cloudmesh.robot</h3>
+<h2>ESP8266 Car Test</h2>
+</center>
+<form>
+<table>
+<tr>
+<td>LEFT:</td> 
+<td><button name="LEFT" value="ON" type="submit">ON</button></td>
+<td><button name="LEFT" value="OFF" type="submit">OFF</button></td>
+</tr>
+<tr>
+<td>RIGHT:</td>
+<td><button name="RIGHT" value="ON" type="submit">ON</button></td>
+<td><button name="RIGHT" value="OFF" type="submit">OFF</button></td>
+</tr>
+<tr>
+<td>DIRECTION:</td>
+<td><button name="FORWARD" value="ON" type="submit">FORWARD</button></td>
+<td><button name="STOP" value="ON" type="submit">STOP</button></td>
+<td><button name="BACK" value="ON" type="submit">BACKWARD</button></td>
+</tr>
+</table>
+</form>
+
+<h3>Tune</h3>
+
+<form>
+  Left Motor Forward:<br>
+  <input type= number name= "duty" min=1000 max= 1023 > <br>
+  Right Motor Forward:<br>
+  <input type= number name="duty" min=1000 max= 1023>
+</form>
+
+<form>
+  Left Motor Backward:<br>
+  <input type= number name= "duty" min=1000 max= 1023 > <br>
+  Right Motor Backward:<br>
+  <input type= number name="duty" min=1000 max= 1023>
+</form>
+</html>
