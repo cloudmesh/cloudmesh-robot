@@ -43,7 +43,7 @@ class motor(object):
     """the motor class has the name attribute and a forward duty and backward duty"""
 
 
-    def __init__(self, name, forward_duty=1023, backward_duty=1023):
+    def __init__(self, name, forward_duty, backward_duty):
         if name == "left":
             self.pin_speed = 4
             self.pin_direction = 2
@@ -77,8 +77,8 @@ class motor(object):
 
 
 led = LED(2)
-right = motor("right")
-left = motor("left")
+right = motor("right", 1023, 1023)
+left = motor("left", 1023, 1023)
 
 
 def get_attributes(filename):
