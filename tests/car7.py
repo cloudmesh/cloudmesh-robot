@@ -25,15 +25,14 @@ class LED(object):
         """turns the LED off
         """
         self.light.high()
-        
-	def blink(self, n):
-        """flashes the LED n times
-        """
-    	for i in range(0,n):
-        	self.on()
-       	 	time.sleep(0.1)
-        	self.off()
-        	time.sleep(0.1)
+
+    def blink(self, n):
+        """flashes the LED n times"""
+        for i in range(0,n):
+            self.on()
+            time.sleep(0.1)
+            self.off()
+            time.sleep(0.1)
             self.on()
 
 
@@ -136,50 +135,64 @@ html = """<!DOCTYPE html>
 <h3>Cloudmesh.robot</h3>
 <h2>ESP8266 Car Test</h2>
 </center>
+
+<center>
 <form>
 <table>
-<tr>
-<td>LEFT:</td> 
-<td><button name="LEFT" value="ON" type="submit">ON</button></td>
-<td><button name="LEFT" value="OFF" type="submit">OFF</button></td>
-</tr>
-<tr>
-<td>RIGHT:</td>
-<td><button name="RIGHT" value="ON" type="submit">ON</button></td>
-<td><button name="RIGHT" value="OFF" type="submit">OFF</button></td>
-</tr>
-<tr>
-<td>DIRECTION:</td>
+<td></td><td></td>
 <td><button name="FORWARD" value="ON" type="submit">FORWARD</button></td>
-<td><button name="STOP" value="ON" type="submit">STOP</button></td>
+<td></td><td></td>
+
+</tr>
+<tr>
+<td><button name="LEFT" value="ON" type="submit">LEFT ON</button></td>
+<td><button name="LEFT" value="OFF" type="submit">LEFT OFF</button></td>
+<td><center><button name="STOP" value="ON" type="submit">STOP</button></center></td>
+<td><button name="RIGHT" value="ON" type="submit">RIGHT ON</button></td>
+<td><button name="RIGHT" value="OFF" type="submit">RIGHT OFF</button></td>
+
+</tr>
+<td></td><td></td>
 <td><button name="BACK" value="ON" type="submit">BACKWARD</button></td>
-</tr>
+<td></td><td></td>
 <tr>
-<td>TLF:</td>
-<td><button name="TUNE LEFT FORWARD" value="ON" type="submit">ON</button></td>
-<td><button name="TUNE LEFT FORWARD" value="OFF" type="submit">OFF</button></td>
-</tr>
-<tr>
-<td>TRF:</td>
-<td><button name="TUNE RIGHT FORWARD" value="ON" type="submit">ON</button></td>
-<td><button name="TUNE RIGHT FORWARD" value="OFF" type="submit">OFF</button></td>
-</tr>
-<tr>
-<td>TLB:</td>
-<td><button name="TUNE LEFT BACKWARD" value="ON" type="submit">ON</button></td>
-<td><button name="TUNE LEFT BACKWARD" value="OFF" type="submit">OFF</button></td>
-</tr>
-<tr>
-<td>TRB:</td>
-<td><button name="TUNE RIGHT BACKWARD" value="ON" type="submit">ON</button></td>
-<td><button name="TUNE RIGHT BACKWARD" value="OFF" type="submit">OFF</button></td>
+
 </tr>
 </table>
 </form>
-<h3>Tune</h3>
+</center>
 
-</html>
-"""
+<center>
+<h2>Tune</h2>
+</center>
+
+<center>
+<form>
+<table>
+	<tr>
+  <td>LEFT MOTOR DUTY:</td>
+  <td><button name="SUBHL" value="ON" type="submit"><<</button></td>
+  <td><button name="SUBSL" value="ON" type="submit"><</button></td>
+  <td> <input type= number name= "LMD" value=""" + left.forward_duty + """> </td>
+  <td><button name="ADDSL" value="ON" type="submit">></button></td>
+  <td><button name="SUBSL" value="ON" type="submit">>></button></td>
+    </tr>
+  </table>
+  
+<table>
+	<tr>
+  <td>RIGHT MOTOR DUTY:</td>
+  <td><button name="SUBHR" value="ON" type="submit"><<</button></td>
+  <td><button name="SUBSR" value="ON" type="submit"><</button></td>
+  <td> <input type= number name= "RMD" value=""" + right.forward_duty + """> </td>
+  <td><button name="ADDSR" value="ON" type="submit">></button></td>
+  <td><button name="ADDHR" value="ON" type="submit">>></button></td>
+    </tr>
+  </table>
+</form>
+</center>
+
+</html>"""
 
 led.blink(5)
 
@@ -200,10 +213,14 @@ while True:
     FORWARD = request.find('/?FORWARD=ON')
     STOP = request.find('/?STOP=ON')
     BACK = request.find('/?BACK=ON')
-    TLF = request.find('/?TLF=ON')
-    TRF = request.find('/?TRF=ON')
-    TLB = request.find('/?TLB=ON')
-    TRB = request.find('/?TRB=ON')
+    SUBHL = request.find('/?SUBHL=ON')
+    SUBSL = request.find('/?SUBSL=ON')
+    ADDHL = request.find('/?ADDHL=ON')
+    ADDSL = request.find('/?ADDSL=ON')
+    SUBHR = request.find('/?SUBHR=ON')
+    SUBSR = request.find('/?SUBSR=ON')
+    ADDHR = request.find('/?ADDHR=ON')
+    ADDSR = request.find('/?ADDSR=ON')
 
 
     direction = 'STOP'
@@ -231,14 +248,23 @@ while True:
         right.backward()
         left.backward()
         direction = 'BACKWARD'
-    if TLF == 6:
-        right.forward_duty -= 1
-    if TRF == 6:
+    if SUBHL == 6:
+        left.forard_duty -= 5
+    if SUBSL == 6:
         left.forward_duty -= 1
-    if TLB == 6:
-        right.backward_duty -= 1
-    if TRB == 6:
-        left.backward_duty -= 1
+    if ADDHL == 6:
+        left.forward_duty += 5
+    if ADDSL == 6:
+        left.forward_duty += 1
+    if SUBHR == 6:
+        right.forward_duty -= 5
+    if SUBSR == 6:
+        right.forward_duty -= 1
+    if ADDHR == 6:
+        right.forward_duty += 5
+    if ADDSR == 6:
+        right.forward_duty += 1
+    
         
         
 
