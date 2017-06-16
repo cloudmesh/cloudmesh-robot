@@ -4,6 +4,9 @@ import time
 import machine
 import socket
 from machine import Pin, PWM
+import os
+
+version = 0.1
 
 class LED(object):
 
@@ -49,8 +52,18 @@ def get_attributes(filename):
 
     return attributes
 
+def cat(filename):
+    f = open(filename)
+    data = f.read()
+    print (data)
+    f.close()
 
-def do_connect():
+def connect():
+    print('starting network ...')
+
+    credentials = get_attributes('credentials.txt')
+    print (credentials)
+
     sta_if = network.WLAN(network.STA_IF)
     if not sta_if.isconnected():
         print('connecting to network...')
@@ -58,37 +71,38 @@ def do_connect():
         sta_if.connect(credentials['ssid'], credentials['password'])
         while not sta_if.isconnected():
             pass
+    print('connection ok')
+
     return sta_if.ifconfig()
 
+def console():
+    import webrepl
+    webrepl.start()
 
+def clean():
+    os.remove("boot.py")
+    os.remove("webrepl_cfg.py")
+    
 led = LED(2)
 
 led.blink(2)
 
-credentials = get_attributes('credentials.txt')
 
-print (credentials)
-
-print('starting network ...')
-
-
-ap_if = network.WLAN(network.AP_IF)
-print(ap_if.active())
-print(ap_if.ifconfig())
+#ap_if = network.WLAN(network.AP_IF)
+#print(ap_if.active())
+#print(ap_if.ifconfig())
 
 led.blink(2)
 
-net = do_connect()
+net = connect()
 print (net)
 print ('IP: ', net[0])
 
 led.blink(2)
 
-mac = ubinascii.hexlify(network.WLAN().config('mac'),':').decode()
-print ('MAC:', mac)
+# mac = ubinascii.hexlify(network.WLAN().config('mac'),':').decode()
+# print ('MAC:', mac)
 
 led.blink(2)
 
-import webrepl
-webrepl.start()
 

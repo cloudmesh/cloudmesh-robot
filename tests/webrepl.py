@@ -1,3 +1,7 @@
 import esp
 esp.osdebug(None)
-import webrepl_setup
+
+import cloudmesh as cm
+net = cm.connect()
+
+cm.console()
