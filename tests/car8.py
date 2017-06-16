@@ -173,7 +173,7 @@ html = """<!DOCTYPE html>
   <td>LEFT MOTOR DUTY:</td>
   <td><button name="SUBHL" value="ON" type="submit"><<</button></td>
   <td><button name="SUBSL" value="ON" type="submit"><</button></td>
-  <td> <input type= number name= "LMD" value='""" + str(left.forward_duty) + """'> </td>
+  <td> <input type= number name= "LMD" value=\" """ + str(left.forward_duty) + """\"> </td>
   <td><button name="ADDSL" value="ON" type="submit">></button></td>
   <td><button name="SUBSL" value="ON" type="submit">>></button></td>
     </tr>
@@ -184,7 +184,7 @@ html = """<!DOCTYPE html>
   <td>RIGHT MOTOR DUTY:</td>
   <td><button name="SUBHR" value="ON" type="submit"><<</button></td>
   <td><button name="SUBSR" value="ON" type="submit"><</button></td>
-  <td> <input type= number name= "RMD" value='""" + str(right.forward_duty) + """'> </td>
+  <td> <input type= number name= "RMD" value=\" """ + str(right.forward_duty) + """\"> </td>
   <td><button name="ADDSR" value="ON" type="submit">></button></td>
   <td><button name="ADDHR" value="ON" type="submit">>></button></td>
     </tr>
