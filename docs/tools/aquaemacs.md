@@ -11,7 +11,7 @@ finished installing, you should go to the *Downloads* folder in
 Finder, and open the installed file. You are now ready to use
 Aquamacs.
 
-##Emacs Tutorial
+## Emacs Tutorial
 
 Starting out with Aquamacs, you should first set the default font. You
 can open and close the Fonts window with the command ⌘⇧T. Pick a font
