@@ -2,11 +2,15 @@
 
 ### Introduction to Marvelmind Positioning System
 
-[Marvelmind Indoor Navigation System](marvelmind.com) is an off-the-shelf indoor navigation system designed for providing location data to autonomous robots, vehicles (AGV) and copters. The precision is rated to be +- 2cm.
+[Marvelmind Indoor Navigation System](marvelmind.com) is an indoor navigation system designed for providing location data to autonomous robots, vehicles (AGV) and copters. The precision is rated to be +- 2cm.
+
+> Fix: link to documentateion is missing
 
 ### Requirements
 
 FIX: what is needed ....
+
+> *Can we use osx and vmware to run the exe or do we need two computers?*
 
 ### Marvelmind Environment Setup
 
@@ -14,32 +18,33 @@ We are hosting a copy of the Marvelmind software in order to make sure we can re
 
 * [https://github.com/cloudmesh/cloudmesh.robot/tree/master/marvelminddashboard](https://github.com/cloudmesh/cloudmesh.robot/tree/master/marvelminddashboard) 
 
-FIX: change to marvelmind/dashboard
-FIX: no mentioning that a windows pc is needed
+> FIX: change to marvelmind/dashboard
+> 
+> FIX: no mentioning that a windows pc is needed
 
 You will need all files in the directory. You install it by 
 
-FIX: instructions incomplete
+> FIX: instructions incomplete
 
 After installation completes, open the dashboard file in the downloaded folder. 
 
-FIX: hwat is the dashboard file incomplete
+> FIX: hwat is the dashboard file incomplete
 
 The dashboard interface should give you an error as shown in *Figure 1*.
 
-![Figure 1](images/Figure1.png)
+![Figure 1](images/marvelmind-dashboard.png)
 
 *Figure 1: Marvelmind error if modem is not plugged in.*
 
 The error in *Figure 1* essentially signals that you have not plugged in the Marvelmind modem into your Windows PC yet, which is shown in *Figure 2*. Without this modem, you will not be able to use the Marvelmind dashboard to set up your Marvelmind navigation environment.
 
-![Figure 2](images/Figure2.JPG)
+![Figure 2](images/marvelmind-receiver.png)
 
 *Figure 2: Marvelmind modem.*
 
 Once the modem is plugged into the Windows PC using a USB cable, with the Marvelmind dashboard running, the error should go away. You will be presented with a coordinate plane, as demonstrated in *Figure 3*. There should be an error at the top left corner of the coordinate plane stating that not enough beacons are available. This error is due to the fact that you have not turned on enough beacons  required to track movement with the dashboard environment. You will need at least two beacons. You now need to set up stationary and mobile beacons, as needed, to fit your navigational needs.
 
-![Figure 3](images/Figure3.png)
+![Figure 3](images/marvelmind-pos.png)
 
 *Figure 3: Marvelmind coordinate plane.*
 
@@ -47,11 +52,11 @@ Once the modem is plugged into the Windows PC using a USB cable, with the Marvel
 
 Marvelmind uses stationary beacons in order to track its mobile beacons. Any Marvelmind beacon, *Figure 4*, can be assigned the duty of being stationary or mobile, and it is up to you to decide how many beacons you would like to set up as stationary, or tracker, beacons. The larger the space you operate your environment in, the larger the amount of tracker beacons you should use. Keep in mind, the stationary beacons need to be a good distance apart, 3 meters is a good measure, and their recommended height is at least 1.85 meters. Therefore it is a good idea to mount the stationary beacons on stands of heights equal to or greater than 1.85 meters using velcro tape, as shown in *Figure 5*. 
 
-![Figure 4](images/Figure4.JPG)
+![Figure 4](images/marvelmind-beacon.png)
 
 *Figure 4: Marvelmind beacon.*
 
-![Figure 5](images/Figure5.JPG)
+![Figure 5](images/Figure5.png)
 
 *Figure 5: Stand used to hold Marvelmind stationary beacon in place above recommended height.*
 
@@ -93,7 +98,7 @@ Once you have frozen the stationary beacons, you can now start introducing mobil
 
 You can now move the beacon around as it is mobile, while the frozen beacons remain stationary. Now the Marvelmind python program, which you will find in the dashboard package that you downloaded from google docs, can be used to track the coordinates of this beacon, essentially tracking whatever object it is mounted on. If you are mounting other objects on top of the device you are tracking in addition to the beacon, you will need holders for mobile beacons that allow the beacons to be mounted higher up than everything else mounted on the device, so that they do not block the sound recepters on the beacons, since that's the stationary beacons' way of receiving feedback from the mobile ones. *Figure 12* shows a selfie stick that can be purchased from any local store that seems to function very well as a holder for the beacons. Just make sure the beacon is not too far into the holder, because the sound recepters may become blocked off.
 
-![Figure 12](images/Figure12.JPG)
+![Figure 12](images/Figure12.png)
 
 *Figure 12: Selfie stick used as a hedgehog beacon holder (note how the sound receptors are elevated above the grip of the beacons).*
 
