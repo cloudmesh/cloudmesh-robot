@@ -1,6 +1,7 @@
 import time
 import requests
 import os
+from marvelmind import MarvelmindHedge
 """
 # assume start at 0 0
 move 0 1
@@ -9,7 +10,7 @@ move 5 5
 """
 
 
-def move(ip, direction, x, y, epsilon=0.0001):
+def move(ip, direction, epsilon=0.0001):
     if direction == 'left':
         payload = {'LEFT': 'ON'}
     elif direction == 'right':
@@ -27,6 +28,9 @@ def move(ip, direction, x, y, epsilon=0.0001):
         r = requests.get('http://' + ip, headers=headers, params=payload)
     except Exception as e:
         print (type(e), e)
+
+
+
         
     """
     Param:
@@ -38,28 +42,50 @@ def move(ip, direction, x, y, epsilon=0.0001):
     epsilon: float: threshold for distance to target
     """
 
-    while True:
-        cx, cy = robot.position()
+filename="moveto.txt"
+f = open(filename)
+lines = f.readlines()
+f.close()
+
+
+print ("LINES", lines)
+x = 100
+y = 100
+epsilon = 10
+
+robot = MarvelmindHedge(tty='/dev/tty.usbmodemFD121')
+ip = "10.0.1.15"
+curdirection = 'XP'
+robot.start()
+while True:
+        print (robot.position())
+        time.sleep(0.5)
+        robot.print_position()
+        addr, cx, cy, cz, ts = robot.position()
         dx, dy = x - cx, y - cy
 
         # assume motion is horizontal or vertical only
-        if abs(dx) >= epsilon
-            # move left/right
-            for ip in ips:
-                move(ip, direction)
-            time.sleep(duration)
-            for ip in ips:
-                move(ip, "stop")
-            pass
-
+        if abs(dx) >= epsilon:
+            if dx > 0:
+                if curdirection == 'XP':
+                    # move forward
+                    move(ip, "forward")
+                    time.sleep(0.2)
+                    move(ip, "stop")
         elif abs(dy) >= epsilon:
-            # move up/down
-            for ip in ips:
-                move(ip, direction)
-            time.sleep(duration)
-            for ip in ips:
-            move(ip, "stop")
-            pass
+            if dy > 0:
+                if curdirection == 'YP':
+                    # move forwrad
+                    move(ip, "forward")
+                    time.sleep(0.2)
+                    move(ip, "stop")
+                elif curdirection == 'XP':
+                    # left turn 90 degree once
+                    move(ip, "left")
+                    time.sleep(0.5)
+                    move(ip, "stop")
+                    curdirection = 'YP'
+        
         else:
             assert abs(dx) < epsilon and abs(dy) < epsilon
             robot.stop()
