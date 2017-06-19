@@ -30,10 +30,14 @@ class LED(object):
         self.light.high()
 
 
-
+    def blink(self, n):
+        for i in range(0,n):
+            self.light.on()
+            time.sleep(0.1)
+            self.light.off()
+            time.sleep(0.1)
 
 class motor(object):
-
 
     def __init__(self, name):
         self.forward_speed = 1023
@@ -50,11 +54,11 @@ class motor(object):
 
     def forward(self):
         self.direction.low()
-        self.duty(1023)
+        self.duty(self.forward_speed)
 
     def backward(self):
         self.direction.high()
-        self.duty(1023)
+        self.duty(self.forward_speed)
 
     def stop(self):
         self.duty(0)
@@ -70,13 +74,6 @@ led = LED(2)
 
 right = motor("right")
 left = motor("left")
-
-def blink(n):
-    for i in range(0,n):
-        led.on()
-        time.sleep(0.1)
-        led.off()
-        time.sleep(0.1)
 
 def get_attributes(filename):
     f = open(filename)
@@ -156,13 +153,8 @@ html = """<!DOCTYPE html>
 </html>
 """
 
-for i in range(0,5):
-    led.on()
-    time.sleep(0.1)
-    led.off()
-    time.sleep(0.1)
 
-    led.on()
+led.blink(5)
 
 #Setup Socket WebServer
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

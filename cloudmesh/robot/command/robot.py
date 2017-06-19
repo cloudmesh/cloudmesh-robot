@@ -106,7 +106,20 @@ class RobotCommand(PluginCommand):
 
             p = Probe()
             Console.error("If you do not see a >>> please press the reset button.")
-            os.system("picocom --imap lfcrlf -b 115200 " + p.tty)
+            print (p)
+
+            data = {
+                'tty': p.tty,
+                'baudrate': "115200"
+            }
+
+            #if 'tty.SLAB_USBtoUART' in p.tty:
+            #    data["baudrate"] = "9600"
+            #else:
+            #    data["baudrate"] = "115200"
+
+
+            os.system("picocom --imap lfcrlf -b {baudrate} {tty}".format(**data))
 
         elif arguments.flash and arguments.erase:
 
@@ -131,6 +144,9 @@ class RobotCommand(PluginCommand):
                 "dir": ".",
                 "image": "esp8266-20170108-v1.8.7.bin",
                 "port": p.tty}
+
+            if 'tty.SLAB_USBtoUART' in p.tty:
+                d["baud"] = str(460800)
 
             command = "esptool.py --port {port} --baud {baud} write_flash --flash_size=detect -fm dio 0x00000 {image}".format(**d)
             _run(command)

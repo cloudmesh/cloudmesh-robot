@@ -8,6 +8,7 @@ import sys
 import requests
 
 
+
 class Ampy(object):
     def __init__(self, port=None):
 
@@ -103,7 +104,7 @@ class Probe(object):
         return output
 
     def __init__(self):
-        tty = glob.glob("/dev/tty.wchusbserial*")
+        tty = glob.glob("/dev/tty.SLAB_USBtoUART") + glob.glob("/dev/tty.wchusbserial*")
 
         if len(tty) > 1:
             print("ERROR: more than one tty found")
@@ -120,7 +121,6 @@ class Probe(object):
         id = self._run("esptool.py -p " + self.tty + " chip_id")
         mac = self._run("esptool.py -p " + self.tty + " read_mac")
 
-        print ("ID", str(id))
         data = {
             "tty": self.tty,
             "chipid": str(id[2].decode('ascii')).replace("Chip ID:", "").strip(),
