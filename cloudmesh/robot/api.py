@@ -8,6 +8,7 @@ import sys
 import requests
 
 
+
 class Ampy(object):
     def __init__(self, port=None):
 
