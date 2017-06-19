@@ -13,17 +13,43 @@ import math
 
 version = 0.1
 
+
 ##############################################
 # PIN MANAGEMENT
 ##############################################
 
 def p(name):
-    if name == "D8":
-        return 15
-    elif name == "D7":
-        return 13
+    """
+    return the pin from the pin name
+    :param name: the pin name D1 ... D8
+    :return: 
+    """
+    mapping = {
+        "D0": 16,
+        "D1": 5,
+        "D2": 4,
+        "D3": 0,
+        "D4": 2,
+        "D5": 14,
+        "D6": 12,
+        "D7": 13,
+        "D8": 15,
+        "D9": 3,
+        "D10": 1,
+    }
+
+    if name in mapping:
+        return mapping[name]
     else:
         return 2
+
+def trick(pin):
+    if type(pin) == str:
+        return (p(pin))
+    elif type(pin) == int:
+        return pin
+
+
 
 ##############################################
 # WEB REPL
@@ -45,12 +71,14 @@ def cat(filename):
     """
     f = open(filename)
     data = f.read()
-    print (data)
+    print(data)
     f.close()
+
 
 def clean():
     os.remove("boot.py")
     os.remove("webrepl_cfg.py")
+
 
 ##############################################
 # NETWORK MANAGEMENT
@@ -60,7 +88,7 @@ def get_attributes(filename):
     f = open(filename)
     contents = f.read()
     f.close()
-    contents.replace("\r\n","\n")
+    contents.replace("\r\n", "\n")
 
     attributes = {}
     lines = contents.split("\n")
@@ -80,7 +108,7 @@ def connect(filename='credentials.txt'):
     print('starting network ...')
 
     credentials = get_attributes(filename)
-    print (credentials)
+    print(credentials)
 
     sta_if = network.WLAN(network.STA_IF)
     if not sta_if.isconnected():
@@ -105,6 +133,7 @@ class LED(object):
         defne an LED on a given pin
         :param pin: the number of the pin
         """
+        # pin = trick(pin)
         self.light = machine.Pin(pin, machine.Pin.OUT)
 
     def on(self):
@@ -195,6 +224,7 @@ class Servo(object):
             time.sleep(dt)
             self.off()
 
+
 ##############################################
 # MOTOR MANAGEMENT
 ##############################################
@@ -258,19 +288,18 @@ class motor(object):
 ##############################################
 
 def hello():
-
     led = LED(2)
     led.blink(2)
 
-    #ap_if = network.WLAN(network.AP_IF)
-    #print(ap_if.active())
-    #print(ap_if.ifconfig())
+    # ap_if = network.WLAN(network.AP_IF)
+    # print(ap_if.active())
+    # print(ap_if.ifconfig())
 
     led.blink(2)
 
     net = connect()
-    print (net)
-    print ('IP: ', net[0])
+    print(net)
+    print('IP: ', net[0])
 
     led.blink(2)
 
@@ -278,6 +307,7 @@ def hello():
     # print ('MAC:', mac)
 
     led.blink(2)
+
 
 if __name__ == "__main__":
     hello()

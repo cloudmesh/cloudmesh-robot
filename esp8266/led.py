@@ -71,6 +71,7 @@ print ('MAC:', mac)
 
 
 LED = machine.Pin(2, machine.Pin.OUT)
+# LED = machine.Pin("D4", machine.Pin.OUT)
 
 def led(on):
     if on:
