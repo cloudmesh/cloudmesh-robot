@@ -25,19 +25,27 @@
 </table>
 </form>
 
-<h3>Tune</h3>
+<center>
+<h2>Tune</h2>
+</center>
 
 <form>
-  Left Motor Forward:<br>
-  <input type= number name= "duty" min=1000 max= 1023 > <br>
-  Right Motor Forward:<br>
-  <input type= number name="duty" min=1000 max= 1023>
+<table>
+	<tr>
+  <td>Left Motor Duty:</td>
+
+  <td><button name="LMD" value="SUBHL" type="submit"><<</button></td>
+  <td><button name="LMD" value="SUBSL" type="submit"><</button></td>
+  <td> <input type= number name= "LMD" value=0000> </td>
+  <td><button name="LMD" value="ADDSL" type="submit">></button></td>
+  <td><button name="LMD" value="SUBSL" type="submit">>></button></td>
+    </tr>
+  
+  Right Motor Duty:
+  <br>
+  <input type= number name="RMD" value=0000>
+  </table>
 </form>
 
-<form>
-  Left Motor Backward:<br>
-  <input type= number name= "duty" min=1000 max= 1023 > <br>
-  Right Motor Backward:<br>
-  <input type= number name="duty" min=1000 max= 1023>
-</form>
+
 </html>
