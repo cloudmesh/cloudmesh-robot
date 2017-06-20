@@ -1,34 +1,58 @@
+<!DOCTYPE html>
 <html>
-<head> <title>ESP8266 Car</title> </head>
+<head>
+
+  <style>
+    .btn {
+      background: #3498db;
+      background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+      background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+      background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+      background-image: -o-linear-gradient(top, #3498db, #2980b9);
+      background-image: linear-gradient(to bottom, #3498db, #2980b9);
+      -webkit-border-radius: 28;
+      -moz-border-radius: 28;
+      border-radius: 28px;
+      font-family: Arial;
+      color: #ffffff;
+      font-size: 60px;
+      padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    width: 50%;
+    }
+
+    .btn:hover {
+      background: #3cb0fd;
+      background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+      text-decoration: none;
+    }
+  </style>
+
+    <title>Playing with Inline Styles</title>
+  </head>
+  <body>
+    <p style="color:blue;font-size:46px;">
+      I'm a big, blue, <strong>strong</strong> paragraph
+    </p>
+
 <center>
 <h3>Cloudmesh.robot</h3>
 <h2>ESP8266 Car Test</h2>
 </center>
 
 <center>
-<form>
-<table>
-<td></td><td></td>
-<td><button name="FORWARD" value="ON" type="submit">FORWARD</button></td>
-<td></td><td></td>
-
-</tr>
-<tr>
-<td><button name="LEFT" value="ON" type="submit">LEFT ON</button></td>
-<td><button name="LEFT" value="OFF" type="submit">LEFT OFF</button></td>
-<td><center><button name="STOP" value="ON" type="submit">STOP</button></center></td>
-<td><button name="RIGHT" value="ON" type="submit">RIGHT ON</button></td>
-<td><button name="RIGHT" value="OFF" type="submit">RIGHT OFF</button></td>
-
-</tr>
-<td></td><td></td>
-<td><button name="BACK" value="ON" type="submit">BACKWARD</button></td>
-<td></td><td></td>
-<tr>
-
-</tr>
-</table>
+  <form>
+  <button class="btn" name="LEFT" value="ON" type="submit">LEFT</button></br>
+  <button class="btn" name="RIGHT" value="ON" type="submit">RIGHT</button></br>
+  <button class="btn" name="MIDDLE" value="ON" type="submit">MIDDLE</button></br>
+  <button class="btn" name="STOP" value="ON" type="submit">STOP</button></br>
+  <button class="btn" name="FORWARD" value="ON" type="submit">FORWARD</button></br>
 </form>
+
 </center>
 
 <center>
@@ -61,4 +85,5 @@
 </form>
 </center>
 
+    </body>
 </html>

@@ -42,7 +42,7 @@ Switch on echo for easier manipulation
 
 .
 
-	>>> import cloudmesh
+	>>> import cm
 
 >		starting network ...
 >		connection ok
@@ -77,7 +77,7 @@ Lots of characters will appear
 
 Next	
 	
-	>>> import cloudmesh as cm
+	>>> import cm
 
 >		starting network ...
 >		{'ssid': 'robis', 'password': 'BLA', 'username': 'u'}

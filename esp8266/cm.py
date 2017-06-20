@@ -43,7 +43,7 @@ def p(name):
     else:
         return 2
 
-def trick(pin):
+def pin_id(pin):
     if type(pin) == str:
         return (p(pin))
     elif type(pin) == int:
@@ -133,7 +133,7 @@ class LED(object):
         defne an LED on a given pin
         :param pin: the number of the pin
         """
-        # pin = trick(pin)
+        pin = pin_id(pin)
         self.light = machine.Pin(pin, machine.Pin.OUT)
 
     def on(self):
@@ -169,6 +169,7 @@ class LED2(object):
         define an LED on a given pin
         :param pin: the number of the pin
         """
+        pin = pin_id(pin)
         self.light = machine.PWM(machine.Pin(pin), freq=1000)
 
     def pulse(self, t):
@@ -187,6 +188,7 @@ class Servo(object):
         define an LED on a given pin
         :param pin: the number of the pin
         """
+        pin = pin_id(pin)
         self.servo = machine.PWM(machine.Pin(pin), freq=50)
         self.minimum = min
         self.maximum = max
