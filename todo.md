@@ -39,7 +39,9 @@
 * [SZ] windows 10 desktop
 * [SZ] virus detected on marvelmind - store code - write install while using our copy
 * [SZ] Use coordinates given by Marvelmind system to make robots navigate between 2 points using X and Y measurements.
-* [SZ] Marvelmind tutorial (tutorial)
+* [x] [SZ] Email Marvelmind Team about setting coordinates for beacons.
+* [SZ] Email Marvelmind about Hedgehog beacon direction. (no reply yet).
+* [x] [SZ] Marvelmind tutorial (tutorial)
 
 	
 ## Drones
