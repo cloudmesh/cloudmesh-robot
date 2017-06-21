@@ -12,6 +12,7 @@ led.on()
 
 fin = cm.Servo("D7")
 pitch = cm.Servo("D8")
+pitch.middle()
 
 led.blink(1)
 
@@ -39,34 +40,6 @@ html = """<!DOCTYPE html>
 <html>
 <head> 
    <title>ESP8266 Fish</title> 
-    <style>
-        .btn {
-          background: #3498db;
-          background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-          background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-          background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-          background-image: -o-linear-gradient(top, #3498db, #2980b9);
-          background-image: linear-gradient(to bottom, #3498db, #2980b9);
-          -webkit-border-radius: 28;
-          -moz-border-radius: 28;
-          border-radius: 28px;
-          font-family: Arial;
-          color: #ffffff;
-          font-size: 60px;
-          padding: 10px 20px 10px 20px;
-          text-decoration: none;
-        }
-    
-        .btn:hover {
-          background: #3cb0fd;
-          background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-          background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-          background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-          background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-          background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-          text-decoration: none;
-        }
-    </style>
 </head>
 <body>
 <center>
@@ -74,15 +47,19 @@ html = """<!DOCTYPE html>
 <h2>ESP8266 Fish</h2>
 </center>
 <form>
-<button name="LEFT" value="ON" type="submit">ON</button></br>
-<button name="RIGHT" value="ON" type="submit">ON</button></br>
-<button name="MIDDLE" value="ON" type="submit">ON</button></br>
+<button name="LEFT" value="ON" type="submit">LEFT</button></br>
+<button name="RIGHT" value="ON" type="submit">RIGHT</button></br>
+<button name="MIDDLE" value="ON" type="submit">MIDDLE</button></br>
 <button name="STOP" value="ON" type="submit">STOP</button></br>
 <button name="FORWARD" value="ON" type="submit">FORWARD</button></br>
+<button name="UP" value="ON" type="submit">UP</button></br>
+<button name="DOWN" value="ON" type="submit">DOWN</button></br>
 </form>
 </body>
 </html>
 """
+
+p = pitch()
 
 # Setup Socket WebServer
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -100,6 +77,7 @@ while True:
     MIDDLEON = request.find('/?MIDDLE=ON')
     FORWARD = request.find('/?FORWARD=ON')
     STOP = request.find('/?STOP=ON')
+    PITCH = request.find('/?PITCH=ON')
 
     direction = 'STOP'
     left_on = False
