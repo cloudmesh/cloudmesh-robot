@@ -12,6 +12,7 @@ from cloudmesh.robot.api import Probe, Git, Network, Ampy
 from pprint import pprint
 import textwrap
 from cloudmesh.common.hostlist import Parameter
+from ruamel import yaml
 
 class RobotCommand(PluginCommand):
 
@@ -71,6 +72,7 @@ class RobotCommand(PluginCommand):
                 robot rm PATH
                 robot rmdir PATH
                 robot dance FILE IPS
+                robot inventory list [--cat] [--path=PATH] [ID]
                 
           This command does some useful things.
 
@@ -378,6 +380,52 @@ class RobotCommand(PluginCommand):
 
             except Exception as e:
                 Error.traceback(e)
+
+        elif arguments.inventory:
+
+            def load_inventory(path):
+                with open(path) as stream:
+                    try:
+                        d = yaml.safe_load(stream)
+                    except Exception as e:
+                        print("problem loading file", e)
+
+                for id in d:
+                    d[id]['id'] = str(id)
+                return d
+
+            path = path_expand(arguments["--path"] or "~/.cloudmesh/robot/inventory.txt")
+
+            print (path)
+
+            if not os.path.isfile(path):
+                print ("ERROR: file does not exist")
+                sys.exit(1)
+
+
+            if arguments.ID:
+                d = load_inventory(path)
+                if arguments["--cat"]:
+                    result = d[int(arguments.ID)]
+
+                else:
+                    result = Printer.attribute(d[int(arguments.ID)])
+                print(result)
+
+            elif arguments["--cat"]:
+                with open(path) as stream:
+                    try:
+                        content = stream.read()
+                        print (content)
+                    except Exception as e:
+                        print ("problem loading file", e)
+
+            else:
+
+                d = load_inventory(path)
+                table = Printer.dict(d, order=['id', 'name', 'mac',  'chipid'])
+
+                print(table)
 
         '''
         elif arguments.image and arguments.list:
