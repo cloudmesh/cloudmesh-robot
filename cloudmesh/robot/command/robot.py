@@ -423,7 +423,7 @@ class RobotCommand(PluginCommand):
             else:
 
                 d = load_inventory(path)
-                table = Printer.dict(d)
+                table = Printer.dict(d, order=['id', 'name', 'mac',  'chipid'])
 
                 print(table)
 
