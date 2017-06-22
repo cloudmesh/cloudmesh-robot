@@ -49,12 +49,12 @@ f.close()
 
 
 print ("LINES", lines)
-x = 100
-y = 100
+x = 500
+y = 500
 epsilon = 10
 
 robot = MarvelmindHedge(tty='/dev/tty.usbmodemFD121')
-ip = "10.0.1.15"
+ip = "10.0.1.115"
 curdirection = 'XP'
 robot.start()
 while True:
