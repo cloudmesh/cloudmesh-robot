@@ -12,7 +12,7 @@ led.on()
 
 fin = cm.Servo("D7")
 pitch = cm.Servo("D8")
-pitch.middle()
+#pitch.middle()
 
 led.blink(1)
 
@@ -59,7 +59,7 @@ html = """<!DOCTYPE html>
 </html>
 """
 
-p = pitch()
+#p = pitch()
 
 # Setup Socket WebServer
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -77,7 +77,8 @@ while True:
     MIDDLEON = request.find('/?MIDDLE=ON')
     FORWARD = request.find('/?FORWARD=ON')
     STOP = request.find('/?STOP=ON')
-    PITCH = request.find('/?PITCH=ON')
+    UP = request.find('/?UP=ON')
+    DOWN = request.find('/?DOWN=ON')
 
     direction = 'STOP'
     left_on = False
@@ -92,6 +93,12 @@ while True:
         fin.off()
     if FORWARD == 6:
         fin.swim(1, 0.5)
+    if UP == 6:
+        pass
+    if DOWN == 6:
+        pass
+
+
 
     cm.feedback(conn, html)
 
