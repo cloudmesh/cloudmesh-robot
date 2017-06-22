@@ -122,6 +122,19 @@ def connect(filename='credentials.txt'):
     return sta_if.ifconfig()
 
 
+def net(ssid, password, username='gregor'):
+    d = {
+        'ssid': ssid,
+        'password': password,
+        'username': username
+    }
+    with open('credentials.txt', 'w') as f:
+        for i in ['ssid', 'password']:
+            f.write(i + ": " + d[i] + "\n")
+        for i in ['username']:
+            f.write(i + ": " + d[i])
+
+
 ##############################################
 # LED
 ##############################################
