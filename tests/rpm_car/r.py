@@ -80,7 +80,7 @@ class speed_meter(object):
     def get(self):
         print ("GET")
         turn = True
-        t0 = utime.ticks_ms()
+        t0 = utime.ticks_us()
         delta_t = 0
         count_start = self.counter
         print ("CN", self.counter)
@@ -94,16 +94,17 @@ class speed_meter(object):
             elif self.status == 0:
                 print ("B")
                 turn = True
-                delta_t = utime.ticks_diff(utime.ticks_ms(), t0)
+                delta_t = utime.ticks_diff(utime.ticks_us(), t0)
         count_dt = self.counter - count_start
         print (count_dt)
         return count_dt, self.counter
 
+    def rpm(self):
+        return (self.get() / 20) * 300
+
 smr = speed_meter(16)
 
-
-
-# sml = speed_meter(15)
+sml = speed_meter(15)
 
 #right = motor("right")
 #left = motor("left")
@@ -112,29 +113,18 @@ led.blink(5)
 
 print("hello")
 
-for i in range(0, 400):
+for i in range(0, 1):
     # while True:
     print ("I:", i)
     print(smr.get())
     time.sleep(0.5)
-    # print(sml.get())
+    print("R:", i)
+    print(sml.get())
+    time.sleep(.5)
 
-    # def rpm_finder():
-    #    t0 = 0
-    #    delta_t_r = 0
-    #    delta_t_l = 0
-    #    while delta_t_r < 200000 and delta_t_l < 200000:
-    #        if smr.status == 0:
-    #            smr.count += 1
-    #            delta_t_r = utime.ticks_diff(utime.ticks_us(), t0)
-    #        if smr.status == 1:
-    #            continue
-    #        if sml.status == 0:
-    #            sml.count += 1
-    #            delta_t_l = utime.ticks_diff(utime.ticks_us(), t0)
-    #        if sml.status == 1:
-    #            continue
-    #    right_rotations = smr.count / 20
-    #    left_rotations = sml.count / 20
-    #    rpm_r = right_rotations * 300
-    #    rpm_l = left_rotations * 300
+
+def motor_adjuster(right_meter, left_meter):
+    rpm_right = right_meter.get()
+    rpm_left = left_meter.get()
+    rl_ratio = rpm_right / rpm_left
+
