@@ -74,14 +74,11 @@ class RobotCommand(PluginCommand):
                 robot dance FILE IPS
                 robot inventory list [--cat] [--path=PATH] [ID]
                 
-          This command does some useful things.
-
           Arguments:
               FILE   a file name
 
           Options:
               -f      specify the file
-
         """
 
         # pprint(arguments)
@@ -423,7 +420,7 @@ class RobotCommand(PluginCommand):
             else:
 
                 d = load_inventory(path)
-                table = Printer.dict(d, order=['id', 'name', 'mac',  'chipid'])
+                table = Printer.dict(d, order=['id', 'name', 'ip', 'mac',  'chipid'])
 
                 print(table)
 
