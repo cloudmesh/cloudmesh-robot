@@ -11,7 +11,7 @@ import math
 # VERSION
 ##############################################
 
-version = 0.1
+version = 0.3
 
 
 ##############################################
@@ -74,6 +74,9 @@ def cat(filename):
     print(data)
     f.close()
 
+
+def ls():
+    print ('\n'.join(os.listdir()))
 
 def clean():
     os.remove("boot.py")
