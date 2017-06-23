@@ -206,6 +206,7 @@ class LED(object):
             time.sleep(dt)
             self.off()
             time.sleep(dt)
+            self.on()
 
 
 class LED2(object):
