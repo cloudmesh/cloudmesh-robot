@@ -30,14 +30,15 @@ net = cm.connect()
 led.blink(5)
 
 data = {
-    "style": "style=\"height:100px;width:100px;background-color:Green\"",
+    "style": "style=\"height:100px;width:100px;background-color:#4CAF50\"",
     "stylered": "style=\"height:100px;width:100px;background-color:Red\""
 }
 
 html = """<!DOCTYPE html>
 <html>
-<head> <title>ESP8266 Car</title> 
+<head> 
 
+<title>Cloudmesh ESP8266 Car</title> 
 
 </head>
 <center>
