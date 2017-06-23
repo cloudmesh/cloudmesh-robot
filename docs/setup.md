@@ -80,8 +80,8 @@ If things work out you will see something like this:
 To install the rest of the tools we recommend you use the following commands.
 Note, that you will need sudo previledges for some of the tools.
 
-	cms osx install
-	cms osx driver
+	$ cms robot osx install
+	$ cms robot osx driver
 
 ## External Tutorials
 
