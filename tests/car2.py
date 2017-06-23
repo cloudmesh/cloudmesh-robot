@@ -30,35 +30,44 @@ net = cm.connect()
 led.blink(5)
 
 data = {
-"style": "style=\"height:100px;width:100px\""
+    "style": "style=\"height:100px;width:100px;background-color:Green\"",
+    "stylered": "style=\"height:100px;width:100px;background-color:Red\""
 }
 
 html = """<!DOCTYPE html>
 <html>
-<head> <title>ESP8266 Car</title> </head>
+<head> <title>ESP8266 Car</title> 
+
+
+</head>
 <center>
 <h3>Cloudmesh.robot</h3>
 <h2>ESP8266 Car Test</h2>
 </center>
 <form>
+<center>
 <table>
+
 <tr>
-<td>LEFT:</td> 
-<td><button name="LEFT" value="ON" type="submit" {style}>ON</button></td>
-<td><button name="LEFT" value="OFF" type="submit" {style}>OFF</button></td>
-</tr>
-<tr>
-<td>RIGHT:</td>
-<td><button name="RIGHT" value="ON" type="submit" {style}>ON</button></td>
-<td><button name="RIGHT" value="OFF" type="submit" {style}>OFF</button></td>
-</tr>
-<tr>
-<td>DIRECTION:</td>
+<td></td>
 <td><button name="FORWARD" value="ON" type="submit" {style}>FORWARD</button></td>
-<td><button name="STOP" value="ON" type="submit" {style}>STOP</button></td>
-<td><button name="BACK" value="ON" type="submit" {style}>BACKWARD</button></td>
+<td></td>
 </tr>
+
+<tr>
+<td><button name="LEFT" value="ON" type="submit"  {style}">LEFT ON</button></td>
+<td><button name="STOP" value="ON" type="submit" {stylered}>STOP</button></td>
+<td><button name="RIGHT" value="ON" type="submit" {style}>RIGHT ON</button></td>
+</tr>
+
+<tr>
+<td></td>
+<td><button name="BACK" value="ON" type="submit" {style}>BACKWARD</button></td>
+<td></td>
+</tr>
+
 </table>
+<center>
 </form>
 </html>
 """.format(**data)
