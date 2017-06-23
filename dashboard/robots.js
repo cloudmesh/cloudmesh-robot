@@ -35,6 +35,13 @@ robots = {
             chipid: '0x0013c92a',
             mac: 'a0:20:a6:13:c9:2a',
             ip: '10.0.1.106'
-        }
+        },
+        {
+            name: 'feather01',
+            chipid: 'unkown',
+            mac: '5c:cf:7f:a4:3a:63',
+            ip: '10.0.1.10'
+        },
+        
     ]
 }

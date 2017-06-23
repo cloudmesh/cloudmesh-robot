@@ -53,9 +53,8 @@ def pin_id(pin):
     elif type(pin) == int:
         return pin
 
-def getmac():
-    mac = ubinascii.hexlify(network.WLAN().config('mac'), ':').decode()
-    return mac
+def mac():
+    return ubinascii.hexlify(network.WLAN().config('mac'), ':').decode()
 
 ##############################################
 # WEB REPL
@@ -276,7 +275,7 @@ class Servo(object):
 # MOTOR MANAGEMENT
 ##############################################
 
-class motor(object):
+class Motor(object):
     """the motor class has the name attribute and a forward duty and backward duty"""
 
     def __init__(self,
@@ -301,7 +300,7 @@ class motor(object):
             self.pin_speed = 5
             self.pin_direction = 0
 
-        self.speed = PWM(Pin(self.pin_speed), freq=1000, duty=0)
+        self.motor = PWM(Pin(self.pin_speed), freq=1000, duty=0)
         self.direction = Pin(self.pin_direction, Pin.OUT)
         self.name = name
         self.forward_duty = forward_duty
@@ -327,8 +326,7 @@ class motor(object):
         :param value: the duty value
         """
         if 0 <= value <= 1023:
-            ### BUG ?  this shoudl set the duty and not create a new PWM???? Check
-            PWM(Pin(self.pin_speed), freq=1000, duty=value)
+            self.motor.duty(value)
 
 
 ##############################################
