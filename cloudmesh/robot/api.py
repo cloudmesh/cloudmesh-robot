@@ -132,7 +132,7 @@ class Network(object):
 
     def __init__(self, ssid=None, username=None, password=None):
         self.filename = path_expand("~/.cloudmesh/robot/credentials.txt")
-        Shell.mkdir("~/.cloudmesh/robot")
+        Shell.mkdir(path_expand("~/.cloudmesh/robot"))
         self.credentials = {
             'ssid': ssid,
             'username': username,

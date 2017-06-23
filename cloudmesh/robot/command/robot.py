@@ -268,7 +268,6 @@ class RobotCommand(PluginCommand):
                               username=arguments.USERNAME,
                               password=arguments.PASSWORD)
 
-                #print (net)
             except Exception as e:
                 Error.traceback(e)
 

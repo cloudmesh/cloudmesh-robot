@@ -138,6 +138,26 @@ def net(ssid=None, password=None, username='gregor'):
                 f.write(i + ": " + d[i])
 
 
+def ap(filename='credentials.txt'):
+    credentials = get_attributes(filename)
+    print(credentials)
+
+    print("start ap")
+
+    sta_if = network.WLAN(network.STA_IF)
+    ap_if = network.WLAN(network.AP_IF)
+
+    sta_if.active()
+    ap_if.active()
+    ap_if.ifconfig()
+
+    sta_if.connect(credentials['ssid'], credentials['password'])
+    print(sta_if)
+
+    print(sta_if.ifconfig())
+    print(ap_if.ifconfig())
+
+
 ##############################################
 # LED
 ##############################################
