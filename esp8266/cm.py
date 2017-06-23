@@ -43,12 +43,12 @@ def p(name):
     else:
         return 2
 
+
 def pin_id(pin):
     if type(pin) == str:
-        return (p(pin))
+        return p(pin)
     elif type(pin) == int:
         return pin
-
 
 
 ##############################################
@@ -122,17 +122,40 @@ def connect(filename='credentials.txt'):
     return sta_if.ifconfig()
 
 
-def net(ssid, password, username='gregor'):
-    d = {
-        'ssid': ssid,
-        'password': password,
-        'username': username
-    }
-    with open('credentials.txt', 'w') as f:
-        for i in ['ssid', 'password']:
-            f.write(i + ": " + d[i] + "\n")
-        for i in ['username']:
-            f.write(i + ": " + d[i])
+def net(ssid=None, password=None, username='gregor'):
+    if ssid == None and password == None:
+        cat("credentials.txt")
+    else:
+        d = {
+            'ssid': ssid,
+            'password': password,
+            'username': username
+        }
+        with open('credentials.txt', 'w') as f:
+            for i in ['ssid', 'password']:
+                f.write(i + ": " + d[i] + "\n")
+            for i in ['username']:
+                f.write(i + ": " + d[i])
+
+
+def ap(filename='credentials.txt'):
+    credentials = get_attributes(filename)
+    print(credentials)
+
+    print("start ap")
+
+    sta_if = network.WLAN(network.STA_IF)
+    ap_if = network.WLAN(network.AP_IF)
+
+    sta_if.active()
+    ap_if.active()
+    ap_if.ifconfig()
+
+    sta_if.connect(credentials['ssid'], credentials['password'])
+    print(sta_if)
+
+    print(sta_if.ifconfig())
+    print(ap_if.ifconfig())
 
 
 ##############################################
@@ -187,7 +210,7 @@ class LED2(object):
 
     def pulse(self, t):
         for i in range(20):
-            self.light.duty(int(math.sin(i / 10 * math.pi) * 500 + 500))
+            self.light.duty(int(math.sin(float(i) / 10.0 * math.pi) * 500.0 + 500.0))
             time.sleep_ms(t)
 
 
@@ -303,7 +326,6 @@ class motor(object):
 ##############################################
 
 def feedback(conn, html):
-
     response = ''.join(html.split('\n')[1:])
 
     response_headers = {
@@ -340,9 +362,9 @@ def hello():
 
     led.blink(2)
 
-    net = connect()
-    print(net)
-    print('IP: ', net[0])
+    netw = connect()
+    print(netw)
+    print('IP: ', netw[0])
 
     led.blink(2)
 
@@ -350,8 +372,6 @@ def hello():
     # print ('MAC:', mac)
 
     led.blink(2)
-
-
 
 
 if __name__ == "__main__":

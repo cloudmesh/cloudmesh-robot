@@ -45,14 +45,15 @@ class motor(object):
         self.speed = PWM(Pin(self.pin_speed), freq=1000, duty=0)
         self.direction = Pin(self.pin_direction, Pin.OUT)
         self.name = name
+        self.d = 1023
 
     def forward(self):
         self.direction.low()
-        self.duty(1023)
+        self.duty(self.d)
 
     def backward(self):
         self.direction.high()
-        self.duty(1023)
+        self.duty(self.d)
 
     def stop(self):
         self.duty(0)
@@ -60,8 +61,7 @@ class motor(object):
     def duty(self, d):
         PWM(Pin(self.pin_speed), freq=1000, duty=d)
 
-    def set_forward_speed(self, duty):
-        self.forward_speed = duty
+
 
 
 class speed_meter(object):
@@ -80,7 +80,7 @@ class speed_meter(object):
     def get(self):
         print ("GET")
         turn = True
-        t0 = utime.ticks_ms()
+        t0 = utime.ticks_us()
         delta_t = 0
         count_start = self.counter
         print ("CN", self.counter)
@@ -94,47 +94,46 @@ class speed_meter(object):
             elif self.status == 0:
                 print ("B")
                 turn = True
-                delta_t = utime.ticks_diff(utime.ticks_ms(), t0)
+                delta_t = utime.ticks_diff(utime.ticks_us(), t0)
         count_dt = self.counter - count_start
         print (count_dt)
         return count_dt, self.counter
 
+    def rpm(self):
+        return (self.get() / 20) * 300
+
 smr = speed_meter(16)
 
+sml = speed_meter(15)
 
-
-# sml = speed_meter(15)
-
-#right = motor("right")
-#left = motor("left")
+right = motor("right")
+left = motor("left")
 led = LED(2)
 led.blink(5)
 
 print("hello")
 
-for i in range(0, 400):
+for i in range(0, 1):
     # while True:
     print ("I:", i)
     print(smr.get())
     time.sleep(0.5)
-    # print(sml.get())
+    print("R:", i)
+    print(sml.get())
+    time.sleep(.5)
 
-    # def rpm_finder():
-    #    t0 = 0
-    #    delta_t_r = 0
-    #    delta_t_l = 0
-    #    while delta_t_r < 200000 and delta_t_l < 200000:
-    #        if smr.status == 0:
-    #            smr.count += 1
-    #            delta_t_r = utime.ticks_diff(utime.ticks_us(), t0)
-    #        if smr.status == 1:
-    #            continue
-    #        if sml.status == 0:
-    #            sml.count += 1
-    #            delta_t_l = utime.ticks_diff(utime.ticks_us(), t0)
-    #        if sml.status == 1:
-    #            continue
-    #    right_rotations = smr.count / 20
-    #    left_rotations = sml.count / 20
-    #    rpm_r = right_rotations * 300
-    #    rpm_l = left_rotations * 300
+
+def motor_adjuster(right_meter, left_meter):
+    rpm_right = right_meter.get()
+    rpm_left = left_meter.get()
+    rl_ratio = rpm_right / rpm_left
+    if rl_ratio < .99:             #if right wheel speed is less than 99% left wheel
+        left.d = left.d * rl_ratio #lower left duty to accomodate
+    elif rl_ratio > 1.01:
+        right.d = (rpm_left / rpm_right) * right.d
+    else:
+        pass
+
+
+
+    

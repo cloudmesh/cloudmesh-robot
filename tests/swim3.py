@@ -16,10 +16,6 @@ pitch = cm.Servo("D8")
 
 led.blink(1)
 
-credentials = cm.get_attributes('credentials.txt')
-
-print(credentials)
-
 print('starting network ...')
 
 credentials = cm.get_attributes('credentials.txt')
@@ -32,7 +28,7 @@ print(credentials)
 
 led.blink(2)
 
-net = cm.connect()
+net = cm.ap()
 
 led.blink(5)
 

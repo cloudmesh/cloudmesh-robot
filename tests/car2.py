@@ -1,3 +1,4 @@
+import cm
 import network
 import ubinascii
 import time
@@ -5,125 +6,28 @@ import machine
 import socket
 from machine import Pin, PWM
 
+led = cm.LED(2)
 
+right = cm.motor("right")
+left = cm.motor("left")
 
+led.blink(5)
 
-class LED(object):
+credentials = cm.get_attributes('credentials.txt')
 
-    # pin = 2
-    def __init__(self, pin):
-        """
-        defne an LED on a given pin
-        :param pin: the number of the pin
-        """
-        self.light = machine.Pin(pin, machine.Pin.OUT)
-
-
-    def on(self):
-        """
-        switch on the LED
-        """
-
-        self.light.low()
-
-    def off(self):
-        self.light.high()
-
-
-
-
-class motor(object):
-
-
-    def __init__(self, name):
-        self.forward_speed = 1023
-        if name == "left":
-            self.pin_speed = 4
-            self.pin_direction = 2
-        elif name == "right":
-            self.pin_speed = 5
-            self.pin_direction = 0
-
-        self.speed = PWM(Pin(self.pin_speed), freq=1000, duty=0)
-        self.direction = Pin(self.pin_direction, Pin.OUT)
-        self.name = name
-
-    def forward(self):
-        self.direction.low()
-        self.duty(1023)
-
-    def backward(self):
-        self.direction.high()
-        self.duty(1023)
-
-    def stop(self):
-        self.duty(0)
-
-    def duty(self, d):
-        PWM(Pin(self.pin_speed), freq=1000, duty=d)
-
-    def set_forward_speed(self, duty):
-        self.forward_speed = duty
-
-
-led = LED(2)
-
-right = motor("right")
-left = motor("left")
-
-def blink(n):
-    for i in range(0,n):
-        led.on()
-        time.sleep(0.1)
-        led.off()
-        time.sleep(0.1)
-
-def get_attributes(filename):
-    f = open(filename)
-    contents = f.read()
-    f.close()
-    # print (contents)
-    contents.replace("\r\n","\n")
-
-    attributes = {}
-    lines = contents.split("\n")
-    for line in lines:
-        if ":" in line:
-            attribute, value = line.split(":")
-            attributes[attribute.strip()] = value.strip()
-
-    return attributes
-
-def do_connect():
-    sta_if = network.WLAN(network.STA_IF)
-    if not sta_if.isconnected():
-        print('connecting to network...')
-        sta_if.active(True)
-        sta_if.connect(credentials['ssid'], credentials['password'])
-        while not sta_if.isconnected():
-            pass
-    return sta_if.ifconfig()
-
-
-credentials = get_attributes('credentials.txt')
-
-print (credentials)
+print(credentials)
 
 print('starting network ...')
 
+credentials = cm.get_attributes('credentials.txt')
 
-ap_if = network.WLAN(network.AP_IF)
-print(ap_if.active())
-print(ap_if.ifconfig())
+print(credentials)
 
-net = do_connect()
-print (net)
-print ('IP: ', net[0])
+led.blink(2)
 
-mac = ubinascii.hexlify(network.WLAN().config('mac'),':').decode()
-print ('MAC:', mac)
+net = cm.connect()
 
-
+led.blink(5)
 
 
 html = """<!DOCTYPE html>
@@ -156,13 +60,6 @@ html = """<!DOCTYPE html>
 </html>
 """
 
-for i in range(0,5):
-    led.on()
-    time.sleep(0.1)
-    led.off()
-    time.sleep(0.1)
-
-    led.on()
 
 #Setup Socket WebServer
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -208,36 +105,7 @@ while True:
         left.backward()
         direction = 'BACKWARD'
 
-    response = ''.join(html.split('\n')[1:])
 
-    #blink (3)
-    #time.sleep(0.5)
-
-
-    response_headers = {
-        'Content-Type': 'text/html; encoding=utf8',
-        'Content-Length': len(response),
-        'Connection': 'close',
-    }
-
-
-    response_headers_raw = ''.join('%s: %s\n' % (k, v) for k, v in response_headers.items())
-
-
-    # Reply as HTTP/1.1 server, saying "HTTP OK" (code 200).
-    response_proto = 'HTTP/1.1'
-    response_status = '200'
-    response_status_text = 'OK'  # this can be random
-
-    # sending all this stuff
-    conn.send('%s %s %s' % (response_proto, response_status, response_status_text))
-    conn.send(response_headers_raw)
-    conn.send('\n')  # to separate headers from body
-
-
-    conn.send(response)
-    #blink (5)
-    #time.sleep(0.5)
+    cm.feedback(conn, html)
 
     conn.close()
-
