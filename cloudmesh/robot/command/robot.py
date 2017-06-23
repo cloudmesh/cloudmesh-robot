@@ -12,6 +12,7 @@ from cloudmesh.robot.api import Probe, Git, Network, Ampy
 from pprint import pprint
 import textwrap
 from cloudmesh.common.hostlist import Parameter
+from cloudmesh.common.StopWatch import StopWatch
 from ruamel import yaml
 
 class RobotCommand(PluginCommand):
@@ -305,9 +306,17 @@ class RobotCommand(PluginCommand):
 
         elif arguments.put:
             try:
+                t = StopWatch()
+                t.start("put")
+
+                size = os.path.getsize(arguments.SOURCE)
+
                 p = Probe()
                 ampy = Ampy(p.tty)
                 ampy.put(arguments.SOURCE, arguments.DESTINATION)
+                t.stop("put")
+                t.print("Time:", "put")
+                print("Rate:", "{0:.2f}".format(size/t.get("put")/1024), "KB/s")
             except Exception as e:
                 Error.traceback(e)
 
