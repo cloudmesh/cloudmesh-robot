@@ -96,7 +96,7 @@ class speed_meter(object):
                 delta_t = utime.ticks_diff(utime.ticks_ms(), t0)
         count_dt = self.counter - count_start
         print (count_dt)
-        return count_dt, self.counter
+        return count_dt
 
     def rpm(self):
         return (self.get() / 20) * 300
@@ -122,13 +122,16 @@ led.blink(5)
 
 
 def motor_adjuster(right_meter, left_meter):
+    """adjusts the duties of the motors based on the wheel rpm
+
+    """
     rpm_right = right_meter.get()
     rpm_left = left_meter.get()
     rl_ratio = rpm_right / rpm_left
     if rl_ratio < .99:             #if right wheel speed is less than 99% left wheel
         left.d = left.d * rl_ratio #lower left duty to accomodate
-    elif rl_ratio > 1.01:
-        right.d = (rpm_left / rpm_right) * right.d
+    elif rl_ratio > 1.01:                          #if right is faster than left
+        right.d = (rpm_left / rpm_right) * right.d #decrease right
     else:
         pass
 
