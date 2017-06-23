@@ -1,10 +1,11 @@
-import cm
 import network
 import ubinascii
 import time
 import machine
 import socket
 from machine import Pin, PWM
+import cm
+
 
 led = cm.LED(2)
 
@@ -29,52 +30,40 @@ net = cm.connect()
 
 led.blink(5)
 
-data = {
-    "style": "style=\"height:100px;width:100px;background-color:#4CAF50\"",
-    "stylered": "style=\"height:100px;width:100px;background-color:Red\""
-}
 
 html = """<!DOCTYPE html>
 <html>
-<head> 
-
-<title>Cloudmesh ESP8266 Car</title> 
-
-</head>
+<head> <title>ESP8266 Car</title> </head>
 <center>
 <h3>Cloudmesh.robot</h3>
 <h2>ESP8266 Car Test</h2>
 </center>
 <form>
-<center>
 <table>
-
 <tr>
-<td></td>
-<td><button name="FORWARD" value="ON" type="submit" {style}>FORWARD</button></td>
-<td></td>
+<td>LEFT:</td> 
+<td><button name="LEFT" value="ON" type="submit">ON</button></td>
+<td><button name="LEFT" value="OFF" type="submit">OFF</button></td>
 </tr>
-
 <tr>
-<td><button name="LEFT" value="ON" type="submit"  {style}">LEFT ON</button></td>
-<td><button name="STOP" value="ON" type="submit" {stylered}>STOP</button></td>
-<td><button name="RIGHT" value="ON" type="submit" {style}>RIGHT ON</button></td>
+<td>RIGHT:</td>
+<td><button name="RIGHT" value="ON" type="submit">ON</button></td>
+<td><button name="RIGHT" value="OFF" type="submit">OFF</button></td>
 </tr>
-
 <tr>
-<td></td>
-<td><button name="BACK" value="ON" type="submit" {style}>BACKWARD</button></td>
-<td></td>
+<td>DIRECTION:</td>
+<td><button name="FORWARD" value="ON" type="submit">FORWARD</button></td>
+<td><button name="STOP" value="ON" type="submit">STOP</button></td>
+<td><button name="BACK" value="ON" type="submit">BACKWARD</button></td>
 </tr>
-
 </table>
-<center>
 </form>
 </html>
-""".format(**data)
+"""
 
-print (html)
-#Setup Socket WebServer
+led.on()
+
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
 s.listen(5)
@@ -122,3 +111,4 @@ while True:
     cm.feedback(conn, html)
 
     conn.close()
+

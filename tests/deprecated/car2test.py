@@ -8,27 +8,6 @@ from machine import Pin, PWM
 
 
 
-class LED(object):
-
-    # pin = 2
-    def __init__(self, pin):
-        """
-        defne an LED on a given pin
-        :param pin: the number of the pin
-        """
-        self.light = machine.Pin(pin, machine.Pin.OUT)
-
-
-    def on(self):
-        """
-        switch on the LED
-        """
-
-        self.light.low()
-
-    def off(self):
-        self.light.high()
-
 
 
 
@@ -71,38 +50,6 @@ led = LED(2)
 right = motor("right")
 left = motor("left")
 
-def blink(n):
-    for i in range(0,n):
-        led.on()
-        time.sleep(0.1)
-        led.off()
-        time.sleep(0.1)
-
-def get_attributes(filename):
-    f = open(filename)
-    contents = f.read()
-    f.close()
-    # print (contents)
-    contents.replace("\r\n","\n")
-
-    attributes = {}
-    lines = contents.split("\n")
-    for line in lines:
-        if ":" in line:
-            attribute, value = line.split(":")
-            attributes[attribute.strip()] = value.strip()
-
-    return attributes
-
-def do_connect():
-    sta_if = network.WLAN(network.STA_IF)
-    if not sta_if.isconnected():
-        print('connecting to network...')
-        sta_if.active(True)
-        sta_if.connect(credentials['ssid'], credentials['password'])
-        while not sta_if.isconnected():
-            pass
-    return sta_if.ifconfig()
 
 
 credentials = get_attributes('credentials.txt')

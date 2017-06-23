@@ -7,6 +7,9 @@ from machine import Pin, PWM
 import os
 import math
 
+
+
+
 ##############################################
 # VERSION
 ##############################################
@@ -50,6 +53,9 @@ def pin_id(pin):
     elif type(pin) == int:
         return pin
 
+def getmac():
+    mac = ubinascii.hexlify(network.WLAN().config('mac'), ':').decode()
+    return mac
 
 ##############################################
 # WEB REPL
@@ -321,6 +327,7 @@ class motor(object):
         :param value: the duty value
         """
         if 0 <= value <= 1023:
+            ### BUG ?  this shoudl set the duty and not create a new PWM???? Check
             PWM(Pin(self.pin_speed), freq=1000, duty=value)
 
 
