@@ -42,49 +42,44 @@ def move(ip, direction, epsilon=0.0001):
     epsilon: float: threshold for distance to target
     """
 
-filename="moveto.txt"
-f = open(filename)
-lines = f.readlines()
-f.close()
+#filename="move.txt"
+#f = open(filename)
+#lines = f.readlines()
+#f.close()
 
 
-print ("LINES", lines)
-x = 100
-y = 100
-epsilon = 10
+#print ("LINES", lines)
+
+
+x = 500 #destination
+y = 500
+epsilon = 5
 
 robot = MarvelmindHedge(tty='/dev/tty.usbmodemFD121')
-ip = "10.0.1.118"
-curdirection = 'XP'
+ip = "10.0.1.115"
+curdirection = 'XP' #current direction
+
+ad0, x0, y0, z0, t0 = robot.position() # initial position
+m = (y - y0) / (x - x0) #slope of the ideal line
+print(m)
+b = y0 - (m * x0) #y intercept of the ideal line
+print(b)
+alpha = 90 #initial angle of correction
+goingright = True
+goingleft = True
+
 robot.start()
+
 while True:
         print (robot.position())
         time.sleep(0.5)
         robot.print_position()
-        addr, cx, cy, cz, ts = robot.position()
-        dx, dy = x - cx, y - cy
+        addr, cx, cy, cz, ts = robot.position() #current robot position
+        dx, dy = x - cx, y - cy #distance between current position and final position
+        x-exp = (cy - b) / m   #expected x value based on current y
 
-        # assume motion is horizontal or vertical only
-        if abs(dx) >= epsilon:
-            if dx > 0:
-                if curdirection == 'XP':
-                    # move forward
-                    move(ip, "forward")
-                    time.sleep(0.2)
-                    move(ip, "stop")
-        elif abs(dy) >= epsilon:
-            if dy > 0:
-                if curdirection == 'YP':
-                    # move forwrad
-                    move(ip, "forward")
-                    time.sleep(0.2)
-                    move(ip, "stop")
-                elif curdirection == 'XP':
-                    # left turn 90 degree once
-                    move(ip, "left")
-                    time.sleep(0.5)
-                    move(ip, "stop")
-                    curdirection = 'YP'
+
+
         
         else:
             assert abs(dx) < epsilon and abs(dy) < epsilon

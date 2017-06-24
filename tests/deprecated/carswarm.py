@@ -1,10 +1,11 @@
-import cm
 import network
 import ubinascii
 import time
 import machine
 import socket
 from machine import Pin, PWM
+import cm
+
 
 led = cm.LED(2)
 
@@ -29,9 +30,6 @@ net = cm.connect()
 
 led.blink(5)
 
-data = {
-"style": "style=\"height:100px;width:100px\""
-}
 
 html = """<!DOCTYPE html>
 <html>
@@ -44,27 +42,28 @@ html = """<!DOCTYPE html>
 <table>
 <tr>
 <td>LEFT:</td> 
-<td><button name="LEFT" value="ON" type="submit" {style}>ON</button></td>
-<td><button name="LEFT" value="OFF" type="submit" {style}>OFF</button></td>
+<td><button name="LEFT" value="ON" type="submit">ON</button></td>
+<td><button name="LEFT" value="OFF" type="submit">OFF</button></td>
 </tr>
 <tr>
 <td>RIGHT:</td>
-<td><button name="RIGHT" value="ON" type="submit" {style}>ON</button></td>
-<td><button name="RIGHT" value="OFF" type="submit" {style}>OFF</button></td>
+<td><button name="RIGHT" value="ON" type="submit">ON</button></td>
+<td><button name="RIGHT" value="OFF" type="submit">OFF</button></td>
 </tr>
 <tr>
 <td>DIRECTION:</td>
-<td><button name="FORWARD" value="ON" type="submit" {style}>FORWARD</button></td>
-<td><button name="STOP" value="ON" type="submit" {style}>STOP</button></td>
-<td><button name="BACK" value="ON" type="submit" {style}>BACKWARD</button></td>
+<td><button name="FORWARD" value="ON" type="submit">FORWARD</button></td>
+<td><button name="STOP" value="ON" type="submit">STOP</button></td>
+<td><button name="BACK" value="ON" type="submit">BACKWARD</button></td>
 </tr>
 </table>
 </form>
 </html>
-""".format(**data)
+"""
 
-print (html)
-#Setup Socket WebServer
+led.on()
+
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
 s.listen(5)
@@ -112,3 +111,4 @@ while True:
     cm.feedback(conn, html)
 
     conn.close()
+
