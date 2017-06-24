@@ -1,5 +1,10 @@
 var $myRightMeter, $myLeftMeter;
-$(function() {		
+$(function(){
+    // limit number of requests (milliseconds between each request)
+    var speedThrottle = 200;
+    var allowRequest = true;
+    var lastSpeedSent = {}
+
     // speed obj to store speed for http requests
     var speedObj = {left: 0, right: 0};
     
@@ -58,10 +63,21 @@ $(function() {
     
     // send AJAX request
     function updateSpeeds(){
-        var url = curRobot.val();
-        url = 'http://' + url + '?left=' + speedObj.left + '&right=' + speedObj.right;
-        console.log(url);
-        //$.get(url);
+        if(allowRequest){
+            allowRequest = false;
+            var url = curRobot.val();
+            url = 'http://' + url + '?left=' + speedObj.left + '&right=' + speedObj.right;
+            console.log(url);
+            //$.get(url);
+            lastSpeedSent.right = speedObj.right;
+            lastSpeedSent.left = speedObj.left;
+            setTimeout(function(){
+                allowRequest = true;
+                if(lastSpeedSent.right != speedObj.right || lastSpeedSent.left != speedObj.left){
+                    updateSpeeds();
+                }
+            }, speedThrottle);
+        }
     }
     
     // change all values to 0
