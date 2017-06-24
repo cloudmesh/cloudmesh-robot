@@ -5,11 +5,12 @@ $(function(){
     var allowRequest = true;
     var lastSpeedSent = {}
 
-    // speed obj to store speed for http requests
-    var speedObj = {left: 0, right: 0};
-    
     // currently selected robot
-    var curRobot = null;
+    var curRobot = {
+        speedLeft: 0,
+        speedRight: 0,
+        ip: ''
+    };
     
     $myRightMeter = $("div#rightMeterDiv").dynameter({
     	width: 200,
@@ -45,7 +46,7 @@ $(function(){
         var $radio = $('<input type="radio" name="robots" value="' + robot.ip + '"/>');
         if(i == 0){
             $radio.attr('checked', 'checked');
-            curRobot = $radio;
+            curRobot.ip = $radio.val();
         }
         var $label = $('<label>' + robot.name + '</label>');
         $form.append($radio);
@@ -54,10 +55,10 @@ $(function(){
     
     // new robot selected
     $('input[type=radio][name=robots]').change(function() {
-        curRobot = $(this);
-        speedObj.left = 0;
-        speedObj.right = 0;
-        updateSpeeds();                
+        curRobot.speedLeft = 0;
+        curRobot.speedRight = 0;
+        updateSpeeds();
+        curRobot.ip = $(this).val();             
         resetValues();
     });
     
@@ -65,15 +66,17 @@ $(function(){
     function updateSpeeds(){
         if(allowRequest){
             allowRequest = false;
-            var url = curRobot.val();
-            url = 'http://' + url + '?left=' + speedObj.left + '&right=' + speedObj.right;
+            var url = curRobot.ip;
+            url = 'http://' + url + '?left=' + curRobot.speedLeft + '&right=' + curRobot.speedRight;
+            
             console.log(url);
             //$.get(url);
-            lastSpeedSent.right = speedObj.right;
-            lastSpeedSent.left = speedObj.left;
+            
+            lastSpeedSent.right = curRobot.speedRight;
+            lastSpeedSent.left = curRobot.speedLeft;
             setTimeout(function(){
                 allowRequest = true;
-                if(lastSpeedSent.right != speedObj.right || lastSpeedSent.left != speedObj.left){
+                if(lastSpeedSent.right != curRobot.speedRight || lastSpeedSent.left != curRobot.speedLeft){
                     updateSpeeds();
                 }
             }, speedThrottle);
@@ -92,7 +95,7 @@ $(function(){
         	step: 10,
         	slide: function (evt, ui) {
         		$myLeftMeter.changeValue(ui.value);
-        		speedObj.left = ui.value;
+        		curRobot.speedLeft = ui.value;
         		updateSpeeds();
         	}
         });
@@ -104,7 +107,7 @@ $(function(){
         	step: 10,
         	slide: function (evt, ui) {
         		$myRightMeter.changeValue(ui.value);
-        		speedObj.right = ui.value;
+        		curRobot.speedRight = ui.value;
         		updateSpeeds();
         	}
         });
