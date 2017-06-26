@@ -1,41 +1,51 @@
 import sys
 import time
 # import requests
-from marvelmindcoordinates import MarvelmindHedge
 from pprint import pprint
 from cloudmesh.common.Printer import Printer
+import random
+import time
+#
+# BUG marvelmind can not be found
+#
+# from marvelmindcoordinates import MarvelmindHedge
 
+class BeaconSimulator():
+
+    def get (addr):
+        x = random.random() * 100.0
+        y = random.random() * 100.0
+        return (addr, x, y, time.now())
 
 class PositioningSystem(object):
+
     def __init__(self, tty='/dev/tty.usbmodemFD121'):
         self.tty = tty
         self.beacon = {}
         self.id = 0
-        self.robot = MarvelmindHedge(self.tty)
+#       self.sensors =  MarvelmindHedge(self.tty)
 
-    def status(self):
-        # x,y
+    def pos(self, name):
+        return self.beacon[name]['x'],self.beacon[name]['y']
         pass
 
-    # TODO: implement
     def export(self, filename):
-        # file open or with statment
-        for name in self.beacon:
-            for element in ['name', 'x', 'y']:
-                print (name,)
-                print (x,)
-                print (y)
-                # change this at one point so it prints this to a file
-                # close file
+        with open(filename, "w") as f:
+            for name in self.beacon:
+                element = "{name}, {x}, {y}".format(**self.beacon[name])
+                f.write(element)
+                f.write("\n")
+
+    def update(self):
+        pass
 
     def register(self, addr, name, kind='mobile'):
-        addr, x, y, z, t = self.robot
         self.beacon[name] = {
             'name': name,
             'kind': kind,
             'addr': addr,
-            'x': x,
-            'y': y,
+            'x': 0.0,
+            'y': 0.0,
             'id': self.id
         }
         self.id = self.id + 1
@@ -46,25 +56,26 @@ class PositioningSystem(object):
                 return self.beacon[i]
         return None
 
-        # def reset():
-        # set all positions to some vale within the fixedbecona
-        # pass
+    def reset(self):
+        for name in self.beacon:
+            self.beacon[name]['x'] = 0.0
+            self.beacon[name]['y'] = 0.0
 
-        # def info(self, kind='mobile'):
+    def info(self, kind='mobile'):
         # mobile, all, stationarty
+        pass
 
         # dependent on type returns info about the beacons
         # not sure how to implement yet
 
-        # def count(self, type= ....)
+    def count(self, type='mobile'):
         # retusn number of beacons found
+        pass
 
-        # def set_count(stationary, mobile)
+    def set_count(self, type='mobile'):
         # instead of probing the beacons hard code the set count
         # so we can figure out if we have power issue
-
-        # def probe (id):
-        # similar to get but with more info get just gives xy
+        pass
 
 
 positions = PositioningSystem()
@@ -77,12 +88,13 @@ positions.register("Hedge 3", "robi16")
 
 print(positions.beacon)
 
+positions.export('g.txt')
+
 print(Printer.dict(positions.beacon, order=['id', 'name', 'kind', 'x', 'y', 'addr']))
 
-# positions = robot.position()
+
 
 sys.exit(0)
-# robot = MarvelmindHedge(tty='/dev/tty.usbmodemFD121')
 
 
 """
