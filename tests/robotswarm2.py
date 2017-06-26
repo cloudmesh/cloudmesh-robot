@@ -50,7 +50,7 @@ class PositioningSystem(object):
                 return self.beacon[i]
         return None
             
-    def get(id=None):
+    def get(name=None):
         if id is None:
             d = get all positions and put in dict or array not sure what works, you are expert
             return d
@@ -121,6 +121,15 @@ if robot.neat (x, y, r):
     print ("YUHU IM THERE")
 
 
+
+positons = PositionoingSystem()
+
+positions.register("Hedge #15", "robi15")
+
+
+x,y = positions.get("robi15")
+
+    
 ### integrate whatever maces sense in the above.    
 
 
@@ -138,7 +147,7 @@ dx, dy = x - cx, y - cy #distance between current position and final position
 goingright = True
 goingleft = True
 
-while ????:
+while robot.distance() > epsilon:
         print (robot.position())
         Go forward
         time.sleep(0.5)
