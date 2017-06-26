@@ -83,6 +83,14 @@ Note, that you will need sudo previledges for some of the tools.
 	$ cms robot osx install
 	$ cms robot osx driver
 
+## Matplotlib
+
+As we typically install python with firtualenv, we need to configure matplotlib properly to use it. The easiest way to do thisis to execute the following commands. After you run them you can use matplotlib.
+
+	pip install numpy
+	pip install matplotlib
+	echo "backend : TkAgg" > ~/.matplotlib/matplotlibrc
+
 ## External Tutorials
 
 The following links include tutorials or additional material that may be useful for you to learn more about each tool.

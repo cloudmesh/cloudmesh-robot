@@ -1,6 +1,7 @@
 import network
 import ubinascii
 import time
+import utime
 import machine
 import socket
 from machine import Pin, PWM
@@ -277,6 +278,7 @@ class Servo(object):
 ##############################################
 
 class Motor(object):
+<<<<<<< HEAD
     """the motor class has the name attribute and a forward duty and backward duty"""
 
     def __init__(self,
@@ -293,6 +295,11 @@ class Motor(object):
         :param pin_left_direction: 
         :param pin_right_speed: 
         :param pin_right_direction: 
+=======
+    def __init__(self, name):
+        """Sets up two motors for a robot car
+        :param name: left or right
+>>>>>>> bb68d5247822f916adb8b4b3da76424218cdbcd6
         """
         if name == "left":
             self.pin_speed = 4
@@ -301,34 +308,67 @@ class Motor(object):
             self.pin_speed = 5
             self.pin_direction = 0
 
+<<<<<<< HEAD
         self.motor = PWM(Pin(self.pin_speed), freq=1000, duty=0)
+=======
+        self.d = 1023
+        self.speed = PWM(Pin(self.pin_speed), freq=1000, duty=0)
+>>>>>>> bb68d5247822f916adb8b4b3da76424218cdbcd6
         self.direction = Pin(self.pin_direction, Pin.OUT)
         self.name = name
-        self.forward_duty = forward_duty
-        self.backward_duty = backward_duty
 
     def forward(self):
-        """turns a motor on in the forward direction"""
         self.direction.low()
-        self.duty(self.forward_duty)
+        self.speed.duty(self.d)
 
     def backward(self):
-        """turns a motor on in the backward direction"""
         self.direction.high()
-        self.duty(self.backward_duty)
+        self.speed.duty(self.d)
 
     def stop(self):
-        """stops a motor"""
-        self.duty(0)
+        self.speed.duty(0)
 
-    def duty(self, value):
-        """
-        specifies the duty associated with the pin 
-        :param value: the duty value
-        """
+    def dutyset(self, value):
         if 0 <= value <= 1023:
+<<<<<<< HEAD
             self.motor.duty(value)
+=======
+            self.d = value
+            
+##############################################
+# RPM METER MANAGEMENT
+##############################################
+>>>>>>> bb68d5247822f916adb8b4b3da76424218cdbcd6
 
+class SpeedMeter(object):
+    def __init__(self, pin):
+        """
+        SpeedMeter refers to the rpm meter on each wheel.
+        :param pin: number of the pin
+        """
+        self.pin = machine.Pin(pin, machine.Pin.IN)
+        self.status = Pin.value(self.pin)
+        self.counter = 0
+
+    def update(self):
+        self.status = Pin.value(self.pin)
+
+    def get(self):
+        turn = True
+        t0 = utime.ticks_ms()
+        delta_t = 0
+        count_start = self.counter
+        while delta_t < 1000:
+            self.update()
+            if self.status == 1 and turn:
+                turn = False
+                self.counter += 1
+            elif self.status == 0:
+                turn = True
+                delta_t = utime.ticks_diff(utime.ticks_ms(), t0)
+        count_dt = self.counter - count_start
+        print (count_dt)
+        return count_dt
 
 ##############################################
 # WEBPAGE MANAGEMENT
@@ -385,3 +425,5 @@ def hello():
 
 if __name__ == "__main__":
     hello()
+    
+
