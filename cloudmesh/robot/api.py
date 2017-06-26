@@ -11,7 +11,6 @@ import requests
 
 class Ampy(object):
     def __init__(self, port=None):
-
         self.port = port
 
     def ls(self, path=None):
@@ -28,9 +27,27 @@ class Ampy(object):
     def mkdir(self, path):
         self._execute("mkdir", path)
 
-    def put(self, src, dest=None):
+    def put(self, src, dest=None, optimize=False):
+        if optimize:
+            print("optimize")
+            data = {
+                'src': src,
+                'dest': dest,
+                'opt': src + '-opt'
+            }
+            print("A")
+            command = "pyminifier -o {opt} {src}".format(**data)
+            print("CC", command)
+            os.system(command)
+            src = data['opt']
+            dest = os.path.basename(src.replace('-opt', ''))
+        else:
+            print ("normal")
         if dest is None:
             dest = os.path.basename(src)
+
+        print(src, '->', dest)
+
         return self._execute_src_dest("put", src, dest)
 
     def get(self, src, dest=None):
