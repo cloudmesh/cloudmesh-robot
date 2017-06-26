@@ -7,7 +7,7 @@ from cloudmesh.common.Printer import Printer
 
 
 class PositioningSystem(object):
-    def __init___(self, tty='/dev/tty.usbmodemFD121'):
+    def __init__(self, tty='/dev/tty.usbmodemFD121'):
         self.tty = tty
         self.beacon = {}
         self.id = 0
