@@ -7,12 +7,7 @@ import random
 import time
 
 
-class ggg(object):
-
-    def __init__(self):
-        self.g = {}
-
-class BeaconSimulator(object):
+class BeaconSimulator():
 
     def get (addr):
         x = random.random() * 100.0
@@ -21,46 +16,32 @@ class BeaconSimulator(object):
 
 class PositioningSystem(object):
 
-    def __init__(self):
-        print("hallo")
-
-
-
-a = ggg()
-print (a.g)
-
-b = PositioningSystem()
-
-#print (b.tty)
-
-'''
-
-        self._tty = tty
+    def __init__(self, tty='/dev/tty.usbmodemFD121'):
+        self.tty = tty
         self.beacon = {}
         self.id = 0
 
-    def status(self):
-        # x,y
+    def pos(self, name):
+        return self.beacon[name]['x'],self.beacon[name]['y']
         pass
 
-    # TODO: implement
     def export(self, filename):
-        # file open or with statment
-        for name in self.beacon:
-            for element in ['name', 'x', 'y']:
-                print (name,)
-                print (x,)
-                print (y)
-                # change this at one point so it prints this to a file
-                # close file
+        with open(filename, "w") as f:
+            for name in self.beacon:
+                element = "{name}, {x}, {y}".format(**self.beacon[name])
+                f.write(element)
+                f.write("\n")
+
+    def update(self):
+        pass
 
     def register(self, addr, name, kind='mobile'):
         self.beacon[name] = {
             'name': name,
             'kind': kind,
             'addr': addr,
-            'x': x,
-            'y': y,
+            'x': 0.0,
+            'y': 0.0,
             'id': self.id
         }
         self.id = self.id + 1
@@ -72,8 +53,9 @@ b = PositioningSystem()
         return None
 
     def reset(self):
-        # set all positions to some vale within the fixedbecona
-        pass
+        for name in self.beacon:
+            self.beacon[name]['x'] = 0.0
+            self.beacon[name]['y'] = 0.0
 
     def info(self, kind='mobile'):
         # mobile, all, stationarty
@@ -91,9 +73,6 @@ b = PositioningSystem()
         # so we can figure out if we have power issue
         pass
 
-    def probe (selfid):
-        # similar to get but with more info get just gives xy
-        pass
 
 positions = PositioningSystem()
 
@@ -105,7 +84,8 @@ positions.register("Hedge 3", "robi16")
 
 print(positions.beacon)
 
-print(Printer.dict(positions.beacon, order=['id', 'name', 'kind', 'x', 'y', 'addr']))
+positions.export('g.txt')
+
+#print(Printer.dict(positions.beacon, order=['id', 'name', 'kind', 'x', 'y', 'addr']))
 
 #
-'''
