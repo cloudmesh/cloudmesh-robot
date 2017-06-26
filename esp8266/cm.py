@@ -178,8 +178,8 @@ class LED(object):
         defne an LED on a given pin
         :param pin: the number of the pin
         """
-        pin = pin_id(pin)
-        self.light = machine.Pin(pin, machine.Pin.OUT)
+        self.pin = pin
+        self.light = machine.Pin(self.pin, machine.Pin.OUT)
 
     def on(self):
         """
