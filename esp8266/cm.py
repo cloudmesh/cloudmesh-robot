@@ -280,21 +280,6 @@ class Servo(object):
 class Motor(object):
     """the motor class has the name attribute and a forward duty and backward duty"""
 
-    def __init__(self,
-                 name,
-                 forward_duty=1023,
-                 backward_duty=1023):
-
-        """
-        Sets up two motors for a robot car
-        :param name: 
-        :param forward_duty: 
-        :param backward_duty: 
-        :param pin_left_speed: 
-        :param pin_left_direction: 
-        :param pin_right_speed: 
-        :param pin_right_direction: 
-        """
     def __init__(self, name):
         """Sets up two motors for a robot car
         :param name: left or right
