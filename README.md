@@ -1,18 +1,34 @@
 # ESP8266
 
-When working with a external hardware such as the nodeMCU you will find a lot of information on the internet about it. It is a bit difficult at times to assess what you need to program it. You are exposed to many choices. A NodeMcu typically comes with Lua. However you have many other choices.
-Such choices include multiple programming languages such as Lua, MicroPython, Arduino/C, Go and others.
+When working with a external hardware such as the nodeMCU you will
+find a lot of information on the internet about it. It is a bit
+difficult at times to assess what you need to program it. You are
+exposed to many choices. A NodeMcu typically comes with Lua. However
+you have many other choices.  Such choices include multiple
+programming languages such as Lua, MicroPython, Arduino/C, Go and
+others.
 
-As all of them are slightly different you need to identify which works best for you. In addition you need to install programs, images and libraries that support your specific language choice.
+As all of them are slightly different you need to identify which works
+best for you. In addition you need to install programs, images and
+libraries that support your specific language choice.
  
-For our first experiments we will be using MicroPython. This choce is motivated by the fact that Python is a well established and easy to learn programming language. Many other programs can be conducted in Python. Rescently many educational istitutions are offering Python as an introductory programming language.  
+For our first experiments we will be using MicroPython. This choce is
+motivated by the fact that Python is a well established and easy to
+learn programming language. Many other programs can be conducted in
+Python. Rescently many educational istitutions are offering Python as
+an introductory programming language.
  
-To simplify the setup and use of the esp8266 for MicroPython we developed an easy to use commandline tool that allows users to set up their machine and interact more easily with it. We believe that the interface is so simple that it can also be used in STEM activities and not just in the university or by advanced hobbyists.
+To simplify the setup and use of the esp8266 for MicroPython we
+developed an easy to use commandline tool that allows users to set up
+their machine and interact more easily with it. We believe that the
+interface is so simple that it can also be used in STEM activities and
+not just in the university or by advanced hobbyists.
 
 ## Notation
 
-In this document the `$`  character at a beginning of a command block is used to indicate the terminal prompt. 
-When executing the command do not copy it.
+In this document the `$` character at a beginning of a command block
+is used to indicate the terminal prompt.  When executing the command
+do not copy it.
 
 ## Steup
 
@@ -20,9 +36,13 @@ First we must install a number of tools on the machine connecting to the board.
 
 ### OSX
 
-In our guide we will focus on OSX, however, there should not be any issues with modifying our instalations to work with other operating systems, such as Linux or even Windows. If you have improvements in regards to our code, please let us know.
+In our guide we will focus on OSX, however, there should not be any
+issues with modifying our instalations to work with other operating
+systems, such as Linux or even Windows. If you have improvements in
+regards to our code, please let us know.
 
-On OSX we will be using homebrew and pyenv to leverage existing libraries and to allow the use of a user managed Python envireonment.
+On OSX we will be using homebrew and pyenv to leverage existing
+libraries and to allow the use of a user managed Python envireonment.
 
 #### Homebrew
 
@@ -44,7 +64,12 @@ versions of python. This is done with the commands
 
 #### Install Aquaemacs
 
-You will need an editor to make some modifications to files and write programs. Certainly you can use `vi` or `emacs`. As we are on OSX we can also use an editor such as `aquaemacs`. Let us assume you have installed it on your computer, we recommend to add a shortcut so you can call it from the commandline. This can be done by editing the `~/.bash_profile` and add the following to it.
+You will need an editor to make some modifications to files and write
+programs. Certainly you can use `vi` or `emacs`. As we are on OSX we
+can also use an editor such as `aquaemacs`. Let us assume you have
+installed it on your computer, we recommend to add a shortcut so you
+can call it from the commandline. This can be done by editing the
+`~/.bash_profile` and add the following to it.
 
 	####################################################################### 
 	# PYENV
@@ -263,7 +288,11 @@ Markdown has very good support for editors that render the final
 output in a view windo next to the editor pane.  Two such editors are
 
 * [Macdown](https://macdown.uranusjr.com/): MacDown provides a nice integrated editor that works well.
-* [pyCharm](https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&code=PCC): We have successfully used Vladimir Schhneiders [Markdown Navigator plugin](https://plugins.jetbrains.com/plugin/7896-markdown-navigator). Once installes you click on a .md file pycharm will automatically ask to install the plugins from Markdown for you.
+* [pyCharm](https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&code=PCC):
+  We have successfully used Vladimir Schhneiders
+  [Markdown Navigator plugin](https://plugins.jetbrains.com/plugin/7896-markdown-navigator). Once
+  installes you click on a .md file pycharm will automatically ask to
+  install the plugins from Markdown for you.
 
 
 
