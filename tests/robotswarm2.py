@@ -11,7 +11,7 @@ move 5 5
 """
 
 
-def cm.move(ip, direction, epsilon=0.0001):
+def move(ip, direction, epsilon=0.0001):
     if direction == 'left':
         payload = {'LEFT': 'ON'}
     elif direction == 'right':
@@ -32,55 +32,96 @@ def cm.move(ip, direction, epsilon=0.0001):
 
 
 
+class PositioningSystem(object):
+
+    def __init___(tty="/dev/...????"):
+        pass
+
+    def register (addr, name, kind='mobile'):
+        self.beacon{
+            'name' = name,
+            'kind' = kind,
+            'addr' = addr,
+            }
+
+    def lookup(addr):
+        for i in self.beacon:
+            if self.beacon[i][addr] == addr:
+                return self.beacon[i]
+        return None
+            
+    def get(id=None):
+        if id is None:
+            d = get all positions and put in dict or array not sure what works, you are expert
+            return d
+        else
+            d = get all positions and put in dict or array not sure what works, you are expert
+            return d[id]
+
+    def reset():
+        # set all positions to some vale within the fixedbecona
+        pass
+
+    def info(self, kind='mobile'):
+        mobile, all, stationarty
+
+        dependent on type returns info about the beacons
+        not sure how to implement yet
+
+    def count(self, type= ....)
+        retusn number of beacons found
+
+
+    def set_count(stationary, mobile)
+        instead of probing the beacons hard code the set count
+        so we can figure out if we have power isse
+
+    def probe (id):
+        similar to get but with more info get just gives xy
         
-    """
-    Param:
-    =====
-
-    robot: instance of marvelmind.MarvelmindHedge"
-    x: float: x-coordinate of target
-    y: float: y-coordinate of target
-    epsilon: float: threshold for distance to target
-    """
-
-#filename="move.txt"
-#f = open(filename)
-#lines = f.readlines()
-#f.close()
+        
 
 
-#print ("LINES", lines)
+class RobotXY(object):
 
-
-x = #destination
-y =
-epsilon = 2
-
-robot = MarvelmindHedge(tty='/dev/tty.usbmodemFD121')
-ip = "10.0.1.115"
-curdirection = 'XP' #current direction
-
-
-def moveto(x,y):
-
-    given position x y move to that position 
-    x0,y0 = get durrent pos
-    x1,x2 = x, y
-
-    .....
-
-def closeto(x,y, r):
-    return diatsnace(x,y) <= r:
-
-
-def distance(x,y):
-
-    given x,y and my current position, how far away am i from x y
-
-    use eucledian disatance e.g. pytagoras
     
+    def __init__(self, epsilon=2):
+        # espilon ???
+        self.epsilon = epsilon
+        
+    def to(self, x,y):
+        """
+        given position x y move to that position 
+        x0,y0 = get durrent pos
+        x1,x2 = x, y
+        """
+        pass
 
 
+    def near(self, x,y, r):
+        return diatsnace(x,y) <= r:
+
+
+    def distance(self, x,y):
+        """
+        given x,y and my current position, how far away am i from x y
+
+        use eucledian disatance e.g. pytagoras
+        """
+
+robot = RobotXY()
+
+# x, y , rin cm
+x = 10.0
+y = 10.0
+r = 2.0
+robot.to(x,y)
+
+if robot.neat (x, y, r):
+    print ("YUHU IM THERE")
+
+
+### integrate whatever maces sense in the above.    
 
 
 
@@ -97,9 +138,7 @@ dx, dy = x - cx, y - cy #distance between current position and final position
 goingright = True
 goingleft = True
 
-robot.start()
-
-while True:
+while ????:
         print (robot.position())
         Go forward
         time.sleep(0.5)
