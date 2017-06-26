@@ -60,6 +60,30 @@ robot = MarvelmindHedge(tty='/dev/tty.usbmodemFD121')
 ip = "10.0.1.115"
 curdirection = 'XP' #current direction
 
+
+def moveto(x,y):
+
+    given position x y move to that position 
+    x0,y0 = get durrent pos
+    x1,x2 = x, y
+
+    .....
+
+def closeto(x,y, r):
+    return diatsnace(x,y) <= r:
+
+
+def distance(x,y):
+
+    given x,y and my current position, how far away am i from x y
+
+    use eucledian disatance e.g. pytagoras
+    
+
+
+
+
+
 adO, xO, yO, zO, tO = robot.position() # initial position
 m = (y - y0) / (x - x0) #slope of the ideal line
 print(m)
