@@ -178,8 +178,8 @@ class LED(object):
         defne an LED on a given pin
         :param pin: the number of the pin
         """
-        pin = pin_id(pin)
-        self.light = machine.Pin(pin, machine.Pin.OUT)
+        self.pin = pin
+        self.light = machine.Pin(self.pin, machine.Pin.OUT)
 
     def on(self):
         """
@@ -278,28 +278,11 @@ class Servo(object):
 ##############################################
 
 class Motor(object):
-<<<<<<< HEAD
     """the motor class has the name attribute and a forward duty and backward duty"""
 
-    def __init__(self,
-                 name,
-                 forward_duty=1023,
-                 backward_duty=1023):
-
-        """
-        Sets up two motors for a robot car
-        :param name: 
-        :param forward_duty: 
-        :param backward_duty: 
-        :param pin_left_speed: 
-        :param pin_left_direction: 
-        :param pin_right_speed: 
-        :param pin_right_direction: 
-=======
     def __init__(self, name):
         """Sets up two motors for a robot car
         :param name: left or right
->>>>>>> bb68d5247822f916adb8b4b3da76424218cdbcd6
         """
         if name == "left":
             self.pin_speed = 4
@@ -307,13 +290,9 @@ class Motor(object):
         elif name == "right":
             self.pin_speed = 5
             self.pin_direction = 0
-
-<<<<<<< HEAD
         self.motor = PWM(Pin(self.pin_speed), freq=1000, duty=0)
-=======
         self.d = 1023
         self.speed = PWM(Pin(self.pin_speed), freq=1000, duty=0)
->>>>>>> bb68d5247822f916adb8b4b3da76424218cdbcd6
         self.direction = Pin(self.pin_direction, Pin.OUT)
         self.name = name
 
@@ -330,15 +309,11 @@ class Motor(object):
 
     def dutyset(self, value):
         if 0 <= value <= 1023:
-<<<<<<< HEAD
-            self.motor.duty(value)
-=======
             self.d = value
             
 ##############################################
 # RPM METER MANAGEMENT
 ##############################################
->>>>>>> bb68d5247822f916adb8b4b3da76424218cdbcd6
 
 class SpeedMeter(object):
     def __init__(self, pin):
