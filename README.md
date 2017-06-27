@@ -250,6 +250,12 @@ Next we need to *flash* the image on the board. Your board will look
 something like this
     
 ![alt text](images/Official-font-b-DOIT-b-font-ESP-32-ESP-32S-ESP-32-Development-Board-font-b.jpg)
+[link with motor shield](https://www.amazon.com/KOOKYE-ESP8266-NodeMcu-ESP-12E-Expansion/dp/B01C6MR62E/ref=sr_1_3?ie=UTF8&qid=1498599901&sr=8-3&keywords=esp8266++doit)
+
+![alttext](images/feather.png)
+[link](https://www.amazon.com/Adafruit-2821-Feather-HUZZAH-ESP8266/dp/B019MGW6N6/ref=sr_1_1?ie=UTF8&qid=1498599868&sr=8-1&keywords=esp8266++feather)
+
+![alttext](images/esp8266-b.png) [link](https://www.amazon.com/HiLetgo-Version-NodeMCU-Internet-Development/dp/B010O1G1ES/ref=sr_1_3?ie=UTF8&qid=1498599733&sr=8-3&keywords=esp8266)
 
 You will need to connect your board to your computer with a USB
 cable. The board has a microusb cable adapter.  Make sure to obtain
