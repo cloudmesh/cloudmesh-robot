@@ -572,13 +572,3 @@ Grove
 * https://solarbotics.com/product/30316/
 * https://solarbotics.com/product/30314/
 * 
-
-
-How to clean?
-=============
-
-
-    cd cloudmesh.robot
-    pip uninstall cloudmesh.robot
-    make clean
-    python setup.py install; pip install -e .
