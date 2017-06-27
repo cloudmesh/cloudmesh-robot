@@ -138,10 +138,29 @@ class Probe(object):
         id = self._run("esptool.py -p " + self.tty + " chip_id")
         mac = self._run("esptool.py -p " + self.tty + " read_mac")
 
+        print(id)
+        print(mac)
+
+        for i in range(0,len(id)):
+            print (i, id[i])
+            if id[i].startswith(b'Chip ID:'):
+                found_id = id[i]
+                break
+
+
+        for i in range(0,len(mac)):
+            print(i, mac[i])
+            if mac[i].startswith(b'MAC:'):
+                found_mac = mac[i]
+                break
+
+        print(found_id)
+        print(found_mac)
+
         data = {
             "tty": self.tty,
-            "chipid": str(id[2].decode('ascii')).replace("Chip ID:", "").strip(),
-            "mac": str(mac[2].decode('ascii')).replace("MAC:", "").strip(),
+            "chipid": str(found_id.decode('ascii')).replace("Chip ID:", "").strip(),
+            "mac": str(found_mac.decode('ascii')).replace("MAC:", "").strip(),
         }
         return data
 
