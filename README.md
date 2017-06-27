@@ -139,12 +139,26 @@ program that is installed as part of a command tool called cloudmesh.
 
 #### Install Cloudmesh Robot 
 
-To install the robot command you simply type
+**The install from pip is not yet working**
 
-	pip install cloudmesh.robot
+> To install the robot command you simply type
 
-This will install a program `cms` on your computer that allows you to
-easily communicate with the robot. To test out if the command has been
+>	     pip install cloudmesh.robot
+
+> This will install a program `cms` on your computer that allows you to
+> easily communicate with the robot. 
+
+Developers are however encouraged to work with the source code. THus you will need to first obtain it as follows
+
+	mkdir github
+	cd github
+	git clone https://github.com/cloudmesh/cloudmesh.common.git
+	git clone https://github.com/cloudmesh/cloudmesh.cmd5.git
+	git clone https://github.com/cloudmesh/cloudmesh.robot.git
+	cd cloudmesh.robot
+	make source
+
+To test out if the command has been
 installed please type
 
     cms robot welcome
