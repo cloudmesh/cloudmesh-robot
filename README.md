@@ -165,7 +165,10 @@ installed please type
     
 If everything works you should see an ASCII image of R2D2 and
 C3PO. Next, we still have to install some additional programs before
-you can use other commands. This is done with
+you can use other commands. 
+
+The instalation of these commands requires administrator access. In case you are not an administrator you can temporarily change yourself as an administrator in the OSX configuration windows. 
+Than you can execute the command
 
 	$ cms robot osx install
 	
@@ -173,8 +176,9 @@ In addition you will need to install the OSX driver for the USB interface to the
 
 	$ cms robot osx driver
 	
-After the install you **MUST REBOOT** the machine. Without rebooting you will not be able to use the driver. 
-
+Now please change your account to be again a standard account.
+	
+Now you **MUST REBOOT** the machine. Without rebooting you will not be able to use the USB drivers. 
 
 Once you have successfully installed the drivers and the commands you can look at the manual page of the robot command with
 
