@@ -101,7 +101,7 @@ As we want to develop our programs in python we will install it with `pyenv` as 
 To not forget that you are using python 3 and automatically loading it
 we simply add it to our `~/.bash_profile` file.
 
-    emacs ~/.bash_profile
+    $ emacs ~/.bash_profile
 
 Add the following lines at the end of the file
 
@@ -139,26 +139,46 @@ program that is installed as part of a command tool called cloudmesh.
 
 #### Install Cloudmesh Robot 
 
-To install the robot command you simply type
+**The install from pip is not yet working**
 
-	pip install cloudmesh.robot
+> To install the robot command you simply type
 
-This will install a program `cms` on your computer that allows you to
-easily communicate with the robot. To test out if the command has been
+>	     $ pip install cloudmesh.robot
+
+> This will install a program `cms` on your computer that allows you to
+> easily communicate with the robot. 
+
+Developers are however encouraged to work with the source code. THus you will need to first obtain it as follows
+
+	$ mkdir github
+	$ cd github
+	$ git clone https://github.com/cloudmesh/cloudmesh.common.git
+	$ git clone https://github.com/cloudmesh/cloudmesh.cmd5.git
+	$ git clone https://github.com/cloudmesh/cloudmesh.robot.git
+	$ cd cloudmesh.robot
+	$ make source
+
+To test out if the command has been
 installed please type
 
-    cms robot welcome
+    $ cms robot welcome
     
 If everything works you should see an ASCII image of R2D2 and
 C3PO. Next, we still have to install some additional programs before
 you can use other commands. This is done with
 
-	cms robot osx install
+	$ cms robot osx install
+	
+In addition you will need to install the OSX driver for the USB interface to the esp8266. This is achieved with 
 
-Once you have successfully installed the commands you can look at the
-manual page of the robot command with
+	$ cms robot osx driver
+	
+After the install you **MUST REBOOT** the machine. Without rebooting you will not be able to use the driver. 
 
-    cms help robot
+
+Once you have successfully installed the drivers and the commands you can look at the manual page of the robot command with
+
+    $ cms help robot
 
 You will see a manual page like this::
 
@@ -191,9 +211,10 @@ You will see a manual page like this::
     Options:
         -f      specify the file
 
+
 ### Testing the board
 
-Before we do anything else with the board we test it out first. Once you have plugged it in, 
+Next is to connect a esp8266 with theUSB cable to the computer. After you connected it, please press the reset button. Before we do anything else with the board we test it out first. Once you have plugged it in, 
 you can execute the command 
 
     $ cms robot probe
@@ -216,7 +237,7 @@ Next we need to flash the image on the robot board. Naturally we need
 to fetch the image first from the internet. We do this with the
 command
 
-    robot image fetch
+    $ robot image fetch
     
 This will fetch an image that contains MicroPython into your local
 directory.
@@ -282,16 +303,6 @@ Than you can use the following command to login
 
     $ cms robot login
     
-
-## Development
-
-To contribute to the code and develop new commands we recommend the following setup
-
-	git clone https://github.com/cloudmesch/cloudmesh.common
-	git clone https://github.com/cloudmesch/cloudmesh.cmd5
-	git clone https://github.com/cloudmesch/cloudmesh.robot
-	cd cloudmesh.robot
-	make source
 
 # Tools
 
