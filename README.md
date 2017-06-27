@@ -154,9 +154,15 @@ C3PO. Next, we still have to install some additional programs before
 you can use other commands. This is done with
 
 	cms robot osx install
+	
+In addition you will need to install the OSX driver for the USB interface to the esp8266. This is achieved with 
 
-Once you have successfully installed the commands you can look at the
-manual page of the robot command with
+	cms robot osx driver
+	
+After the install you **MUST REBOOT** the machine. Without rebooting you will not be able to use the driver. 
+
+
+Once you have successfully installed the drivers and the commands you can look at the manual page of the robot command with
 
     cms help robot
 
@@ -191,9 +197,10 @@ You will see a manual page like this::
     Options:
         -f      specify the file
 
+
 ### Testing the board
 
-Before we do anything else with the board we test it out first. Once you have plugged it in, 
+Next is to connect a esp8266 with theUSB cable to the computer. After you connected it, please press the reset button. Before we do anything else with the board we test it out first. Once you have plugged it in, 
 you can execute the command 
 
     $ cms robot probe
