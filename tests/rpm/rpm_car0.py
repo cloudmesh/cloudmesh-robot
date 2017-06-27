@@ -6,6 +6,7 @@ import machine
 import socket
 from machine import Pin, PWM
 
+<<<<<<< HEAD
 
 class LED(object):
     # pin = 2
@@ -45,6 +46,10 @@ class LED(object):
             self.on()
 
 
+=======
+# BUG IF THIS IS DIFFERENT FORM CM IT NEEDS NEW NAME
+# IF THE DAME IT NEEDS TO BE DELETED
+>>>>>>> eb6a3fe58bd5de6828dc8df29d24cb9c91e82057
 class Motor(object):
     """the motor class has the name attribute and a forward duty and backward duty"""
 

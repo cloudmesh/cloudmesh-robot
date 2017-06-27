@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+
+<div id="viz"></div>
+
+<script>
+  var sample_data = [
+    {"x": 99, "y": 45, "type": "robi01"},
+    {"x": 70, "y": 60, "type": "robi02"},
+    {"x": 40, "y": 20, "type": "robi03"},
+    {"x": 15, "y": 10, "type": "robi04"},
+    {"x": 18, "y": 10, "type": "robi05"},
+  ]
+  var visualization = d3plus.viz()
+    .container("#viz")  
+    .data(sample_data)  
+    .type("scatter")    
+    .id("type")         
+    .x("x")         
+    .y("y")
+    .shape({
+      "rendering":"optimizeSpeed" // fine-tune SVG shape rendering
+    })
+    .margin(50)
+    .resize(true)
+    .draw()             
+</script>

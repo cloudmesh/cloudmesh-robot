@@ -1,32 +1,55 @@
 # ESP8266
 
-When working with a external hardware such as the nodeMCU you will find a lot of information on the internet about it. It is a bit difficult at times to assess what you need to program it. You are exposed to many choices. A NodeMcu typically comes with Lua. However you have many other choices.
-Such choices include multiple programming languages such as Lua, MicroPython, Arduino/C, Go and others.
+When working with a external hardware such as the NodeMCU you will
+find a lot of information on the internet about it. It is a bit
+difficult at times to assess what you need to program it. You are
+exposed to many choices. A NodeMCU typically comes with Lua. However
+you have many other choices.  Such choices include multiple
+programming languages such as Lua, MicroPython, Arduino/C, Go and
+others.
 
-As all of them are slightly different you need to identify which works best for you. In addition you need to install programs, images and libraries that support your specific language choice.
+As all of them are slightly different you need to identify which works
+best for you. In addition you need to install images, programs and
+libraries that support your specific language choice.
  
-For our first experiments we will be using MicroPython. This choce is motivated by the fact that Python is a well established and easy to learn programming language. Many other programs can be conducted in Python. Rescently many educational istitutions are offering Python as an introductory programming language.  
+For our first experiments we will be using MicroPython. This choice is
+motivated by the fact that Python is a well established and easy to
+learn programming language. Recently many educational institutions are
+offering Python as an introductory programming language making this
+choice even mor compelling
  
-To simplify the setup and use of the esp8266 for MicroPython we developed an easy to use commandline tool that allows users to set up their machine and interact more easily with it. We believe that the interface is so simple that it can also be used in STEM activities and not just in the university or by advanced hobbyists.
+To simplify the setup and use of the esp8266 for MicroPython we
+developed an easy to use commandline tool that allows users to set up
+their computer and interact more easily with the board. We believe
+that the interface is so simple that it can also be used in STEM
+activities and not just in the university or by advanced hobbyists.
 
 ## Notation
 
-In this document the `$`  character at a beginning of a command block is used to indicate the terminal prompt. 
-When executing the command do not copy it.
+In this document the `$` character at a beginning of a command block
+is used to indicate the terminal prompt.  When executing the command
+do not copy it.
 
-## Steup
+Commands on the NodeMCU are typically indicated with `>>>` the python
+interpreter prompt.
+
+## Setup
 
 First we must install a number of tools on the machine connecting to the board.
 
 ### OSX
 
-In our guide we will focus on OSX, however, there should not be any issues with modifying our instalations to work with other operating systems, such as Linux or even Windows. If you have improvements in regards to our code, please let us know.
+In our guide we will focus on OSX, however, there should not be any
+issues with modifying our installations to work with other operating
+systems, such as Linux or even Windows. If you have improvements in
+regards to our code, please let us know.
 
-On OSX we will be using homebrew and pyenv to leverage existing libraries and to allow the use of a user managed Python envireonment.
+On OSX we will be using homebrew and pyenv to leverage existing
+libraries and to allow the use of a user managed Python environment.
 
 #### Homebrew
 
-Homebrew is a program and package manager that makes it easy to unstall
+Homebrew is a program and package manager that makes it easy to uninstall
 precompiled programs on your computer.
 
 To install it you need to open a terminal and run the following command
@@ -44,7 +67,12 @@ versions of python. This is done with the commands
 
 #### Install Aquaemacs
 
-You will need an editor to make some modifications to files and write programs. Certainly you can use `vi` or `emacs`. As we are on OSX we can also use an editor such as `aquaemacs`. Let us assume you have installed it on your computer, we recommend to add a shortcut so you can call it from the commandline. This can be done by editing the `~/.bash_profile` and add the following to it.
+You will need an editor to make some modifications to files and write
+programs. Certainly you can use `vi` or `emacs`. As we are on OSX we
+can also use an editor such as `aquaemacs`. Let us assume you have
+installed it on your computer, we recommend to add a shortcut so you
+can call it from the commandline. This can be done by editing the
+`~/.bash_profile` and add the following to it.
 
 	####################################################################### 
 	# PYENV
@@ -102,10 +130,10 @@ Add the following lines at the end of the file
 
 The above steps have to be done only once. Now evert time you start a new
 
-### Instalation of the robot Interafce
+### Installation of the robot Interafce
 
 To more easily interface with the robot we have developed a convenient
-program that is isnatlled as part of a command tool called cloudmesh.
+program that is installed as part of a command tool called cloudmesh.
 
 
 
@@ -128,26 +156,40 @@ you can use other commands. This is done with
 	cms robot osx install
 
 Once you have successfully installed the commands you can look at the
-manaual page of the robot command with
+manual page of the robot command with
 
     cms help robot
 
-You will see a manual page like this
+You will see a manual page like this::
 
-    Usage:
+     Usage:
         robot welcome
         robot osx install
+        robot osx driver
         robot image fetch
         robot probe [--format=FORMAT]
         robot flash erase [--dryrun]
         robot flash python [--dryrun]
-        robot set PORT
-        robot put PATH
+        robot test
+        robot run PROGRAM
+        robot credentials set SSID USERNAME PASSWORD
+        robot credentials put
+        robot credentials list
+        robot login
+        robot set PORT NOT IMPLEMENTED
+        robot ls [PATH]
+        robot put [-o] SOURCE [DESTINATION]
         robot get PATH
         robot rm PATH
         robot rmdir PATH
-        robot ls PATH
+        robot dance FILE IPS
+        robot inventory list [--cat] [--path=PATH] [ID]
 
+    Arguments:
+        FILE   a file name
+
+    Options:
+        -f      specify the file
 
 ### Testing the board
 
@@ -179,7 +221,7 @@ command
 This will fetch an image that contains MicroPython into your local
 directory.
 
-Next we need to *flash* the imabe on the board. Your board will look
+Next we need to *flash* the image on the board. Your board will look
 something like this
     
 ![alt text](images/Official-font-b-DOIT-b-font-ESP-32-ESP-32S-ESP-32-Development-Board-font-b.jpg)
@@ -194,12 +236,12 @@ micropython on the board. This requires a number of steps.
 #### Erase the chip 
 
 First we need to erase the chip. To follow our instructions place the
-chip towrds you as shown in the figure. E.g. the USB connector points
+chip towards you as shown in the figure. E.g. the USB connector points
 to you.
 
 You must allow the chip to be erased by holding both buttons on the
 chip and than letting the right button be released first and than the
-left button. YOu will see a blue LED flashing once.  Now you can flash
+left button. You will see a blue LED flashing once.  Now you can flash
 the chip with the command
 
     $ cms robot flash erase
@@ -224,9 +266,9 @@ To test running a pyton program execute
     
 Be careful as it overwrites the file `test.py`.
 
-#### Execute an arbitrary progarm
+#### Execute an arbitrary program
 
-Lets assume you have placed a progarnm in the file `prg.py` than you can 
+Lets assume you have placed a program in the file `prg.py` than you can 
 run it with the following command
 
     $ cms robot run prg.py
@@ -240,10 +282,6 @@ Than you can use the following command to login
 
     $ cms robot login
     
-    
-
-
-
 
 ## Development
 
@@ -260,10 +298,14 @@ To contribute to the code and develop new commands we recommend the following se
 ## Markdown
 
 Markdown has very good support for editors that render the final
-output in a view windo next to the editor pane.  Two such editors are
+output in a view window next to the editor pane.  Two such editors are
 
 * [Macdown](https://macdown.uranusjr.com/): MacDown provides a nice integrated editor that works well.
-* [pyCharm](https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&code=PCC): We have successfully used Vladimir Schhneiders [Markdown Navigator plugin](https://plugins.jetbrains.com/plugin/7896-markdown-navigator). Once installes you click on a .md file pycharm will automatically ask to install the plugins from Markdown for you.
+* [pyCharm](https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&code=PCC):
+  We have successfully used Vladimir Schhneiders
+  [Markdown Navigator plugin](https://plugins.jetbrains.com/plugin/7896-markdown-navigator). Once
+  installes you click on a .md file pycharm will automatically ask to
+  install the plugins from Markdown for you.
 
 
 
@@ -336,38 +378,6 @@ optional arguments:
   --baud BAUD, -b BAUD  Serial port baud rate used when flashing/reading
 ```  
 
-Robot Commands
---------------
-
-To simplofy interaction with the esp8266 we have written a `robot`
-command that allows easy access to files and probe the esp via a USB
-port.
-
-	$ cms help robot 
-	
-	 Usage:
-        robot osx install
-        robot probe [--format=FORMAT]
-        robot set PORT
-        robot put PATH
-        robot get PATH
-        robot rm PATH
-        robot rmdir PATH
-        robot ls PATH
-
-	  This command does some useful things.
-	  
- 	 Arguments:
-         FILE   a file name
-
-	  Options:
-         -f      specify the file
-
-
-TODO: see we have errors, remove leading space, convert to str 
-
-Other commands are not yet tested   
-   
 
 Information
 -----------
@@ -392,7 +402,7 @@ flash (this may take a while)... Erase took 10.6 seconds
 
 http://micropython.org/live/
 
-micropython
+Micropython
 -----------
 
 Download image from
