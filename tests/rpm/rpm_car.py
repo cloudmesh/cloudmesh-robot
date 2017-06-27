@@ -6,6 +6,7 @@ import machine
 #import socket
 from machine import Pin, PWM
 
+# BUG REUSE FROM CM?
 class LED(object):
     """ associates an LED object with a pin"""
     # pin = 2
@@ -38,7 +39,7 @@ class speed_meter(object):
         self.status = Pin.value(self.pin)
         self.count = 0
 
-
+# IS THIS THE SAME FROM CM, IF NOT YOU NEED DIFEFRENT NAME TO DISTIBUICH BETTER
 class motor(object):
 
 
@@ -240,6 +241,7 @@ while True:
     }
 
 
+    # BUG THERE IS A FUNCTION FOR THIS IN CM
     response_headers_raw = ''.join('%s: %s\n' % (k, v) for k, v in response_headers.items())
 
 

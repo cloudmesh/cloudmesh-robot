@@ -6,7 +6,8 @@ import machine
 import socket
 from machine import Pin, PWM
 
-
+# BUG IF THIS IS DIFFERENT FORM CM IT NEEDS NEW NAME
+# IF THE DAME IT NEEDS TO BE DELETED
 class Motor(object):
     def __init__(self, name):
         if name == "left":

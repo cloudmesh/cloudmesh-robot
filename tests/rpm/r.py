@@ -6,7 +6,7 @@ import machine
 # import socket
 from machine import Pin, PWM
 
-
+# BUG ALREADY DEVINED IN CM
 class LED(object):
     """ associates an LED object with a pin"""
 
@@ -31,7 +31,8 @@ class LED(object):
             time.sleep(0.1)
             self.on()
 
-
+# IS THIS DIFFERENT FROM CMS? IF YES USE DIFFERENT NAME
+# IF THE SAME REUSE FROM CM
 class motor(object):
     def __init__(self, name):
         self.forward_speed = 1023

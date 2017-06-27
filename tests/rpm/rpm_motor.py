@@ -6,6 +6,7 @@ import machine
 # import socket
 from machine import Pin, PWM
 
+# BUG PLEASE CLEANUP
 
 class LED(object):
     """ associates an LED object with a pin"""
