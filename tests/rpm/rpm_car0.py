@@ -6,17 +6,64 @@ import machine
 import socket
 from machine import Pin, PWM
 
+<<<<<<< HEAD
+
+class LED(object):
+    # pin = 2
+    def __init__(self, pin):
+        """
+        define an LED on a given pin
+        :param pin: the number of the pin
+        """
+        self.pin = pin
+        self.light = machine.Pin(pin, machine.Pin.OUT)
+
+    def on(self):
+        """
+        switch on the LED
+        """
+
+        self.light.low()
+
+    def off(self):
+        """
+        switch the LED off
+        """
+        self.light.high()
+
+    def blink(self, n, dt=0.1):
+        """
+        make the LED blink
+        :param n: number of blinks
+        :param dt: time delay between on and off
+        :return:
+        """
+        for i in range(0, n):
+            self.on()
+            time.sleep(dt)
+            self.off()
+            time.sleep(dt)
+            self.on()
+
+
+=======
 # BUG IF THIS IS DIFFERENT FORM CM IT NEEDS NEW NAME
 # IF THE DAME IT NEEDS TO BE DELETED
+>>>>>>> eb6a3fe58bd5de6828dc8df29d24cb9c91e82057
 class Motor(object):
+    """the motor class has the name attribute and a forward duty and backward duty"""
+
     def __init__(self, name):
+        """Sets up two motors for a robot car
+        :param name: left or right
+        """
         if name == "left":
             self.pin_speed = 4
             self.pin_direction = 2
         elif name == "right":
             self.pin_speed = 5
             self.pin_direction = 0
-
+        self.motor = PWM(Pin(self.pin_speed), freq=1000, duty=0)
         self.d = 1023
         self.speed = PWM(Pin(self.pin_speed), freq=1000, duty=0)
         self.direction = Pin(self.pin_direction, Pin.OUT)
@@ -34,21 +81,26 @@ class Motor(object):
         self.speed.duty(0)
 
     def dutyset(self, value):
-        self.d = value
+        if 0 <= value <= 1023:
+            self.d = value
 
+
+##############################################
+# RPM METER MANAGEMENT
+##############################################
 
 class SpeedMeter(object):
     def __init__(self, pin):
+        """
+        SpeedMeter refers to the rpm meter on each wheel.
+        :param pin: number of the pin
+        """
         self.pin = machine.Pin(pin, machine.Pin.IN)
         self.status = Pin.value(self.pin)
         self.counter = 0
 
     def update(self):
         self.status = Pin.value(self.pin)
-
-    def tick_up(self):
-        if self.status == 1:
-            self.counter += 1
 
     def get(self):
         turn = True
@@ -67,39 +119,39 @@ class SpeedMeter(object):
         print (count_dt)
         return count_dt
 
-    def rpm(self):
-        return (self.get() / 20) * 300
+
+class Car(object):
+    def __init__(self, leftmotor, rightmotor, leftrpm, rightrpm):
+        self.leftmotor = leftmotor
+        self.rightmotor = rightmotor
+        self.leftrpm = leftrpm
+        self.rightrpm = rightrpm
+
+    def rpmtest(self):
+        self.leftmotor.forward()
+        self.rightmotor.forward()
+        for i in range(0, 10):
+            l = self.leftrpm.get()
+            r = self.rightrpm.get()
+            print(l)
+            print(r)
 
 smr = SpeedMeter(16)
-
 sml = SpeedMeter(15)
-
 right = Motor("right")
 left = Motor("left")
-led = cm.LED(2)
+car = Car(left, right, sml, smr)
+led = LED(2)
+
 led.blink(5)
 
 
-
-def motor_adjuster(right_meter, left_meter):
-    """adjusts the duties of the motors based on the wheel rpm
-    """
-    if rpm_right == 0:
-        print('no right')
-    if rpm_left == 0:
-        print('no left')
-    else:
-        print('rpm l')
-        print(rpm_left)
-        print('rpm r')
-        print(rpm_right)
-
-def test():
+def rpmtest():
     left.forward()
     right.forward()
-    rpm_right = right_meter.get()
-    rpm_left = left_meter.get()
-    print('rpm right')
-    print(rpm_right)
-    print('rpm left')
-    print(rpm_left)
+    for i in range(0, 10):
+        l=sml.get()
+        r=smr.get()
+        print(l)
+        print(r)
+    return "done"

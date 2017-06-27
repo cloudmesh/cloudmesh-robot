@@ -13,7 +13,10 @@ class Motor(object):
             self.pin_direction = 0
         self.motor = PWM(Pin(self.pin_speed), freq=1000, duty=0)
         self.d = 1023
+<<<<<<< HEAD
+=======
         # BUG DEFINES SAME FOR SELF.MOTOR SELF.SPEED  ONLY NEEDS ONE
+>>>>>>> eb6a3fe58bd5de6828dc8df29d24cb9c91e82057
         self.speed = PWM(Pin(self.pin_speed), freq=1000, duty=0)
         self.direction = Pin(self.pin_direction, Pin.OUT)
         self.name = name
