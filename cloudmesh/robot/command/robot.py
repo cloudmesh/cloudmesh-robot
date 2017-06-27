@@ -68,7 +68,7 @@ class RobotCommand(PluginCommand):
                 robot login
                 robot set PORT NOT IMPLEMENTED
                 robot ls [PATH]
-                robot put SOURCE [DESTINATION]
+                robot put [-o] SOURCE [DESTINATION]
                 robot get PATH
                 robot rm PATH
                 robot rmdir PATH
@@ -277,8 +277,7 @@ class RobotCommand(PluginCommand):
                 p = Probe()
                 #   print (p.tty)
                 ampy = Ampy(p.tty)
-
-                ampy.put(filename, "credentials.txt")
+                ampy.put(filename, "credentials.txt", False)
             except Exception as e:
                 Error.traceback(e)
 
@@ -308,11 +307,15 @@ class RobotCommand(PluginCommand):
                 t = StopWatch()
                 t.start("put")
 
+
+
+                print (arguments)
                 size = os.path.getsize(arguments.SOURCE)
 
+                optimize = arguments["-o"]
                 p = Probe()
                 ampy = Ampy(p.tty)
-                ampy.put(arguments.SOURCE, arguments.DESTINATION)
+                ampy.put(arguments.SOURCE, dest=arguments.DESTINATION, optimize=optimize)
                 t.stop("put")
                 t.print("Time:", "put")
                 print("Rate:", "{0:.2f}".format(size/t.get("put")/1024), "KB/s")
