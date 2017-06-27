@@ -101,21 +101,23 @@ class PositioningSystem(object):
     def __str__(self):
         return Printer.dict(positions.beacon, order=['id', 'name', 'kind', 'x', 'y', 'addr'])
 
-positions = PositioningSystem()
+if __name__ == "__main__":
 
-print (positions.tty)
-print (positions.beacon)
+    positions = PositioningSystem()
+
+    print (positions.tty)
+    print (positions.beacon)
 
 
-positions.register("Hedge 1", "robi15")
-positions.register("Hedge 3", "robi16")
+    positions.register("Hedge 1", "robi15")
+    positions.register("Hedge 3", "robi16")
 
-print(positions.beacon)
+    print(positions.beacon)
 
-positions.export('g.txt')
+    positions.export('g.txt')
 
-print(Printer.dict(positions.beacon, order=['id', 'name', 'kind', 'x', 'y', 'addr']))
+    print(Printer.dict(positions.beacon, order=['id', 'name', 'kind', 'x', 'y', 'addr']))
 
-positions.info()
+    positions.info()
 
 
