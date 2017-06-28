@@ -1,21 +1,16 @@
 import network
 import ubinascii
-import time
 import utime
 import machine
 import socket
-from machine import Pin, PWM
 import os
 import math
-
-
-
 
 ##############################################
 # VERSION
 ##############################################
 
-version = 0.3
+version = 0.5
 
 
 ##############################################
@@ -54,8 +49,10 @@ def pin_id(pin):
     elif type(pin) == int:
         return pin
 
+
 def mac():
     return ubinascii.hexlify(network.WLAN().config('mac'), ':').decode()
+
 
 ##############################################
 # WEB REPL
@@ -82,7 +79,8 @@ def cat(filename):
 
 
 def ls():
-    print ('\n'.join(os.listdir()))
+    print('\n'.join(os.listdir(".")))
+
 
 def clean():
     os.remove("boot.py")
@@ -132,7 +130,7 @@ def connect(filename='credentials.txt'):
 
 
 def net(ssid=None, password=None, username='gregor'):
-    if ssid == None and password == None:
+    if ssid is None and password is None:
         cat("credentials.txt")
     else:
         d = {
@@ -203,9 +201,9 @@ class LED(object):
         """
         for i in range(0, n):
             self.on()
-            time.sleep(dt)
+            utime.sleep(dt)
             self.off()
-            time.sleep(dt)
+            utime.sleep(dt)
             self.on()
 
 
@@ -221,7 +219,7 @@ class LED2(object):
     def pulse(self, t):
         for i in range(20):
             self.light.duty(int(math.sin(float(i) / 10.0 * math.pi) * 500.0 + 500.0))
-            time.sleep_ms(t)
+            utime.sleep_ms(t)
 
 
 ##############################################
@@ -229,16 +227,16 @@ class LED2(object):
 ##############################################
 
 class Servo(object):
-    def __init__(self, pin, min=40, max=115):
+    def __init__(self, pin, minimum=40, maximum=115):
         """
         define an LED on a given pin
         :param pin: the number of the pin
         """
         pin = pin_id(pin)
         self.servo = machine.PWM(machine.Pin(pin), freq=50)
-        self.minimum = min
-        self.maximum = max
-        self.middle = int((max - min) / 2) + min
+        self.minimum = minimum
+        self.maximum = maximum
+        self.middle = int((maximum - minimum) / 2) + minimum
 
     def off(self):
         self.servo.duty(0)
@@ -247,7 +245,7 @@ class Servo(object):
         pos = value + self.minimum
         if self.minimum <= pos <= self.maximum:
             self.servo.duty(pos)
-        time.sleep(dt)
+        utime.sleep(dt)
         self.off()
 
     def zero(self):
@@ -266,10 +264,10 @@ class Servo(object):
         self.zero()
         for i in range(0, n):
             self.low()
-            time.sleep(dt)
+            utime.sleep(dt)
             self.off()
             self.high()
-            time.sleep(dt)
+            utime.sleep(dt)
             self.off()
 
 
@@ -290,60 +288,26 @@ class Motor(object):
         elif name == "right":
             self.pin_speed = 5
             self.pin_direction = 0
-        self.motor = PWM(Pin(self.pin_speed), freq=1000, duty=0)
         self.d = 1023
-        self.speed = PWM(Pin(self.pin_speed), freq=1000, duty=0)
-        self.direction = Pin(self.pin_direction, Pin.OUT)
+        self.motor = machine.PWM(machine.Pin(self.pin_speed), freq=1000, duty=0)
+        self.direction = machine.Pin(self.pin_direction, machine.Pin.OUT)
         self.name = name
 
     def forward(self):
         self.direction.low()
-        self.speed.duty(self.d)
+        self.motor.duty(self.d)
 
     def backward(self):
         self.direction.high()
-        self.speed.duty(self.d)
+        self.motor.duty(self.d)
 
     def stop(self):
-        self.speed.duty(0)
+        self.motor.duty(0)
 
-    def dutyset(self, value):
+    def set(self, value):
         if 0 <= value <= 1023:
             self.d = value
-            
-##############################################
-# RPM METER MANAGEMENT
-##############################################
 
-class SpeedMeter(object):
-    def __init__(self, pin):
-        """
-        SpeedMeter refers to the rpm meter on each wheel.
-        :param pin: number of the pin
-        """
-        self.pin = machine.Pin(pin, machine.Pin.IN)
-        self.status = Pin.value(self.pin)
-        self.counter = 0
-
-    def update(self):
-        self.status = Pin.value(self.pin)
-
-    def get(self):
-        turn = True
-        t0 = utime.ticks_ms()
-        delta_t = 0
-        count_start = self.counter
-        while delta_t < 1000:
-            self.update()
-            if self.status == 1 and turn:
-                turn = False
-                self.counter += 1
-            elif self.status == 0:
-                turn = True
-                delta_t = utime.ticks_diff(utime.ticks_ms(), t0)
-        count_dt = self.counter - count_start
-        print (count_dt)
-        return count_dt
 
 ##############################################
 # WEBPAGE MANAGEMENT
@@ -397,8 +361,5 @@ def hello():
 
     led.blink(2)
 
-
-if __name__ == "__main__":
-    hello()
-    
-
+# if __name__ == "__main__":
+#    hello()

@@ -36,6 +36,10 @@ net = cm.connect()
 
 led.blink(5)
 
+#data = {
+#    'style': "style=\"font-size:150%;height:10%;width:30%\""
+#}
+
 html = """<!DOCTYPE html>
 <html>
 <head> 
@@ -48,13 +52,13 @@ html = """<!DOCTYPE html>
 </center>
 <form>
 <center>
-<button style="font-size:150%;height:10%;width:30%" name="LEFT" value="ON" type="submit">LEFT</button></br>
-<button style="font-size:150%;height:10%;width:30%" name="RIGHT" value="ON" type="submit">RIGHT</button></br>
-<button style="font-size:150%;height:10%;width:30%" name="MIDDLE" value="ON" type="submit">MIDDLE</button></br>
-<button style="font-size:150%;height:10%;width:30%" name="STOP" value="ON" type="submit">STOP</button></br>
-<button style="font-size:150%;height:10%;width:30%" name="FORWARD" value="ON" type="submit">FORWARD</button></br>
-<button style="font-size:150%;height:10%;width:30%" name="UP" value="ON" type="submit">UP</button></br>
-<button style="font-size:150%;height:10%;width:30%" name="DOWN" value="ON" type="submit">DOWN</button></br>
+<button name="LEFT" value="ON" type="submit">LEFT</button></br>
+<button name="RIGHT" value="ON" type="submit">RIGHT</button></br>
+<button name="MIDDLE" value="ON" type="submit">MIDDLE</button></br>
+<button name="STOP" value="ON" type="submit">STOP</button></br>
+<button name="FORWARD" value="ON" type="submit">FORWARD</button></br>
+<button name="UP" value="ON" type="submit">UP</button></br>
+<button name="DOWN" value="ON" type="submit">DOWN</button></br>
 </center>
 </form>
 </body>

@@ -307,9 +307,6 @@ class RobotCommand(PluginCommand):
                 t = StopWatch()
                 t.start("put")
 
-
-
-                print (arguments)
                 size = os.path.getsize(arguments.SOURCE)
 
                 optimize = arguments["-o"]
