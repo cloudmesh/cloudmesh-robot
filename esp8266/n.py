@@ -19,7 +19,7 @@ sta_if.active()
 ap_if.active()
 ap_if.ifconfig()
 
-sta_if.connect('zz250', 'pferdpferd67')
+sta_if.connect('zz', 'pp1234')
 print(sta_if)
 
 print(sta_if.ifconfig())

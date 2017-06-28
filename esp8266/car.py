@@ -8,8 +8,8 @@ from machine import Pin, PWM
 
 led = cm.LED(2)
 
-right = cm.motor("right")
-left = cm.motor("left")
+right = cm.Motor("right")
+left = cm.Motor("left")
 
 led.blink(5)
 
