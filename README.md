@@ -47,6 +47,12 @@ regards to our code, please let us know.
 On OSX we will be using homebrew and pyenv to leverage existing
 libraries and to allow the use of a user managed Python environment.
 
+#### XCode
+
+OSX provides a number of useful extensions for developers with *xcode*. Please install it with 
+
+	xcode-select --install
+	
 #### Homebrew
 
 Homebrew is a program and package manager that makes it easy to uninstall
@@ -62,8 +68,11 @@ Next we install a program called pyenv that will help us managing multiple
 versions of python. This is done with the commands
 
     $ brew update
-    $ brew install pyenv
-    $ brew install pyenv-virtualenv
+    $ brew install pyenv pyenv-virtualenv pyenv-virtualenvwrapper
+	 
+As we later may want to benefit from readline, lest just install it also
+	 
+	 $ brew install readline xz
 
 #### Install Aquaemacs
 
@@ -105,9 +114,9 @@ we simply add it to our `~/.bash_profile` file.
 
 Add the following lines at the end of the file
 
-    ######################################################################
+    ########################################################
     # PYENV
-    ######################################################################
+    ########################################################
     export PYENV_VIRTUALENV_DISABLE_PROMPT=0
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
@@ -128,7 +137,14 @@ Add the following lines at the end of the file
     ENV3
 
 
-The above steps have to be done only once. Now evert time you start a new
+The above steps have to be done only once. Now every time you start a new terminal it will activate ENV3 and with it python 3.6.1.
+
+**Please now cloase all previously started terminals that do not use yet ENV3**
+
+To further improve your python environment you need to make sure *pip* and *setuptools* are up to date. After you have started a new terminal window you will by default activate Python 3. To make sure pip and setup tools are up to date, you can onece call
+
+	pip install pip -U
+	pip install setuptools -U
 
 ### Installation of the robot Interafce
 
@@ -313,6 +329,24 @@ Than you can use the following command to login
 
     $ cms robot login
     
+    
+#### Cleaning an dreinstalling a development version
+
+IN case you are a developer and you need to modify teh source code, we found that it is sometimes necessary to clean your development directory and libraries. The easiest way to do this is to go to the repository that you like to reinstall. Let us assume it is *cloudmesh.robot*. Than the following commands will clean the repository
+
+
+    cd cloudmesh.robot
+    pip uninstall cloudmesh.robot
+    
+ Do the pip unisntall as many times till you see an error that no more cloudmesh.robot versions can be found. Than execute
+ 
+    make clean
+    
+After this you can reinstall it with 
+    
+    python setup.py install; pip install -e .
+
+the -e flag is optional, but allows you to change the code without the need of recompiling. A very useful feature in python. 
 
 # Tools
 
@@ -327,6 +361,36 @@ output in a view window next to the editor pane.  Two such editors are
   [Markdown Navigator plugin](https://plugins.jetbrains.com/plugin/7896-markdown-navigator). Once
   installes you click on a .md file pycharm will automatically ask to
   install the plugins from Markdown for you.
+
+## Emacs on OSX
+
+There are many different versions of emacs available on OSX. Aquaemacs is often used as it integrates nicely with the OSX GUI interface.
+
+* [AquaEmacs](http://aquamacs.org/download.shtml)
+
+## Matplotlib on OSX
+
+As we typically install python with virtualenv, we need to configure matplotlib properly to use it. The easiest way to do thisis to execute the following commands. After you run them you can use matplotlib.
+
+	pip install numpy
+	pip install matplotlib
+	echo "backend : TkAgg" > ~/.matplotlib/matplotlibrc
+	
+
+## External Tutorials and  Lessons
+
+This document leverages a number of lessons created for cloudmesh and other information. We provide links to these lessons in case you like to compare or want to learn more about cloudmesh. In particular we leveraged:
+
+* [XCode](https://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osxhttps://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osx) (from cloudmesh)
+* [Pyenv](https://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osxhttps://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osx) (from cloudmesh)
+* [Pyenv](https://github.com/pyenv/pyenv#how-it-works) (from pyenv)
+* [Homebrew](https://brew.sh) (from homebrew)
+* [Markdown](https://blog.ghost.org/markdown/) (from Markdown)
+* [AquaEmacs](http://oracc.museum.upenn.edu/doc/help/usingemacs/aquamacs/) (from Aquaemacs)
+* [Marvelmind](http://marvelmind.com/) (from Marvelmind if you have marvelmind positioning sensors which are optional)
+* [Arduino](https://www.arduino.cc/en/guide/macOSX) (from Arduino if you like to use their interface to access teh esp8266 boards)
+* [40 OSX Terminal Tricks](https://computers.tutsplus.com/tutorials/40-terminal-tips-and-tricks-you-never-thought-you-needed--mac-51192) 
+* [Bash](https://linuxconfig.org/bash-scripting-tutorial) 
 
 
 
@@ -583,12 +647,3 @@ Grove
 * https://solarbotics.com/product/30314/
 * 
 
-
-How to clean?
-=============
-
-
-    cd cloudmesh.robot
-    pip uninstall cloudmesh.robot
-    make clean
-    python setup.py install; pip install -e .
