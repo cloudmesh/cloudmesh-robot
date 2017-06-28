@@ -168,3 +168,80 @@ class Servo(object):
             utime.sleep(dt)
             self.off()
     
+
+##############################################
+# NETWORK MANAGEMENT
+##############################################
+
+def get_attributes(filename):
+    f = open(filename)
+    contents = f.read()
+    f.close()
+    contents.replace("\r\n", "\n")
+
+    attributes = {}
+    lines = contents.split("\n")
+    for line in lines:
+        if ":" in line:
+            attribute, value = line.split(":")
+            attributes[attribute.strip()] = value.strip()
+
+    return attributes
+
+
+def connect(filename='credentials.txt'):
+    """
+    connects to the network while using the credentials
+    :return: the network information
+    """
+    print('starting network ...')
+
+    credentials = get_attributes(filename)
+    print(credentials)
+
+    sta_if = network.WLAN(network.STA_IF)
+    if not sta_if.isconnected():
+        print('connecting to network...')
+        sta_if.active(True)
+        sta_if.connect(credentials['ssid'], credentials['password'])
+        while not sta_if.isconnected():
+            pass
+    print('connection ok')
+
+    return sta_if.ifconfig()
+
+
+def net(ssid=None, password=None, username='gregor'):
+    if ssid is None and password is None:
+        cat("credentials.txt")
+    else:
+        d = {
+            'ssid': ssid,
+            'password': password,
+            'username': username
+        }
+        with open('credentials.txt', 'w') as f:
+            for i in ['ssid', 'password']:
+                f.write(i + ": " + d[i] + "\n")
+            for i in ['username']:
+                f.write(i + ": " + d[i])
+
+
+def ap(filename='credentials.txt'):
+    credentials = get_attributes(filename)
+    print(credentials)
+
+    print("start ap")
+
+    sta_if = network.WLAN(network.STA_IF)
+    ap_if = network.WLAN(network.AP_IF)
+
+    sta_if.active()
+    ap_if.active()
+    ap_if.ifconfig()
+
+    sta_if.connect(credentials['ssid'], credentials['password'])
+    print(sta_if)
+
+    print(sta_if.ifconfig())
+    print(ap_if.ifconfig())
