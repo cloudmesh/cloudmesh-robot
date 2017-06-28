@@ -49,7 +49,8 @@ libraries and to allow the use of a user managed Python environment.
 
 #### XCode
 
-OSX provides a number of useful extensions for developers with *xcode*. Please install it with 
+OSX provides a number of useful extensions for developers with
+*xcode*. Please install it with
 
 	xcode-select --install
 	
@@ -137,11 +138,16 @@ Add the following lines at the end of the file
     ENV3
 
 
-The above steps have to be done only once. Now every time you start a new terminal it will activate ENV3 and with it python 3.6.1.
+The above steps have to be done only once. Now every time you start a
+new terminal it will activate ENV3 and with it python 3.6.1.
 
-**Please now cloase all previously started terminals that do not use yet ENV3**
+**Please now close all previously started terminals that do not use
+  yet ENV3**
 
-To further improve your python environment you need to make sure *pip* and *setuptools* are up to date. After you have started a new terminal window you will by default activate Python 3. To make sure pip and setup tools are up to date, you can onece call
+To further improve your python environment you need to make sure *pip*
+and *setuptools* are up to date. After you have started a new terminal
+window you will by default activate Python 3. To make sure pip and
+setup tools are up to date, you can once call
 
 	pip install pip -U
 	pip install setuptools -U
@@ -164,7 +170,8 @@ program that is installed as part of a command tool called cloudmesh.
 > This will install a program `cms` on your computer that allows you to
 > easily communicate with the robot. 
 
-Developers are however encouraged to work with the source code. THus you will need to first obtain it as follows
+Developers are however encouraged to work with the source code. Thus
+you will need to first obtain it as follows
 
 	$ mkdir github
 	$ cd github
@@ -183,20 +190,25 @@ If everything works you should see an ASCII image of R2D2 and
 C3PO. Next, we still have to install some additional programs before
 you can use other commands. 
 
-The instalation of these commands requires administrator access. In case you are not an administrator you can temporarily change yourself as an administrator in the OSX configuration windows. 
-Than you can execute the command
+The installation of these commands requires administrator access. In
+case you are not an administrator you can temporarily change yourself
+as an administrator in the OSX configuration windows.  Than you can
+execute the command
 
 	$ cms robot osx install
 	
-In addition you will need to install the OSX driver for the USB interface to the esp8266. This is achieved with 
+In addition you will need to install the OSX driver for the USB
+interface to the esp8266. This is achieved with
 
 	$ cms robot osx driver
 	
 Now please change your account to be again a standard account.
 	
-Now you **MUST REBOOT** the machine. Without rebooting you will not be able to use the USB drivers. 
+Now you **MUST REBOOT** the machine. Without rebooting you will not be
+able to use the USB drivers.
 
-Once you have successfully installed the drivers and the commands you can look at the manual page of the robot command with
+Once you have successfully installed the drivers and the commands you
+can look at the manual page of the robot command with
 
     $ cms help robot
 
@@ -234,8 +246,10 @@ You will see a manual page like this::
 
 ### Testing the board
 
-Next is to connect a esp8266 with theUSB cable to the computer. After you connected it, please press the reset button. Before we do anything else with the board we test it out first. Once you have plugged it in, 
-you can execute the command 
+Next is to connect a esp8266 with theUSB cable to the computer. After
+you connected it, please press the reset button. Before we do anything
+else with the board we test it out first. Once you have plugged it in,
+you can execute the command
 
     $ cms robot probe
 
@@ -322,23 +336,30 @@ run it with the following command
 
 #### Interactive Python shell on the board
 
-To get into the interactive python shell on the board you need to make sure that you have 
-reset the esp8266 once after flashing. You need to press the reset button.
+To get into the interactive python shell on the board you need to make
+sure that you have reset the esp8266 once after flashing. You need to
+press the reset button.
 
 Than you can use the following command to login
 
     $ cms robot login
     
     
-#### Cleaning an dreinstalling a development version
+#### Cleaning an reinstalling a development version
 
-IN case you are a developer and you need to modify teh source code, we found that it is sometimes necessary to clean your development directory and libraries. The easiest way to do this is to go to the repository that you like to reinstall. Let us assume it is *cloudmesh.robot*. Than the following commands will clean the repository
+IN case you are a developer and you need to modify the source code, we
+found that it is sometimes necessary to clean your development
+directory and libraries. The easiest way to do this is to go to the
+repository that you like to reinstall. Let us assume it is
+*cloudmesh.robot*. Than the following commands will clean the
+repository
 
 
     cd cloudmesh.robot
     pip uninstall cloudmesh.robot
     
- Do the pip unisntall as many times till you see an error that no more cloudmesh.robot versions can be found. Than execute
+ Do the pip unisntall as many times till you see an error that no more
+ cloudmesh.robot versions can be found. Than execute
  
     make clean
     
@@ -346,7 +367,8 @@ After this you can reinstall it with
     
     python setup.py install; pip install -e .
 
-the -e flag is optional, but allows you to change the code without the need of recompiling. A very useful feature in python. 
+the -e flag is optional, but allows you to change the code without the
+need of recompiling. A very useful feature in python.
 
 # Tools
 
@@ -364,13 +386,16 @@ output in a view window next to the editor pane.  Two such editors are
 
 ## Emacs on OSX
 
-There are many different versions of emacs available on OSX. Aquaemacs is often used as it integrates nicely with the OSX GUI interface.
+There are many different versions of emacs available on OSX. Aquaemacs
+is often used as it integrates nicely with the OSX GUI interface.
 
 * [AquaEmacs](http://aquamacs.org/download.shtml)
 
 ## Matplotlib on OSX
 
-As we typically install python with virtualenv, we need to configure matplotlib properly to use it. The easiest way to do thisis to execute the following commands. After you run them you can use matplotlib.
+As we typically install python with virtualenv, we need to configure
+matplotlib properly to use it. The easiest way to do this is to execute
+the following commands. After you run them you can use matplotlib.
 
 	pip install numpy
 	pip install matplotlib
@@ -424,7 +449,7 @@ Ampy
 
 	ampy -p /dev/tty.wchusbserial1410 -b115200 run test.py
 
-<https://drive.google.com/file/d/0BwAgplGeEjGPTnB5UXJnMzRMemc/view>
+[https://drive.google.com/file/d/0BwAgplGeEjGPTnB5UXJnMzRMemc/view>](https://drive.google.com/file/d/0BwAgplGeEjGPTnB5UXJnMzRMemc/view)
 
 ```
 usage: esptool.py [-h] [--port PORT] [--baud BAUD]
@@ -485,7 +510,7 @@ http://192.168.4.1/
 	esptool v1.3 Connecting.... Running Cesanta flasher stub... Erasing
 flash (this may take a while)... Erase took 10.6 seconds
 
-http://micropython.org/live/
+[http://micropython.org/live/](http://micropython.org/live/)
 
 Micropython
 -----------
@@ -546,7 +571,9 @@ Copy a file or directory from the board
 
 
 
-Boot see: https://learn.adafruit.com/micropython-basics-load-files-and-run-code/boot-scripts 
+Boot see:
+
+[https://learn.adafruit.com/micropython-basics-load-files-and-run-code/boot-scripts ](https://learn.adafruit.com/micropython-basics-load-files-and-run-code/boot-scripts )
 
 Lua
 ---
@@ -565,7 +592,7 @@ Lua
 ampy
 ----
 
-https://learn.adafruit.com/micropython-basics-load-files-and-run-code/install-ampy
+[https://learn.adafruit.com/micropython-basics-load-files-and-run-code/install-ampy](https://learn.adafruit.com/micropython-basics-load-files-and-run-code/install-ampy)
 
 # Resources
 
@@ -604,46 +631,57 @@ Brew
 * brew install jq 
 * brew install tig  # git ascii browser
 * brew install sqlite
-* 
 * brew cask install omnigraffle
 * brew cask install virtualbox
-
 * brew tap homebrew/science
 * brew install opencv
 * brew link opencv
-* https://books.google.com/books?id=zOx3CgAAQBAJ&pg=PA20&lpg=PA20&dq=useful+homebrew+packages+arduino&source=bl&ots=LifN_I7SJK&sig=6CW-ph8l05Jf4gqkP6NzK7uV9qc&hl=en&sa=X&ved=0ahUKEwjcifT-tYjUAhVI7YMKHdSKAXoQ6AEITjAH#v=onepage&q=useful%20homebrew%20packages%20arduino&f=false
-* 
+* [opencv install via homebrew](https://books.google.com/books?id=zOx3CgAAQBAJ&pg=PA20&lpg=PA20&dq=useful+homebrew+packages+arduino&source=bl&ots=LifN_I7SJK&sig=6CW-ph8l05Jf4gqkP6NzK7uV9qc&hl=en&sa=X&ved=0ahUKEwjcifT-tYjUAhVI7YMKHdSKAXoQ6AEITjAH#v=onepage&q=useful%20homebrew%20packages%20arduino&f=false)
 
-Links
------
 
-* http://micropython.org/resources/docs/en/latest/esp8266/esp8266/tutorial/pins.html?highlight=gpio
-* https://cdn.hackaday.io/files/8856378895104/user-mannual-for-esp-12e-motor-shield.pdf
-* https://smartarduino.gitbooks.io/user-manual-for-wifi-car-by-nodemcu-doitcar-/content/31_code_for_ap_case_on_doitcar.html
-* https://blog.squix.org/2015/09/esp8266-nodemcu-motor-shield-review.html
-* https://www.losant.com/blog/top-6-esp8266-modules
-* 
+# esp8266 versions
+
+* [top-6-esp8266-modules](https://www.losant.com/blog/top-6-esp8266-modules)
+
+# esp8266 Motorshield
+
+* [micropython gpio](http://micropython.org/resources/docs/en/latest/esp8266/esp8266/tutorial/pins.html?highlight=gpio)
+* [motorshield manual](https://cdn.hackaday.io/files/8856378895104/user-mannual-for-esp-12e-motor-shield.pdf)
+* [doitcar lua program](https://smartarduino.gitbooks.io/user-manual-for-wifi-car-by-nodemcu-doitcar-/content/31_code_for_ap_case_on_doitcar.html)
+* [esp8266-nodemcu-motor-shield-review](https://blog.squix.org/2015/09/esp8266-nodemcu-motor-shield-review.html)
 
 Jumper
-------
-* http://www.instructables.com/id/Motorize-IoT-With-ESP8266/
-* https://blog.the-jedi.co.uk/2015/11/26/nodemcu-motor-shield-review/
+
+The motor shield has some jumpers. We need better information about them. Here some starting points.
+
+*If you use two power sources, remove the jumper which connects VM and VIN.*
+
+* [http://www.instructables.com/id/Motorize-IoT-With-ESP8266/](http://www.instructables.com/id/Motorize-IoT-With-ESP8266/)
+* [Node MCU Motorshield](https://blog.the-jedi.co.uk/2015/11/26/nodemcu-motor-shield-review/)
 
 Projects
 --------
 
-* https://www.google.com/search?q=esp8266+projects&rlz=1C5CHFA_enUS727US727&oq=esp8266+&aqs=chrome.0.69i59l3j69i61j69i60l2.3594j0j4&sourceid=chrome&ie=UTF-8
-* http://randomnerdtutorials.com/getting-started-with-esp8266-wifi-transceiver-review/
+* [Google search on esp8266 projects](https://www.google.com/search?q=esp8266+projects&rlz=1C5CHFA_enUS727US727&oq=esp8266+&aqs=chrome.0.69i59l3j69i61j69i60l2.3594j0j4&sourceid=chrome&ie=UTF-8)
+* [http://randomnerdtutorials.com/getting-started-with-esp8266-wifi-transceiver-review/](http://randomnerdtutorials.com/getting-started-with-esp8266-wifi-transceiver-review/)
 
 Grove
 -----
 
-* https://cknodemcu.wordpress.com/2016/04/21/esp8266-grove-kit-arrived/
-* https://www.amazon.com/Seeedstudio-Grove-Base-Shield-NodeMCU/dp/B018FNOWFM/ref=pd_lpo_sbs_504_t_0?_encoding=UTF8&psc=1&refRID=PG5ZRRG08AYRA5XYNF5E
-* https://www.seeedstudio.com/Grove-Base-Shield-for-NodeMCU-p-2513.html
-* https://www.digikey.com/en/maker/blogs/wio-node-grove-esp8266-wifi-module/57ad3656de7a4e8bb1ba5b2c82d4352f
-* http://bbs.smartarduino.com/attachment.php?aid=20
-* https://solarbotics.com/product/30316/
-* https://solarbotics.com/product/30314/
-* 
+GroveKit
+
+* [esp8266-grove-kit](https://cknodemcu.wordpress.com/2016/04/21/esp8266-grove-kit-arrived/)
+* [Grovekit manual](http://bbs.smartarduino.com/attachment.php?aid=20)
+* Grove kit has different plugs
+
+Grove Base Shield
+
+* [Seeedstudio-Grove-Base-Shield-NodeMCU Amazon](https://www.amazon.com/Seeedstudio-Grove-Base-Shield-NodeMCU/dp/B018FNOWFM/ref=pd_lpo_sbs_504_t_0?_encoding=UTF8&psc=1&refRID=PG5ZRRG08AYRA5XYNF5E)
+* [Grove-Base-Shield-for-NodeMCU Seedstudio](https://www.seeedstudio.com/Grove-Base-Shield-for-NodeMCU-p-2513.html)
+
+Wio
+
+* [wio-node-grove-esp8266-wifi-module](https://www.digikey.com/en/maker/blogs/wio-node-grove-esp8266-wifi-module/57ad3656de7a4e8bb1ba5b2c82d4352f) (from digikey)
+* [Wio Node](https://solarbotics.com/product/30314/) (from solarrobotics)
+* [Wio Link](https://solarbotics.com/product/30316/)
 
