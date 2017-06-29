@@ -168,6 +168,8 @@ class Servo(object):
             self.off()
             self.high()
             utime.sleep(dt)
+            self.mean()
+            utime.sleep(dt)
             self.off()
     
 

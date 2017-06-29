@@ -6,31 +6,6 @@ import machine
 # import socket
 from machine import Pin, PWM
 
-# BUG PLEASE CLEANUP
-
-class LED(object):
-    """ associates an LED object with a pin"""
-
-    # pin = 2
-    def __init__(self, pin):
-        self.light = machine.Pin(pin, machine.Pin.OUT)
-
-    def on(self):
-        """turns the LED on """
-        self.light.low()
-
-    def off(self):
-        """turns the LED off """
-        self.light.high()
-
-    def blink(self, n):
-        """flashes the LED n times"""
-        for i in range(0, n):
-            self.on()
-            time.sleep(0.1)
-            self.off()
-            time.sleep(0.1)
-            self.on()
 
 
 class motor(object):

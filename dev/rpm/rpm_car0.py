@@ -6,50 +6,6 @@ import machine
 import socket
 from machine import Pin, PWM
 
-<<<<<<< HEAD
-
-class LED(object):
-    # pin = 2
-    def __init__(self, pin):
-        """
-        define an LED on a given pin
-        :param pin: the number of the pin
-        """
-        self.pin = pin
-        self.light = machine.Pin(pin, machine.Pin.OUT)
-
-    def on(self):
-        """
-        switch on the LED
-        """
-
-        self.light.low()
-
-    def off(self):
-        """
-        switch the LED off
-        """
-        self.light.high()
-
-    def blink(self, n, dt=0.1):
-        """
-        make the LED blink
-        :param n: number of blinks
-        :param dt: time delay between on and off
-        :return:
-        """
-        for i in range(0, n):
-            self.on()
-            time.sleep(dt)
-            self.off()
-            time.sleep(dt)
-            self.on()
-
-
-=======
-# BUG IF THIS IS DIFFERENT FORM CM IT NEEDS NEW NAME
-# IF THE DAME IT NEEDS TO BE DELETED
->>>>>>> eb6a3fe58bd5de6828dc8df29d24cb9c91e82057
 class Motor(object):
     """the motor class has the name attribute and a forward duty and backward duty"""
 
