@@ -74,6 +74,7 @@ class RobotCommand(PluginCommand):
                 robot rmdir PATH
                 robot dance FILE IPS
                 robot inventory list [--cat] [--path=PATH] [ID]
+                robot reset
                 
           Arguments:
               FILE   a file name
@@ -261,6 +262,19 @@ class RobotCommand(PluginCommand):
             with open("test.py", "w") as f:
                 f.write(test)
             os.system("ampy --port {port} run test.py".format(**d))
+
+        elif arguments.reset:
+
+            p = Probe()
+            d = {"port": p.tty}
+            test = textwrap.dedent("""
+            import machine
+            machine.reset()
+            """)
+            with open("tmp-reset.py", "w") as f:
+                f.write(test)
+            os.system("ampy --port {port} run tmp-reset.py".format(**d))
+            os.remove("tmp-reset.py")
 
         elif arguments.credentials and arguments.set:
             try:

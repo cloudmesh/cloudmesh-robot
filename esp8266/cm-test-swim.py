@@ -1,7 +1,16 @@
 import cm
 import utime
+
+def banner (msg):
+    print (70 * '=')
+    print (msg)
+    print (70 * '=')
+
+banner("version")
 print (cm.version)
+banner("credentials")
 cm.cat("credentials.txt")
+banner("ls")
 cm.ls()
 #led = cm.LED(2)
 #led.on()

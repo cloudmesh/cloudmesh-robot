@@ -73,9 +73,11 @@ def ls():
 
 
 def clean():
-    os.remove("boot.py")
-    os.remove("webrepl_cfg.py")
-
+    for file in ['boot.py', 'webrepl_cfg.py']:
+        try:
+            os.remove("boot.py")
+        except Exception as e:
+            print ("File does not exist", file)
 
 
 ##############################################
@@ -245,3 +247,31 @@ def ap(filename='credentials.txt'):
 
     print(sta_if.ifconfig())
     print(ap_if.ifconfig())
+
+
+##############################################
+# WEBPAGE MANAGEMENT
+##############################################
+
+def feedback(conn, html):
+    response = ''.join(html.split('\n')[1:])
+
+    response_headers = {
+        'Content-Type': 'text/html; encoding=utf8',
+        'Content-Length': len(response),
+        'Connection': 'close',
+    }
+    response_headers_raw = ''.join('%s: %s\n' % (k, v) for k, v in response_headers.items())
+
+    # Reply as HTTP/1.1 server, saying "HTTP OK" (code 200).
+    response_proto = 'HTTP/1.1'
+    response_status = '200'
+    response_status_text = 'OK'  # this can be random
+
+    # sending all this stuff
+    conn.send('%s %s %s' % (response_proto, response_status, response_status_text))
+    conn.send(response_headers_raw)
+    conn.send('\n')  # to separate headers from body
+
+    conn.send(response)
+    

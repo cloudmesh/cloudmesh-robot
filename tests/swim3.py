@@ -22,10 +22,6 @@ credentials = cm.get_attributes('credentials.txt')
 
 print(credentials)
 
-#ap_if = network.WLAN(network.AP_IF)
-#print(ap_if.active())
-#print(ap_if.ifconfig())
-
 led.blink(2)
 
 net = cm.ap()
