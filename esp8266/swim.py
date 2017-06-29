@@ -53,7 +53,9 @@ html = """<!DOCTYPE html>
 <button name="STOP" value="ON" type="submit">STOP</button></br>
 <button name="FORWARD" value="ON" type="submit">FORWARD</button></br>
 <button name="UP" value="ON" type="submit" >UP</button></br>
+<button name="MIDDLE" value="ON" type="submit" >MIDDLE</button></br>
 <button name="DOWN" value="ON" type="submit">DOWN</button></br>
+<button name="END" value="ON" type="submit">END</button></br>
 </center>
 </form>
 </body>
@@ -66,7 +68,13 @@ html = """<!DOCTYPE html>
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
 s.listen(5)
-while True:
+terminate = False
+
+pitch.mean()
+pitch.off()
+position = pitch.middle()
+
+while not terminate:
     conn, addr = s.accept()
     print("Got a connection from %s" % str(addr))
     request = conn.recv(1024)
@@ -79,34 +87,49 @@ while True:
     FORWARD = request.find('/?FORWARD=ON')
     STOP = request.find('/?STOP=ON')
     UP = request.find('/?UP=ON')
+    MIDDLE = request.find('/?MIDDLE=ON')
     DOWN = request.find('/?DOWN=ON')
+    END = request.find('/?END=ON')
 
     direction = 'STOP'
     left_on = False
     right_on = False
     dt = 0.4
-    if LEFTON == 6:
+    if END == 6:
+        terminate = True
+        break;
+    elif LEFTON == 6:
         fin.low()
         utime.sleep(dt)
-    if RIGHTON == 6:
+        fin.off()
+    elif RIGHTON == 6:
         fin.high()
         utime.sleep(dt)
         fin.off()
-    if MIDDLEON == 6:
+    elif MIDDLEON == 6:
         fin.mean()
         utime.sleep(dt)
         fin.off()
-    if STOP == 6:
+    elif STOP == 6:
         fin.off()
         utime.sleep(dt)
         fin.off()
-    if FORWARD == 6:
+    elif FORWARD == 6:
         fin.swim(1, 0.5)
         fin.off()
-    if UP == 6:
+    elif UP == 6:
         pass
-    if DOWN == 6:
+        #if position < pitch.maximum:
+        #    position = position + 10
+        #    pitch.set(position, dt=0.3)
+    elif DOWN == 6:
         pass
+        #if position > pitch.minimim:
+        #    position = position - 10
+        #    pitch.set(position, dt=0.3)
+    elif MIDDLE == 6:
+        pitch.mean()
+        pitch.off()
 
 
 
