@@ -41,15 +41,25 @@ Evacuate if
 
 ## Workspace Security
 
+### Workplace Organization
+
+Tools and other equipment may be shared with the class. 
+After use they must be returned to the tools section.
+
 ### Scissors, Knifes and other Sharp tools
 
 Students are not allowed to use scissors, knifes, or other sharp tools including screwdrivers without supervision. Such tools must not be used inappropriately. Failure to use them appropriately can result in expulsion from the camp.
 
-## Soldering
+### Soldering
 
 For the robot camp soldering will be conducted by a qualified instructor. 
 
+### Knowledge of Electricity
+
+As we are using ele tricuty and the devices we may use are expensive no device may be used in a form so that they are broken on purpose. THe experiment needs to be understood. If not, read the manuals, work with the assistnts, and get informed. Do the experimen in theory before "hacking". THe same is valid with the code. 
+
 ### Robot Car Security
+
 #### Robot Floor
 
 Robots are run on white boards in the middle of the room. You are not allowed to walk without permission across these boards as they need to be kept clean for the robots. If you need to pick up a robot please make sure to have clean shoes. If you do leave marks on the board we may ask you to clean them up yourself. 

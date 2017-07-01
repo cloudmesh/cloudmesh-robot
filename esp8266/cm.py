@@ -132,11 +132,11 @@ class Servo(object):
         define an LED on a given pin
         :param pin: the number of the pin
         """
-        pin = pin_id(pin)
-        self.servo = machine.PWM(machine.Pin(pin), freq=50)
+        self.pin = pin_id(pin)
+        self.servo = machine.PWM(machine.Pin(self.pin), freq=50)
         self.minimum = minimum
         self.maximum = maximum
-        self.middle = int((maximum - minimum) / 2) + minimum
+        self.middle = int((maximum - minimum) / 2.0) + minimum
 
     def off(self):
         self.servo.duty(0)
@@ -171,7 +171,16 @@ class Servo(object):
             self.mean()
             utime.sleep(dt)
             self.off()
-    
+
+    def info(self):
+        d = {
+            "pin": self.pin,
+            "maximum": self.maximum,
+            "minimum": self.minimum,
+            "middle": self.middle,
+            "value": 0.0
+        }
+        return d
 
 ##############################################
 # NETWORK MANAGEMENT

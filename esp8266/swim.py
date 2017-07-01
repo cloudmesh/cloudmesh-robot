@@ -35,6 +35,11 @@ net = cm.connect()
 
 led.blink(5)
 
+pitch.mean()
+pitch.off()
+position = pitch.middle
+
+
 html = """<!DOCTYPE html>
 <html>
 <head> 
@@ -53,7 +58,7 @@ html = """<!DOCTYPE html>
 <button name="STOP" value="ON" type="submit">STOP</button></br>
 <button name="FORWARD" value="ON" type="submit">FORWARD</button></br>
 <button name="UP" value="ON" type="submit" >UP</button></br>
-<button name="MIDDLE" value="ON" type="submit" >MIDDLE</button></br>
+<button name="EQUAL" value="ON" type="submit" >EQUAL</button></br>
 <button name="DOWN" value="ON" type="submit">DOWN</button></br>
 <button name="END" value="ON" type="submit">END</button></br>
 </center>
@@ -68,12 +73,12 @@ html = """<!DOCTYPE html>
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
 s.listen(5)
+
+
+
+print ("Position", position)
+
 terminate = False
-
-pitch.mean()
-pitch.off()
-position = pitch.middle()
-
 while not terminate:
     conn, addr = s.accept()
     print("Got a connection from %s" % str(addr))
@@ -87,7 +92,7 @@ while not terminate:
     FORWARD = request.find('/?FORWARD=ON')
     STOP = request.find('/?STOP=ON')
     UP = request.find('/?UP=ON')
-    MIDDLE = request.find('/?MIDDLE=ON')
+    EQUAL = request.find('/?EQUAL=ON')
     DOWN = request.find('/?DOWN=ON')
     END = request.find('/?END=ON')
 
@@ -118,16 +123,19 @@ while not terminate:
         fin.swim(1, 0.5)
         fin.off()
     elif UP == 6:
-        pass
-        #if position < pitch.maximum:
-        #    position = position + 10
-        #    pitch.set(position, dt=0.3)
+        print ('UP', data['position'])
+        if data['position'] < pitch.maximum:
+            data['position'] = data['position'] + 10
+            pitch.set(data['position'], dt=1.0)
+            pitch.off()
     elif DOWN == 6:
-        pass
-        #if position > pitch.minimim:
-        #    position = position - 10
-        #    pitch.set(position, dt=0.3)
-    elif MIDDLE == 6:
+        print ('DOWN', data['position'])
+        if data['position'] > pitch.minimum:
+            data['position'] = data['position'] - 10
+            pitch.set(data['position'], dt=1.0)
+            pitch.off()
+    elif EQUAL == 6:
+        print('EQUAL', data['position'])
         pitch.mean()
         pitch.off()
 
