@@ -166,6 +166,7 @@ class RobotCommand(PluginCommand):
                     os.system(
                         '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
 
+                os.system("pip install pyserial")
                 #
                 # INSTALLING COMMANDS WITH BREW
                 #
@@ -183,18 +184,28 @@ class RobotCommand(PluginCommand):
                 # INSTALLING LIBRARIES WITH BREW
                 #
                 # libusb-compat
-                for package in ["libusb"]:
+                for package in ["libusb", "mosquitto"]:
+                    try:
+                        print("installing", package)
+                        r = Brew.install(package)
+                        if r is None:
+                            r = Brew.install(package)
+                        else:
+                            Console.error(package + " package already installed. skipping.")
+                    except Exception as e:
+                        print("Error", e, type(e))
+                #
+                # INSTALLING CASK LIBRARIES AND COMMANDS WITH BREW
+                #
+                # libusb-compat
+                for package in ["adafruit-arduino", "pycharm-ce"]: # "aquamacs"
                     try:
                         print("installing", package)
 
-                        r = Brew.install(package)
+                        os.system("brew cask install {}".format(package))
+
                     except Exception as e:
                         print("Error", e, type(e))
-
-                os.system("pip install pyserial")
-                os.system("brew cask install adafruit-arduino")
-                # os.system("brew cask install aquamacs")
-                os.system("brew cask install pycharm-ce")
 
             if sys.platform == 'linux':
                 Console.error("Linux not yet supported. Install lua and picocom.")
