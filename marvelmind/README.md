@@ -41,22 +41,25 @@ an download the exe. Than double click on it and install. YOu will get a number 
 
 ## Install Marvelmind Dashboard
 
-The next steps may be ineffcient as we are not too familiar with marvelmind
+In the Windwes search tool, type in cmd.exe and start it
 
-in the Windoes search tool, type in cmd.exe and start it
+Change to the directory in which marvelmnd is downloaded and installed
 
-go to the directory in which marvelmnd is downloaded and installed
-
-	cd to the users home dir Not sur ehow to do that
 	cd cloudmesh.robot/marvelmind/dashboard
-	install_... whatever its name is ...exe
+	iinstall_dashboard_v5_22.exe
 
-Follow the install instructions
+Follow the install instructions till you finish the install.
 
-	cd c:\
-	cd Marvelmind
-	cd dashboard
+	cd c:\marvelmind\dashboard
 	dashboard.exe
+	
+This will start up a window taht looks like this:
+
+<PUT IMAGE HERE>
+
+To use marvelmind follwo the instrustions from
+
+< PUT HTTP link to github documentation here >
 	
 
 
