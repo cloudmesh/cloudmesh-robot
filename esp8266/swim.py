@@ -9,8 +9,11 @@ led = cm.LED(2)
 
 led.on()
 
+
 fin = cm.Servo("D7")
+fin.off()
 pitch = cm.Servo("D8")
+pitch.off()
 #pitch.middle()
 
 led.blink(1)
@@ -35,9 +38,13 @@ net = cm.connect()
 
 led.blink(5)
 
-pitch.mean()
+pitch.setangle(0, dt=1.0)
 pitch.off()
-position = pitch.middle
+
+angle = 0
+print ("Angle", angle)
+
+led.blink(2)
 
 
 html = """<!DOCTYPE html>
@@ -76,7 +83,6 @@ s.listen(5)
 
 
 
-print ("Position", position)
 
 terminate = False
 while not terminate:
@@ -112,7 +118,7 @@ while not terminate:
         utime.sleep(dt)
         fin.off()
     elif MIDDLEON == 6:
-        fin.mean()
+        fin.zero()
         utime.sleep(dt)
         fin.off()
     elif STOP == 6:
@@ -123,24 +129,23 @@ while not terminate:
         fin.swim(1, 0.5)
         fin.off()
     elif UP == 6:
-        print ('UP', data['position'])
-        if data['position'] < pitch.maximum:
-            data['position'] = data['position'] + 10
-            pitch.set(data['position'], dt=1.0)
+        print ('UP', angle)
+        if angle <= 90:
+            angle = angle + 45
+            pitch.setangle(angle, dt=1.0)
             pitch.off()
     elif DOWN == 6:
-        print ('DOWN', data['position'])
-        if data['position'] > pitch.minimum:
-            data['position'] = data['position'] - 10
-            pitch.set(data['position'], dt=1.0)
+        print ('DOWN', angle)
+        if angle >= -90:
+            angle = angle - 45
+            pitch.setangle(angle, dt=1.0)
             pitch.off()
     elif EQUAL == 6:
-        print('EQUAL', data['position'])
-        pitch.mean()
+        print('EQUAL', angle)
+        pitch.setangle(0, 1.0)
         pitch.off()
 
 
-
     cm.feedback(conn, html)
-
     conn.close()
+    utime.sleep(0.2)
