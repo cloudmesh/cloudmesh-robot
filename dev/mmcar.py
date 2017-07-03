@@ -1,5 +1,57 @@
 from newcm import SpeedMeter
 from newcm import Motor
+import time
+import requests
+import os
+from marvelmind import MarvelmindHedge
+
+class DrivingRobot(object):
+
+    def __init__(self,
+                 leftmeter,
+                 rightmeter,
+                 leftmotor,
+                 rightmotor,
+                 alpha=.1,
+                 epsilon=4
+                 ):
+        """
+
+        :param leftmeter: SpeedMeter
+        :param rightmeter: SpeedMeter
+        :param leftmotor: Motor
+        :param rightmotor: Motor
+        :param alpha: Number
+        :param epsilon: Number
+        """
+        self.lsm = leftmeter
+        self.rsm = rightmeter
+        self.leftmotor = leftmotor
+        self.rightmotor = rightmotor
+        self.alpha = alpha
+        self.epsilon = epsilon
+        self.going_left = True
+        self.going_right = True
+        self.on_track = 0
+        self.slope = None
+        self.intercept = None
+
+    def set_line(self, x0, y0, fx, fy):
+        """
+
+        :param x0: initial x
+        :param y0: initial y
+        :param fx: final x
+        :param fy: final y
+        :return: Slope, Y intercept
+        """
+        self.slope = (fy - y0) / (fx - x0)
+        self.intercept = y0 - (x0 * self.slope)
+        return self.slope, self.intercept
+
+    def drive_to(self, tty='/dev/tty.usbmodemFD121', end_x, end_y):
+        # unfinished
+
 
 class RelativeMove(object):
 
@@ -46,15 +98,14 @@ class RelativeMove(object):
             # left status = left motor update()
             # right status = right motor update()
             # if left status == 1 and left turn:
-                # turn = False
+                # left turn = False
+                # current left += 1
+            # elif left status == 0:
+                # left turn = True
+            # if right status == 1 and right turn:
+                # right turn = False
+                # current right += 1
+            # elif right status == 0:
+                # right turn = True
         pass
-
-self.update()
-            if self.status == 1 and turn:
-                turn = False
-                self.counter += 1
-            elif self.status == 0:
-                turn = True
-                delta_t = utime.ticks_diff(utime.ticks_ms(), t0)
-        count_dt = self.counter - count_start
-        return count_dt
+    
