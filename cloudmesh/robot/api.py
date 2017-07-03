@@ -6,7 +6,7 @@ from cloudmesh.common.Shell import Shell
 from cloudmesh.common.util import path_expand
 import sys
 import requests
-
+from cloudmesh.common.console import Console
 
 
 class Ampy(object):
@@ -35,9 +35,7 @@ class Ampy(object):
                 'dest': dest,
                 'opt': src + '-opt'
             }
-            print("A")
             command = "pyminifier -o {opt} {src}".format(**data)
-            print("CC", command)
             os.system(command)
             src = data['opt']
             dest = os.path.basename(src.replace('-opt', ''))
@@ -110,6 +108,9 @@ class Git(object):
         for f in self.files:
             os.system("cd ~/.cloudmesh/roboedu/images; wget https://github.com/roboedu/esp8266/raw/master/" + f)
 
+class ProbeException(Exception):
+    pass
+
 class Probe(object):
     # !/usr/bin/env python
 
@@ -124,11 +125,13 @@ class Probe(object):
         tty = glob.glob("/dev/tty.SLAB_USBtoUART") + glob.glob("/dev/tty.wchusbserial*")
 
         if len(tty) > 1:
-            print("ERROR: more than one tty found")
-            print (tty)
+            Console.error("ERROR: more than one tty found")
+            print ("TTY:", tty)
+            # raise  ProbeException("ERROR: tty not found")
             sys.exit(1)
         elif len(tty) == 0:
-            print("ERROR: no tty found")
+            #raise  ProbeException("ERROR: tty not found")
+            Console.error("ERROR: no tty found")
             sys.exit(1)
         self.tty = tty[0]
 

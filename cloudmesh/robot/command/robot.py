@@ -63,8 +63,8 @@ class RobotCommand(PluginCommand):
                 robot test
                 robot run PROGRAM
                 robot credentials set SSID USERNAME PASSWORD
-                robot credentials put
-                robot credentials list
+                robot put (credentials | cred)
+                robot list (credentials | cred)
                 robot login
                 robot set PORT NOT IMPLEMENTED
                 robot ls [PATH]
@@ -296,13 +296,31 @@ class RobotCommand(PluginCommand):
             except Exception as e:
                 Error.traceback(e)
 
-        elif arguments.credentials and arguments.put:
+        elif (arguments.credentials or arguments.cred) and arguments.put:
             try:
                 filename = path_expand("~/.cloudmesh/robot/credentials.txt")
                 p = Probe()
                 #   print (p.tty)
                 ampy = Ampy(p.tty)
                 ampy.put(filename, "credentials.txt", False)
+            except Exception as e:
+                Error.traceback(e)
+                sys.exit(1)
+
+        elif arguments.put:
+            try:
+                t = StopWatch()
+                t.start("put")
+
+                size = os.path.getsize(arguments.SOURCE)
+
+                optimize = arguments["-o"]
+                p = Probe()
+                ampy = Ampy(p.tty)
+                ampy.put(arguments.SOURCE, dest=arguments.DESTINATION, optimize=optimize)
+                t.stop("put")
+                t.print("Time:", "put")
+                print("Rate:", "{0:.2f}".format(size/t.get("put")/1024), "KB/s")
             except Exception as e:
                 Error.traceback(e)
 
@@ -324,23 +342,6 @@ class RobotCommand(PluginCommand):
                 ampy = Ampy(p.tty)
                 r = ampy.ls()
                 print (r)
-            except Exception as e:
-                Error.traceback(e)
-
-        elif arguments.put:
-            try:
-                t = StopWatch()
-                t.start("put")
-
-                size = os.path.getsize(arguments.SOURCE)
-
-                optimize = arguments["-o"]
-                p = Probe()
-                ampy = Ampy(p.tty)
-                ampy.put(arguments.SOURCE, dest=arguments.DESTINATION, optimize=optimize)
-                t.stop("put")
-                t.print("Time:", "put")
-                print("Rate:", "{0:.2f}".format(size/t.get("put")/1024), "KB/s")
             except Exception as e:
                 Error.traceback(e)
 
