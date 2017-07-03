@@ -53,7 +53,7 @@ Follow the install instructions till you finish the install.
 	cd c:\marvelmind\dashboard
 	dashboard.exe
 	
-This will start up a window taht looks like this:
+This will start up a window that looks like this:
 
 <PUT IMAGE HERE>
 
