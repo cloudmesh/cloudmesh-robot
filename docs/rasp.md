@@ -53,3 +53,25 @@ add to ~/.bash_profile
 	eval "$(pyenv virtualenv-init -)"
 
 source 
+
+
+## VLC on OSX
+
+* [https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/](https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/)
+* [http://www.videolan.org/vlc/index.en_GB.html](http://www.videolan.org/vlc/index.en_GB.html)
+* [http://get.videolan.org/vlc/2.2.6/macosx/vlc-2.2.6.dmg](http://get.videolan.org/vlc/2.2.6/macosx/vlc-2.2.6.dmg)
+* [http://www.mybigideas.co.uk/RPi/RPiCamera/](http://www.mybigideas.co.uk/RPi/RPiCamera/)
+* 
+## Camera on Pi
+
+	sudo apt-get install vlc
+
+* [https://www.hackster.io/bestd25/pi-car-016e66](https://www.hackster.io/bestd25/pi-car-016e66)
+
+## STreaming video
+
+* [https://blog.miguelgrinberg.com/post/stream-video-from-the-raspberry-pi-camera-to-web-browsers-even-on-ios-and-android](https://blog.miguelgrinberg.com/post/stream-video-from-the-raspberry-pi-camera-to-web-browsers-even-on-ios-and-android)
+
+# Linux commandline
+
+* [http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html](http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html)
