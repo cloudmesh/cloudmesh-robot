@@ -69,6 +69,7 @@ from cm import cat
 from cm import ls
 from cm import clean
 
+
 ##############################################
 # SERVO
 ##############################################
@@ -156,7 +157,7 @@ class SpeedMeter(object):
         t0 = utime.ticks_ms()
         delta_t = 0
         count_start = self.counter
-        while delta_t < 100:
+        while delta_t < 200:
             self.update()
             if self.status == 1 and turn:
                 turn = False
@@ -169,6 +170,19 @@ class SpeedMeter(object):
 
     def rpm(self):
         return (self.get() / 20) * 300
+
+    def wait_ticks(self, ticks):
+        turn = True
+        cticks = 0
+        while cticks < ticks:
+            self.update()
+            if self.status == 1 and turn:
+                turn = False
+                cticks += 1
+            elif self.status == 0:
+                turn = True
+
+
 
 
 
