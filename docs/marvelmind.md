@@ -8,27 +8,31 @@
 
 ### Requirements
 
-FIX: what is needed ....
+* Windows PC with Windows 10.
+* Mac with Mac OSX Sierra.
+* Windows Defender anti-malware software.
+* Marvelmind HW 4.5 or 4.9 package + additional beacons as needed.
 
-> *Can we use osx and vmware to run the exe or do we need two computers?*
 
 ### Marvelmind Environment Setup
 
-We are hosting a copy of the Marvelmind software in order to make sure we can reproduce the setup form our tested verion. The sogftware is hosted at 
+Go to the marvelmind main page, on your Windows PC, at
 
-* [https://github.com/cloudmesh/cloudmesh.robot/tree/master/marvelminddashboard](https://github.com/cloudmesh/cloudmesh.robot/tree/master/marvelminddashboard) 
+* [https://www.marvelmind.com](https://www.marvelmind.com) 
+
+Scroll down to the **Dashboard SW v5.31 + Beacon SW v5.63 + Modem SW 5.63** hyperlink, click it, and a download should start (the version numbers may change based on updates). Once the zip file is finished downloading, make sure to run a **windows defender virus check** by rightclicking on the zip file and clicking "Scan with windows defender". After making sure that there is no malware in the zip file, unzip it, and then unzip the dashboard folder, and the firmware folder for your particular beacon, either HW4.5 or HW4.9, included in the package.
+
+Now, go back to
+
+* [https://www.marvelmind.com](https://www.marvelmind.com) 
+
+and scroll down to the **STM driver** column and download the zip file in it. Once the download has finished, unzip the file, and run the STM driver for your particular windows computer. This is only required to be done once, and allows you to update your beacons and modems.
+
+Now, you can start using the dashboard file that you unzipped earlier.
+
 
 > FIX: change to marvelmind/dashboard
-> 
-> FIX: no mentioning that a windows pc is needed
 
-You will need all files in the directory. You install it by 
-
-> FIX: instructions incomplete
-
-After installation completes, open the dashboard file in the downloaded folder. 
-
-> FIX: hwat is the dashboard file incomplete
 
 The dashboard interface should give you an error as shown in *Figure 1*.
 
