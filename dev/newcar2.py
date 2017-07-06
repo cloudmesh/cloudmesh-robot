@@ -1,12 +1,15 @@
-import newcm
+import socket
 import network
+import newcm
 import ubinascii
 import utime
-import socket
 
 led = newcm.LED(2)
 left = newcm.Motor("left")
 right = newcm.Motor("right")
+smr = newcm.SpeedMeter(16)
+sml = newcm.SpeedMeter(15)
+car = newcm.Car(left, right, sml, smr)
 
 led.blink(5)
 
@@ -26,6 +29,7 @@ led.blink(4)
 mac = ubinascii.hexlify(network.WLAN().config('mac'), ':').decode()
 utime.sleep(.5)
 led.blink(5)
+print('mac')
 
 html = """<!DOCTYPE html>
 <html>
@@ -39,12 +43,10 @@ html = """<!DOCTYPE html>
 <tr>
 <td>LEFT:</td> 
 <td><button name="LEFT" value="ON" type="submit">ON</button></td>
-<td><button name="LEFT" value="OFF" type="submit">OFF</button></td>
 </tr>
 <tr>
 <td>RIGHT:</td>
 <td><button name="RIGHT" value="ON" type="submit">ON</button></td>
-<td><button name="RIGHT" value="OFF" type="submit">OFF</button></td>
 </tr>
 <tr>
 <td>DIRECTION:</td>
@@ -71,9 +73,7 @@ while True:
     print("Content = %s" % str(request))
     request = str(request)
     LEFTON = request.find('/?LEFT=ON')
-    LEFTOFF = request.find('/?LEFT=OFF')
     RIGHTON = request.find('/?RIGHT=ON')
-    RIGHTOFF = request.find('/?RIGHT=OFF')
     FORWARD = request.find('/?FORWARD=ON')
     STOP = request.find('/?STOP=ON')
     BACK = request.find('/?BACK=ON')
@@ -82,12 +82,12 @@ while True:
     left_on = False
     right_on = False
     if LEFTON == 6:
-        left.forward()
+        car.turn_angle(90)
         direction = 'LEFT'
     if LEFTOFF == 6:
         left.stop()
     if RIGHTON == 6:
-        right.forward()
+        car.turn_angle(-90)
         direction = 'LEFT'
     if RIGHTOFF == 6:
         right.stop()

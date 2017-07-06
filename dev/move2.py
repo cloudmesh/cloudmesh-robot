@@ -29,8 +29,6 @@ def move(ip, direction, epsilon=0.0001):
     except Exception as e:
         print (type(e), e)
 
-
-
         
     """
     Param:
