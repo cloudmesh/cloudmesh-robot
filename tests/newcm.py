@@ -146,18 +146,18 @@ class SpeedMeter(object):
 
     def __init__(self, pin):
         self.pin = machine.Pin(pin, machine.Pin.IN)
-        self.status = self.pin.value(self.pin)
+        self.status = self.pin.value()
         self.counter = 0
 
     def update(self):
-        self.status = self.pin.value(self.pin)
+        self.status = self.pin.value()
 
     def get(self):
         turn = True
         t0 = utime.ticks_ms()
         delta_t = 0
         count_start = self.counter
-        while delta_t < 200:
+        while delta_t < 500:
             self.update()
             if self.status == 1 and turn:
                 turn = False
