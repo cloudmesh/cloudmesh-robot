@@ -37,8 +37,14 @@ robots = {
             ip: '10.0.1.106'
         },
         {
+            name: 'robi18',
+            chipid: '',
+            mac: '',
+            ip: '10.0.1.118'
+        },
+        {
             name: 'feather01',
-            chipid: 'unkown',
+            chipid: 'unknown',
             mac: '5c:cf:7f:a4:3a:63',
             ip: '10.0.1.10'
         },

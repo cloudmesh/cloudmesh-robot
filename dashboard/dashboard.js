@@ -1,9 +1,8 @@
-var $myRightMeter, $myLeftMeter;
 $(function(){
+    var loop = null;
+
     // limit number of requests (milliseconds between each request)
     var speedThrottle = 200;
-    var allowRequest = true;
-    var lastSpeedSent = {}
 
     // currently selected robot
     var curRobot = {
@@ -12,7 +11,9 @@ $(function(){
         ip: ''
     };
     
-    $myRightMeter = $("div#rightMeterDiv").dynameter({
+    var directionMultiplier = [1,1];
+    
+    var $rightMeter = $("#rightMeter").dynameter({
     	width: 200,
     	label: 'Right',
     	value: 0,
@@ -25,7 +26,7 @@ $(function(){
     	}
     });
     
-    $myLeftMeter = $("div#leftMeterDiv").dynameter({
+    var $leftMeter = $("#leftMeter").dynameter({
     	width: 200,
     	label: 'Left',
     	value: 0,
@@ -38,77 +39,107 @@ $(function(){
     	}
     });
     
+    // call reset to initiate sliders
     resetValues();
     
-    $form = $('#formDiv');
+    $robotSelect = $('#robotSelect');
     
+    // create robot radio buttons
     $.each(robots['robots'], function(i, robot){
-        var $radio = $('<input type="radio" name="robots" value="' + robot.ip + '"/>');
+        var $p = $('<p>');
+        var $radio = $('<input id="' + robot.name + '" type="radio" name="robots" value="' + robot.ip + '"/>');
         if(i == 0){
             $radio.attr('checked', 'checked');
             curRobot.ip = $radio.val();
         }
-        var $label = $('<label>' + robot.name + '</label>');
-        $form.append($radio);
-        $form.append($label);
+        var $label = $('<label for="' + robot.name + '">' + robot.name + '</label>');
+        $p.append($radio);
+        $p.append($label);
+        $robotSelect.append($p);
+    });
+    
+    // button clicked
+    $('#keys li').click(function(){
+        clearInterval(loop);
+        
+        index = $(this).index();
+        switch(index){
+            case 0:
+                directionMultiplier = [1,1];
+                break;
+            case 1:
+                directionMultiplier = [-1,1];
+                break;
+            case 2:
+                directionMultiplier = [0,0];
+                break;                
+            case 3:
+                directionMultiplier = [1,-1];
+                break;
+            case 4:
+                directionMultiplier = [-1,-1];
+                break;
+        }
+        
+        $('#keys li').removeClass('pressed');
+        
+        if(index != 2){
+            loop = setInterval(function(){
+                sendRequest();
+            }, speedThrottle);
+            $(this).addClass('pressed');
+        } else {
+            sendRequest();
+        }
     });
     
     // new robot selected
     $('input[type=radio][name=robots]').change(function() {
+        resetValues();
         curRobot.speedLeft = 0;
         curRobot.speedRight = 0;
-        updateSpeeds();
         curRobot.ip = $(this).val();             
-        resetValues();
     });
     
     // send AJAX request
-    function updateSpeeds(){
-        if(allowRequest){
-            allowRequest = false;
-            var url = curRobot.ip;
-            url = 'http://' + url + '?left=' + curRobot.speedLeft + '&right=' + curRobot.speedRight;
-            
-            console.log(url);
-            //$.get(url);
-            
-            lastSpeedSent.right = curRobot.speedRight;
-            lastSpeedSent.left = curRobot.speedLeft;
-            setTimeout(function(){
-                allowRequest = true;
-                if(lastSpeedSent.right != curRobot.speedRight || lastSpeedSent.left != curRobot.speedLeft){
-                    updateSpeeds();
-                }
-            }, speedThrottle);
-        }
+    function sendRequest(){
+        var url = curRobot.ip;
+        url = 'http://' + url + '?left=' + curRobot.speedLeft * directionMultiplier[0] + '&right=' + curRobot.speedRight * directionMultiplier[1];
+        
+        console.log(url);
+        //$.get(url);
+        
     }
     
     // change all values to 0
     function resetValues(){
-        $myRightMeter.changeValue(0);
-        $myLeftMeter.changeValue(0);
+        clearInterval(loop);
+        directionMultiplier = [0,0];
+        sendRequest();
+        $('#keys li').removeClass('pressed');
+        
+        $rightMeter.changeValue(0);
+        $leftMeter.changeValue(0);
     
-        $('div#leftSliderDiv').slider({
+        $('#leftSlider').slider({
         	min: 0,
         	max: 1023,
         	value: 0,
         	step: 10,
         	slide: function (evt, ui) {
-        		$myLeftMeter.changeValue(ui.value);
+        		$leftMeter.changeValue(ui.value);
         		curRobot.speedLeft = ui.value;
-        		updateSpeeds();
         	}
         });
         
-        $('div#rightSliderDiv').slider({
+        $('#rightSlider').slider({
         	min: 0,
         	max: 1023,
         	value: 0,
         	step: 10,
         	slide: function (evt, ui) {
-        		$myRightMeter.changeValue(ui.value);
+        		$rightMeter.changeValue(ui.value);
         		curRobot.speedRight = ui.value;
-        		updateSpeeds();
         	}
         });
     }
