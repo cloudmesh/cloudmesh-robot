@@ -88,6 +88,7 @@ source
   	git config --global user.name "Gregor von Laszewski"
   	git config --global user.email laszewski@gmail.com
   	git config --global core.editor emacs
+	git config --global push.default matching
 
 # Enable SPI
 
