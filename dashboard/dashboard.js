@@ -1,12 +1,15 @@
 $(function(){
+    // minimum duty on robot motors
+    var minValue = 700;
+    
     // limit number of requests (milliseconds between each request)
     var speedThrottle = 200;
     var allowRequest = true;
 
     // currently selected robot
     var curRobot = {
-        speedLeft: 0,
-        speedRight: 0,
+        speedLeft: minValue,
+        speedRight: minValue,
         ip: ''
     };
     
@@ -15,8 +18,8 @@ $(function(){
     var $rightMeter = $("#rightMeter").dynameter({
     	width: 200,
     	label: 'Right',
-    	value: 0,
-    	min: 0,
+    	value: minValue,
+    	min: minValue,
     	max: 1023,
     	unit: 'Speed',
     	regions: {
@@ -28,14 +31,18 @@ $(function(){
     var $leftMeter = $("#leftMeter").dynameter({
     	width: 200,
     	label: 'Left',
-    	value: 0,
-    	min: 0,
+    	value: minValue,
+    	min: minValue,
     	max: 1023,
     	unit: 'Speed',
     	regions: {
     		800: 'warn',
     		900: 'error'
     	}
+    });
+    
+    $('#terminate').click(function(){
+        terminate();
     });
     
     // call reset to initiate sliders
@@ -65,13 +72,13 @@ $(function(){
                 directionMultiplier = [1,1];
                 break;
             case 1:
-                directionMultiplier = [-1,1];
+                directionMultiplier = [1,-1];
                 break;
             case 2:
                 directionMultiplier = [0,0];
                 break;                
             case 3:
-                directionMultiplier = [1,-1];
+                directionMultiplier = [-1,1];
                 break;
             case 4:
                 directionMultiplier = [-1,-1];
@@ -84,8 +91,9 @@ $(function(){
     // new robot selected
     $('input[type=radio][name=robots]').change(function() {
         resetValues();
-        curRobot.speedLeft = 0;
-        curRobot.speedRight = 0;
+        terminate();
+        curRobot.speedLeft = minValue;
+        curRobot.speedRight = minValue;
         curRobot.ip = $(this).val();             
     });
     
@@ -93,8 +101,8 @@ $(function(){
     function sendRequest(){
         if(allowRequest){
             allowRequest = false;
-            var url = curRobot.ip;
-            url = 'http://' + url + '?left=' + curRobot.speedLeft * directionMultiplier[0] + '&right=' + curRobot.speedRight * directionMultiplier[1];
+            var ip = curRobot.ip;
+            url = 'http://' + ip + '/?LEFT=' + curRobot.speedLeft * directionMultiplier[0] + '&RIGHT=' + curRobot.speedRight * directionMultiplier[1];
             
             console.log(url);
             $.get(url);
@@ -111,13 +119,13 @@ $(function(){
         directionMultiplier = [0,0];
         sendRequest();
         
-        $rightMeter.changeValue(0);
-        $leftMeter.changeValue(0);
+        $rightMeter.changeValue(minValue);
+        $leftMeter.changeValue(minValue);
     
         $('#leftSlider').slider({
-        	min: 0,
+        	min: minValue,
         	max: 1023,
-        	value: 0,
+        	value: minValue,
         	step: 10,
         	slide: function(evt, ui) {
         		$leftMeter.changeValue(ui.value);
@@ -126,14 +134,23 @@ $(function(){
         });
         
         $('#rightSlider').slider({
-        	min: 0,
+        	min: minValue,
         	max: 1023,
-        	value: 0,
+        	value: minValue,
         	step: 10,
         	slide: function(evt, ui) {
         		$rightMeter.changeValue(ui.value);
         		curRobot.speedRight = ui.value;
         	}
         });
+    }
+    
+    function terminate(){
+        directionMultiplier = [0,0];
+        sendRequest();
+        
+        var ip = curRobot.ip;
+        url = 'http://' + url + '/?END=1';
+        $.get(url);
     }
 });
