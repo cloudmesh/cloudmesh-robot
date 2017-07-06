@@ -5,7 +5,6 @@ from newcm import Motor
 from newcm import SpeedMeter
 
 
-
 class DrivingRobot(object):
 
     def __init__(self,
@@ -84,7 +83,7 @@ class DrivingRobot(object):
         lturn = True
         rturn = True
         turn_off = False
-        slow_adjust = 51
+#        slow_adjust = 51
         self.leftmotor.forward()
         self.rightmotor.forward()
         while True:
