@@ -75,3 +75,31 @@ source
 # Linux commandline
 
 * [http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html](http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html)
+
+
+
+# Setup
+
+	mkdir github
+  	cd github
+  	git clone https://github.com/cloudmesh/cloudmesh.robot.git
+  	ssh-keygen
+  	sudo apt-get install emacs
+  	git config --global user.name "Gregor von Laszewski"
+  	git config --global user.email laszewski@gmail.com
+  	git config --global core.editor emacs
+	git config --global push.default matching
+
+# Enable SPI
+
+go to the configuration interfaces and enable
+   
+# RTIMUlib2
+
+  git clone https://github.com/RTIMULib/RTIMULib2.git
+  cd RTIMULib
+
+Add the following two lines to /etc/modules
+
+	i2c-bcm2708
+	i2c-dev
