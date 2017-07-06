@@ -84,7 +84,9 @@ source
   	cd github
   	git clone https://github.com/cloudmesh/cloudmesh.robot.git
   	ssh-keygen
-  	sudo apt-get install emacs
+  	sudo apt-get install -y emacs
+	sudo apt-get install -y cmake
+	sudo apt-get install -y libqt4-dev
   	git config --global user.name "Gregor von Laszewski"
   	git config --global user.email laszewski@gmail.com
   	git config --global core.editor emacs
@@ -103,3 +105,96 @@ Add the following two lines to /etc/modules
 
 	i2c-bcm2708
 	i2c-dev
+
+reboot
+
+	ls /dev/i2c-*
+	sudo apt-get install i2c-tools
+
+	sudo i2cdetect -y 1
+     	     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+	00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- -- 
+	70: -- -- -- -- -- -- -- --
+
+![Pinout](images/rasp3.png)
+
+create a file /etc/udev/rules.d/90-i2c.rules and add the line:
+
+    KERNEL=="i2c-[0-7]",MODE="0666"
+
+note: does not work
+
+instead we do
+
+    sudo chmod 666 /dev/i2c-1 
+
+
+Set the I2C bus speed to 400KHz by adding to /boot/config.txt:
+
+    dtparam=i2c1_baudrate=400000
+
+reboot
+
+
+   cd /home/pi/github/RTIMULib2/RTIMULib/IMUDrivers
+   emacs RTIMUDefs.h
+
+Change
+
+#define MPU9250_ID 0x71
+
+To
+
+#define MPU9250_ID 0x73
+
+
+
+	cd /home/pi/github/RTIMULib2/RTIMULib
+
+	mkdir build
+	cd build
+	cmake ..
+	make -j4
+	sudo make install
+	sudo ldconfig
+
+## compile RTIMULib Apps
+
+   cd /home/pi/github/RTIMULib2/Linux/RTIMULibCal
+   make clean; make -j4
+   sudo make install
+   cd /home/pi/github/RTIMULib2/Linux/RTIMULibDrive
+   make clean; make -j4
+   sudo make install
+   cd /home/pi/github/RTIMULib2/Linux/RTIMULibDrive10
+   make clean; make -j4
+   sudo make install
+   cd /home/pi/github/RTIMULib2/Linux/RTIMULibDrive11
+   make clean; make -j4
+   sudo make install
+
+
+   cd /home/pi/github/RTIMULib2/Linux/RTIMULibDemo    
+   qmake clean
+   make clean
+   qmake
+   make -j4
+   sudo make install
+   cd /home/pi/github/RTIMULib2/Linux/RTIMULibDemoGL
+   qmake clean
+   make clean
+   qmake
+   make -j4
+   sudo make install
+
+
+
+## Camera
+
+* [Camera Tutorial](https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/)
