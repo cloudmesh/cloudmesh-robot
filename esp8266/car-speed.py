@@ -1,3 +1,6 @@
+#
+# cp car-speed.py main.py;  cms robot put -o main.py
+#
 import cm
 import network
 import time
@@ -51,15 +54,8 @@ html = """<!DOCTYPE html>
 
 <tr>
 <td><button name="LEFT" value="1000" type="submit">LEFT</button></td>
-<td><button name="SPEED" value="0.100" type="submit">do not use</button></td>
-<td><button name="SPEED" value="0.0" type="submit">do not use</button></td>
-<td><button name="SPEED" value="100.0" type="submit">do not use</button></td>
-</tr>
-
-<tr>
-<td></td>
-<td><button name="BACKWARD" value="ON" type="submit">BACKWARD</button></td>
-<td></td>
+<td><button name="RIGHT" value="100" type="submit">RIGHT</button></td>
+<td><button name="END" value="ON" type="submit">END</button></td>
 </tr>
 
 </table>
@@ -79,18 +75,13 @@ def find_params(request):
     return (params)
 
 i = 0
-while True:
-    i = i + 1
+
+terminate = False
+while not terminate:
     conn, addr = s.accept()
-    print ("I", i)
 
     request = str(conn.recv(1024))
-    # print (request[7], request)
-    #request = conn.recv(512)
-    print (">", request[7], "?", "<", len(request))
     if request[7] == '?':
-        print (">>>>>>>>>>>>>>>>>>>>>")
-
         params = find_params(request)
         for param in params:
             name, value = param.split('=')
@@ -99,16 +90,8 @@ while True:
                 left.set(value)
             if name == 'RIGHT':
                 right.set(value)
-
-
-
-        #elif 6 == request.find('/?FORWARD'):
-
-        #    pass
-
-        #elif 6 == request.find('/?BACWARD'):
-
-        #    pass
+            if name == 'END':
+                terminate = True
 
     cm.feedback(conn, html)
 
