@@ -1,8 +1,7 @@
 $(function(){
-    var loop = null;
-
     // limit number of requests (milliseconds between each request)
     var speedThrottle = 200;
+    var allowRequest = true;
 
     // currently selected robot
     var curRobot = {
@@ -59,9 +58,7 @@ $(function(){
     });
     
     // button clicked
-    $('#keys li').click(function(){
-        clearInterval(loop);
-        
+    $('#keys li').click(function(){        
         index = $(this).index();
         switch(index){
             case 0:
@@ -81,16 +78,7 @@ $(function(){
                 break;
         }
         
-        $('#keys li').removeClass('pressed');
-        
-        if(index != 2){
-            loop = setInterval(function(){
-                sendRequest();
-            }, speedThrottle);
-            $(this).addClass('pressed');
-        } else {
-            sendRequest();
-        }
+        sendRequest();
     });
     
     // new robot selected
@@ -103,20 +91,25 @@ $(function(){
     
     // send AJAX request
     function sendRequest(){
-        var url = curRobot.ip;
-        url = 'http://' + url + '?left=' + curRobot.speedLeft * directionMultiplier[0] + '&right=' + curRobot.speedRight * directionMultiplier[1];
-        
-        console.log(url);
-        //$.get(url);
-        
+        if(allowRequest){
+            allowRequest = false;
+            var url = curRobot.ip;
+            url = 'http://' + url + '?left=' + curRobot.speedLeft * directionMultiplier[0] + '&right=' + curRobot.speedRight * directionMultiplier[1];
+            
+            console.log(url);
+            $.get(url);
+            
+            // speed throttle
+            setTimeout(function(){
+                allowRequest = true;
+            }, speedThrottle);
+        }
     }
     
     // change all values to 0
     function resetValues(){
-        clearInterval(loop);
         directionMultiplier = [0,0];
         sendRequest();
-        $('#keys li').removeClass('pressed');
         
         $rightMeter.changeValue(0);
         $leftMeter.changeValue(0);
@@ -126,7 +119,7 @@ $(function(){
         	max: 1023,
         	value: 0,
         	step: 10,
-        	slide: function (evt, ui) {
+        	slide: function(evt, ui) {
         		$leftMeter.changeValue(ui.value);
         		curRobot.speedLeft = ui.value;
         	}
@@ -137,7 +130,7 @@ $(function(){
         	max: 1023,
         	value: 0,
         	step: 10,
-        	slide: function (evt, ui) {
+        	slide: function(evt, ui) {
         		$rightMeter.changeValue(ui.value);
         		curRobot.speedRight = ui.value;
         	}
