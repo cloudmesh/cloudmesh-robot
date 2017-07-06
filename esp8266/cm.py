@@ -152,7 +152,8 @@ class Motor(object):
         self.direction.high()
 
     def stop(self):
-        self.motor.duty(0)
+        self.d = 0
+        self.motor.duty(self.d)
 
     def set(self, value):
         print (self.name, value)
