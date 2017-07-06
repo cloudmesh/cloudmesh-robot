@@ -121,6 +121,49 @@ class LED(object):
             utime.sleep(dt)
             self.on()
 
+##############################################
+# MOTOR MANAGEMENT
+##############################################
+
+class Motor(object):
+    """the motor class has the name attribute and a forward duty and backward duty"""
+
+    def __init__(self, name):
+        """Sets up two motors for a robot car
+        :param name: left or right
+        """
+        if name == "left":
+            self.pin_speed = 4
+            self.pin_direction = 2
+        elif name == "right":
+            self.pin_speed = 5
+            self.pin_direction = 0
+        self.d = 1023
+        self.motor = machine.PWM(machine.Pin(self.pin_speed), freq=1000, duty=0)
+        self.direction = machine.Pin(self.pin_direction, machine.Pin.OUT)
+        self.name = name
+
+    def forward(self):
+        self.motor.duty(self.d)
+        self.direction.low()
+
+    def backward(self):
+        self.motor.duty(self.d)
+        self.direction.high()
+
+    def stop(self):
+        self.motor.duty(0)
+
+    def set(self, value):
+        print (self.name, value)
+        if 0 <= value <= 1023:
+            self.d = value
+            self.motor.duty(self.d)
+            self.direction.low()
+        elif -1023 <= value < 0:
+            self.d = -value
+            self.motor.duty(self.d)
+            self.direction.high()
 
 ##############################################
 # SERVO
@@ -202,62 +245,6 @@ class Servo(object):
                 self.set(cp, _dt)
 
 
-class Servo_old(object):
-    def __init__(self, pin, minimum=40, maximum=115):
-        """
-        define an LED on a given pin
-        :param pin: the number of the pin
-        """
-        self.pin = pin_id(pin)
-        self.servo = machine.PWM(machine.Pin(self.pin), freq=50)
-        self.minimum = minimum
-        self.maximum = maximum
-        self.middle = int((maximum - minimum) / 2.0) + minimum
-
-    def off(self):
-        self.servo.duty(0)
-
-    def set(self, value, dt=0.1):
-        pos = value + self.minimum
-        if self.minimum <= pos <= self.maximum:
-            self.servo.duty(pos)
-        utime.sleep(dt)
-        self.off()
-
-    def zero(self):
-        self.low()
-
-    def low(self):
-        self.servo.duty(self.minimum)
-
-    def high(self):
-        self.servo.duty(self.maximum)
-
-    def mean(self):
-        self.servo.duty(self.middle)
-
-    def swim(self, n, dt=0.1):
-        self.zero()
-        for i in range(0, n):
-            self.low()
-            utime.sleep(dt)
-            self.off()
-            self.high()
-            utime.sleep(dt)
-            self.zero()
-            utime.sleep(dt)
-            self.off()
-
-    def info(self):
-        d = {
-            "pin": self.pin,
-            "maximum": self.maximum,
-            "minimum": self.minimum,
-            "middle": self.middle,
-            "value": 0.0
-        }
-        return d
-
 ##############################################
 # NETWORK MANAGEMENT
 ##############################################
@@ -316,24 +303,24 @@ def net(ssid=None, password=None, username='gregor'):
                 f.write(i + ": " + d[i])
 
 
-def ap(filename='credentials.txt'):
-    credentials = get_attributes(filename)
-    print(credentials)
-
-    print("start ap")
-
-    sta_if = network.WLAN(network.STA_IF)
-    ap_if = network.WLAN(network.AP_IF)
-
-    sta_if.active()
-    ap_if.active()
-    ap_if.ifconfig()
-
-    sta_if.connect(credentials['ssid'], credentials['password'])
-    print(sta_if)
-
-    print(sta_if.ifconfig())
-    print(ap_if.ifconfig())
+# def ap(filename='credentials.txt'):
+#    credentials = get_attributes(filename)
+#    print(credentials)
+#
+#    print("start ap")
+#
+#   sta_if = network.WLAN(network.STA_IF)
+#    ap_if = network.WLAN(network.AP_IF)
+#
+#    sta_if.active()
+#    ap_if.active()
+#    ap_if.ifconfig()
+#
+#    sta_if.connect(credentials['ssid'], credentials['password'])
+#    print(sta_if)
+#
+#    print(sta_if.ifconfig())
+#    print(ap_if.ifconfig())
 
 
 ##############################################

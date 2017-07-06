@@ -20,38 +20,7 @@ from cm import mac
 # MOTOR MANAGEMENT
 ##############################################
 
-class Motor(object):
-    """the motor class has the name attribute and a forward duty and backward duty"""
-
-    def __init__(self, name):
-        """Sets up two motors for a robot car
-        :param name: left or right
-        """
-        if name == "left":
-            self.pin_speed = 4
-            self.pin_direction = 2
-        elif name == "right":
-            self.pin_speed = 5
-            self.pin_direction = 0
-        self.d = 1023
-        self.motor = machine.PWM(machine.Pin(self.pin_speed), freq=1000, duty=0)
-        self.direction = machine.Pin(self.pin_direction, machine.Pin.OUT)
-        self.name = name
-
-    def forward(self):
-        self.motor.duty(self.d)
-        self.direction.low()
-
-    def backward(self):
-        self.motor.duty(self.d)
-        self.direction.high()
-
-    def stop(self):
-        self.motor.duty(0)
-
-    def set(self, value):
-        if 0 <= value <= 1023:
-            self.d = value
+from cm import Motor
 
 
 ##############################################
@@ -74,51 +43,7 @@ from cm import clean
 # SERVO
 ##############################################
 
-class Servo(object):
-    def __init__(self, pin, minimum=40, maximum=115):
-        """
-        define an LED on a given pin
-        :param pin: the number of the pin
-        """
-        pin = pin_id(pin)
-        self.servo = machine.PWM(machine.Pin(pin), freq=50)
-        self.minimum = minimum
-        self.maximum = maximum
-        self.middle = int((maximum - minimum) / 2) + minimum
-
-    def off(self):
-        self.servo.duty(0)
-
-    def set(self, value, dt=0.1):
-        pos = value + self.minimum
-        if self.minimum <= pos <= self.maximum:
-            self.servo.duty(pos)
-        utime.sleep(dt)
-        self.off()
-
-    def zero(self):
-        self.low()
-
-    def low(self):
-        self.servo.duty(self.minimum)
-
-    def high(self):
-        self.servo.duty(self.maximum)
-
-    def mean(self):
-        self.servo.duty(self.middle)
-
-    def swim(self, n, dt=0.1):
-        self.zero()
-        for i in range(0, n):
-            self.low()
-            utime.sleep(dt)
-            self.off()
-            self.high()
-            utime.sleep(dt)
-            self.mean()
-            utime.sleep(dt)
-            self.off()
+# from cm import Servo
 
 
 ##############################################
@@ -226,6 +151,7 @@ class Car(object):
             self.sml.wait_ticks(ticks)
             self.left.stop()
             self.left.set(1023)
+
 
 
 ##############################################
