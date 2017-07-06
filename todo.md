@@ -34,7 +34,8 @@
 ## Marvelmind
 
 * [SZ] write library to interface with marvelmind
-* [?] laptop windows
+* [done] Gregor (originally SZ) laptop windows
+* [SZ] integrate marvelmind documentation
 * [?] ubuntu desktop
 * [SZ] windows 10 desktop
 * [SZ] virus detected on marvelmind - store code - write install while using our copy
@@ -48,15 +49,15 @@
 
 * [x] INLOCC
 * [x] 10 drones
-* [-] 10 shields
-* [-] 10 z sensors
+* [x] 10 shields
+* [x] 10 z sensors
 * [Tim] Identify camera
  
 ## Air Swimmer
 
-1. [x] esp8266 to 2 servor
-2. [Gregor] test build
-3. [Gregor] measure bruce weight capacity, needs scale
+1. [x] (Gregor) esp8266 to 2 servor
+2. [x] (Gregor) test build
+3. [x] (Gregor) measure bruce weight capacity, needs scale
 
 ## Tutorials
 
