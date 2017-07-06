@@ -72,7 +72,7 @@ programs. Certainly you can use `vi` or `emacs`. As we are on OSX we
 can also use an editor such as `aquaemacs`. Let us assume you have
 installed it on your computer, we recommend to add a shortcut so you
 can call it from the commandline. This can be done by editing the
-`~/.bash_profile` and add the following to it.
+`~/.bash_profile` and add the following to it (If you do not have a `$ ~/.bash_profile` on your mac already, you can type `$ touch ~/.bash_profile` into terminal, otherwise use `emacs ~/.bash_profile`)
 
 	####################################################################### 
 	# PYENV
