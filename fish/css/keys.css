@@ -1,0 +1,41 @@
+#keys {
+    display: inline-block;
+	list-style: none;
+	position: relative;	
+	padding: 0;
+}
+
+#keys li {
+	position: relative;
+	display: inline-block;
+	margin-right: 10px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 40px;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	background-color: #f1f1f1;
+	border: 1px solid #eee;
+	border-radius: 8px;
+	box-shadow: 0 6px 10px rgba(0,0,0,.3);
+	cursor: pointer;
+}
+
+#keys li:nth-child(1) {
+    display: block;
+    left: 75px;
+    margin-bottom: 10px;
+}
+
+#keys li:nth-child(5) {
+    display: block;
+    left: 75px;
+    margin-top: 10px;
+}
+
+#keys li.pressed, #keys li:active{
+    background-color: #e1e1e1;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+    transform: translateY(4px);
+}
