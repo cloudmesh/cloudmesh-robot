@@ -1,6 +1,10 @@
 $(function(){
-    // minimum duty on robot motors
+    // min/max duty on robot motors
     var minValue = 700;
+    var maxValue = 1023;
+    
+    // slider stepping
+    var step = 10;
     
     // limit number of requests (milliseconds between each request)
     var speedThrottle = 200;
@@ -20,11 +24,11 @@ $(function(){
     	label: 'Right',
     	value: minValue,
     	min: minValue,
-    	max: 1023,
+    	max: maxValue,
     	unit: 'Speed',
     	regions: {
-    		800: 'warn',
-    		900: 'error'
+    		870: 'warn',
+    		950: 'error'
     	}
     });
     
@@ -33,11 +37,11 @@ $(function(){
     	label: 'Left',
     	value: minValue,
     	min: minValue,
-    	max: 1023,
+    	max: maxValue,
     	unit: 'Speed',
     	regions: {
-    		800: 'warn',
-    		900: 'error'
+    		870: 'warn',
+    		950: 'error'
     	}
     });
     
@@ -124,9 +128,9 @@ $(function(){
     
         $('#leftSlider').slider({
         	min: minValue,
-        	max: 1023,
+        	max: maxValue,
         	value: minValue,
-        	step: 10,
+        	step: step,
         	slide: function(evt, ui) {
         		$leftMeter.changeValue(ui.value);
         		curRobot.speedLeft = ui.value;
@@ -135,9 +139,9 @@ $(function(){
         
         $('#rightSlider').slider({
         	min: minValue,
-        	max: 1023,
+        	max: maxValue,
         	value: minValue,
-        	step: 10,
+        	step: step,
         	slide: function(evt, ui) {
         		$rightMeter.changeValue(ui.value);
         		curRobot.speedRight = ui.value;
