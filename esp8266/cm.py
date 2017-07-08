@@ -143,17 +143,20 @@ class Motor(object):
         self.direction = machine.Pin(self.pin_direction, machine.Pin.OUT)
         self.name = name
 
-    def forward(self):
-        self.motor.duty(self.d)
-        self.direction.low()
+    def forward(self, value=None):
+        if value is not None:
+            self.motor.duty(value)
+            self.direction.low()
+        else:
+            self.motor.duty(self.d)
+            self.direction.low()
 
     def backward(self):
         self.motor.duty(self.d)
         self.direction.high()
 
     def stop(self):
-        self.d = 0
-        self.motor.duty(self.d)
+        self.motor.duty(0)
 
     def set(self, value):
         print (self.name, value)
