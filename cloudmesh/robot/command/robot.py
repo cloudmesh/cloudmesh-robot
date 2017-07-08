@@ -11,7 +11,7 @@ import sys
 from cloudmesh.robot.api import Probe, Git, Network, Ampy
 from pprint import pprint
 import textwrap
-from cloudmesh.common.hostlist import Parameter
+from cloudmesh.common.parameter import Parameter
 from cloudmesh.common.StopWatch import StopWatch
 from ruamel import yaml
 

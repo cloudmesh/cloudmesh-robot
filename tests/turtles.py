@@ -1,7 +1,7 @@
 import time
 import requests
 import os
-from cloudmesh.common.hostlist import Parameter
+from cloudmesh.common.parameter import Parameter
 import turtle
 from multiprocessing import Process
 
