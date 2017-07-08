@@ -198,3 +198,10 @@ To
 ## Camera
 
 * [Camera Tutorial](https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/)
+
+
+# Lessons and projects
+
+*[Gui](https://www.raspberrypi.org/learning/getting-started-with-guis/worksheet/)
+*[Solder](https://www.raspberrypi.org/learning/getting-started-with-guis/)
+*[PI Camera Line Follower](https://www.raspberrypi.org/blog/an-image-processing-robot-for-robocup-junior/)
