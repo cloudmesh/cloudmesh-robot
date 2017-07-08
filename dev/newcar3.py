@@ -7,11 +7,6 @@ import utime
 
 
 led = cm.LED(2)
-left = cm.Motor("left")
-right = cm.Motor("right")
-smr = cm3.SpeedMeter(16)
-sml = cm3.SpeedMeter(15)
-car = cm3.Car(left, right, sml, smr)
 
 led.blink(5)
 
@@ -56,6 +51,10 @@ html = """<!DOCTYPE html>
 <td><button name="STOP" value="ON" type="submit">STOP</button></td>
 <td><button name="BACK" value="ON" type="submit">BACKWARD</button></td>
 </tr>
+<tr>
+<td>END:</td> 
+<td><button name="END" value="ON" type="submit">END</button></td>
+</tr>
 </table>
 </form>
 </html>
@@ -65,20 +64,28 @@ utime.sleep(.5)
 
 led.blink(6)
 
+left = cm.Motor("left")
+right = cm.Motor("right")
+smr = cm3.SpeedMeter(16)
+sml = cm3.SpeedMeter(15)
+car = cm3.Car(left, right, sml, smr)
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
 s.listen(5)
-while True:
+terminate = False
+while not terminate:
     conn, addr = s.accept()
-    print("Got a connection from %s" % str(addr))
-    request = conn.recv(1024)
-    print("Content = %s" % str(request))
-    request = str(request)
+    print("Connection from %s" % str(addr))
+    request = str(conn.recv(1024))
+    print("Content = %s" % request)
+
     LEFTON = request.find('/?LEFT=ON')
     RIGHTON = request.find('/?RIGHT=ON')
     FORWARD = request.find('/?FORWARD=ON')
     STOP = request.find('/?STOP=ON')
     BACK = request.find('/?BACK=ON')
+    END = request.find('/?END=ON')
 
     direction = 'STOP'
     left_on = False
@@ -101,36 +108,9 @@ while True:
         right.backward()
         left.backward()
         direction = 'BACKWARD'
+    if END == 6:
+        terminate = True
 
-    response = ''.join(html.split('\n')[1:])
-
-    #blink (3)
-    #time.sleep(0.5)
-
-
-    response_headers = {
-        'Content-Type': 'text/html; encoding=utf8',
-        'Content-Length': len(response),
-        'Connection': 'close',
-    }
-
-
-    response_headers_raw = ''.join('%s: %s\n' % (k, v) for k, v in response_headers.items())
-
-
-    # Reply as HTTP/1.1 server, saying "HTTP OK" (code 200).
-    response_proto = 'HTTP/1.1'
-    response_status = '200'
-    response_status_text = 'OK'  # this can be random
-
-    # sending all this stuff
-    conn.send('%s %s %s' % (response_proto, response_status, response_status_text))
-    conn.send(response_headers_raw)
-    conn.send('\n')  # to separate headers from body
-
-
-    conn.send(response)
-    #blink (5)
-    #time.sleep(0.5)
-
+    cm.feedback(conn, html)
     conn.close()
+    utime.sleep(0.2)
