@@ -39,11 +39,11 @@ html = """<!DOCTYPE html>
 <table>
 <tr>
 <td>LEFT:</td> 
-<td><button name="LEFT" value="90" type="submit">ON</button></td>
+<td><button name="TURN" value="90" type="submit">ON</button></td>
 </tr>
 <tr>
 <td>RIGHT:</td>
-<td><button name="RIGHT" value="90" type="submit">ON</button></td>
+<td><button name="TURN" value="-90" type="submit">ON</button></td>
 </tr>
 <tr>
 <td>DIRECTION:</td>
@@ -101,13 +101,8 @@ while not terminate:
                 right.stop()
                 left.stop()
 
-            elif name == 'LEFT':
+            elif name == 'TURN':
                 value = int(value)
-                car.turn_angle(value)
-
-
-            elif name == 'RIGHT':
-                value = - int(value)
                 car.turn_angle(value)
 
             elif name == 'BACK':
