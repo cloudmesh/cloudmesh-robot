@@ -122,4 +122,4 @@ while not terminate:
 
     cm.feedback(conn, html)
     conn.close()
-    utime.sleep(0.2)
+    utime.sleep(dt)
