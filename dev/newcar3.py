@@ -39,17 +39,17 @@ html = """<!DOCTYPE html>
 <table>
 <tr>
 <td>LEFT:</td> 
-<td><button name="LEFT" value="ON" type="submit">ON</button></td>
+<td><button name="LEFT" value="90" type="submit">ON</button></td>
 </tr>
 <tr>
 <td>RIGHT:</td>
-<td><button name="RIGHT" value="ON" type="submit">ON</button></td>
+<td><button name="RIGHT" value="90" type="submit">ON</button></td>
 </tr>
 <tr>
 <td>DIRECTION:</td>
-<td><button name="FORWARD" value="ON" type="submit">FORWARD</button></td>
+<td><button name="FORWARD" value="10" type="submit">FORWARD</button></td>
 <td><button name="STOP" value="ON" type="submit">STOP</button></td>
-<td><button name="BACK" value="ON" type="submit">BACKWARD</button></td>
+<td><button name="BACK" value="10" type="submit">BACKWARD</button></td>
 </tr>
 <tr>
 <td>END:</td> 
@@ -64,52 +64,66 @@ utime.sleep(.5)
 
 led.blink(6)
 
+def find_params(request):
+    pos = request.find('?')+1
+    a = request[pos:].split(" HTTP")[0]
+    params = a.split('&')
+    return (params)
+
 left = cm.Motor("left")
 right = cm.Motor("right")
 smr = cm3.SpeedMeter(16)
 sml = cm3.SpeedMeter(15)
 car = cm3.Car(left, right, sml, smr)
 
+
+dt = 0.2
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
 s.listen(5)
 terminate = False
 while not terminate:
+
+    print ("Waiting for connection")
     conn, addr = s.accept()
-    print("Connection from %s" % str(addr))
+    print("Got a connection from %s" % str(addr))
     request = str(conn.recv(1024))
-    print("Content = %s" % request)
+    params = find_params(request)
 
-    LEFTON = request.find('/?LEFT=ON')
-    RIGHTON = request.find('/?RIGHT=ON')
-    FORWARD = request.find('/?FORWARD=ON')
-    STOP = request.find('/?STOP=ON')
-    BACK = request.find('/?BACK=ON')
-    END = request.find('/?END=ON')
+    if request[7] == '?':
 
-    direction = 'STOP'
-    left_on = False
-    right_on = False
-    if LEFTON == 6:
-        car.turn_angle(90)
-        direction = 'LEFT'
-    if RIGHTON == 6:
-        car.turn_angle(-90)
-        direction = 'LEFT'
-    if STOP == 6:
-        right.stop()
-        left.stop()
-        direction = 'STOP'
-    if FORWARD == 6:
-        right.forward()
-        left.forward()
-        direction = 'FORWARD'
-    if BACK == 6:
-        right.backward()
-        left.backward()
-        direction = 'BACKWARD'
-    if END == 6:
-        terminate = True
+        print(params)
+
+        for param in params:
+            name, value = param.split('=')
+            if name == 'STOP':
+                right.stop()
+                left.stop()
+
+            elif name == 'LEFT':
+                value = int(value)
+                car.turn_angle(value)
+
+
+            elif name == 'RIGHT':
+                value = - int(value)
+                car.turn_angle(value)
+
+            elif name == 'BACK':
+                # value = int(value) # not yet used
+
+                right.backward()
+                left.backward()
+
+            elif name == 'GO':
+                # value = int(value) # not yet used
+
+                right.forward()
+                left.forward()
+
+            elif name == 'END':
+                terminate = True
 
     cm.feedback(conn, html)
     conn.close()
