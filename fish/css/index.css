@@ -1,0 +1,9 @@
+#robotSelect{
+    display: inline-block;
+    margin-right: 50px;
+}
+
+#finGauge{
+    display: block;
+    transform: rotate(180deg);
+}
