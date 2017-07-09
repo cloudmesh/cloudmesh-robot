@@ -12,10 +12,14 @@ class SpeedMeter(object):
     def __init__(self, pin):
         self.pin = machine.Pin(pin, machine.Pin.IN)
         self.status = self.pin.value()
+        self.last = self.status
         self.counter = 0
 
     def update(self):
-        self.status = self.pin.value()
+        try:
+            self.status = self.pin.value()
+        except:
+            self.status = self.last
 
     def get(self):
         turn = True
@@ -72,6 +76,10 @@ class Car(object):
         self.right = rightmotor
         self.sml = leftspeedmeter
         self.smr = rightspeedmeter
+        self.debug(True)
+
+    def debug(self, on):
+        self._debug = True
 
     def turn_angle(self, angle):
         """
@@ -88,49 +96,81 @@ class Car(object):
             self.sml.wait_ticks(ticks)
             self.left.stop()
 
-    def carstop(self):
+    def stop(self):
         self.left.stop()
         self.right.stop()
+
+    def move(self, ticks):
+
+        left_count = 0
+        right_count = 0
+        dleft = left_count + ticks
+        dright = left_count + ticks
+
+        self.left.forward()
+        self.right.forward()
+
+        while left_count <= ticks and right_count <= ticks:
+            left_count = self.sml.get()
+            right_count = self.smr.get()
+            if left_count <= ticks and right_count <= ticks:
+                if left_count == right_count:
+                    self.left.forward()
+                    self.right.forward()
+                elif left_count < right_count:
+                    self.right.stop()
+                    self.left.forward()
+                elif left_count > right_count:
+                    self.right.forward()
+                    self.left.stop()
 
     def calibrate_forward(self):
         left_count = 0
         right_count = 1
         while left_count != right_count:
-            self.left.forward()
+            # move this down?
+            self.left.forward()    # Bug? SHOULD THAT BE AFTER GET?
             self.right.forward()
+
+            #move this up ?
             left_count = self.sml.get()
             right_count = self.smr.get()
+
             if left_count < right_count:
                 if self.left.d < 1023:
-                    self.carstop()
+                    self.stop()
                     self.left.d += 2
                     self.turn_angle(180)
-                    print("A")
-                    print("left: " + str(left_count))
-                    print("right: " + str(right_count))
+                    if self._debug:
+                        print("A")
+                        print("left:", left_count)
+                        print("right:", right_count)
                 else:
-                    self.carstop()
+                    self.stop()
                     self.right.d -= 5
                     self.turn_angle(180)
-                    print("B")
-                    print("left: " + str(left_count))
-                    print("right: " + str(right_count))
+                    if self._debug:
+                        print("B")
+                        print("left:", left_count)
+                        print("right:", right_count)
             elif right_count > left_count:
                 if self.right.d < 1023:
-                    self.carstop()
+                    self.stop()
                     self.right.d += 2
                     self.turn_angle(180)
-                    print("C")
-                    print("left: " + str(left_count))
-                    print("right: " + str(right_count))
+                    if self._debug:
+                        print("C")
+                        print("left:", left_count)
+                        print("right:", right_count)
                 else:
-                    self.carstop()
+                    self.stop()
                     self.left.d -= 5
                     self.turn_angle(180)
-                    print("D")
-                    print("left: " + str(left_count))
-                    print("right: " + str(right_count))
-        self.carstop()
+                    if self._debug:
+                        print("D")
+                        print("left:", left_count)
+                        print("right:", right_count)
+        self.stop()
 
 
 ##############################################

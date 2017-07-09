@@ -98,8 +98,9 @@ while not terminate:
         for param in params:
             name, value = param.split('=')
             if name == 'STOP':
-                right.stop()
-                left.stop()
+                car.stop()
+                # right.stop()
+                # left.stop()
 
             elif name == 'TURN':
                 value = int(value)
