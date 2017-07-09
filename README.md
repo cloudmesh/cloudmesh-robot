@@ -52,7 +52,7 @@ libraries and to allow the use of a user managed Python environment.
 OSX provides a number of useful extensions for developers with
 *xcode*. Please install it with
 
-	xcode-select --install
+	$ xcode-select --install
 	
 #### Homebrew
 
@@ -149,8 +149,8 @@ and *setuptools* are up to date. After you have started a new terminal
 window you will by default activate Python 3. To make sure pip and
 setup tools are up to date, you can once call
 
-	pip install pip -U
-	pip install setuptools -U
+	$ pip install pip -U
+	$ pip install setuptools -U
 
 ### Installation of the robot Interafce
 
@@ -355,17 +355,17 @@ repository that you like to reinstall. Let us assume it is
 repository
 
 
-    cd cloudmesh.robot
-    pip uninstall cloudmesh.robot
+    $ cd cloudmesh.robot
+    $ pip uninstall cloudmesh.robot
     
  Do the pip unisntall as many times till you see an error that no more
  cloudmesh.robot versions can be found. Than execute
  
-    make clean
+    $ make clean
     
 After this you can reinstall it with 
     
-    python setup.py install; pip install -e .
+    $ python setup.py install; pip install -e .
 
 the -e flag is optional, but allows you to change the code without the
 need of recompiling. A very useful feature in python.
@@ -397,9 +397,9 @@ As we typically install python with virtualenv, we need to configure
 matplotlib properly to use it. The easiest way to do this is to execute
 the following commands. After you run them you can use matplotlib.
 
-	pip install numpy
-	pip install matplotlib
-	echo "backend : TkAgg" > ~/.matplotlib/matplotlibrc
+	$ pip install numpy
+	$ pip install matplotlib
+	$ echo "backend : TkAgg" > ~/.matplotlib/matplotlibrc
 	
 
 ## External Tutorials and  Lessons
@@ -426,28 +426,28 @@ This document leverages a number of lessons created for cloudmesh and other info
 Linux
 -----
 
-	pip install esptool 
-	pip install pyserial 
-	pip install adafruit-ampy 
-	install lua 
-	install picocom
+	$ pip install esptool 
+	$ pip install pyserial 
+	$ pip install adafruit-ampy 
+	? install lua 
+	? install picocom
 
 Miniterm
 --------
 
-	python -m serial.tools.miniterm -h
+	$ python -m serial.tools.miniterm -h
 
 <http://pyserial.readthedocs.io/en/latest/tools.html#module-serial.tools.miniterm>
 
 Picocom
 -------
 
-	picocom /dev/tty.wchusbserial1410 -b115200 ./probe.py
+	$ picocom /dev/tty.wchusbserial1410 -b115200 ./probe.py
 
 Ampy
 ----
 
-	ampy -p /dev/tty.wchusbserial1410 -b115200 run test.py
+	$ ampy -p /dev/tty.wchusbserial1410 -b115200 run test.py
 
 [https://drive.google.com/file/d/0BwAgplGeEjGPTnB5UXJnMzRMemc/view>](https://drive.google.com/file/d/0BwAgplGeEjGPTnB5UXJnMzRMemc/view)
 
@@ -493,8 +493,8 @@ Information
 -----------
 
 ```
-esptool.py -p /dev/tty.wchusbserial1440 chip_id
-esptool.py -p /dev/tty.wchusbserial1440 read_mac
+$ esptool.py -p /dev/tty.wchusbserial1440 chip_id
+$ esptool.py -p /dev/tty.wchusbserial1440 read_mac
 ```
 ```
 cfg.ssid=“DoitWiFi”; cfg.pwd=“12345678”
@@ -522,17 +522,17 @@ micropython.org
 Flash
 
 ```
-esptool.py –port /dev/tty.wchusbserial1410 write_flash –flash_size=detect 0 esp8266-20170108-v1.8.7.bin
+$ esptool.py –port /dev/tty.wchusbserial1410 write_flash –flash_size=detect 0 esp8266-20170108-v1.8.7.bin
 ```
 
 reset the chip
 start 
 
-	picocom /dev/tty.wchusbserial1410 -b115200
+	$ picocom /dev/tty.wchusbserial1410 -b115200
 
 terminal
 
-	picocom /dev/tty.wchusbserial1410
+	$ picocom /dev/tty.wchusbserial1410
 
 
 Run Code
@@ -552,15 +552,15 @@ Running:
 
 Copy a file to the board
 
-	ampy --port /serial/port put test.py
+	$ ampy --port /serial/port put test.py
 
 Copy a Directory to the board
 
-	ampy --port /serial/port put adafruit_driver
+	$ ampy --port /serial/port put adafruit_driver
 
 Copy a file or directory from the board
 
-	ampy --port /serial/port get boot.py
+	$ ampy --port /serial/port get boot.py
 
 | comand | execute                                |
 |--------|----------------------------------------|
@@ -623,19 +623,21 @@ Brew
 ----
 
 * http://blog.coldflake.com/posts/Minimal-Development-Setup-for-Mac-OS/
-* brew install tree
-* brew install wget
-* brew install picocom
-* brew install htop-osx
-* brew install dos2unix 
-* brew install jq 
-* brew install tig  # git ascii browser
-* brew install sqlite
-* brew cask install omnigraffle
-* brew cask install virtualbox
-* brew tap homebrew/science
-* brew install opencv
-* brew link opencv
+
+	$ brew install tree
+	$ brew install wget
+	$ brew install picocom
+	$ brew install htop-osx
+	$ brew install dos2unix 
+	$ brew install jq 
+	$ brew install tig  # git ascii browser
+	$ brew install sqlite
+	$ brew cask install omnigraffle
+	$ brew cask install virtualbox
+	$ brew tap homebrew/science
+	$ brew install opencv
+	$ brew link opencv
+
 * [opencv install via homebrew](https://books.google.com/books?id=zOx3CgAAQBAJ&pg=PA20&lpg=PA20&dq=useful+homebrew+packages+arduino&source=bl&ots=LifN_I7SJK&sig=6CW-ph8l05Jf4gqkP6NzK7uV9qc&hl=en&sa=X&ved=0ahUKEwjcifT-tYjUAhVI7YMKHdSKAXoQ6AEITjAH#v=onepage&q=useful%20homebrew%20packages%20arduino&f=false)
 
 

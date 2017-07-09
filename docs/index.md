@@ -7,18 +7,9 @@
 
 1. [Security](security.md) 
 
-2. [Tools](setup.md)
+2. [Setup](setup.md)
 
-
-	1. [Terminal](tools/terminal.md)
-	2. [Xcode](tools/xcode.md)
-	3.	[Bash](tools/bash.md)	
-	4.	[Macdown](tools/macdown.md)
-	5.	[AquaEmacs](tools/aquaemacs.md)	
-	6.	[Homebrew](tools/homebrew.md)
-	7.	[Pyenv](tools/pyenv.md)
-	8.	[Pycharm](tools/pycharm.md)
-	9.	[Arduino](tools/arduino.md)		
+2. [Tools](tools.md)
 	
 3. [Marvelmind](marvelmind.md) 
 	

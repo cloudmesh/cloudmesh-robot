@@ -1,10 +1,11 @@
 # Preface
 
-uses cloudmesh cmd5
+We are presenting an easy interface to robotics while leveraging a number of community tools. All programming we document here is mostly done in python. This also allows us to utilize cloudmesh cmd5 which provides an easy to use command shell.
+Future versions will be able to be installed via pypi, howevewr, currently we recommend instalation from source.
 
-easy setup
+We integrated some examples to allow students to explore how to use two borads. One is based on the esp8266, the other is based on Raspberry PI 3.
 
-examples and tutorials
+We are actively looking for your contributions so we can integrate them.
 
 
 ## Contributors
