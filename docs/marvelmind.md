@@ -4,7 +4,7 @@
 
 [Marvelmind Indoor Navigation System](marvelmind.com) is an indoor navigation system designed for providing location data to autonomous robots, vehicles (AGV) and copters. The precision is rated to be +- 2cm.
 
-> Fix: link to documentateion is missing
+> BUG: Fix: link to documentateion is missing
 
 ### Requirements
 
@@ -20,13 +20,13 @@ Go to the marvelmind main page, on your Windows PC, at
 
 * [https://www.marvelmind.com](https://www.marvelmind.com) 
 
-Scroll down to the **Dashboard SW v5.31 + Beacon SW v5.63 + Modem SW 5.63** hyperlink, click it, and a download should start (the version numbers may change based on updates). Once the zip file is finished downloading, make sure to run a **windows defender virus check** by rightclicking on the zip file and clicking "Scan with windows defender". After making sure that there is no malware in the zip file, unzip it, and then unzip the dashboard folder, and the firmware folder for your particular beacon, either HW4.5 or HW4.9, included in the package.
+Scroll down to the *Dashboard SW v5.31 + Beacon SW v5.63 + Modem SW 5.63* hyperlink, click it, and a download should start (the version numbers may change based on updates). Once the zip file is finished downloading, make sure to run a *windows defender virus check* by rightclicking on the zip file and clicking "Scan with windows defender". After making sure that there is no malware in the zip file, unzip it, and then unzip the dashboard folder, and the firmware folder for your particular beacon, either HW4.5 or HW4.9, included in the package.
 
 Now, go back to
 
 * [https://www.marvelmind.com](https://www.marvelmind.com) 
 
-and scroll down to the **STM driver** column and download the zip file in it. Once the download has finished, unzip the file, and run the STM driver for your particular windows computer. This is only required to be done once, and allows you to update your beacons and modems.
+and scroll down to the *STM driver* column and download the zip file in it. Once the download has finished, unzip the file, and run the STM driver for your particular windows computer. This is only required to be done once, and allows you to update your beacons and modems.
 
 Now, you can start using the dashboard file that you unzipped earlier.
 
@@ -64,7 +64,7 @@ Marvelmind uses stationary beacons in order to track its mobile beacons. Any Mar
 
 *Figure 5: Stand used to hold Marvelmind stationary beacon in place above recommended height.*
 
-Now that you have set up your beacons on top of the stands. You may turn them on one by one. The beacons will start showing up on the Marvelmind dashboard, they take approximaely 8 seconds to wake up, as green circles with random device addresses assigned to them, consisting of numbers between 1 and 99, as shown in *Figure 6*. Keep track of the numbers Marvelmind assigns to each beacon, as you can name them to your liking. You can now assign one of the beacons the coordinates (0,0,Z), Z being the height of the beacon, by making it the starting beacon. The menu to the right of the dashboard interface, *Figure 7*, has an option labeled **starting beacon tritalateration**. You can type the device address number of whichever beacon you would like to use as your point (0,0, Z) in terms of the x and y value, respectibly. The other beacons will now remap themselves around this beacon on the dashboard interface.
+Now that you have set up your beacons on top of the stands. You may turn them on one by one. The beacons will start showing up on the Marvelmind dashboard, they take approximaely 8 seconds to wake up, as green circles with random device addresses assigned to them, consisting of numbers between 1 and 99, as shown in *Figure 6*. Keep track of the numbers Marvelmind assigns to each beacon, as you can name them to your liking. You can now assign one of the beacons the coordinates (0,0,Z), Z being the height of the beacon, by making it the starting beacon. The menu to the right of the dashboard interface, *Figure 7*, has an option labeled *starting beacon tritalateration*. You can type the device address number of whichever beacon you would like to use as your point (0,0, Z) in terms of the x and y value, respectibly. The other beacons will now remap themselves around this beacon on the dashboard interface.
 
 FIX: provide guidance how to name the beacons e.g. stationary vs mobile beacone
 
@@ -76,7 +76,7 @@ FIX: provide guidance how to name the beacons e.g. stationary vs mobile beacone
 
 *Figure 7: First cell shows starting beacon trilateration.*
 
-At the bottom of your dashboard there is a list of all 99 beacon addresses, as shown in *Figure 8*. Find each beacon the device address number of which you would like to change, and click on it and the menu presented to you on the right side of the dashboard interface should change to look like *Figure 9*. In this new menu, click the **Device address** option and type in whatever number, between 1 and 99, that you would like to assign to this specific beacon, as long as another active beacon does not have it. The beacon should now change device addresses. Do this for as many beacons as you like.
+At the bottom of your dashboard there is a list of all 99 beacon addresses, as shown in *Figure 8*. Find each beacon the device address number of which you would like to change, and click on it and the menu presented to you on the right side of the dashboard interface should change to look like *Figure 9*. In this new menu, click the *Device address* option and type in whatever number, between 1 and 99, that you would like to assign to this specific beacon, as long as another active beacon does not have it. The beacon should now change device addresses. Do this for as many beacons as you like.
 
 ![Figure 8](images/Figure8.png)
 
@@ -86,7 +86,7 @@ At the bottom of your dashboard there is a list of all 99 beacon addresses, as s
 
 *Figure 9: Menu you are presented with once you click a specific beacon to edit its settings.*
 
-Now that you have assigned your beacons device addresses to your liking and have picked a starting beacon, you can click the option **freeze map** at the bottom right corner of the coordinate plane, *Figure 10*, and lock your beacons as stationary on the Marvelmind screen. Now you can move on to introducing mobile beacons that will be picked up by these stationary beacons to your environment.
+Now that you have assigned your beacons device addresses to your liking and have picked a starting beacon, you can click the option *freeze map* at the bottom right corner of the coordinate plane, *Figure 10*, and lock your beacons as stationary on the Marvelmind screen. Now you can move on to introducing mobile beacons that will be picked up by these stationary beacons to your environment.
 
 ![Figure 10](images/Figure10.png)
 
@@ -94,7 +94,7 @@ Now that you have assigned your beacons device addresses to your liking and have
 
 ###Marvelmind Mobile Beacon Setup
 
-Once you have frozen the stationary beacons, you can now start introducing mobile beacons to Marvelmind. These mobile beacons can be mounted on whatever object you are trying to measure the movement of using Marvelmind, such as a robot. In order to introduce a beacon as a mobile beacon. Simply turn a beacon, or as many as you would like, on in addition to the frozen beacons, it will show up green just like the other beacons on the dashboard. Find the beacon number in the list shown in *Figure 9* of this newly started beacon, renumber it like demonstrated earlier, or keep the address if that's your preference. Click on the beacon number in the list and the menu on the right should change again, as demonstrated in *Figure 8*. Now, there should be an option at the top of this menu labeled *Hedgehog mode* and it should be **disabled**. Click on it so it says **enabled**. The beacon should now turn blue on the coordinate plane, as shown in *Figure 11*.
+Once you have frozen the stationary beacons, you can now start introducing mobile beacons to Marvelmind. These mobile beacons can be mounted on whatever object you are trying to measure the movement of using Marvelmind, such as a robot. In order to introduce a beacon as a mobile beacon. Simply turn a beacon, or as many as you would like, on in addition to the frozen beacons, it will show up green just like the other beacons on the dashboard. Find the beacon number in the list shown in *Figure 9* of this newly started beacon, renumber it like demonstrated earlier, or keep the address if that's your preference. Click on the beacon number in the list and the menu on the right should change again, as demonstrated in *Figure 8*. Now, there should be an option at the top of this menu labeled *Hedgehog mode* and it should be *disabled*. Click on it so it says *enabled*. The beacon should now turn blue on the coordinate plane, as shown in *Figure 11*.
 
 ![Figure 11](images/Figure11.png)
 
@@ -130,3 +130,5 @@ Once this issue is resolved, the program should start outputting coordinates of 
 	Hedge 18: X: 199.30, Y: 235.50, Z: 12.90 at time T: 15.71
 
 *Figure 13: Marvelmind coordinates presented as units of (X,Y,Z, and time elapsed since the program has been running) in MacOS Terminal. Note how marvelmind.py takes a little over the aforementioned 8 seconds to start picking up on coordinates, since that's how long it takes the mobile beacon to wake up. beacons will report multiple times and we have removed them and replaced with ...*
+
+**BUG: LINK TO OUR OWN REPOSITORY DOES NOT WORK**

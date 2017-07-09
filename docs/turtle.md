@@ -2,10 +2,13 @@
 
 ## Demo
 
+Python comes with a nice demonstartion program that allows you to learn some simple programming concepts while movin a turtle on the screen. It can be started with 
+
     python -m turtledemo
 
-
 ## Program example
+
+You can also create programs with your favorite editor and run it. Let us put the following code into the program turtle.py. 
 
     import turtle
 
@@ -27,6 +30,10 @@
     turtle.done()
 
     window.mainloop()
+    
+After saving it you can run it from a terminal with 
+
+	$ python turtle.py
 
 ## Shape
 
@@ -60,18 +67,16 @@ Add a turtle shape to TurtleScreen’s shapelist. Only thusly registered shapes 
 * http://openbookproject.net/thinkcs/python/english3e/hello_little_turtles.html
 * [https://docs.python.org/3/library/turtle.html](https://docs.python.org/3/library/turtle.html)
 
-Robot Dance Simulator
-=====================
+# Robot Dance Simulator
 
     cms robot dance dance.txt
 
 
-Scratch
-=======
+# Scratch
 
-https://scratch.mit.edu/scratchr2/static/sa/Scratch-456.0.2.dmg
+* [Scratch](https://scratch.mit.edu/scratchr2/static/sa/Scratch-456.0.2.dmg)
 
-MBlock
-======
+# MBlock
 
-http://www.mblock.cc/download/
+
+* [MBlock](http://www.mblock.cc/download/)
