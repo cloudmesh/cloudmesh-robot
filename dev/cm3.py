@@ -111,8 +111,9 @@ class Car(object):
         self.right.forward()
 
         while left_count <= ticks and right_count <= ticks:
-            left_count = self.sml.get()
-            right_count = self.smr.get()
+            left_count += self.sml.get()
+            right_count += self.smr.get()
+
             if left_count <= ticks and right_count <= ticks:
                 if left_count == right_count:
                     self.left.forward()
