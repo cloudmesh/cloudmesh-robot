@@ -87,6 +87,8 @@ clean:
 	find . -name '__pycache__' -delete
 	find . -name '*.pyc' -delete
 	find . -name '*.pye' -delete
+	find . -name '*-opt' -delete
+	find . -name '*~' -delete
 	rm -rf .tox
 	rm -f *.whl
 
