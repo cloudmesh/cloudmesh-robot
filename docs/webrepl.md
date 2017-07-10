@@ -36,10 +36,6 @@ Reset
 >
 >		Terminal ready
 
-Switch on echo for easier manipulation
-
-	CTRL-a CTRL-c
-
 .
 
 	>>> import cm
