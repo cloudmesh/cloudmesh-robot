@@ -75,11 +75,15 @@ As we later may want to benefit from readline, lest just install it also
 	 
 	 $ brew install readline xz
 
-#### Install Aquaemacs
+To install an easy to use editor we use
+
+	 brew cask install aquamacs
+
+#### Install Aquamacs
 
 You will need an editor to make some modifications to files and write
 programs. Certainly you can use `vi` or `emacs`. As we are on OSX we
-can also use an editor such as `aquaemacs`. Let us assume you have
+can also use an editor such as `aquamacs`. Let us assume you have
 installed it on your computer, we recommend to add a shortcut so you
 can call it from the commandline. This can be done by editing the
 `~/.bash_profile` and add the following to it.
