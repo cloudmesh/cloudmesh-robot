@@ -27,6 +27,35 @@ smr = cm3.SpeedMeter(16)
 sml = cm3.SpeedMeter(15)
 car = cm3.Car(left, right, sml, smr)
 
+html = """<!DOCTYPE html>
+<html>
+<head> <title>ESP8266 Car</title> </head>
+<center>
+<h3>Cloudmesh.robot</h3>
+<h2>ESP8266 Car Test</h2>
+</center>
+<form>
+<table>
+<tr>
+<td>LEFT:</td> 
+<td><button name="LEFT" value="ON" type="submit">ON</button></td>
+<td><button name="LEFT" value="OFF" type="submit">OFF</button></td>
+</tr>
+<tr>
+<td>RIGHT:</td>
+<td><button name="RIGHT" value="ON" type="submit">ON</button></td>
+<td><button name="RIGHT" value="OFF" type="submit">OFF</button></td>
+</tr>
+<tr>
+<td>DIRECTION:</td>
+<td><button name="FORWARD" value="ON" type="submit">FORWARD</button></td>
+<td><button name="STOP" value="ON" type="submit">STOP</button></td>
+<td><button name="BACK" value="ON" type="submit">BACKWARD</button></td>
+</tr>
+</table>
+</form>
+</html>
+"""
 
 dt = 0.2
 
@@ -53,9 +82,15 @@ while not terminate:
                 # right.stop()
                 # left.stop()
 
-            elif name == 'TURN':
-                value = int(value)
-                car.turn_angle(value)
+            #elif name == 'TURN':
+            #    value = int(value)
+            #    car.turn_angle(value)
+
+            elif name == 'LEFT':
+                car.turn('left')
+
+            elif name == 'RIGHT':
+                car.turn('right')
 
             elif name == 'BACK':
                 # value = int(value) # not yet used

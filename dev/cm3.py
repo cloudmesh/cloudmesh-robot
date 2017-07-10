@@ -10,7 +10,7 @@ import math
 class SpeedMeter(object):
 
     def __init__(self, pin):
-        self.pin = machine.Pin(pin, machine.Pin.IN)
+        self.pin = machine.Pin(pin, machine.Pin.IN, machine.Pin.PULL_UP)
         self.status = self.pin.value()
         self.last = self.status
         self.counter = 0
@@ -76,7 +76,7 @@ class Car(object):
         self.right = rightmotor
         self.sml = leftspeedmeter
         self.smr = rightspeedmeter
-        self.debug(True)
+        self._debug = True
 
     def debug(self, on):
         self._debug = True
@@ -88,13 +88,23 @@ class Car(object):
         """
         ticks = abs(((((angle * math.pi) / 180) * 13.6) / (6.7 * math.pi)) * 20)
         if angle < 0:
-            self.right.forward(800)
+            self.right.forward(650)
             self.smr.wait_ticks(ticks)
             self.right.stop()
         elif angle > 0:
-            self.left.forward(800)
+            self.left.forward(650)
             self.sml.wait_ticks(ticks)
             self.left.stop()
+
+    def turn(self, direction):
+        """
+        Turns the direction for the given time value
+        :param direction: String, "left" or "right"
+        """
+        if direction == "left":
+            self.right.forward(800)
+        elif direction == "right":
+            self.left.forward(800)
 
     def stop(self):
         self.left.stop()
@@ -129,11 +139,9 @@ class Car(object):
         left_count = 0
         right_count = 1
         while left_count != right_count:
-            # move this down?
-            self.left.forward()    # Bug? SHOULD THAT BE AFTER GET?
+            # car must be moving before GET is called
+            self.left.forward()
             self.right.forward()
-
-            #move this up ?
             left_count = self.sml.get()
             right_count = self.smr.get()
 

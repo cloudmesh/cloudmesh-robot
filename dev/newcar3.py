@@ -28,6 +28,7 @@ utime.sleep(.5)
 led.blink(5)
 print('mac')
 
+
 html = """<!DOCTYPE html>
 <html>
 <head> <title>ESP8266 Car</title> </head>
@@ -64,6 +65,7 @@ utime.sleep(.5)
 
 led.blink(6)
 
+
 def find_params(request):
     pos = request.find('?')+1
     a = request[pos:].split(" HTTP")[0]
@@ -72,7 +74,7 @@ def find_params(request):
 
 left = cm.Motor("left")
 right = cm.Motor("right")
-smr = cm3.SpeedMeter(16)
+smr = cm3.SpeedMeter(13)
 sml = cm3.SpeedMeter(15)
 car = cm3.Car(left, right, sml, smr)
 
@@ -112,7 +114,7 @@ while not terminate:
                 right.backward()
                 left.backward()
 
-            elif name == 'GO':
+            elif name == 'FORWARD':
                 # value = int(value) # not yet used
 
                 right.forward()
