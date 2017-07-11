@@ -59,7 +59,7 @@ import sys
 
 
 class MarvelmindHedge(Thread):
-    def __init__(self, tty="/dev/ttyACM0", baud=9600, maxvaluescount=3, debug=False, recieveDataCallback=None):
+    def __init__(self, tty="/dev/ttyACM0", baud=9600, maxvaluescount=8, debug=False, recieveDataCallback=None):
         self.tty = tty  # serial
         self.baud = baud  # baudrate
         self.debug = debug  # debug flag
@@ -97,12 +97,20 @@ class MarvelmindHedge(Thread):
 
     def position(self):
         return list(self.lastValues)[-1]
-    
+
+    def number_position(self, number):
+        while True:
+            if self.position()[0] == number:
+                return self.position()
+            else:
+                pass
+
     def stop(self):
         self.terminationRequired = True
         print ("stopping")
 
-    def run(self):      
+    def run(self):
+        print('start')
         while not self.terminationRequired:
             if not self.pause:
                 try:
@@ -116,7 +124,6 @@ class MarvelmindHedge(Thread):
                         strbuf = b''.join(bufferList)
                         pktHdrOffset = strbuf.find(b'\xff\x47')
                         if 0 <= pktHdrOffset < 220 and len(bufferList) > (pktHdrOffset + 4):
-                            #  print(bufferList)
                             isMmMessageDetected = False
                             isCmMessageDetected = False
                             pktHdrOffsetCm = strbuf.find(b'\xff\x47\x01\x00')
@@ -183,14 +190,15 @@ class MarvelmindHedge(Thread):
                                'powered down or in sleep mode). Restarting reading process...')
                     self.serialPort = None
                     sleep(1)
-            else: 
+            else:
+                print('sleeping')
                 sleep(1)
     
         if self.serialPort is not None:
             self.serialPort.close()
 
 if __name__ == '__main__':
-    m = MarvelmindHedge(tty='/dev/tty.usbmodem1411')   # for macOS
+    m = MarvelmindHedge(tty='/dev/tty.usbmodem1421')   # for macOS
     # m.debug = True
     m.start()
     while True:
