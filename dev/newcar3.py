@@ -4,7 +4,11 @@ import socket
 import network
 import ubinascii
 import utime
+from machine import Pin
 
+
+p1 = Pin(15, Pin.OUT)
+p2 = Pin(13, Pin.OUT)
 
 led = cm.LED(2)
 
@@ -126,3 +130,6 @@ while not terminate:
     cm.feedback(conn, html)
     conn.close()
     utime.sleep(dt)
+
+p1 = Pin(15, Pin.OUT)
+p2 = Pin(13, Pin.OUT)
