@@ -1,23 +1,13 @@
-import cm3
 import requests
 import time
-from marvelmind.marvelmind import MarvelmindHedge
+from marvelmind import MarvelmindHedge
 
+# TO BE RUN WITH NEWCAR4 ON CAR
 
-filename = "move-algorithm.txt"
-f = open(filename)
-lines = f.readlines()
-f.close()
-
-for line in lines:
-    name, position = line.split(":")
-    endx, endy = position.split(" ")
-    print(name, position)
-    print(endx, endy)
-
-hedgeswarm = MarvelmindHedge(tty='/dev/tty.usbmodem1421')
-ips = ['10.0.1.116',
-       '10.0.1.118']
+def set_line(x0, y0, fx, fy):
+    slope = (fy - y0) / (fx - x0)
+    intercept = y0 - (x0 * slope)
+    return slope, intercept
 
 class DrivingRobot(object):
 
@@ -35,7 +25,7 @@ class DrivingRobot(object):
 
     def robot_start(self):
         self.addr, self.x0, self.y0, self.z0, self.t0 = hedgeswarm.number_position(self.number)
-        self.m, self.b = cm3.set_line(self.x0, self.y0, self.fx, self.fy)
+        self.m, self.b = set_line(self.x0, self.y0, self.fx, self.fy)
 
     def xexp(self, y):
         ex = (y - self.b) / self.m
@@ -96,6 +86,27 @@ class DrivingRobot(object):
             self.move('forward', 1)
             time.sleep(.2)
             self.turn()
+
+def make_robot(robot):
+    name, position = robot.split(":")
+    number, ip = name.split(" ")
+    endx, endy = position.split(",")
+    return number, ip, endx, endy
+
+filename = "ma.txt"
+f = open(filename)
+lines = f.readlines()
+f.close()
+
+robot_list = []
+for line in lines:
+    n, ip, ex, ey = make_robot(line)
+    robot_list.append(DrivingRobot(n, ip, ex, ey))
+print(robot_list)
+
+hedgeswarm = MarvelmindHedge(tty='/dev/tty.usbmodem1421')
+
+
 
 
 
