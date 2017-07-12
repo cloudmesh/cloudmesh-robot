@@ -1,10 +1,12 @@
 import cm
-import cm3
+#import cm3
 import socket
 import network
 import ubinascii
 import utime
 
+led = cm.LED(2)
+led.blink(5)
 credentials = cm.get_attributes('credentials.txt')
 
 ap_if = network.WLAN(network.AP_IF)
@@ -23,9 +25,6 @@ def find_params(request):
 
 left = cm.Motor("left")
 right = cm.Motor("right")
-smr = cm3.SpeedMeter(16)
-sml = cm3.SpeedMeter(15)
-car = cm3.Car(left, right, sml, smr)
 
 html = """<!DOCTYPE html>
 <html>
@@ -39,12 +38,10 @@ html = """<!DOCTYPE html>
 <tr>
 <td>LEFT:</td> 
 <td><button name="LEFT" value="ON" type="submit">ON</button></td>
-<td><button name="LEFT" value="OFF" type="submit">OFF</button></td>
 </tr>
 <tr>
 <td>RIGHT:</td>
 <td><button name="RIGHT" value="ON" type="submit">ON</button></td>
-<td><button name="RIGHT" value="OFF" type="submit">OFF</button></td>
 </tr>
 <tr>
 <td>DIRECTION:</td>
@@ -63,6 +60,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
 s.listen(5)
 terminate = False
+led.blink(5)
 while not terminate:
 
     print ("Waiting for connection")
@@ -78,19 +76,19 @@ while not terminate:
         for param in params:
             name, value = param.split('=')
             if name == 'STOP':
-                car.stop()
-                # right.stop()
-                # left.stop()
+                # car.stop()
+                right.stop()
+                left.stop()
 
             #elif name == 'TURN':
             #    value = int(value)
             #    car.turn_angle(value)
 
             elif name == 'LEFT':
-                car.turn('left')
+                left.forward(700)
 
             elif name == 'RIGHT':
-                car.turn('right')
+                right.forward(700)
 
             elif name == 'BACK':
                 # value = int(value) # not yet used
