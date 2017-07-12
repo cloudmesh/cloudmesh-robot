@@ -28,6 +28,8 @@ Now, go back to
 
 and scroll down to the *STM driver* column and download the zip file in it. Once the download has finished, unzip the file, and run the STM driver for your particular windows computer. This is only required to be done once, and allows you to update your beacons and modems.
 
+[How to update marvelmind beacons and modems if they are not up to date]
+
 Now, you can start using the dashboard file that you unzipped earlier.
 
 
