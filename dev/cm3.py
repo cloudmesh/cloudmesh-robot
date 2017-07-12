@@ -88,11 +88,11 @@ class Car(object):
         """
         ticks = abs(((((angle * math.pi) / 180) * 13.6) / (6.7 * math.pi)) * 20)
         if angle < 0:
-            self.right.forward(650)
+            self.right.forward(800)
             self.smr.wait_ticks(ticks)
             self.right.stop()
         elif angle > 0:
-            self.left.forward(650)
+            self.left.forward(800)
             self.sml.wait_ticks(ticks)
             self.left.stop()
 
@@ -109,6 +109,17 @@ class Car(object):
     def stop(self):
         self.left.stop()
         self.right.stop()
+
+    def forward(self, value=None):
+        if value is not None:
+            self.left.forward()
+            self.right.forward()
+            utime.sleep(value)
+            self.right.stop()
+            self.left.stop()
+        else:
+            self.left.forward()
+            self.right.forward()
 
     def move(self, ticks):
 
