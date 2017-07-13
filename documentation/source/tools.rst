@@ -62,6 +62,20 @@ Homebrew
 software* from *UNIX* and *open source software* that is not included in
 OSX.
 
+Markdown
+--------
+
+Markdown has very good support for editors that render the final output
+in a view window next to the editor pane. Two such editors are
+
+-  `Macdown <https://macdown.uranusjr.com/>`__: MacDown provides a nice
+   integrated editor that works well.
+-  `pyCharm <https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&code=PCC>`__:
+   We have successfully used Vladimir Schhneiders `Markdown Navigator
+   plugin <https://plugins.jetbrains.com/plugin/7896-markdown-navigator>`__.
+   Once installes you click on a .md file pycharm will automatically ask
+   to install the plugins from Markdown for you.
+
 Macdown Installation
 --------------------
 
@@ -225,3 +239,49 @@ should be in the new directory that is created. Do the one time setup,
 and you are finished.
 
 **BUG: IS THIS RIGHT? THIS SEEMS WRONG**
+
+Emacs on OSX
+------------
+
+There are many different versions of emacs available on OSX. Aquaemacs
+is often used as it integrates nicely with the OSX GUI interface.
+
+-  `AquaEmacs <http://aquamacs.org/download.shtml>`__
+
+Matplotlib on OSX
+-----------------
+
+As we typically install python with virtualenv, we need to configure
+matplotlib properly to use it. The easiest way to do this is to execute
+the following commands. After you run them you can use matplotlib.
+
+::
+
+    $ pip install numpy
+    $ pip install matplotlib
+    $ echo "backend : TkAgg" > ~/.matplotlib/matplotlibrc
+
+External Tutorials and Lessons
+------------------------------
+
+This document leverages a number of lessons created for cloudmesh and
+other information. We provide links to these lessons in case you like to
+compare or want to learn more about cloudmesh. In particular we
+leveraged:
+
+-  `XCode <https://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osxhttps://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osx>`__
+   (from cloudmesh)
+-  `Pyenv <https://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osxhttps://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osx>`__
+   (from cloudmesh)
+-  `Pyenv <https://github.com/pyenv/pyenv#how-it-works>`__ (from pyenv)
+-  `Homebrew <https://brew.sh>`__ (from homebrew)
+-  `Markdown <https://blog.ghost.org/markdown/>`__ (from Markdown)
+-  `AquaEmacs <http://oracc.museum.upenn.edu/doc/help/usingemacs/aquamacs/>`__
+   (from Aquaemacs)
+-  `Marvelmind <http://marvelmind.com/>`__ (from Marvelmind if you have
+   marvelmind positioning sensors which are optional)
+-  `Arduino <https://www.arduino.cc/en/guide/macOSX>`__ (from Arduino if
+   you like to use their interface to access teh esp8266 boards)
+-  `40 OSX Terminal
+   Tricks <https://computers.tutsplus.com/tutorials/40-terminal-tips-and-tricks-you-never-thought-you-needed--mac-51192>`__
+-  `Bash <https://linuxconfig.org/bash-scripting-tutorial>`__

@@ -8,8 +8,11 @@ Cloudmesh.robot
    security
    linux
    setup
+   tools
+   
    hardware
    esp8266
+
    
    marvelmind
    marvelmindupdate
@@ -30,7 +33,6 @@ Cloudmesh.robot
    mblock
    overview
    rasp
-   tools
    turtle
    webrepl
    
