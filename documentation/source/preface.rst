@@ -39,6 +39,14 @@ command. An example invoking the ls command follows:
 
     $ ls
 
+Commands on the NodeMCU are typically indicated with ``>>>`` the python
+interpreter prompt. Example:
+
+::
+
+    >>> import os
+    >>> os.listdir()
+
 PORTALNAME > In some examples we refer to your portal name as the
 PORTALNAME you have on FutureSystems.
 

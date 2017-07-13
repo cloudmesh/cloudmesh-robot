@@ -1,4 +1,4 @@
-# Hardware for IoT Example Projects
+# Hardware for IoT Projects
 
 When teaching programming you may find yourself in a situation that things can be done on your computer, but you may either not want or can install programs that help you to learn programming on your computer. However, we have a solution (or several) for you. We will have some fun with hardware for IoT that at the same time can be used to teach you some very elementary skills in programming. However, if you rather lik eto use your computer you certainly can do this too.
 
@@ -14,9 +14,9 @@ We see the followingarguments for using IoT hardware:
 
 *Note:*  Ordering from overseas suplieres may take significant time. So make sure to plan ahead. Prices given here are done to provide estimate, they may vary
 
-## Pi
+## Raspberry Pi 3
 
-The raspberry PI 3 is a very good development platform. With its base price of $35 it is quite a bargain. YOu will need some additional component to make sure you can use it. Please be reminded to never connect or power the raspberry with your computers USB port. It draws some significant amperage and we do not want you to destroy your computer. We recommend that you buy a certified power adapter. The price is so cheap that you could even create your own mini cluster as a project.
+The raspberry PI 3 is a very good development platform. With its base price of $35 it is quite a bargain. YOu will need some additional component to make sure you can use it. Please be reminded to never connect or power the raspberry with your computers USB port. It draws some significant amperage and we do not want you to destroy your computer. We recommend that you buy a certified power adapter. The price is so cheap that you could even create your own mini cluster as a project. We do not recommend any older versions of Raspberry as they are less powerful and do not caontain build in Bluetooth or WiFi.
 
 *Configuration:*
 

@@ -7,7 +7,9 @@ Cloudmesh.robot
    preface
    security
    linux
-
+   hardware
+   esp8266
+   
    marvelmind
    marvelmindupdate
 
@@ -18,11 +20,10 @@ Cloudmesh.robot
 .. toctree::
    :maxdepth: 2
               
-   README
    compass
-   esp8266
+
    feather
-   hardware
+
    kivy
    led
    mblock

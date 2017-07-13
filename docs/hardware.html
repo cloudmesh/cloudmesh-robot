@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hardware for IoT Example Projects &mdash; cm robot 1.0 documentation</title>
+  <title>Hardware for IoT Projects &mdash; cm robot 1.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="cm robot 1.0 documentation" href="index.html"/>
-        <link rel="next" title="Hello World" href="kivy.html"/>
-        <link rel="prev" title="Feather esp8266" href="feather.html"/> 
+        <link rel="next" title="ESP8266" href="esp8266.html"/>
+        <link rel="prev" title="Linux" href="linux.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -83,7 +83,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="preface.html">Preface</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="preface.html#contributors">Contributors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="preface.html#contact">Contact</a></li>
@@ -128,6 +128,77 @@
 <li class="toctree-l2"><a class="reference internal" href="linux.html#assignments">Assignments</a></li>
 </ul>
 </li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hardware for IoT Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#raspberry-pi-3">Raspberry Pi 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#esp8266-robot-car-kit">ESP8266 Robot Car Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sensor-kit">Sensor Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fish-kit">Fish Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alternative-components">Alternative components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#esp8266-alternatives">Esp8266 Alternatives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#car-parts-alternatives">Car Parts Alternatives</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="esp8266.html">ESP8266</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#setup">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#osx">OSX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#xcode">XCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#homebrew">Homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#install-pyenv">Install pyenv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#install-aquamacs">Install Aquamacs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#install-python-3-6-1">Install python 3.6.1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#testing-the-board">Testing the board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#erase-the-chip">Erase the chip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#putting-python-on-the-chip">Putting Python on the chip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#testing-if-it-works">Testing if it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="esp8266.html#tools">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#markdown">Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#emacs-on-osx">Emacs on OSX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#matplotlib-on-osx">Matplotlib on OSX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#external-tutorials-and-lessons">External Tutorials and Lessons</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="esp8266.html#not-yet-integrated">NOT YET INTEGRATED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#miniterm">Miniterm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#picocom">Picocom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#ampy">Ampy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#micropython">Micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#run-code">Run Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#lua">Lua</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#id1">ampy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="esp8266.html#resources">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#login">login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#brew">Brew</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="esp8266.html#esp8266-versions">esp8266 versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="esp8266.html#esp8266-motorshield">esp8266 Motorshield</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#projects">Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#grove">Grove</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#power">Power</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="marvelmind.html">Marvelmind</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="marvelmind.html#introduction-to-the-marvelmind-positioning-system">Introduction to the Marvelmind Positioning System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="marvelmind.html#marvelmind-environment-setup">Marvelmind Environment Setup</a></li>
@@ -142,85 +213,13 @@
 </ul>
 </li>
 </ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="README.html">ESP8266</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="README.html#notation">Notation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#setup">Setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="README.html#osx">OSX</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="README.html#xcode">XCode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="README.html#homebrew">Homebrew</a></li>
-<li class="toctree-l4"><a class="reference internal" href="README.html#install-pyenv">Install pyenv</a></li>
-<li class="toctree-l4"><a class="reference internal" href="README.html#install-aquamacs">Install Aquamacs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="README.html#install-python-3-6-1">Install python 3.6.1</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="README.html#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="README.html#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="README.html#testing-the-board">Testing the board</a></li>
-<li class="toctree-l3"><a class="reference internal" href="README.html#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="README.html#erase-the-chip">Erase the chip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="README.html#putting-python-on-the-chip">Putting Python on the chip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="README.html#testing-if-it-works">Testing if it works</a></li>
-<li class="toctree-l4"><a class="reference internal" href="README.html#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
-<li class="toctree-l4"><a class="reference internal" href="README.html#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
-<li class="toctree-l4"><a class="reference internal" href="README.html#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="README.html#tools">Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="README.html#markdown">Markdown</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#emacs-on-osx">Emacs on OSX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#matplotlib-on-osx">Matplotlib on OSX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#external-tutorials-and-lessons">External Tutorials and Lessons</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="README.html#not-yet-integrated">NOT YET INTEGRATED</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="README.html#linux">Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#miniterm">Miniterm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#picocom">Picocom</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#ampy">Ampy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#information">Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#micropython">Micropython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#run-code">Run Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#lua">Lua</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#id1">ampy</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="README.html#resources">Resources</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="README.html#login">login</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#brew">Brew</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="README.html#esp8266-versions">esp8266 versions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="README.html#esp8266-motorshield">esp8266 Motorshield</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="README.html#projects">Projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#grove">Grove</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="esp8266.html">Power</a></li>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="feather.html">Feather esp8266</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="feather.html#osx-terminal">OSX Terminal</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="feather.html#check">Check</a></li>
 <li class="toctree-l3"><a class="reference internal" href="feather.html#probe">Probe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="feather.html#erase">Erase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="feather.html#python">Python</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Hardware for IoT Example Projects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#pi">Pi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#esp8266-robot-car-kit">ESP8266 Robot Car Kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sensor-kit">Sensor Kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fish-kit">Fish Kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#alternative-components">Alternative components</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#esp8266-alternatives">Esp8266 Alternatives</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#car-parts-alternatives">Car Parts Alternatives</a></li>
 </ul>
 </li>
 </ul>
@@ -265,7 +264,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rasp.html#lessons-and-projects">Lessons and projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#terminal">Terminal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#pyenev">Pyenev</a></li>
@@ -339,7 +337,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Hardware for IoT Example Projects</li>
+      <li>Hardware for IoT Projects</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -358,8 +356,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="hardware-for-iot-example-projects">
-<h1>Hardware for IoT Example Projects<a class="headerlink" href="#hardware-for-iot-example-projects" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="hardware-for-iot-projects">
+<h1>Hardware for IoT Projects<a class="headerlink" href="#hardware-for-iot-projects" title="Permalink to this headline">¶</a></h1>
 <p>When teaching programming you may find yourself in a situation that
 things can be done on your computer, but you may either not want or can
 install programs that help you to learn programming on your computer.
@@ -383,8 +381,8 @@ getting an overview about such devices and kits.</li>
 <p><em>Note:</em> Ordering from overseas suplieres may take significant time. So
 make sure to plan ahead. Prices given here are done to provide estimate,
 they may vary</p>
-<div class="section" id="pi">
-<h2>Pi<a class="headerlink" href="#pi" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="raspberry-pi-3">
+<h2>Raspberry Pi 3<a class="headerlink" href="#raspberry-pi-3" title="Permalink to this headline">¶</a></h2>
 <p>The raspberry PI 3 is a very good development platform. With its base
 price of $35 it is quite a bargain. YOu will need some additional
 component to make sure you can use it. Please be reminded to never
@@ -392,7 +390,8 @@ connect or power the raspberry with your computers USB port. It draws
 some significant amperage and we do not want you to destroy your
 computer. We recommend that you buy a certified power adapter. The price
 is so cheap that you could even create your own mini cluster as a
-project.</p>
+project. We do not recommend any older versions of Raspberry as they are
+less powerful and do not caontain build in Bluetooth or WiFi.</p>
 <p><em>Configuration:</em></p>
 <ul class="simple">
 <li>$37.50 <a class="reference external" href="https://www.amazon.com/Raspberry-Model-A1-2GHz-64-bit-quad-core/dp/B01CD5VC92/ref=sr_1_1?s=pc&amp;ie=UTF8&amp;qid=1499251061&amp;sr=1-1&amp;keywords=raspberry+pi+3">Pi
@@ -526,10 +525,10 @@ Arduino</a></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="kivy.html" class="btn btn-neutral float-right" title="Hello World" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="esp8266.html" class="btn btn-neutral float-right" title="ESP8266" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="feather.html" class="btn btn-neutral" title="Feather esp8266" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="linux.html" class="btn btn-neutral" title="Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
