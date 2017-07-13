@@ -118,8 +118,9 @@ tag:
 doc:
 	cd documentation/source; ./convert.py
 	cd documentation; make html
-	cp -r documentation/build/html/* docs
-	cp -r documentation/build/html/.nojekyll docs
+	cp -rf documentation/images docs
+	cp -rf documentation/build/html/* docs
+	cp -rf documentation/build/html/.nojekyll docs
 
 view:
 		open documentation/build/html/index.html
