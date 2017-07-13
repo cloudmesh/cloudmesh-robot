@@ -7,6 +7,7 @@ Cloudmesh.robot
    preface
    security
    linux
+   setup
    hardware
    esp8266
    
@@ -28,9 +29,7 @@ Cloudmesh.robot
    led
    mblock
    overview
-   preface
    rasp
-   setup
    tools
    turtle
    webrepl

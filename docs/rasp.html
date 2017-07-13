@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SD Card &mdash; cm robot 1.0 documentation</title>
+  <title>Raspberry PI 3 &mdash; cm robot 1.0 documentation</title>
   
 
   
@@ -128,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="linux.html#assignments">Assignments</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware for IoT Projects</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hardware.html#raspberry-pi-3">Raspberry Pi 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware.html#esp8266-robot-car-kit">ESP8266 Robot Car Kit</a></li>
@@ -237,28 +238,17 @@
 <li class="toctree-l2"><a class="reference internal" href="overview.html#table-of-content">Table of Content</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="preface.html">Preface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="preface.html#contributors">Contributors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preface.html#contact">Contact</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preface.html#conventions">Conventions</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">SD Card</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#download-noobs">Download Noobs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#format-sd-card-with-disk-utility">Format SD card with Disk Utility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#copy-files">Copy FIles</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Raspberry PI 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sd-card">SD CARD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#connecting">Connecting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#update">Update</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#vlc-on-osx">VLC on OSX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#streaming-video">STreaming video</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#linux-commandline">Linux commandline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#setup">Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#enable-spi">Enable SPI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#rtimulib2">RTIMUlib2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#define-mpu9250-id-0x71">define MPU9250_ID 0x71</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#define-mpu9250-id-0x73">define MPU9250_ID 0x73</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#linux-commandline">Linux commandline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enable-spi">Enable SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rtimulib2">RTIMUlib2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compile-rtimulib-apps">compile RTIMULib Apps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#camera">Camera</a></li>
 </ul>
@@ -337,7 +327,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>SD Card</li>
+      <li>Raspberry PI 3</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -356,21 +346,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="sd-card">
-<h1>SD Card<a class="headerlink" href="#sd-card" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="download-noobs">
-<h2>Download Noobs<a class="headerlink" href="#download-noobs" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://www.raspberrypi.org/downloads/noobs/">https://www.raspberrypi.org/downloads/noobs/</a></p>
-<p>Takes &gt;26 min</p>
-</div>
-<div class="section" id="format-sd-card-with-disk-utility">
-<h2>Format SD card with Disk Utility<a class="headerlink" href="#format-sd-card-with-disk-utility" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://www.raspberrypi.org/learning/noobs-install/elcapitan/">https://www.raspberrypi.org/learning/noobs-install/elcapitan/</a></p>
-<p>MS-DOS (FAT)</p>
-</div>
-<div class="section" id="copy-files">
-<h2>Copy FIles<a class="headerlink" href="#copy-files" title="Permalink to this headline">¶</a></h2>
-<p>Drag all files from the NOOBS folder onto the sd card</p>
+  <div class="section" id="raspberry-pi-3">
+<h1>Raspberry PI 3<a class="headerlink" href="#raspberry-pi-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sd-card">
+<h2>SD CARD<a class="headerlink" href="#sd-card" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Download Noobs <a class="reference external" href="https://www.raspberrypi.org/downloads/noobs/">https://www.raspberrypi.org/downloads/noobs/</a> Takes &gt;26
+min</li>
+<li>Format SD card with Disk Utility
+<a class="reference external" href="https://www.raspberrypi.org/learning/noobs-install/elcapitan/">https://www.raspberrypi.org/learning/noobs-install/elcapitan/</a> MS-DOS
+(FAT)</li>
+<li>Copy Files, Drag all files from the NOOBS folder onto the sd card</li>
+</ol>
 </div>
 <div class="section" id="connecting">
 <h2>Connecting<a class="headerlink" href="#connecting" title="Permalink to this headline">¶</a></h2>
@@ -436,29 +423,12 @@ your SD-Card this can take up to 40-60 minutes.</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html">http://www.computerworld.com/article/2598082/linux/linux-linux-command-line-cheat-sheet.html</a></li>
 </ul>
-</div>
-<div class="section" id="setup">
-<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">github</span>
-<span class="n">cd</span> <span class="n">github</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">git</span>
-<span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">emacs</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">cmake</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">libqt4</span><span class="o">-</span><span class="n">dev</span>
-<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;Gregor von Laszewski&quot;</span>
-<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="n">laszewski</span><span class="nd">@gmail</span><span class="o">.</span><span class="n">com</span>
-<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">core</span><span class="o">.</span><span class="n">editor</span> <span class="n">emacs</span>
-<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">push</span><span class="o">.</span><span class="n">default</span> <span class="n">matching</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="enable-spi">
-<h1>Enable SPI<a class="headerlink" href="#enable-spi" title="Permalink to this headline">¶</a></h1>
+<h2>Enable SPI<a class="headerlink" href="#enable-spi" title="Permalink to this headline">¶</a></h2>
 <p>go to the configuration interfaces and enable</p>
 </div>
 <div class="section" id="rtimulib2">
-<h1>RTIMUlib2<a class="headerlink" href="#rtimulib2" title="Permalink to this headline">¶</a></h1>
+<h2>RTIMUlib2<a class="headerlink" href="#rtimulib2" title="Permalink to this headline">¶</a></h2>
 <p>git clone <a class="reference external" href="https://github.com/RTIMULib/RTIMULib2.git">https://github.com/RTIMULib/RTIMULib2.git</a> cd RTIMULib</p>
 <p>Add the following two lines to /etc/modules</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">i2c</span><span class="o">-</span><span class="n">bcm2708</span>
@@ -501,14 +471,15 @@ your SD-Card this can take up to 40-60 minutes.</p>
 <p>reboot</p>
 <p>cd /home/pi/github/RTIMULib2/RTIMULib/IMUDrivers emacs RTIMUDefs.h</p>
 <p>Change</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#define MPU9250_ID 0x71</span>
+</pre></div>
 </div>
-<div class="section" id="define-mpu9250-id-0x71">
-<h1>define MPU9250_ID 0x71<a class="headerlink" href="#define-mpu9250-id-0x71" title="Permalink to this headline">¶</a></h1>
 <p>To</p>
-</div>
-<div class="section" id="define-mpu9250-id-0x73">
-<h1>define MPU9250_ID 0x73<a class="headerlink" href="#define-mpu9250-id-0x73" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">RTIMULib2</span><span class="o">/</span><span class="n">RTIMULib</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#define MPU9250_ID 0x73</span>
+
+
+
+<span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">RTIMULib2</span><span class="o">/</span><span class="n">RTIMULib</span>
 
 <span class="n">mkdir</span> <span class="n">build</span>
 <span class="n">cd</span> <span class="n">build</span>
@@ -517,6 +488,7 @@ your SD-Card this can take up to 40-60 minutes.</p>
 <span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
 <span class="n">sudo</span> <span class="n">ldconfig</span>
 </pre></div>
+</div>
 </div>
 <div class="section" id="compile-rtimulib-apps">
 <h2>compile RTIMULib Apps<a class="headerlink" href="#compile-rtimulib-apps" title="Permalink to this headline">¶</a></h2>

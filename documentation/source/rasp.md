@@ -1,20 +1,12 @@
-# SD Card
 
-## Download Noobs
+# Raspberry PI 3
 
-https://www.raspberrypi.org/downloads/noobs/
+## SD CARD
 
-Takes >26 min
-
-## Format SD card with Disk Utility
-
-https://www.raspberrypi.org/learning/noobs-install/elcapitan/
-
-MS-DOS (FAT) 
-
-## Copy FIles
-
-Drag all files from the NOOBS folder onto the sd card
+1. Download Noobs https://www.raspberrypi.org/downloads/noobs/ Takes >26 min
+2. Format SD card with Disk Utility
+   https://www.raspberrypi.org/learning/noobs-install/elcapitan/ MS-DOS (FAT) 
+3. Copy Files, Drag all files from the NOOBS folder onto the sd card
 
 
 ## Connecting
@@ -78,25 +70,11 @@ source
 
 
 
-# Setup
-
-	mkdir github
-  	cd github
-  	git clone https://github.com/cloudmesh/cloudmesh.robot.git
-  	ssh-keygen
-  	sudo apt-get install -y emacs
-	sudo apt-get install -y cmake
-	sudo apt-get install -y libqt4-dev
-  	git config --global user.name "Gregor von Laszewski"
-  	git config --global user.email laszewski@gmail.com
-  	git config --global core.editor emacs
-	git config --global push.default matching
-
-# Enable SPI
+## Enable SPI
 
 go to the configuration interfaces and enable
    
-# RTIMUlib2
+## RTIMUlib2
 
   git clone https://github.com/RTIMULib/RTIMULib2.git
   cd RTIMULib
@@ -147,11 +125,11 @@ reboot
 
 Change
 
-#define MPU9250_ID 0x71
+    #define MPU9250_ID 0x71
 
 To
 
-#define MPU9250_ID 0x73
+    #define MPU9250_ID 0x73
 
 
 
