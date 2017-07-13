@@ -128,7 +128,20 @@
 <li class="toctree-l2"><a class="reference internal" href="linux.html#assignments">Assignments</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#osx">OSX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#xcode">XCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#homebrew">Homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-pyenv">Install pyenv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-aquamacs">Install Aquamacs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-python-3-6-1">Install python 3.6.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#terminal">Terminal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#pyenev">Pyenev</a></li>
@@ -161,29 +174,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="esp8266.html">ESP8266</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#setup">Setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="esp8266.html#osx">OSX</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#xcode">XCode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#homebrew">Homebrew</a></li>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#install-pyenv">Install pyenv</a></li>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#install-aquamacs">Install Aquamacs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#install-python-3-6-1">Install python 3.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="esp8266.html#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="esp8266.html#testing-the-board">Testing the board</a></li>
-<li class="toctree-l3"><a class="reference internal" href="esp8266.html#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#erase-the-chip">Erase the chip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#putting-python-on-the-chip">Putting Python on the chip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#testing-if-it-works">Testing if it works</a></li>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
-<li class="toctree-l4"><a class="reference internal" href="esp8266.html#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#testing-the-board">Testing the board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#erase-the-chip">Erase the chip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#putting-python-on-the-chip">Putting Python on the chip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#testing-if-it-works">Testing if it works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
 </ul>
 </li>
 </ul>
@@ -340,6 +342,129 @@
 </ul>
 <p>script that allows you to install in a simple way development tools that
 you may find useful for the activities reported on in this repository.</p>
+<div class="section" id="id1">
+<h2>Setup<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>First we must install a number of tools on the machine connecting to the
+board.</p>
+<div class="section" id="osx">
+<h3>OSX<a class="headerlink" href="#osx" title="Permalink to this headline">¶</a></h3>
+<p>In our guide we will focus on OSX, however, there should not be any
+issues with modifying our installations to work with other operating
+systems, such as Linux or even Windows. If you have improvements in
+regards to our code, please let us know.</p>
+<p>On OSX we will be using homebrew and pyenv to leverage existing
+libraries and to allow the use of a user managed Python environment.</p>
+<div class="section" id="xcode">
+<h4>XCode<a class="headerlink" href="#xcode" title="Permalink to this headline">¶</a></h4>
+<p>OSX provides a number of useful extensions for developers with <em>xcode</em>.
+Please install it with</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ xcode-select --install
+</pre></div>
+</div>
+</div>
+<div class="section" id="homebrew">
+<h4>Homebrew<a class="headerlink" href="#homebrew" title="Permalink to this headline">¶</a></h4>
+<p>Homebrew is a program and package manager that makes it easy to
+uninstall precompiled programs on your computer.</p>
+<p>To install it you need to open a terminal and run the following command</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-pyenv">
+<h4>Install pyenv<a class="headerlink" href="#install-pyenv" title="Permalink to this headline">¶</a></h4>
+<p>Next we install a program called pyenv that will help us managing
+multiple versions of python. This is done with the commands</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ brew update
+$ brew install pyenv pyenv-virtualenv pyenv-virtualenvwrapper
+</pre></div>
+</div>
+<p>As we later may want to benefit from readline, lest just install it also</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ brew install readline xz
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-aquamacs">
+<h4>Install Aquamacs<a class="headerlink" href="#install-aquamacs" title="Permalink to this headline">¶</a></h4>
+<p>You will need an editor to make some modifications to files and write
+programs. Certainly you can use <code class="docutils literal"><span class="pre">vi</span></code> or <code class="docutils literal"><span class="pre">emacs</span></code>. As we are on OSX we
+can also use an editor such as <code class="docutils literal"><span class="pre">aquamacs</span></code>. To install this easy to use
+editor we use</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">cask</span> <span class="n">install</span> <span class="n">aquamacs</span>
+</pre></div>
+</div>
+<p>We recommend to add a shortcut so you can call it from the commandline.
+This can be done by editing the <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> and add the
+following to it.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>#######################################################################
+# PYENV
+######################################################################
+open_emacs() {
+    # open -na Aquamacs $*
+    open -a Aquamacs $*
+}
+
+alias emacs=open_emacs
+</pre></div>
+</div>
+<p>Once done you can start the editor while using the command</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">emacs</span> <span class="n">FILENAME</span>
+</pre></div>
+</div>
+<p>where FILENAME is the name of the file you like to edit.</p>
+</div>
+<div class="section" id="install-python-3-6-1">
+<h4>Install python 3.6.1<a class="headerlink" href="#install-python-3-6-1" title="Permalink to this headline">¶</a></h4>
+<p>As we want to develop our programs in python we will install it with
+<code class="docutils literal"><span class="pre">pyenv</span></code> as follows</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pyenv install 3.6.1
+$ pyenv virtualenv 3.6.1 ENV3
+</pre></div>
+</div>
+<p>To not forget that you are using python 3 and automatically loading it
+we simply add it to our <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> file.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ emacs ~/.bash_profile
+</pre></div>
+</div>
+<p>Add the following lines at the end of the file</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>########################################################
+# PYENV
+########################################################
+export PYENV_VIRTUALENV_DISABLE_PROMPT=0
+eval &quot;$(pyenv init -)&quot;
+eval &quot;$(pyenv virtualenv-init -)&quot;
+
+__pyenv_version_ps1() {
+  local ret=$?;
+  output=$(pyenv version-name)
+  if [[ ! -z $output ]]; then
+    echo -n &quot;($output)&quot;
+  fi
+  return $ret;
+}
+
+PS1=&quot;\$(__pyenv_version_ps1) ${PS1}&quot;
+
+alias ENV3=&quot;pyenv activate ENV3&quot;
+
+ENV3
+</pre></div>
+</div>
+<p>The above steps have to be done only once. Now every time you start a
+new terminal it will activate ENV3 and with it python 3.6.1.</p>
+<p><strong>Please now close all previously started terminals that do not use yet
+ENV3</strong></p>
+<p>To further improve your python environment you need to make sure <em>pip</em>
+and <em>setuptools</em> are up to date. After you have started a new terminal
+window you will by default activate Python 3. To make sure pip and setup
+tools are up to date, you can once call</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install pip -U
+$ pip install setuptools -U
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 

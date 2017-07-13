@@ -128,7 +128,20 @@
 <li class="toctree-l2"><a class="reference internal" href="linux.html#assignments">Assignments</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#id1">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#osx">OSX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#xcode">XCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#homebrew">Homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-pyenv">Install pyenv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-aquamacs">Install Aquamacs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-python-3-6-1">Install python 3.6.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#terminal">Terminal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#pyenev">Pyenev</a></li>
@@ -161,29 +174,18 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ESP8266</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#osx">OSX</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#xcode">XCode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#homebrew">Homebrew</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#install-pyenv">Install pyenv</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#install-aquamacs">Install Aquamacs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#install-python-3-6-1">Install python 3.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#testing-the-board">Testing the board</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#erase-the-chip">Erase the chip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#putting-python-on-the-chip">Putting Python on the chip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#testing-if-it-works">Testing if it works</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-the-board">Testing the board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#erase-the-chip">Erase the chip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#putting-python-on-the-chip">Putting Python on the chip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-if-it-works">Testing if it works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
 </ul>
 </li>
 </ul>
@@ -340,134 +342,12 @@ developed an easy to use commandline tool that allows users to set up
 their computer and interact more easily with the board. We believe that
 the interface is so simple that it can also be used in STEM activities
 and not just in the university or by advanced hobbyists.</p>
-<div class="section" id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>First we must install a number of tools on the machine connecting to the
-board.</p>
-<div class="section" id="osx">
-<h3>OSX<a class="headerlink" href="#osx" title="Permalink to this headline">¶</a></h3>
-<p>In our guide we will focus on OSX, however, there should not be any
-issues with modifying our installations to work with other operating
-systems, such as Linux or even Windows. If you have improvements in
-regards to our code, please let us know.</p>
-<p>On OSX we will be using homebrew and pyenv to leverage existing
-libraries and to allow the use of a user managed Python environment.</p>
-<div class="section" id="xcode">
-<h4>XCode<a class="headerlink" href="#xcode" title="Permalink to this headline">¶</a></h4>
-<p>OSX provides a number of useful extensions for developers with <em>xcode</em>.
-Please install it with</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ xcode-select --install
-</pre></div>
-</div>
-</div>
-<div class="section" id="homebrew">
-<h4>Homebrew<a class="headerlink" href="#homebrew" title="Permalink to this headline">¶</a></h4>
-<p>Homebrew is a program and package manager that makes it easy to
-uninstall precompiled programs on your computer.</p>
-<p>To install it you need to open a terminal and run the following command</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-</pre></div>
-</div>
-</div>
-<div class="section" id="install-pyenv">
-<h4>Install pyenv<a class="headerlink" href="#install-pyenv" title="Permalink to this headline">¶</a></h4>
-<p>Next we install a program called pyenv that will help us managing
-multiple versions of python. This is done with the commands</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ brew update
-$ brew install pyenv pyenv-virtualenv pyenv-virtualenvwrapper
-</pre></div>
-</div>
-<p>As we later may want to benefit from readline, lest just install it also</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ brew install readline xz
-</pre></div>
-</div>
-</div>
-<div class="section" id="install-aquamacs">
-<h4>Install Aquamacs<a class="headerlink" href="#install-aquamacs" title="Permalink to this headline">¶</a></h4>
-<p>You will need an editor to make some modifications to files and write
-programs. Certainly you can use <code class="docutils literal"><span class="pre">vi</span></code> or <code class="docutils literal"><span class="pre">emacs</span></code>. As we are on OSX we
-can also use an editor such as <code class="docutils literal"><span class="pre">aquamacs</span></code>. To install this easy to use
-editor we use</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">cask</span> <span class="n">install</span> <span class="n">aquamacs</span>
-</pre></div>
-</div>
-<p>We recommend to add a shortcut so you can call it from the commandline.
-This can be done by editing the <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> and add the
-following to it.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>#######################################################################
-# PYENV
-######################################################################
-open_emacs() {
-    # open -na Aquamacs $*
-    open -a Aquamacs $*
-}
-
-alias emacs=open_emacs
-</pre></div>
-</div>
-<p>Once done you can start the editor while using the command</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">emacs</span> <span class="n">FILENAME</span>
-</pre></div>
-</div>
-<p>where FILENAME is the name of the file you like to edit.</p>
-</div>
-<div class="section" id="install-python-3-6-1">
-<h4>Install python 3.6.1<a class="headerlink" href="#install-python-3-6-1" title="Permalink to this headline">¶</a></h4>
-<p>As we want to develop our programs in python we will install it with
-<code class="docutils literal"><span class="pre">pyenv</span></code> as follows</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ pyenv install 3.6.1
-$ pyenv virtualenv 3.6.1 ENV3
-</pre></div>
-</div>
-<p>To not forget that you are using python 3 and automatically loading it
-we simply add it to our <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> file.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ emacs ~/.bash_profile
-</pre></div>
-</div>
-<p>Add the following lines at the end of the file</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>########################################################
-# PYENV
-########################################################
-export PYENV_VIRTUALENV_DISABLE_PROMPT=0
-eval &quot;$(pyenv init -)&quot;
-eval &quot;$(pyenv virtualenv-init -)&quot;
-
-__pyenv_version_ps1() {
-  local ret=$?;
-  output=$(pyenv version-name)
-  if [[ ! -z $output ]]; then
-    echo -n &quot;($output)&quot;
-  fi
-  return $ret;
-}
-
-PS1=&quot;\$(__pyenv_version_ps1) ${PS1}&quot;
-
-alias ENV3=&quot;pyenv activate ENV3&quot;
-
-ENV3
-</pre></div>
-</div>
-<p>The above steps have to be done only once. Now every time you start a
-new terminal it will activate ENV3 and with it python 3.6.1.</p>
-<p><strong>Please now close all previously started terminals that do not use yet
-ENV3</strong></p>
-<p>To further improve your python environment you need to make sure <em>pip</em>
-and <em>setuptools</em> are up to date. After you have started a new terminal
-window you will by default activate Python 3. To make sure pip and setup
-tools are up to date, you can once call</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install pip -U
-$ pip install setuptools -U
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="installation-of-the-robot-interafce">
-<h3>Installation of the robot Interafce<a class="headerlink" href="#installation-of-the-robot-interafce" title="Permalink to this headline">¶</a></h3>
+<h2>Installation of the robot Interafce<a class="headerlink" href="#installation-of-the-robot-interafce" title="Permalink to this headline">¶</a></h2>
 <p>To more easily interface with the robot we have developed a convenient
 program that is installed as part of a command tool called cloudmesh.</p>
 <div class="section" id="install-cloudmesh-robot">
-<h4>Install Cloudmesh Robot<a class="headerlink" href="#install-cloudmesh-robot" title="Permalink to this headline">¶</a></h4>
+<h3>Install Cloudmesh Robot<a class="headerlink" href="#install-cloudmesh-robot" title="Permalink to this headline">¶</a></h3>
 <p><strong>The install from pip is not yet working</strong></p>
 <blockquote>
 <div><p>To install the robot command you simply type</p>
@@ -565,7 +445,7 @@ robot inventory list [–cat] [–path=PATH] [ID]</dd>
 </div>
 </div>
 <div class="section" id="testing-the-board">
-<h3>Testing the board<a class="headerlink" href="#testing-the-board" title="Permalink to this headline">¶</a></h3>
+<h2>Testing the board<a class="headerlink" href="#testing-the-board" title="Permalink to this headline">¶</a></h2>
 <p>Next is to connect a esp8266 with theUSB cable to the computer. After
 you connected it, please press the reset button. Before we do anything
 else with the board we test it out first. Once you have plugged it in,
@@ -588,7 +468,7 @@ to</p>
 computer.</p>
 </div>
 <div class="section" id="flashing-the-image-onto-the-robot-board">
-<h3>Flashing the image onto the robot board<a class="headerlink" href="#flashing-the-image-onto-the-robot-board" title="Permalink to this headline">¶</a></h3>
+<h2>Flashing the image onto the robot board<a class="headerlink" href="#flashing-the-image-onto-the-robot-board" title="Permalink to this headline">¶</a></h2>
 <p>Next we need to flash the image on the robot board. Naturally we need to
 fetch the image first from the internet. We do this with the command</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ robot image fetch
@@ -611,7 +491,7 @@ image such as Lua or some custom image from the vendor. As we try to
 program the robot in python let us place micropython on the board. This
 requires a number of steps.</p>
 <div class="section" id="erase-the-chip">
-<h4>Erase the chip<a class="headerlink" href="#erase-the-chip" title="Permalink to this headline">¶</a></h4>
+<h3>Erase the chip<a class="headerlink" href="#erase-the-chip" title="Permalink to this headline">¶</a></h3>
 <p>First we need to erase the chip. To follow our instructions place the
 chip towards you as shown in the figure. E.g. the USB connector points
 to you.</p>
@@ -624,7 +504,7 @@ chip with the command</p>
 </div>
 </div>
 <div class="section" id="putting-python-on-the-chip">
-<h4>Putting Python on the chip<a class="headerlink" href="#putting-python-on-the-chip" title="Permalink to this headline">¶</a></h4>
+<h3>Putting Python on the chip<a class="headerlink" href="#putting-python-on-the-chip" title="Permalink to this headline">¶</a></h3>
 <p>To put python on the chip you need to again prepare the board for
 flashing while pressing both buttons and releasing the right button
 before releasing the left button.</p>
@@ -634,7 +514,7 @@ before releasing the left button.</p>
 </div>
 </div>
 <div class="section" id="testing-if-it-works">
-<h4>Testing if it works<a class="headerlink" href="#testing-if-it-works" title="Permalink to this headline">¶</a></h4>
+<h3>Testing if it works<a class="headerlink" href="#testing-if-it-works" title="Permalink to this headline">¶</a></h3>
 <p>To test running a pyton program execute</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot test
 </pre></div>
@@ -642,7 +522,7 @@ before releasing the left button.</p>
 <p>Be careful as it overwrites the file <code class="docutils literal"><span class="pre">test.py</span></code>.</p>
 </div>
 <div class="section" id="execute-an-arbitrary-program">
-<h4>Execute an arbitrary program<a class="headerlink" href="#execute-an-arbitrary-program" title="Permalink to this headline">¶</a></h4>
+<h3>Execute an arbitrary program<a class="headerlink" href="#execute-an-arbitrary-program" title="Permalink to this headline">¶</a></h3>
 <p>Lets assume you have placed a program in the file <code class="docutils literal"><span class="pre">prg.py</span></code> than you
 can run it with the following command</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot run prg.py
@@ -650,7 +530,7 @@ can run it with the following command</p>
 </div>
 </div>
 <div class="section" id="interactive-python-shell-on-the-board">
-<h4>Interactive Python shell on the board<a class="headerlink" href="#interactive-python-shell-on-the-board" title="Permalink to this headline">¶</a></h4>
+<h3>Interactive Python shell on the board<a class="headerlink" href="#interactive-python-shell-on-the-board" title="Permalink to this headline">¶</a></h3>
 <p>To get into the interactive python shell on the board you need to make
 sure that you have reset the esp8266 once after flashing. You need to
 press the reset button.</p>
@@ -660,7 +540,7 @@ press the reset button.</p>
 </div>
 </div>
 <div class="section" id="cleaning-an-reinstalling-a-development-version">
-<h4>Cleaning an reinstalling a development version<a class="headerlink" href="#cleaning-an-reinstalling-a-development-version" title="Permalink to this headline">¶</a></h4>
+<h3>Cleaning an reinstalling a development version<a class="headerlink" href="#cleaning-an-reinstalling-a-development-version" title="Permalink to this headline">¶</a></h3>
 <p>IN case you are a developer and you need to modify the source code, we
 found that it is sometimes necessary to clean your development directory
 and libraries. The easiest way to do this is to go to the repository
@@ -681,7 +561,6 @@ cloudmesh.robot versions can be found. Than execute</p>
 </div>
 <p>the -e flag is optional, but allows you to change the code without the
 need of recompiling. A very useful feature in python.</p>
-</div>
 </div>
 </div>
 </div>

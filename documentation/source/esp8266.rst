@@ -24,168 +24,14 @@ their computer and interact more easily with the board. We believe that
 the interface is so simple that it can also be used in STEM activities
 and not just in the university or by advanced hobbyists.
 
-Setup
------
-
-First we must install a number of tools on the machine connecting to the
-board.
-
-OSX
-~~~
-
-In our guide we will focus on OSX, however, there should not be any
-issues with modifying our installations to work with other operating
-systems, such as Linux or even Windows. If you have improvements in
-regards to our code, please let us know.
-
-On OSX we will be using homebrew and pyenv to leverage existing
-libraries and to allow the use of a user managed Python environment.
-
-XCode
-^^^^^
-
-OSX provides a number of useful extensions for developers with *xcode*.
-Please install it with
-
-::
-
-    $ xcode-select --install
-
-Homebrew
-^^^^^^^^
-
-Homebrew is a program and package manager that makes it easy to
-uninstall precompiled programs on your computer.
-
-To install it you need to open a terminal and run the following command
-
-::
-
-    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-Install pyenv
-^^^^^^^^^^^^^
-
-Next we install a program called pyenv that will help us managing
-multiple versions of python. This is done with the commands
-
-::
-
-    $ brew update
-    $ brew install pyenv pyenv-virtualenv pyenv-virtualenvwrapper
-     
-
-As we later may want to benefit from readline, lest just install it also
-
-::
-
-     $ brew install readline xz
-
-Install Aquamacs
-^^^^^^^^^^^^^^^^
-
-You will need an editor to make some modifications to files and write
-programs. Certainly you can use ``vi`` or ``emacs``. As we are on OSX we
-can also use an editor such as ``aquamacs``. To install this easy to use
-editor we use
-
-::
-
-     brew cask install aquamacs
-     
-
-We recommend to add a shortcut so you can call it from the commandline.
-This can be done by editing the ``~/.bash_profile`` and add the
-following to it.
-
-::
-
-    ####################################################################### 
-    # PYENV
-    ######################################################################
-    open_emacs() {
-        # open -na Aquamacs $*
-        open -a Aquamacs $*    
-    }
-
-    alias emacs=open_emacs
-
-Once done you can start the editor while using the command
-
-::
-
-    emacs FILENAME
-
-where FILENAME is the name of the file you like to edit.
-
-Install python 3.6.1
-^^^^^^^^^^^^^^^^^^^^
-
-As we want to develop our programs in python we will install it with
-``pyenv`` as follows
-
-::
-
-    $ pyenv install 3.6.1
-    $ pyenv virtualenv 3.6.1 ENV3
-
-To not forget that you are using python 3 and automatically loading it
-we simply add it to our ``~/.bash_profile`` file.
-
-::
-
-    $ emacs ~/.bash_profile
-
-Add the following lines at the end of the file
-
-::
-
-    ########################################################
-    # PYENV
-    ########################################################
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=0
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-
-    __pyenv_version_ps1() {
-      local ret=$?;
-      output=$(pyenv version-name)
-      if [[ ! -z $output ]]; then
-        echo -n "($output)"
-      fi
-      return $ret;
-    }
-
-    PS1="\$(__pyenv_version_ps1) ${PS1}"
-
-    alias ENV3="pyenv activate ENV3"
-
-    ENV3
-
-The above steps have to be done only once. Now every time you start a
-new terminal it will activate ENV3 and with it python 3.6.1.
-
-**Please now close all previously started terminals that do not use yet
-ENV3**
-
-To further improve your python environment you need to make sure *pip*
-and *setuptools* are up to date. After you have started a new terminal
-window you will by default activate Python 3. To make sure pip and setup
-tools are up to date, you can once call
-
-::
-
-    $ pip install pip -U
-    $ pip install setuptools -U
-
 Installation of the robot Interafce
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 To more easily interface with the robot we have developed a convenient
 program that is installed as part of a command tool called cloudmesh.
 
 Install Cloudmesh Robot
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~
 
 **The install from pip is not yet working**
 
@@ -283,7 +129,7 @@ You will see a manual page like this::
         -f      specify the file
 
 Testing the board
-~~~~~~~~~~~~~~~~~
+-----------------
 
 Next is to connect a esp8266 with theUSB cable to the computer. After
 you connected it, please press the reset button. Before we do anything
@@ -311,7 +157,7 @@ Please note that you should only have one board attached to your
 computer.
 
 Flashing the image onto the robot board
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------
 
 Next we need to flash the image on the robot board. Naturally we need to
 fetch the image first from the internet. We do this with the command
@@ -343,7 +189,7 @@ program the robot in python let us place micropython on the board. This
 requires a number of steps.
 
 Erase the chip
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 First we need to erase the chip. To follow our instructions place the
 chip towards you as shown in the figure. E.g. the USB connector points
@@ -359,7 +205,7 @@ chip with the command
     $ cms robot flash erase
 
 Putting Python on the chip
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To put python on the chip you need to again prepare the board for
 flashing while pressing both buttons and releasing the right button
@@ -372,7 +218,7 @@ Now ou can place python with the command
     $ cms robot flash python 
 
 Testing if it works
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 To test running a pyton program execute
 
@@ -383,7 +229,7 @@ To test running a pyton program execute
 Be careful as it overwrites the file ``test.py``.
 
 Execute an arbitrary program
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Lets assume you have placed a program in the file ``prg.py`` than you
 can run it with the following command
@@ -393,7 +239,7 @@ can run it with the following command
     $ cms robot run prg.py
 
 Interactive Python shell on the board
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To get into the interactive python shell on the board you need to make
 sure that you have reset the esp8266 once after flashing. You need to
@@ -406,7 +252,7 @@ Than you can use the following command to login
     $ cms robot login
 
 Cleaning an reinstalling a development version
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IN case you are a developer and you need to modify the source code, we
 found that it is sometimes necessary to clean your development directory
