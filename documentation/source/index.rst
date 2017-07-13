@@ -4,6 +4,15 @@ Cloudmesh.robot
 .. toctree::
    :maxdepth: 2
               
+   preface
+   linux
+   
+Cloudmesh.robot
+===============
+
+.. toctree::
+   :maxdepth: 2
+              
    README
    compass
    esp8266
@@ -11,7 +20,7 @@ Cloudmesh.robot
    hardware
    kivy
    led
-   linux
+
    marvelmind
    marvelmindupdate
    mblock
@@ -23,3 +32,4 @@ Cloudmesh.robot
    tools
    turtle
    webrepl
+   

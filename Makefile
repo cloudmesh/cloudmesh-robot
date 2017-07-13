@@ -116,8 +116,10 @@ tag:
 # DOC
 
 doc:
-	cd docs/source; ./convert.py
-	cd docs; make html
+	cd documentation/source; ./convert.py
+	cd documentation; make html
+	cp -r documentation/build/html/* docs
+	cp -r documentation/build/html/.nojekyll docs
 
 view:
-		open docs/build/html/index.html
+		open documentation/build/html/index.html

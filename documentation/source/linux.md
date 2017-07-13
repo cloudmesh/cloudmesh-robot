@@ -1,5 +1,9 @@
 # Linux
 
+While using the computer we will interface with many programs form a
+terminal that allows us to specify comands in a commandline. We list
+here a number of useful commands.
+
 ## File commands
 
 | Command | Description                    |
