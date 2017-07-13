@@ -36,8 +36,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="cm robot 1.0 documentation" href="index.html"/>
-        <link rel="next" title="Marvelmind Updates" href="marvelmindupdate.html"/>
-        <link rel="prev" title="NodeMCU ESP12 Dev Kit V1.0 Pin Definition:" href="led.html"/> 
+        <link rel="next" title="ESP8266" href="README.html"/>
+        <link rel="prev" title="Linux" href="linux.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -83,7 +83,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="preface.html">Preface</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="preface.html#contributors">Contributors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="preface.html#contact">Contact</a></li>
@@ -98,8 +98,21 @@
 <li class="toctree-l2"><a class="reference internal" href="linux.html#assignments">Assignments</a></li>
 </ul>
 </li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Marvelmind</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-to-the-marvelmind-positioning-system">Introduction to the Marvelmind Positioning System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marvelmind-environment-setup">Marvelmind Environment Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marvelmind-stationary-beacon-setup">Marvelmind Stationary Beacon Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marvelmind-mobile-beacon-setup">Marvelmind Mobile Beacon Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#programming-in-python">Programming in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marvelmind-updates">Marvelmind Updates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#updating-marvelmind-modem">Updating Marvelmind modem.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-marvelmind-beacons">Updating Marvelmind beacons</a></li>
 </ul>
-<ul class="current">
+</li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="README.html">ESP8266</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="README.html#notation">Notation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="README.html#setup">Setup</a><ul>
@@ -188,20 +201,6 @@
 <li class="toctree-l1"><a class="reference internal" href="led.html#led">LED</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="led.html#links">Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="led.html#program">Program</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Marvelmind</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#introduction-to-marvelmind-positioning-system">Introduction to Marvelmind Positioning System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#marvelmind-environment-setup">Marvelmind Environment Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#marvelmind-stationary-beacon-setup">Marvelmind Stationary Beacon Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#marvelmind-mobile-beacon-setup">Marvelmind Mobile Beacon Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#programming-in-python">Programming in Python</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="marvelmindupdate.html">Marvelmind Updates</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="marvelmindupdate.html#updating-marvelmind-modem">Updating Marvelmind modem.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="marvelmindupdate.html#updating-marvelmind-beacons">Updating Marvelmind beacons.</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mblock.html">mblock</a></li>
@@ -361,14 +360,13 @@
             
   <div class="section" id="marvelmind">
 <h1>Marvelmind<a class="headerlink" href="#marvelmind" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction-to-marvelmind-positioning-system">
-<h2>Introduction to Marvelmind Positioning System<a class="headerlink" href="#introduction-to-marvelmind-positioning-system" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="marvelmind.com">Marvelmind Indoor Navigation System</a> is an indoor
-navigation system designed for providing location data to autonomous
-robots, vehicles (AGV) and copters. The precision is rated to be +- 2cm.</p>
-</div>
-<div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction-to-the-marvelmind-positioning-system">
+<h2>Introduction to the Marvelmind Positioning System<a class="headerlink" href="#introduction-to-the-marvelmind-positioning-system" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="marvelmind.com">Marvelmind Indoor Navigation System</a> is an
+indoor navigation system designed for providing location data to
+autonomous robots, vehicles (AGV) and copters. The precision is rated to
+be +- 2cm.</p>
+<p>The following requirements exist to run it within our Lab:</p>
 <ul class="simple">
 <li>Windows PC with Windows 10.</li>
 <li>Mac with Mac OSX Sierra.</li>
@@ -600,6 +598,63 @@ mobile beacon to wake up. beacons will report multiple times and we have
 removed them and replaced with …</em></p>
 <p><strong>BUG: LINK TO OUR OWN REPOSITORY DOES NOT WORK</strong></p>
 </div>
+<div class="section" id="marvelmind-updates">
+<h2>Marvelmind Updates<a class="headerlink" href="#marvelmind-updates" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="updating-marvelmind-modem">
+<h3>Updating Marvelmind modem.<a class="headerlink" href="#updating-marvelmind-modem" title="Permalink to this headline">¶</a></h3>
+<p>First, open the marvelmind dashboard with the marvelmind modem plugged
+in to a Windows PC. You should be presented with a screen that looks
+likes this:</p>
+<div class="figure">
+<img alt="" src="images/marvelmindupdate1.png" />
+</div>
+<p>As you notice, circled at the bottom left of the dashboard, in red, is
+the <strong>version number</strong> of the modem. If the modem is not on the latest
+update, according to <a class="reference external" href="https://www.marvelmind.com">Marvelmind.com</a>,
+and you wish to be on the latest update, click on the firmware tab at
+the top left of the dashboard, as circled in this figure:</p>
+<div class="figure">
+<img alt="" src="images/marvelmindupdate2.png" />
+</div>
+<p>Navigate to the SW folder that you unzipped upon installation, and click
+on the folder labeled after your <strong>modem version</strong>, either 4.5 or 4.9.
+Then find the modem <strong>firmware zip file</strong>, unzip it, and double click
+the <strong>hex file</strong> inside and you should be returned to the dashboard, as
+shown:</p>
+<div class="figure">
+<img alt="" src="images/marvelmindupdate3.png" />
+</div>
+<p>Click <strong>next</strong>, and the update should start. Once the update has
+concluded, close the dashboard.</p>
+</div>
+<div class="section" id="updating-marvelmind-beacons">
+<h3>Updating Marvelmind beacons<a class="headerlink" href="#updating-marvelmind-beacons" title="Permalink to this headline">¶</a></h3>
+<p>First, open the marvelmind dashboard with the marvelmind beacon plugged
+in to a Windows PC. You should be presented with a screen that looks
+likes this:</p>
+<div class="figure">
+<img alt="" src="images/marvelmindupdate4.png" />
+</div>
+<p>As you notice, circled at the bottom left of the dashboard, in red, is
+the <strong>version number</strong> of the beacon. If the beacon is not on the latest
+update, according to <a class="reference external" href="https://www.marvelmind.com">Marvelmind.com</a>,
+and you wish to be on the latest update, click on the firmware tab at
+the top left of the dashboard, as circled in this figure:</p>
+<div class="figure">
+<img alt="" src="images/marvelmindupdate5.png" />
+</div>
+<p>Navigate to the SW folder that you unzipped upon installation, and click
+on the folder labeled after your <strong>modem version</strong>, either 4.5 or 4.9.
+Then find the beacon <strong>firmware zip file</strong>, unzip it, and double click
+the <strong>hex file</strong> inside and you should be returned to the dashboard, as
+shown:</p>
+<div class="figure">
+<img alt="" src="images/marvelmindupdate6.png" />
+</div>
+<p>Click <strong>next</strong>, and the update should start. Once the update has
+concluded, close the dashboard.</p>
+</div>
+</div>
 </div>
 
 
@@ -612,10 +667,10 @@ removed them and replaced with …</em></p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="marvelmindupdate.html" class="btn btn-neutral float-right" title="Marvelmind Updates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="README.html" class="btn btn-neutral float-right" title="ESP8266" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="led.html" class="btn btn-neutral" title="NodeMCU ESP12 Dev Kit V1.0 Pin Definition:" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="linux.html" class="btn btn-neutral" title="Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

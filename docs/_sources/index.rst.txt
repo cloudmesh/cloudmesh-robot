@@ -6,7 +6,11 @@ Cloudmesh.robot
               
    preface
    linux
-   
+
+   marvelmind
+   marvelmindupdate
+
+      
 Cloudmesh.robot
 ===============
 
@@ -21,8 +25,6 @@ Cloudmesh.robot
    kivy
    led
 
-   marvelmind
-   marvelmindupdate
    mblock
    overview
    preface
