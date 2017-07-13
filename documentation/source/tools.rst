@@ -4,28 +4,16 @@ Tools
 Terminal
 --------
 
-On OSX, navigate to your *Applications Folder* in *Finder* and open
-*Utilities*. In utilities, you will find the *Terminal* application.
-Open it and you will be presented with a white text box. You now know
-how to navigate to Terminal.
-
-*Terminal* gives you an interface to OS X's bash shell, allowing you to
-run programs on your OSX device. In order to run *programs* on OSX,
-after typing each *command*, you need to press the *return* button on
-your keyboard, in order to make terminal *execute* the command.
+On OSX, when you navigate to the search magnification glass, you can
+type in *terminal* to start it. A terminal allows you to execute a
+number of commands to interact with the computer from a commandline
+interface, e.g. the terminal.
 
 Pyenev
 ------
 
-Python is a tool that allows you to manage Python versions on your
-divice. Pyenv lets you change your python version and also allows you to
-use commands from multiple python versions. Now we will install Pyenv.
-Since you should already have Homebrew installed, installing Pyenv is
-very easy. Simply type ``brew install pyenv`` into Terminal, and you
-should no be able to use pyenv. to upgrade pyenv in the future, simply
-switch the word "install" with "upgrade" in the aforementioned command.
-
-see `README <../README.md>`__
+Python is a programming language. As there aer multiple versions,
+*pyenv* sllows you to manage them.
 
 Instalation of tools
 --------------------
