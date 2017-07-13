@@ -116,6 +116,7 @@ tag:
 # DOC
 
 doc:
+	cd docs/source; ./convert.py
 	cd docs; make html
 
 view:

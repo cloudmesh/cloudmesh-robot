@@ -2,9 +2,9 @@
 
 ## File commands
 
-| Command | Description |
-| --- | --- |
-| ls | Directory listing |
+| Command | Description                    |
+| ------- | ------------------------------ |
+| ls      | Directory listing              |
 | ls -lisa | list details |
 | cd _dirname_ | Change directory to _dirname_ |
 | mkdir _dirname_ | create the directory |
