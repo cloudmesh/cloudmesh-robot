@@ -191,15 +191,3 @@ class Car(object):
                         print("left:", left_count)
                         print("right:", right_count)
         self.stop()
-
-
-##############################################
-# DrivingRobot
-##############################################
-
-
-def set_line(x0, y0, fx, fy):
-    slope = (fy - y0) / (fx - x0)
-    intercept = y0 - (x0 * slope)
-    return slope, intercept
-
