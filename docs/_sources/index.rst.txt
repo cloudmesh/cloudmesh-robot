@@ -5,6 +5,7 @@ Cloudmesh.robot
    :maxdepth: 2
               
    preface
+   security
    linux
 
    marvelmind
@@ -24,12 +25,10 @@ Cloudmesh.robot
    hardware
    kivy
    led
-
    mblock
    overview
    preface
    rasp
-   security
    setup
    tools
    turtle
