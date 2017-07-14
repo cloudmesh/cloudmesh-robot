@@ -5,10 +5,8 @@ import network
 import ubinascii
 import utime
 from machine import Pin
+from cm import p
 
-
-p1 = Pin(15, Pin.OUT)
-p2 = Pin(13, Pin.OUT)
 
 led = cm.LED(2)
 
@@ -78,8 +76,8 @@ def find_params(request):
 
 left = cm.Motor("left")
 right = cm.Motor("right")
-smr = cm3.SpeedMeter(13)
-sml = cm3.SpeedMeter(15)
+smr = cm3.SpeedMeter(15)
+sml = cm3.SpeedMeter(16)
 car = cm3.Car(left, right, sml, smr)
 
 
@@ -119,7 +117,7 @@ while not terminate:
                 left.backward()
 
             elif name == 'FORWARD':
-                value = int(value) # not yet used
+                value = float(value)  # not yet used
                 car.forward(value)
 
             elif name == 'END':
@@ -129,5 +127,3 @@ while not terminate:
     conn.close()
     utime.sleep(dt)
 
-p1 = Pin(15, Pin.OUT)
-p2 = Pin(13, Pin.OUT)

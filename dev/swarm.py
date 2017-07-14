@@ -6,20 +6,17 @@ import time
 
 class Robot(object):
 
-    def __init__(self, number, ip, final_x, final_y, hedge=MarvelmindHedge('/dev/tty.usbmodem1421'), epsilon=4):
+    def __init__(self, number, ip, final_x, final_y, epsilon=10):
         self.number = int(number)
-        self.ip = ip
-        self.fx = final_x
-        self.fy = final_y
-        self.epsilon = epsilon
-        self.hedge = hedge
-        hedge.start()
-        time.sleep(2)
+        self.ip = str(ip)
+        self.fx = int(final_x)
+        self.fy = int(final_y)
+        self.epsilon = int(epsilon)
         self.addr, self.last_x, self.last_y, self.last_z, self.last_t = hedge.number_position(self.number)
         self.done = False
 
     def update(self):
-        return self.hedge.number_position(self.number)
+        return hedge.number_position(self.number)
 
     def find_vectors(self, last_x, last_y, current_x, current_y, end_x, end_y):
         """
@@ -94,9 +91,13 @@ class Robot(object):
         :param value: None or Number
         """
         if direction == "right":
-            payload = {'TURN': str(value)}
+            print('turning right')
+            print(value)
+            payload = {'TURN': str(-value)}
         elif direction == "left":
-            payload = {'TURN': str(- value)}
+            print('turning left')
+            print(value)
+            payload = {'TURN': str(value)}
         elif direction == "forward":
             payload = {'FORWARD': str(value)}
         elif direction == "stop":
@@ -117,21 +118,34 @@ class Robot(object):
         calculates turn angle and sends turn command to robot
         """
         addr, cx, cy, cz, ct = self.update()  # get current position
+        print('current position: ')
+        print(cx, cy)
+        print('last position: ')
+        print(self.last_x, self.last_y)
         v1, v2 = self.find_vectors(self.last_x, self.last_y, cx, cy, self.fx, self.fy)  # get vector positions
-        delta_angle = self.find_delta(v1, v2)  # get angle change
-        angle1 = self.find_angle(v1[0], v1[1])  # get unit vector angles
-        angle2 = self.find_angle(v2[0], v2[1])
+        delta_angle = int(self.find_delta(v1, v2))  # get angle change
+        print('angle change: ')
+        print(delta_angle)
+        angle1 = int(self.find_angle(v1[0], v1[1]))  # get unit vector angles
+        angle2 = int(self.find_angle(v2[0], v2[1]))
+        print('absolute angles: ')
+        print(angle1, angle2)
         direction = self.turn_direction(angle1, angle2)  # get turn direction
-        self.move(direction, delta_angle)  # turn robot
-        time.sleep(.2)
+        if delta_angle > 10:
+            print(direction)
+            self.move(direction, delta_angle)  # turn robot
+        else:
+            print('on track')
+        time.sleep(2)
         self.move('forward', .5)
         self.last_x = cx
         self.last_y = cy
+        print('burst done')
 
 
 class RobotSwarm(object):
 
-    def __init__(self, file, hedge=MarvelmindHedge('/dev/tty.usbmodem1421')):
+    def __init__(self, file):
         """
         creates a swarm of robots connected to Marvelmind
         :param file: String
@@ -139,9 +153,6 @@ class RobotSwarm(object):
         """
         self.file = file
         self.done = False
-        self.hedge = hedge
-        self.hedge.start()
-        time.sleep(2)
         self.robots = []
 
     def make_robots(self):
@@ -153,7 +164,9 @@ class RobotSwarm(object):
             name, position = line.split(":")
             number, ip = name.split(" ")
             endx, endy = position.split(",")
+            print(number, ip, endx, endy)
             self.robots.append(Robot(number, ip, endx, endy))
+            print('A')
 
     def done_check(self):
         for robot in self.robots:
@@ -166,14 +179,17 @@ class RobotSwarm(object):
     def run(self):
         self.make_robots()
         for robot in self.robots:
-            robot.move("forward", .5)
+            robot.move("forward", 1)
+            time.sleep(1)
         while not self.done:
             for robot in self.robots:
                 robot.burst()
             self.done_check()
 
+hedge = MarvelmindHedge('/dev/tty.usbmodem1421')
+hedge.start()
+time.sleep(2)
 print('starting')
 rs = RobotSwarm('ma.txt')
-print('robots made')
-rs.make_robots()
-print(rs.robots[0])
+print('swarm made')
+rs.run()

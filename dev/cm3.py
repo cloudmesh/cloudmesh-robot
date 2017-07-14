@@ -10,7 +10,7 @@ import math
 class SpeedMeter(object):
 
     def __init__(self, pin):
-        self.pin = machine.Pin(pin, machine.Pin.IN, machine.Pin.PULL_UP)
+        self.pin = machine.Pin(pin, machine.Pin.IN)
         self.status = self.pin.value()
         self.last = self.status
         self.counter = 0
@@ -88,11 +88,11 @@ class Car(object):
         """
         ticks = abs(((((angle * math.pi) / 180) * 13.6) / (6.7 * math.pi)) * 20)
         if angle < 0:
-            self.right.forward(800)
+            self.right.forward(1000)
             self.smr.wait_ticks(ticks)
             self.right.stop()
         elif angle > 0:
-            self.left.forward(800)
+            self.left.forward(1000)
             self.sml.wait_ticks(ticks)
             self.left.stop()
 
