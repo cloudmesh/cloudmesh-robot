@@ -6,7 +6,7 @@ import time
 
 class Robot(object):
 
-    def __init__(self, number, ip, final_x, final_y, hedge=MarvelmindHedge(tty='/dev/tty.usbmodem1421'), epsilon=4):
+    def __init__(self, number, ip, final_x, final_y, hedge=MarvelmindHedge('/dev/tty.usbmodem1421'), epsilon=4):
         self.number = int(number)
         self.ip = ip
         self.fx = final_x
@@ -87,7 +87,7 @@ class Robot(object):
         if direction == "right":
             payload = {'TURN': str(value)}
         elif direction == "left":
-            payload = {'TURN': str(value)}
+            payload = {'TURN': str(- value)}
         elif direction == "forward":
             payload = {'FORWARD': str(value)}
         elif direction == "stop":
@@ -103,53 +103,47 @@ class Robot(object):
         except Exception as e:
             print(type(e), e)
 
-    def turn(self):
+    def burst(self):
         """
         calculates turn angle and sends turn command to robot
         """
-        addr, cx, cy, cz, ct = self.update() # get current position
+        addr, cx, cy, cz, ct = self.update()  # get current position
         v1, v2 = self.find_vectors(self.last_x, self.last_y, cx, cy, self.fx, self.fy)  # get vector positions
         delta_angle = self.find_delta(v1, v2)  # get angle change
         angle1 = self.find_angle(v1[0], v1[2])  # get unit vector angles
         angle2 = self.find_angle(v2[0], v2[1])
         direction = self.turn_direction(angle1, angle2)  # get turn direction
         self.move(direction, delta_angle)  # turn robot
-        self.last_x = cx  # redefine previous positions
+        time.sleep(.2)
+        self.move('forward', .5)
+        self.last_x = cx
         self.last_y = cy
-
-    def go(self):
-        """
-        sends forward command to robot or turns robot off
-        """
-        a, cx, cy, cz, ct = self.update()
-        if abs(cx - self.fx) < self.epsilon and abs(cy - self.fy) < self.epsilon:
-            self.done = True
-        else:
-            self.move('forward', .5)
 
 
 class RobotSwarm(object):
 
-    def __init__(self, file):
+    def __init__(self, file, hedge=MarvelmindHedge('/dev/tty.usbmodem1421')):
         """
         Holds multiple robots.
         :param robots:
         """
         self.file = file
         self.done = False
+        self.hedge = hedge
+        self.hedge.start()
+        time.sleep(2)
+        self.robots = []
 
     def make_robots(self):
         filename = self.file
         f = open(filename)
         lines = f.readlines()
         f.close()
-        robots = []
         for line in lines:
             name, position = line.split(":")
             number, ip = name.split(" ")
             endx, endy = position.split(",")
-            robots.append(Robot(number, ip, endx, endy))
-        self.robots = robots
+            self.robots.append(Robot(number, ip, endx, endy))
 
     def done_check(self):
         for robot in self.robots:
@@ -161,13 +155,13 @@ class RobotSwarm(object):
 
     def run(self):
         self.make_robots()
-        self.robots[0].hedge.start()
-        time.sleep(2)
         for robot in self.robots:
             robot.move("forward", .5)
         while not self.done:
             for robot in self.robots:
-                robot.turn()
-            for robot in self.robots:
-                robot.go()
+                robot.burst()
             self.done_check()
+
+rs = RobotSwarm('ma.txt')
+rs.make_robots()
+print(rs.robots[0])
