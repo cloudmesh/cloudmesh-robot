@@ -1,49 +1,9 @@
-/*$(function(){
-    // min/max duty on robot motors
-    var minValue = 0;
-    var maxValue = 90;
-    
-    // slider stepping
-    var step = 10;
-    
-    // limit number of requests (milliseconds between each request)
-    var speedThrottle = 200;
-    var allowRequest = true;
+var speedThrottle = 200;
+var allowRequest = true;
 
-    // currently selected robot
-    var curRobot = {
-        speedLeft: minValue,
-        speedRight: minValue,
-        ip: ''
-    };
-    
-    var directionMultiplier = [1,1];
-    
-    var $rightMeter = $("#rightMeter").dynameter({
-    	width: 200,
-    	label: 'Fin Right',
-    	value: minValue,
-    	min: minValue,
-    	max: maxValue,
-    	unit: 'Angle'
-    });
-    
-    var $leftMeter = $("#leftMeter").dynameter({
-    	width: 200,
-    	label: 'Fin Left',
-    	value: minValue,
-    	min: minValue,
-    	max: maxValue,
-    	unit: 'Angle'
-    });
-    
-    $('#terminate').click(function(){
-        terminate();
-    });
-    
-    // call reset to initiate sliders
-    resetValues();
-    
+var curRobot = {}
+
+$(function(){    
     $robotSelect = $('#robotSelect');
     
     // create robot radio buttons
@@ -60,100 +20,77 @@
         $robotSelect.append($p);
     });
     
-    // button clicked
+    makeGauge();
+    
+    // key pressed
     $('#keys li').click(function(){        
         index = $(this).index();
         switch(index){
             case 0:
-                directionMultiplier = [1,1];
-                break;
             case 1:
-                directionMultiplier = [1,-1];
-                break;
             case 2:
-                directionMultiplier = [0,0];
-                break;                
             case 3:
-                directionMultiplier = [-1,1];
-                break;
             case 4:
-                directionMultiplier = [-1,-1];
+                params = 'SWIM=' + (5 - index)
+                break;
+            case 5:
+                params = 'LEFT=ON';
+                break;
+            case 6:
+                params = 'MIDDLE=ON';
+                break;
+            case 7:
+                params = 'RIGHT=ON';
                 break;
         }
         
-        sendRequest();
+        sendRequest(params);
     });
     
-    // new robot selected
-    $('input[type=radio][name=robots]').change(function() {
-        resetValues();
-        terminate();
-        curRobot.speedLeft = minValue;
-        curRobot.speedRight = minValue;
-        curRobot.ip = $(this).val();             
+        
+    // test angle
+    $('#test').click(function(){
+        sendRequest('ANGLE=' + realValue);
     });
     
-    // send AJAX request
-    function sendRequest(){
-        if(allowRequest){
-            allowRequest = false;
-            var ip = curRobot.ip;
-            url = 'http://' + ip + '/?LEFT=' + curRobot.speedLeft * directionMultiplier[0] + '&RIGHT=' + curRobot.speedRight * directionMultiplier[1];
-            
-            console.log(url);
-            $.get(url);
-            
-            // speed throttle
-            setTimeout(function(){
-                allowRequest = true;
-            }, speedThrottle);
-        }
-    }
+    // set offset
+    $('#offset').click(function(){
+        sendRequest('OFFSET=' + (realValue- middle));
+    });
     
-    // change all values to 0
-    function resetValues(){
-        directionMultiplier = [0,0];
-        sendRequest();
+    // reset back to middle
+    $('#reset').click(function(){
+        sendRequest('ANGLE=' + middle);
         
-        $rightMeter.changeValue(minValue);
-        $leftMeter.changeValue(minValue);
+        setTimeout(function(){  
+            sendRequest('OFFSET=0');
+        }, 200);
+        
+        gauge.set(middle);
+        $readout.text(middle);
+    });
     
-        $('#leftSlider').slider({
-        	min: minValue,
-        	max: maxValue,
-        	value: minValue,
-        	step: step,
-        	slide: function(evt, ui) {
-        		$leftMeter.changeValue(ui.value);
-        		curRobot.speedLeft = ui.value;
-        	}
-        });
-        
-        $('#rightSlider').slider({
-        	min: minValue,
-        	max: maxValue,
-        	value: minValue,
-        	step: step,
-        	slide: function(evt, ui) {
-        		$rightMeter.changeValue(ui.value);
-        		curRobot.speedRight = ui.value;
-        	}
-        });
-    }
+    // end
+    $('#end').click(function(){
+        sendRequest('END=ON');
+    });
     
-    function terminate(){
-        directionMultiplier = [0,0];
-        sendRequest();
-        
-        var ip = curRobot.ip;
-        url = 'http://' + url + '/?END=1';
-        $.get(url);
-    }
-});*/
+    $('#up').click(function(){
+        sendRequest('UP=ON');
+    });
+    
+    $('#down').click(function(){
+        sendRequest('DOWN=ON');
+    });
+});
 
-$(function(){
-    var maxValue = 180;
- 
+function makeGauge(){
+    var minValue = 29;
+    var maxValue = 115;
+    var middle = (maxValue + minValue) / 2;
+    
+    $readout = $('#readout');
+
     var opts = {
         angle: 0, // The span of the gauge arc
         lineWidth: 0.44, // The line thickness
@@ -174,12 +111,14 @@ $(function(){
     var target = document.getElementById('finGauge'); // your canvas element
     var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
     gauge.maxValue = maxValue; // set max gauge value
-    gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+    gauge.setMinValue(minValue);  // Prefer setter over gauge.minValue = 0
     gauge.animationSpeed = 1; // set animation speed (32 is default value)
-    gauge.set(90); // set actual value
+    gauge.set(middle); // set actual value
+    $readout.text(middle);
     
     var clicked = false;
     var gaugeWidth = gauge.canvas.clientWidth;
+    var realValue = middle;
     
     $('#finGauge').mousedown(function(){
         clicked = true;
@@ -187,9 +126,34 @@ $(function(){
         clicked = false;
     }).mousemove(function(evt){
         if(clicked){
-            clickX = evt.offsetX;
-            gauge.set((clickX / gaugeWidth) * gaugeWidth);
-            console.log(gauge.value);
+            mouseX = evt.offsetX;
+            value = Math.floor((mouseX / gaugeWidth) * (maxValue + minValue))
+            realValue = maxValue + minValue - value;
+            if(realValue > maxValue){
+                realValue = maxValue;
+            }
+            else if(realValue < minValue){
+                realValue = minValue;
+            }
+            gauge.set(value);
+            $readout.text(realValue);
         }
     });
-});
+}
+
+// send AJAX request
+function sendRequest(command){
+    if(allowRequest){
+        allowRequest = false;
+        var ip = curRobot.ip;
+        url = 'http://' + ip + '/?' + command;
+        
+        console.log(url);
+        $.get(url);
+        
+        // speed throttle
+        setTimeout(function(){
+            allowRequest = true;
+        }, speedThrottle);
+    }
+}

@@ -129,8 +129,10 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#osx">OSX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instalation-of-tools">Instalation of tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#osx">OSX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">OSX</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#xcode">XCode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#homebrew">Homebrew</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#install-pyenv">Install pyenv</a></li>
@@ -143,22 +145,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#terminal">Terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#pyenev">Pyenev</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#instalation-of-tools">Instalation of tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#xcode">Xcode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#homebrew">Homebrew</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#markdown">Markdown</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#macdown-installation">Macdown Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tools.html#markdown-syntax">Markdown Syntax</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#pycharm">PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#aquamacs">Aquamacs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#bash">Bash</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#optional-arduino">Optional: Arduino</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#emacs-on-osx">Emacs on OSX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#matplotlib-on-osx">Matplotlib on OSX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#external-tutorials-and-lessons">External Tutorials and Lessons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#arduino">Arduino</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware for IoT Projects</a><ul>
@@ -188,6 +178,11 @@
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#led">LED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#program">Program</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="marvelmind.html">Marvelmind</a><ul>
@@ -215,12 +210,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="kivy.html">Hello World</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kivy.html#packaging">packaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="led.html">NodeMCU ESP12 Dev Kit V1.0 Pin Definition:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="led.html#led">LED</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="led.html#links">Links</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led.html#program">Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kivy.html">Kivy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#packaging">packaging</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mblock.html">mblock</a></li>
@@ -323,6 +316,23 @@
             
   <div class="section" id="setup">
 <h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">xcode</span><span class="o">-</span><span class="n">select</span> <span class="o">--</span><span class="n">install</span>
+<span class="n">sudo</span> <span class="n">xcode</span><span class="o">-</span><span class="n">select</span> <span class="o">-</span><span class="n">p</span>
+</pre></div>
+</div>
+<p>you will see</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">Xcode</span><span class="o">.</span><span class="n">app</span><span class="o">/</span><span class="n">Contents</span><span class="o">/</span><span class="n">Developer</span>
+</pre></div>
+</div>
+<p>In an administrative account do the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">easy_install</span> <span class="n">pip</span>
+<span class="n">sudo</span> <span class="n">ARCHFLAGS</span><span class="o">=-</span><span class="n">Wno</span><span class="o">-</span><span class="n">error</span><span class="o">=</span><span class="n">unused</span><span class="o">-</span><span class="n">command</span><span class="o">-</span><span class="n">line</span><span class="o">-</span><span class="n">argument</span><span class="o">-</span><span class="n">hard</span><span class="o">-</span><span class="n">error</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">future</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pycrypto</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">ansible</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">ansible</span> <span class="o">--</span><span class="n">upgrade</span>
+</pre></div>
+</div>
+<div class="section" id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">github</span>
 <span class="n">cd</span> <span class="n">github</span>
 <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">git</span>
@@ -336,18 +346,47 @@
 <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">push</span><span class="o">.</span><span class="n">default</span> <span class="n">matching</span>
 </pre></div>
 </div>
+<p>The linux instalation istructions are incomplete</p>
+</div>
+<div class="section" id="instalation-of-tools">
+<h2>Instalation of tools<a class="headerlink" href="#instalation-of-tools" title="Permalink to this headline">¶</a></h2>
+<p>Once you have installed cloudmesh robots you well be able to install a
+numebr of tools automatically with the command</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot osx install
+</pre></div>
+</div>
+<p>This will install for you a number of tools including xcode, homebrew,
+macdown, pycharm, and aquaemacs. If you have some these tools already
+installed it will skip the instalation process for a particular tool.</p>
+<p>If you do not like this automatic install or you have a differnt
+operating system, please find alternative ways to install these tools.
+Let us know how you installed the tools on Linux or Windows and we will
+integrate it into our instalation.</p>
+<p>Please note that some of the tools require root access and thus you must
+be able to have ccess to sudo to run them from our tool.</p>
+</div>
+<div class="section" id="osx">
+<h2>OSX<a class="headerlink" href="#osx" title="Permalink to this headline">¶</a></h2>
 <p>For OSX we have created a</p>
 <ul class="simple">
 <li><a class="reference external" href="https://raw.githubusercontent.com/cloudmesh/cloudmesh.robot/master/bin/osx/setup.sh">setup.sh</a></li>
 </ul>
+<p>To easily execute this script type in the terminal</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">vs</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">.</span><span class="n">robot</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">osx</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">sh</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="n">setup</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">sh</span> <span class="n">setup</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
 <p>script that allows you to install in a simple way development tools that
-you may find useful for the activities reported on in this repository.</p>
-<div class="section" id="id1">
-<h2>Setup<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>First we must install a number of tools on the machine connecting to the
+you may find useful for the activities reported on in this repository.
+First we must install a number of tools on the machine connecting to the
 board.</p>
-<div class="section" id="osx">
-<h3>OSX<a class="headerlink" href="#osx" title="Permalink to this headline">¶</a></h3>
+<p>Some setup options</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ricbra/dotfiles/blob/master/bin/setup_osx">https://github.com/ricbra/dotfiles/blob/master/bin/setup_osx</a></li>
+<li><a class="reference external" href="https://blog.vandenbrand.org/2016/01/04/how-to-automate-your-mac-os-x-setup-with-ansible/">https://blog.vandenbrand.org/2016/01/04/how-to-automate-your-mac-os-x-setup-with-ansible/</a></li>
+</ul>
+<div class="section" id="id1">
+<h3>OSX<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>In our guide we will focus on OSX, however, there should not be any
 issues with modifying our installations to work with other operating
 systems, such as Linux or even Windows. If you have improvements in

@@ -26,10 +26,7 @@ Cloudmesh.robot
               
    compass
 
-   feather
-
    kivy
-   led
    mblock
    overview
    rasp

@@ -12,30 +12,43 @@
 </head>
 
 <body>
-<div class="jquery-script-clear"></div>
-</div>
-</div>
 	<div id="container">
         <h1>Fish Dashboard</h1>
         
-        <form id='robotSelect'></form>
-    
-        <ul id='keys'>
-	        <li>&#8593;</li>
-	        <li>&#8592;</li>
-	        <li>&#10005;</li>
-	        <li>&#8594;</li>
-	        <li>&#8595;</li>
-        </ul>
+        <div>
+            <form id='robotSelect'></form>
+        </div>
         
-        <canvas id="finGauge"></canvas>
+        <div>
+            <ul id='keys'>
+                <li>&#8593;&#8593;&#8593;&#8593;&#8593;</li>
+                <li>&#8593;&#8593;&#8593;&#8593;</li>
+                <li>&#8593;&#8593;&#8593;</li>
+                <li>&#8593;&#8593;</li>
+	            <li>&#8593;</li>
+	            <li class='side'>&#8592;</li>
+	            <li class='side'>|</li>
+	            <li class='side'>&#8594;</li>
+            </ul>
+            
+            <div id='calibrate'>
+                <canvas id="finGauge"></canvas>
+                <div id='readout'></div>
+                <button id='test'>Test</button>
+                <button id='offset'>Set</button>
+                <button id='reset'>Reset</button>
+            </div>
+            <button id="end">End</button>
+        </div>
         
-        <button id="terminate">Terminate</button>
+        <div>
+            <button id='up'>&#8593;</button>
+            <img src='shark.jpg'></img>
+            <button id='down'>&#8595;</button>
+        </div>
     </div>
   
 	<script src="js/jquery-3.2.1.min.js"></script>
-	<!--<script src="js/jquery-ui.min.js"></script>-->
-	<!--<script type="text/javascript" src="js/jquery.dynameter.js"></script>-->
 	<script type="text/javascript" src="js/gauge.min.js"></script>
 	<script type="text/javascript" src="fish.js"></script>
 	<script type="text/javascript" src="dashboard.js"></script>

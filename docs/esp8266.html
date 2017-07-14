@@ -129,8 +129,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#id1">Setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#osx">OSX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#instalation-of-tools">Instalation of tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#osx">OSX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#id1">OSX</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="setup.html#xcode">XCode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="setup.html#homebrew">Homebrew</a></li>
 <li class="toctree-l4"><a class="reference internal" href="setup.html#install-pyenv">Install pyenv</a></li>
@@ -143,22 +145,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#terminal">Terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#pyenev">Pyenev</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#instalation-of-tools">Instalation of tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#xcode">Xcode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#homebrew">Homebrew</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#markdown">Markdown</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#macdown-installation">Macdown Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tools.html#markdown-syntax">Markdown Syntax</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#pycharm">PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#aquamacs">Aquamacs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#bash">Bash</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#optional-arduino">Optional: Arduino</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#emacs-on-osx">Emacs on OSX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#matplotlib-on-osx">Matplotlib on OSX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.html#external-tutorials-and-lessons">External Tutorials and Lessons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#arduino">Arduino</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware for IoT Projects</a><ul>
@@ -188,6 +178,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#led">LED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#program">Program</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="marvelmind.html">Marvelmind</a><ul>
@@ -215,12 +210,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="kivy.html">Hello World</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kivy.html#packaging">packaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="led.html">NodeMCU ESP12 Dev Kit V1.0 Pin Definition:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="led.html#led">LED</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="led.html#links">Links</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led.html#program">Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kivy.html">Kivy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#packaging">packaging</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mblock.html">mblock</a></li>
@@ -396,52 +389,36 @@ can look at the manual page of the robot command with</p>
 </pre></div>
 </div>
 <p>You will see a manual page like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">::</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="n">Usage</span><span class="p">:</span>
+    <span class="n">robot</span> <span class="n">welcome</span>
+    <span class="n">robot</span> <span class="n">osx</span> <span class="n">install</span>
+    <span class="n">robot</span> <span class="n">osx</span> <span class="n">driver</span>
+    <span class="n">robot</span> <span class="n">image</span> <span class="n">fetch</span>
+    <span class="n">robot</span> <span class="n">probe</span> <span class="p">[</span><span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span>
+    <span class="n">robot</span> <span class="n">flash</span> <span class="n">erase</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+    <span class="n">robot</span> <span class="n">flash</span> <span class="n">python</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+    <span class="n">robot</span> <span class="n">test</span>
+    <span class="n">robot</span> <span class="n">run</span> <span class="n">PROGRAM</span>
+    <span class="n">robot</span> <span class="n">credentials</span> <span class="nb">set</span> <span class="n">SSID</span> <span class="n">USERNAME</span> <span class="n">PASSWORD</span>
+    <span class="n">robot</span> <span class="n">credentials</span> <span class="n">put</span>
+    <span class="n">robot</span> <span class="n">credentials</span> <span class="nb">list</span>
+    <span class="n">robot</span> <span class="n">login</span>
+    <span class="n">robot</span> <span class="nb">set</span> <span class="n">PORT</span> <span class="n">NOT</span> <span class="n">IMPLEMENTED</span>
+    <span class="n">robot</span> <span class="n">ls</span> <span class="p">[</span><span class="n">PATH</span><span class="p">]</span>
+    <span class="n">robot</span> <span class="n">put</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span><span class="p">]</span> <span class="n">SOURCE</span> <span class="p">[</span><span class="n">DESTINATION</span><span class="p">]</span>
+    <span class="n">robot</span> <span class="n">get</span> <span class="n">PATH</span>
+    <span class="n">robot</span> <span class="n">rm</span> <span class="n">PATH</span>
+    <span class="n">robot</span> <span class="n">rmdir</span> <span class="n">PATH</span>
+    <span class="n">robot</span> <span class="n">dance</span> <span class="n">FILE</span> <span class="n">IPS</span>
+    <span class="n">robot</span> <span class="n">inventory</span> <span class="nb">list</span> <span class="p">[</span><span class="o">--</span><span class="n">cat</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">path</span><span class="o">=</span><span class="n">PATH</span><span class="p">]</span> <span class="p">[</span><span class="n">ID</span><span class="p">]</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+    <span class="n">FILE</span>   <span class="n">a</span> <span class="n">file</span> <span class="n">name</span>
+
+<span class="n">Options</span><span class="p">:</span>
+    <span class="o">-</span><span class="n">f</span>      <span class="n">specify</span> <span class="n">the</span> <span class="n">file</span>
 </pre></div>
 </div>
-<blockquote>
-<div><blockquote>
-<div><dl class="docutils">
-<dt>Usage:</dt>
-<dd>robot welcome
-robot osx install
-robot osx driver
-robot image fetch
-robot probe [–format=FORMAT]
-robot flash erase [–dryrun]
-robot flash python [–dryrun]
-robot test
-robot run PROGRAM
-robot credentials set SSID USERNAME PASSWORD
-robot credentials put
-robot credentials list
-robot login
-robot set PORT NOT IMPLEMENTED
-robot ls [PATH]
-robot put [-o] SOURCE [DESTINATION]
-robot get PATH
-robot rm PATH
-robot rmdir PATH
-robot dance FILE IPS
-robot inventory list [–cat] [–path=PATH] [ID]</dd>
-</dl>
-</div></blockquote>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>FILE   a file name</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">-f</span></kbd></td>
-<td>specify the file</td></tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</div></blockquote>
 </div>
 </div>
 <div class="section" id="testing-the-board">
@@ -561,6 +538,58 @@ cloudmesh.robot versions can be found. Than execute</p>
 </div>
 <p>the -e flag is optional, but allows you to change the code without the
 need of recompiling. A very useful feature in python.</p>
+</div>
+</div>
+<div class="section" id="nodemcu-esp12-dev-kit-pin-definition">
+<h2>NodeMCU ESP12 Dev Kit Pin Definition<a class="headerlink" href="#nodemcu-esp12-dev-kit-pin-definition" title="Permalink to this headline">¶</a></h2>
+<p>For V1.0</p>
+<p><img alt="nodemcs" src="_images/nodemcu.png" /></p>
+<p>The GPIO numbers of teh NodeMCU, do not correspond with the actual
+numbers used in micropythons pin library. The numbers are as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Pin/GPIO</th>
+<th class="head">NodeMCU</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>15</td>
+<td>D8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="led">
+<h2>LED<a class="headerlink" href="#led" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="program">
+<h3>Program<a class="headerlink" href="#program" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+<span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+
+
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure" id="id1">
+<img alt="breadboard" src="_images/led-esp8266_bb.png" />
+<p class="caption"><span class="caption-text">breadboard</span></p>
+</div>
+<div class="figure" id="id2">
+<img alt="schema" src="_images/led-esp8266_schem.png" />
+<p class="caption"><span class="caption-text">schema</span></p>
+</div>
 </div>
 </div>
 </div>

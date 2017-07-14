@@ -1,7 +1,10 @@
 Feather esp8266
 ===============
 
-`doc <https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-nodemcu-lua>`__
+-  `Feather HUZZAH
+   ESP8266 <https://learn.adafruit.com/micropython-basics-blink-a-led/blink-led>`__
+
+-  `doc <https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-nodemcu-lua>`__
 
 OSX Terminal
 ------------
