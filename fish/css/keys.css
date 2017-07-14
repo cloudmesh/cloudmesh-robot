@@ -24,6 +24,7 @@
 
 #keys li.side {
     display: inline-block;
+    float: top: 50;
 }
 
 #keys li.pressed, #keys li:active{
