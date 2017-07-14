@@ -41,13 +41,18 @@ class Robot(object):
         :param y: Number
         :return: Number
         """
-        if x >= 0:
+        if x > 0:
             if y >= 0:
                 return math.degrees(math.atan(y / x))
-            elif y <= 0:
-                return 270 - math.degrees(math.atan(y / x))
-        else:
-            return 180 + math.atan(y / x)
+            elif y < 0:
+                return 360 + math.degrees(math.atan(y / x))
+        elif x < 0:
+            return 180 + math.degrees(math.atan(y / x))
+        elif x == 0:
+            if y > 0:
+                return 90
+            elif y < 0:
+                return 270
 
     def find_delta(self, v1, v2):
         """
@@ -60,7 +65,7 @@ class Robot(object):
         unit_factor2 = math.sqrt((v2[0] ** 2) + (v2[1] ** 2))
         u1 = [(v1[0] / unit_factor1), (v1[1] / unit_factor1)]
         u2 = [(v2[0] / unit_factor2), (v2[1] / unit_factor2)]
-        return math.acos((u1[0] * u2[0]) + (u1[1] * u2[1]))
+        return math.degrees(math.acos((u1[0] * u2[0]) + (u1[1] * u2[1])))
 
     def turn_direction(self, angle1, angle2):
         """
@@ -69,14 +74,16 @@ class Robot(object):
         :param angle2: Number
         :return: String
         """
-        if angle1 > angle2:
-            return "right"
-        elif 0 <= angle1 <= 90 and 270 <= angle2 <= 360:
-            return "right"
-        elif 0 <= angle2 <= 90 and 270 <= angle1 <= 360:
-            return "left"
-        elif angle2 > angle1:
-            return "left"
+        if abs(angle2 - angle1) < 180:
+            if angle2 < angle1:
+                return "right"
+            elif angle1 < angle2:
+                return "left"
+        else:
+            if angle1 > angle2:
+                return "left"
+            elif angle2 > angle1:
+                return "right"
 
     def move(self, direction, value=None):
         """
@@ -110,7 +117,7 @@ class Robot(object):
         addr, cx, cy, cz, ct = self.update()  # get current position
         v1, v2 = self.find_vectors(self.last_x, self.last_y, cx, cy, self.fx, self.fy)  # get vector positions
         delta_angle = self.find_delta(v1, v2)  # get angle change
-        angle1 = self.find_angle(v1[0], v1[2])  # get unit vector angles
+        angle1 = self.find_angle(v1[0], v1[1])  # get unit vector angles
         angle2 = self.find_angle(v2[0], v2[1])
         direction = self.turn_direction(angle1, angle2)  # get turn direction
         self.move(direction, delta_angle)  # turn robot
@@ -162,6 +169,8 @@ class RobotSwarm(object):
                 robot.burst()
             self.done_check()
 
+print('starting')
 rs = RobotSwarm('ma.txt')
+print('robots made')
 rs.make_robots()
 print(rs.robots[0])
