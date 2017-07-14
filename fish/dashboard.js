@@ -29,14 +29,14 @@ $(function(){
             case 0:
                 params = 'SWIM=1'
                 break;
-            case 5:
+            case 1:
                 params = 'LEFT=ON';
                 break;
-            case 6:
-                params = 'MIDDLE=ON';
-                break;
-            case 7:
+            case 3:
                 params = 'RIGHT=ON';
+                break;
+            case 4:
+                params = 'MIDDLE=ON';
                 break;
         }
         
