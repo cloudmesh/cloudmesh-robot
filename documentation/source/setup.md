@@ -1,5 +1,22 @@
 # Setup
 
+    sudo xcode-select --install
+    sudo xcode-select -p
+
+you will see
+
+    /Applications/Xcode.app/Contents/Developer
+
+In an administrative account do the following:
+
+    sudo easy_install pip
+    sudo ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future pip install pycrypto
+    sudo pip install ansible
+    sudo pip install ansible --upgrade
+
+
+
+
 ## Linux
 
 	mkdir github
@@ -16,6 +33,26 @@
 
 The linux instalation istructions are incomplete
 
+## Instalation of tools
+
+Once you have installed cloudmesh robots you well be able to install a
+numebr of tools automatically with the command
+
+	$ cms robot osx install
+	
+This will install for you a number of tools including xcode, homebrew,
+macdown, pycharm, and aquaemacs. If you have some these tools already
+installed it will skip the instalation process for a particular tool.
+
+If you do not like this automatic install or you have a differnt
+operating system, please find alternative ways to install these
+tools. Let us know how you installed the tools on Linux or Windows and
+we will integrate it into our instalation.
+
+Please note that some of the tools require root access and thus you
+must be able to have ccess to sudo to run them from our tool.
+
+
 ## OSX
 
 For OSX we have created a
@@ -31,6 +68,12 @@ script that allows you to install in a simple way development tools
 that you may find useful for the activities reported on in this
 repository. First we must install a number of tools on the machine
 connecting to the board.
+
+Some setup options
+
+* https://github.com/ricbra/dotfiles/blob/master/bin/setup_osx
+*
+https://blog.vandenbrand.org/2016/01/04/how-to-automate-your-mac-os-x-setup-with-ansible/
 
 ### OSX
 

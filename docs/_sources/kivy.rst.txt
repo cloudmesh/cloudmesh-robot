@@ -1,6 +1,8 @@
-# Kivy
+Kivy
+====
 
-## Install
+Install
+-------
 
 ::
 
@@ -10,7 +12,7 @@
     pip install pygame
 
 Hello World
-===========
+-----------
 
 ::
 
@@ -18,6 +20,6 @@ Hello World
     python test1.py
 
 packaging
-=========
+---------
 
 -  https://kivy.org/docs/guide/packaging-osx.html

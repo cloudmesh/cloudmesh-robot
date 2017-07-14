@@ -95,7 +95,7 @@ can look at the manual page of the robot command with
 
     $ cms help robot
 
-You will see a manual page like this::
+You will see a manual page like this:
 
 ::
 
@@ -281,6 +281,57 @@ After this you can reinstall it with
 the -e flag is optional, but allows you to change the code without the
 need of recompiling. A very useful feature in python.
 
+NodeMCU ESP12 Dev Kit Pin Definition
+------------------------------------
+
+For V1.0
+
+|nodemcs|  
+
+The GPIO numbers of teh NodeMCU, do not correspond with the actual
+numbers used in micropythons pin library. The numbers are as follows:
+
++------------+-----------+
+| Pin/GPIO   | NodeMCU   |
++============+===========+
+| 15         | D8        |
++------------+-----------+
+
+LED
+---
+
+Program
+~~~~~~~
+
+::
+
+    import machine
+    led = machine.Pin(15,machine.Pin.OUT)
+    led.high()
+    led.low()
+
+
+    import machine
+    led = machine.Pin(15,machine.Pin.OUT)
+    while True:
+        led.high()
+        time.sleep(0.5)
+        led.low()
+        time.sleep(0.5)
+        
+        
+
+.. figure:: images/led-esp8266_bb.png
+   :alt: breadboard
+
+   breadboard
+
+.. figure:: images/led-esp8266_schem.png
+   :alt: schema
+
+   schema
+
 .. |alt text| image:: images/Official-font-b-DOIT-b-font-ESP-32-ESP-32S-ESP-32-Development-Board-font-b.jpg
 .. |alttext| image:: images/feather.png
 .. |alttext| image:: images/esp8266-b.png
+.. |nodemcs| image:: ./images/nodemcu.png

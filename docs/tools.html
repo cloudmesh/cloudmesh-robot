@@ -129,8 +129,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#id1">Setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#osx">OSX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#instalation-of-tools">Instalation of tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#osx">OSX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#id1">OSX</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="setup.html#xcode">XCode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="setup.html#homebrew">Homebrew</a></li>
 <li class="toctree-l4"><a class="reference internal" href="setup.html#install-pyenv">Install pyenv</a></li>
@@ -143,22 +145,10 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#terminal">Terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pyenev">Pyenev</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#instalation-of-tools">Instalation of tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#xcode">Xcode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#homebrew">Homebrew</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#markdown">Markdown</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#macdown-installation">Macdown Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#markdown-syntax">Markdown Syntax</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#pycharm">PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aquamacs">Aquamacs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bash">Bash</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#optional-arduino">Optional: Arduino</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#emacs-on-osx">Emacs on OSX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#matplotlib-on-osx">Matplotlib on OSX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#external-tutorials-and-lessons">External Tutorials and Lessons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arduino">Arduino</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware for IoT Projects</a><ul>
@@ -188,6 +178,11 @@
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#led">LED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#program">Program</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="marvelmind.html">Marvelmind</a><ul>
@@ -215,12 +210,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="kivy.html">Hello World</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kivy.html#packaging">packaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="led.html">NodeMCU ESP12 Dev Kit V1.0 Pin Definition:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="led.html#led">LED</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="led.html#links">Links</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led.html#program">Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kivy.html">Kivy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#packaging">packaging</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mblock.html">mblock</a></li>
@@ -323,52 +316,65 @@
             
   <div class="section" id="tools">
 <h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="terminal">
-<h2>Terminal<a class="headerlink" href="#terminal" title="Permalink to this headline">¶</a></h2>
-<p>On OSX, when you navigate to the search magnification glass, you can
-type in <em>terminal</em> to start it. A terminal allows you to execute a
-number of commands to interact with the computer from a commandline
-interface, e.g. the terminal.</p>
-</div>
-<div class="section" id="pyenev">
-<h2>Pyenev<a class="headerlink" href="#pyenev" title="Permalink to this headline">¶</a></h2>
-<p>Python is a programming language. As there aer multiple versions,
-<em>pyenv</em> sllows you to manage them.</p>
-</div>
-<div class="section" id="instalation-of-tools">
-<h2>Instalation of tools<a class="headerlink" href="#instalation-of-tools" title="Permalink to this headline">¶</a></h2>
-<p>Once you have installed cloudmesh robots you well be able to install a
-numebr of tools automatically with the command</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot osx install
+<ul>
+<li><p class="first"><strong>Terminal</strong>: On OSX, when you navigate to the search magnification
+glass, you can type in <em>terminal</em> to start it. A terminal allows you
+to execute a number of commands to interact with the computer from a
+commandline interface, e.g. the terminal.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://linuxconfig.org/bash-scripting-tutorial">Bash</a> it the
+command language used in terminal.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osxhttps://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osx">Pyenv</a>
+allows to manage multiple versions of python easily. <a class="reference external" href="https://github.com/pyenv/pyenv#how-it-works">Pyenv
+link</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osxhttps://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osx">XCode</a>
+is an integrated development environment for macOS containing a suite
+of software development tools developed by Apple for developing
+software for macOS, iOS, watchOS and tvOS.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://brew.sh">Homebrew</a> is a <em>package manager</em> for OS X which
+lets the user <em>install software</em> from <em>UNIX</em> and <em>open source
+software</em> that is not included in OSX.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&amp;code=PCC">pyCharm</a>:
+is an Integrated Development Environment for Python.</p>
+</li>
+<li><p class="first"><em>Matplotlib</em>: Matplotlib is a libarry that allows us to create nice
+graphs in python. As we typically install python with virtualenv, we
+need to configure matplotlib properly to use it. The easiest way to
+do this is to execute the following commands. After you run them you
+can use matplotlib.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install numpy
+$ pip install matplotlib
+$ echo &quot;backend : TkAgg&quot; &gt; ~/.matplotlib/matplotlibrc
 </pre></div>
 </div>
-<p>This will install for you</p>
-<ol class="arabic simple">
-<li>xcode</li>
-<li>homebrew</li>
-<li>macdown</li>
-<li>aquaemacs</li>
-</ol>
-<p>If you do not like this automatic install or you have a differnt
-operating system, please find alternatives. Let us know how you
-installed the tools on Linux or Windows and we will integrate it here.</p>
-</div>
-<div class="section" id="xcode">
-<h2>Xcode<a class="headerlink" href="#xcode" title="Permalink to this headline">¶</a></h2>
-<p>Xcode is an integrated development environment for macOS containing a
-suite of software development tools developed by Apple for developing
-software for macOS, iOS, watchOS and tvOS.</p>
-</div>
-<div class="section" id="homebrew">
-<h2>Homebrew<a class="headerlink" href="#homebrew" title="Permalink to this headline">¶</a></h2>
-<p><em>Homebrew</em> is a <em>package manager</em> for OS X which lets the user <em>install
-software</em> from <em>UNIX</em> and <em>open source software</em> that is not included in
-OSX.</p>
-</div>
+</li>
+<li><p class="first"><a class="reference external" href="https://macdown.uranusjr.com/">Macdown</a> a macdown editor for OSX</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://blog.ghost.org/markdown/">Markdown</a> (from Markdown)</p>
+</li>
+<li><p class="first"><a class="reference external" href="http://oracc.museum.upenn.edu/doc/help/usingemacs/aquamacs/">AquaEmacs</a>
+(from Aquaemacs)</p>
+</li>
+<li><p class="first"><a class="reference external" href="http://marvelmind.com/">Marvelmind</a> (from Marvelmind if you have
+marvelmind positioning sensors which are optional)</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://www.arduino.cc/en/guide/macOSX">Arduino</a> (from Arduino if
+you like to use their interface to access the esp8266 boards)</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://computers.tutsplus.com/tutorials/40-terminal-tips-and-tricks-you-never-thought-you-needed--mac-51192">40 OSX Terminal
+Tricks</a></p>
+</li>
+</ul>
 <div class="section" id="markdown">
 <h2>Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h2>
-<p>Markdown has very good support for editors that render the final output
-in a view window next to the editor pane. Two such editors are</p>
+<p>MarkDown is a format convention that produces nicely formated text with
+simple ASCII text. Markdown has very good support for editors that
+render the final output in a view window next to the editor pane. Two
+such editors are</p>
 <ul class="simple">
 <li><a class="reference external" href="https://macdown.uranusjr.com/">Macdown</a>: MacDown provides a nice
 integrated editor that works well.</li>
@@ -378,23 +384,8 @@ plugin</a>.
 Once installes you click on a .md file pycharm will automatically ask
 to install the plugins from Markdown for you.</li>
 </ul>
-</div>
-<div class="section" id="macdown-installation">
-<h2>Macdown Installation<a class="headerlink" href="#macdown-installation" title="Permalink to this headline">¶</a></h2>
-<p>Macdown is an open source editor for <em>Markdown</em>.</p>
-<p>Is this done with osx install?</p>
-<p>In order to install it, you need to navigate to
-<a class="reference external" href="https://macdown.uranusjr.com/">Macdown</a>, and click on the “Download
-MacDown” button under “What’s in the Box?”. You may be asked to grant
-permission for the file to be installed. Once the program is finished
-downloading, navigate to the “downloads” folder in Finder and click on
-the MacDown program and you are good to go.</p>
-<p><strong>BUG: I DO NOT THINK THI IS RIGHT.</strong></p>
-<div class="section" id="markdown-syntax">
-<h3>Markdown Syntax<a class="headerlink" href="#markdown-syntax" title="Permalink to this headline">¶</a></h3>
-<p>MarkDown is a format convention that produces nicely formated text with
-simple ASCII text.</p>
-<p><strong>BUG: LINK TO MARKDOWN SYNTAX MISSING</strong></p>
+<p>A detailed set of syntax rules can be found at: <strong>BUG: LINK TO MARKDOWN
+SYNTAX MISSING</strong></p>
 <p>The following are some basic examples</p>
 <ul class="simple">
 <li>To <em>empazise</em> a text you use <code class="docutils literal"><span class="pre">*empasize*</span></code></li>
@@ -437,21 +428,21 @@ above them.</p>
 <p>Other syntax options can be found in the Format drop-down at the top of
 the screen between View and Plug-ins of macdown.</p>
 </div>
-</div>
-<div class="section" id="pycharm">
-<h2>PyCharm<a class="headerlink" href="#pycharm" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line">PyCharm is an Integrated Development Environment for Python.</div>
-<div class="line">## AquaEmacs Installation</div>
-</div>
+<div class="section" id="aquamacs">
+<h2>Aquamacs<a class="headerlink" href="#aquamacs" title="Permalink to this headline">¶</a></h2>
+<p>There are many different versions of emacs available on OSX. Aquamacs is
+often used as it integrates nicely with the OSX GUI interface.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://aquamacs.org/download.shtml">AquaEmacs</a></li>
+</ul>
 <p><em>Aquamacs</em> is a program for Mac devices which allows the user to edit
 text, HTML, LaTeX, C++, Java, Python, R, Perl, Ruby, PHP, and more.
 Aquaemacs integrates well with OSX and provides many functions through a
 menu. You will mostly be using the File, Edit, menus or toolbar icons.</p>
-<p>Emacs convenient keyboard shortcuts, most of which are combinations with
-the Control or Meta key (The Meta key is the ESC key). If you
-accidentally end up doing something wrong simply press <code class="docutils literal"><span class="pre">CTRL-g</span></code> to get
-out without issue. Other Keyboard Shortcuts include:</p>
+<p>Emacs provides convenient keyboard shortcuts, most of which are
+combinations with the Control or Meta key (The Meta key is the ESC key).
+If you accidentally end up doing something wrong simply press <code class="docutils literal"><span class="pre">CTRL-g</span></code>
+to get out without issue. Other Keyboard Shortcuts include:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">CTRL-x</span> <span class="pre">u</span></code> or File&gt;Undo will cancel any command that you did not
 want done. (CHECK)</li>
@@ -465,10 +456,10 @@ press <code class="docutils literal"><span class="pre">CTRL-k</span></code>.</li
 </div>
 <div class="section" id="bash">
 <h2>Bash<a class="headerlink" href="#bash" title="Permalink to this headline">¶</a></h2>
-<p>Bash is automatically installed in OSX. A <em>bash</em> script contains
-<em>commands</em> in plain text. In order to create a bash script please decide
-for a convenient name. Ltes assume we name our script <em>myscript</em>. Than
-you can create and edit such a script with</p>
+<p>Bash is preinstalled in OSX. A <em>bash</em> script contains <em>commands</em> in
+plain text. In order to create a bash script please decide for a
+convenient name. Ltes assume we name our script <em>myscript</em>. Than you can
+create and edit such a script with</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ touch myscript.sh
 $ emacs myscripts.sh
 </pre></div>
@@ -502,65 +493,13 @@ test it by typing</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="optional-arduino">
-<h2>Optional: Arduino<a class="headerlink" href="#optional-arduino" title="Permalink to this headline">¶</a></h2>
-<p>In the event that there is a TTY error, you will need to install
-Arduino, since your Mac may be missing some drivers that are included in
-Arduino. Simply go to
-<a class="reference external" href="https://www.arduino.cc/en/guide/macOSX">Arduino</a> and click on the
-<em>download page</em> link under <em>Download the Arduino Software (IDE)</em>. You
-should be brought to a page with installation options for different OS.
-Click on <em>Mac OS X Lion or Newer</em> and you should be brought to a
-contribution page. You don’t have to pay for Arduino, so if you do not
-want to contribute, click on <em>Just Download</em> and a zip file should be
-downloaded. Go to your downloads, uncompress the file, and Arduino
-should be in the new directory that is created. Do the one time setup,
-and you are finished.</p>
-<p><strong>BUG: IS THIS RIGHT? THIS SEEMS WRONG</strong></p>
-</div>
-<div class="section" id="emacs-on-osx">
-<h2>Emacs on OSX<a class="headerlink" href="#emacs-on-osx" title="Permalink to this headline">¶</a></h2>
-<p>There are many different versions of emacs available on OSX. Aquaemacs
-is often used as it integrates nicely with the OSX GUI interface.</p>
-<ul class="simple">
-<li><a class="reference external" href="http://aquamacs.org/download.shtml">AquaEmacs</a></li>
-</ul>
-</div>
-<div class="section" id="matplotlib-on-osx">
-<h2>Matplotlib on OSX<a class="headerlink" href="#matplotlib-on-osx" title="Permalink to this headline">¶</a></h2>
-<p>As we typically install python with virtualenv, we need to configure
-matplotlib properly to use it. The easiest way to do this is to execute
-the following commands. After you run them you can use matplotlib.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install numpy
-$ pip install matplotlib
-$ echo &quot;backend : TkAgg&quot; &gt; ~/.matplotlib/matplotlibrc
-</pre></div>
-</div>
-</div>
-<div class="section" id="external-tutorials-and-lessons">
-<h2>External Tutorials and Lessons<a class="headerlink" href="#external-tutorials-and-lessons" title="Permalink to this headline">¶</a></h2>
-<p>This document leverages a number of lessons created for cloudmesh and
-other information. We provide links to these lessons in case you like to
-compare or want to learn more about cloudmesh. In particular we
-leveraged:</p>
-<ul class="simple">
-<li><a class="reference external" href="https://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osxhttps://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osx">XCode</a>
-(from cloudmesh)</li>
-<li><a class="reference external" href="https://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osxhttps://cloudmesh.github.io/classes/lesson/prg/pyenv.html?highlight=xcode#install-pyenv-on-osx">Pyenv</a>
-(from cloudmesh)</li>
-<li><a class="reference external" href="https://github.com/pyenv/pyenv#how-it-works">Pyenv</a> (from pyenv)</li>
-<li><a class="reference external" href="https://brew.sh">Homebrew</a> (from homebrew)</li>
-<li><a class="reference external" href="https://blog.ghost.org/markdown/">Markdown</a> (from Markdown)</li>
-<li><a class="reference external" href="http://oracc.museum.upenn.edu/doc/help/usingemacs/aquamacs/">AquaEmacs</a>
-(from Aquaemacs)</li>
-<li><a class="reference external" href="http://marvelmind.com/">Marvelmind</a> (from Marvelmind if you have
-marvelmind positioning sensors which are optional)</li>
-<li><a class="reference external" href="https://www.arduino.cc/en/guide/macOSX">Arduino</a> (from Arduino if
-you like to use their interface to access teh esp8266 boards)</li>
-<li><a class="reference external" href="https://computers.tutsplus.com/tutorials/40-terminal-tips-and-tricks-you-never-thought-you-needed--mac-51192">40 OSX Terminal
-Tricks</a></li>
-<li><a class="reference external" href="https://linuxconfig.org/bash-scripting-tutorial">Bash</a></li>
-</ul>
+<div class="section" id="arduino">
+<h2>Arduino<a class="headerlink" href="#arduino" title="Permalink to this headline">¶</a></h2>
+<p>This instalation is optional. In the event that there is a TTY error,
+you will need to install Arduino, since your Mac may be missing some
+drivers that are included in Arduino. Simply go to
+<a class="reference external" href="https://www.arduino.cc/en/guide/macOSX">Arduino</a> and follow the
+instalation instructions.</p>
 </div>
 </div>
 

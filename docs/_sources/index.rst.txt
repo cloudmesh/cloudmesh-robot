@@ -29,7 +29,6 @@ Cloudmesh.robot
    feather
 
    kivy
-   led
    mblock
    overview
    rasp
