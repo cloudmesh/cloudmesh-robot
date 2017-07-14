@@ -27,47 +27,20 @@ $(function(){
         index = $(this).index();
         switch(index){
             case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-                params = 'SWIM=' + (5 - index)
+                params = 'SWIM=1'
                 break;
-            case 5:
+            case 1:
                 params = 'LEFT=ON';
                 break;
-            case 6:
-                params = 'MIDDLE=ON';
-                break;
-            case 7:
+            case 3:
                 params = 'RIGHT=ON';
+                break;
+            case 4:
+                params = 'MIDDLE=ON';
                 break;
         }
         
         sendRequest(params);
-    });
-    
-        
-    // test angle
-    $('#test').click(function(){
-        sendRequest('ANGLE=' + realValue);
-    });
-    
-    // set offset
-    $('#offset').click(function(){
-        sendRequest('OFFSET=' + (realValue- middle));
-    });
-    
-    // reset back to middle
-    $('#reset').click(function(){
-        sendRequest('ANGLE=' + middle);
-        
-        setTimeout(function(){  
-            sendRequest('OFFSET=0');
-        }, 200);
-        
-        gauge.set(middle);
-        $readout.text(middle);
     });
     
     // end
@@ -138,6 +111,28 @@ function makeGauge(){
             gauge.set(value);
             $readout.text(realValue);
         }
+    });
+    
+     // test angle
+    $('#test').click(function(){
+        sendRequest('ANGLE=' + realValue);
+    });
+    
+    // set offset
+    $('#offset').click(function(){
+        sendRequest('OFFSET=' + (realValue - middle));
+    });
+    
+    // reset back to middle
+    $('#reset').click(function(){
+        sendRequest('ANGLE=' + middle);
+        
+        setTimeout(function(){  
+            sendRequest('OFFSET=0');
+        }, 200);
+        
+        gauge.set(middle);
+        $readout.text(middle);
     });
 }
 

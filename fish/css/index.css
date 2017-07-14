@@ -37,3 +37,7 @@ button{
 	cursor: pointer;
 	margin: 0 10px 10px 0;
 }
+
+#shark_top{
+    width: 150px;
+}
