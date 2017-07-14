@@ -13,6 +13,8 @@ class Robot(object):
         self.fy = final_y
         self.epsilon = epsilon
         self.hedge = hedge
+        hedge.start()
+        time.sleep(2)
         self.addr, self.last_x, self.last_y, self.last_z, self.last_t = hedge.number_position(self.number)
         self.done = False
 
@@ -131,8 +133,9 @@ class RobotSwarm(object):
 
     def __init__(self, file, hedge=MarvelmindHedge('/dev/tty.usbmodem1421')):
         """
-        Holds multiple robots.
-        :param robots:
+        creates a swarm of robots connected to Marvelmind
+        :param file: String
+        :param hedge: MarvelmindHedge
         """
         self.file = file
         self.done = False
