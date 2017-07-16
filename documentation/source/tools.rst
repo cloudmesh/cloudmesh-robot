@@ -199,3 +199,10 @@ you will need to install Arduino, since your Mac may be missing some
 drivers that are included in Arduino. Simply go to
 `Arduino <https://www.arduino.cc/en/guide/macOSX>`__ and follow the
 instalation instructions.
+
+OSX Terminal
+------------
+
+`CoolTerm <https://learn.sparkfun.com/tutorials/terminal-basics/coolterm-windows-mac-linux>`__
+
+download http://freeware.the-meiers.org/CoolTermMac.zip

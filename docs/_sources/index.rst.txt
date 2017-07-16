@@ -12,26 +12,24 @@ Cloudmesh.robot
    
    hardware
    esp8266
-
    
-   marvelmind
-   marvelmindupdate
-
+   gui
+   turtle
+   
       
 Cloudmesh.robot
 ===============
 
 .. toctree::
    :maxdepth: 2
-              
+
+   rasp
+      
    compass
-
-   feather
-
-   kivy
    mblock
    overview
-   rasp
-   turtle
    webrepl
    
+   marvelmind
+   marvelmindupdate
+
