@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#
+# test
 # get_xy.py - 2D coordinates receiver from Marvelmind mobile beacon USB/serial port
 # Written by Boris Zinin (b.zinin@gmail.com)
 #
