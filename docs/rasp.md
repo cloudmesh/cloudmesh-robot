@@ -198,3 +198,33 @@ To
 ## Camera
 
 * [Camera Tutorial](https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/)
+
+sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+
+sudo apt-get install libxvidcore-dev libx264-dev
+
+sudo pip install virtualenv virtualenvwrapper
+sudo rm -rf ~/.cache/pip
+
+copy into ~/.profile:
+
+     echo -e "\n# virtualenv and virtualenvwrapper" >> ~/.profile
+     echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.profile
+     echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.profile
+
+source ~/.profile
+
+mkvirtualenv cv -p python3
+
+workon cv
+
+comandline has (cv) in front
+
+
+pip install numpy
+
+wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip
+wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip
+unzip opencv.zip
+unzip opencv_contrib.zip
