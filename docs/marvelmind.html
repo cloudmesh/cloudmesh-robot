@@ -1,0 +1,689 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Marvelmind &mdash; cm robot 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="cm robot 1.0 documentation" href="index.html"/>
+        <link rel="next" title="&lt;no title&gt;" href="compass.html"/>
+        <link rel="prev" title="ESP8266" href="esp8266.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> cm robot
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">Preface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#contact">Contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#conventions">Conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#windows-and-sliding-doors">Windows and sliding doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#tornado">Tornado</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html#things-you-should-do">Things you should do</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#things-you-should-not-do">Things you should NOT do</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#fire">Fire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#drills">Drills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#workspace-security">Workspace Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html#workplace-organization">Workplace Organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#scissors-knifes-and-other-sharp-tools">Scissors, Knifes and other Sharp tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#soldering">Soldering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#knowledge-of-electricity">Knowledge of Electricity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#robot-car-security">Robot Car Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="security.html#robot-floor">Robot Floor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security.html#robot-table-frames">Robot Table Frames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security.html#robot-tripods">Robot Tripods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#drone-security">Drone Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="security.html#drone-tripods">Drone Tripods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security.html#drone-nets">Drone Nets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#recreational-recess-activities">Recreational Recess Activities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#file-commands">File commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#search-commands">Search commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#help">Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#instalation-of-tools">Instalation of tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#osx">OSX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#id1">OSX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#xcode">XCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#homebrew">Homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-pyenv">Install pyenv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-aquamacs">Install Aquamacs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-python-3-6-1">Install python 3.6.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#markdown">Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#aquamacs">Aquamacs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#bash">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#arduino">Arduino</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware for IoT Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#raspberry-pi-3">Raspberry Pi 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#esp8266-robot-car-kit">ESP8266 Robot Car Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#sensor-kit">Sensor Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#fish-kit">Fish Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#alternative-components">Alternative components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hardware.html#esp8266-alternatives">Esp8266 Alternatives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware.html#car-parts-alternatives">Car Parts Alternatives</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="esp8266.html">ESP8266</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#testing-the-board">Testing the board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#erase-the-chip">Erase the chip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#putting-python-on-the-chip">Putting Python on the chip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#testing-if-it-works">Testing if it works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#led">LED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#program">Program</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Marvelmind</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-to-the-marvelmind-positioning-system">Introduction to the Marvelmind Positioning System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marvelmind-environment-setup">Marvelmind Environment Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marvelmind-stationary-beacon-setup">Marvelmind Stationary Beacon Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marvelmind-mobile-beacon-setup">Marvelmind Mobile Beacon Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#programming-in-python">Programming in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marvelmind-updates">Marvelmind Updates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#updating-marvelmind-modem">Updating Marvelmind modem.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-marvelmind-beacons">Updating Marvelmind beacons</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="feather.html">Feather esp8266</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="feather.html#osx-terminal">OSX Terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="feather.html#check">Check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feather.html#probe">Probe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feather.html#erase">Erase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feather.html#python">Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kivy.html">Kivy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#packaging">packaging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mblock.html">mblock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Robot Camp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#table-of-content">Table of Content</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rasp.html">Raspberry PI 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#sd-card">SD CARD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#connecting">Connecting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#update">Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#vlc-on-osx">VLC on OSX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#streaming-video">STreaming video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rasp.html#linux-commandline">Linux commandline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#enable-spi">Enable SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#rtimulib2">RTIMUlib2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#compile-rtimulib-apps">compile RTIMULib Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#camera">Camera</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rasp.html#lessons-and-projects">Lessons and projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html">Trutle Graphics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#program-example">Program example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#shape">Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#links">Links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html#robot-dance-simulator">Robot Dance Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html#scratch">Scratch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html#mblock">MBlock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webrepl.html">Webrepl</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webrepl.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cm robot</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Marvelmind</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/marvelmind.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="marvelmind">
+<h1>Marvelmind<a class="headerlink" href="#marvelmind" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction-to-the-marvelmind-positioning-system">
+<h2>Introduction to the Marvelmind Positioning System<a class="headerlink" href="#introduction-to-the-marvelmind-positioning-system" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="marvelmind.com">Marvelmind Indoor Navigation System</a> is an
+indoor navigation system designed for providing location data to
+autonomous robots, vehicles (AGV) and copters. The precision is rated to
+be +- 2cm.</p>
+<p>The following requirements exist to run it within our Lab:</p>
+<ul class="simple">
+<li>Windows PC with Windows 10.</li>
+<li>Mac with Mac OSX Sierra.</li>
+<li>Windows Defender anti-malware software.</li>
+<li>Marvelmind HW 4.5 or 4.9 package + additional beacons as needed.</li>
+</ul>
+</div>
+<div class="section" id="marvelmind-environment-setup">
+<h2>Marvelmind Environment Setup<a class="headerlink" href="#marvelmind-environment-setup" title="Permalink to this headline">¶</a></h2>
+<p>Go to the marvelmind main page, on your Windows PC, at</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.marvelmind.com">https://www.marvelmind.com</a></li>
+</ul>
+<p>Scroll down to the <em>Dashboard SW v5.31 + Beacon SW v5.63 + Modem SW
+5.63</em> hyperlink, click it, and a download should start (the version
+numbers may change based on updates). Once the zip file is finished
+downloading, make sure to run a <em>windows defender virus check</em> by
+rightclicking on the zip file and clicking “Scan with windows defender”.
+After making sure that there is no malware in the zip file, unzip it,
+and then unzip the dashboard folder, and the firmware folder for your
+particular beacon, either HW4.5 or HW4.9, included in the package.</p>
+<p>Now, go back to</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.marvelmind.com">https://www.marvelmind.com</a></li>
+</ul>
+<p>and scroll down to the <em>STM driver</em> column and download the zip file in
+it. Once the download has finished, unzip the file, and run the STM
+driver for your particular windows computer. This is only required to be
+done once, and allows you to update your beacons and modems.</p>
+<p><a class="reference external" href="marvelmindupdate.md">How to update marvelmind beacons and modems if they are not up to
+date</a></p>
+<p>Now, you can start using the dashboard file that you unzipped earlier.</p>
+<blockquote>
+<div>FIX: change to marvelmind/dashboard</div></blockquote>
+<p>The dashboard interface should give you an error as shown in <em>Figure 1</em>.</p>
+<div class="figure" id="id1">
+<img alt="Figure 1" src="_images/marvelmind-dashboard.png" />
+<p class="caption"><span class="caption-text">Figure 1</span></p>
+</div>
+<p><em>Figure 1: Marvelmind error if modem is not plugged in.</em></p>
+<p>The error in <em>Figure 1</em> essentially signals that you have not plugged in
+the Marvelmind modem into your Windows PC yet, which is shown in <em>Figure
+2</em>. Without this modem, you will not be able to use the Marvelmind
+dashboard to set up your Marvelmind navigation environment.</p>
+<div class="figure" id="id2">
+<img alt="Figure 2" src="_images/marvelmind-receiver.png" />
+<p class="caption"><span class="caption-text">Figure 2</span></p>
+</div>
+<p><em>Figure 2: Marvelmind modem.</em></p>
+<p>Once the modem is plugged into the Windows PC using a USB cable, with
+the Marvelmind dashboard running, the error should go away. You will be
+presented with a coordinate plane, as demonstrated in <em>Figure 3</em>. There
+should be an error at the top left corner of the coordinate plane
+stating that not enough beacons are available. This error is due to the
+fact that you have not turned on enough beacons required to track
+movement with the dashboard environment. You will need at least two
+beacons. You now need to set up stationary and mobile beacons, as
+needed, to fit your navigational needs.</p>
+<div class="figure" id="id3">
+<img alt="Figure 3" src="_images/marvelmind-pos.png" />
+<p class="caption"><span class="caption-text">Figure 3</span></p>
+</div>
+<p><em>Figure 3: Marvelmind coordinate plane.</em></p>
+</div>
+<div class="section" id="marvelmind-stationary-beacon-setup">
+<h2>Marvelmind Stationary Beacon Setup<a class="headerlink" href="#marvelmind-stationary-beacon-setup" title="Permalink to this headline">¶</a></h2>
+<p>Marvelmind uses stationary beacons in order to track its mobile beacons.
+Any Marvelmind beacon, <em>Figure 4</em>, can be assigned the duty of being
+stationary or mobile, and it is up to you to decide how many beacons you
+would like to set up as stationary, or tracker, beacons. The larger the
+space you operate your environment in, the larger the amount of tracker
+beacons you should use. Keep in mind, the stationary beacons need to be
+a good distance apart, 3 meters is a good measure, and their recommended
+height is at least 1.85 meters. Therefore it is a good idea to mount the
+stationary beacons on stands of heights equal to or greater than 1.85
+meters using velcro tape, as shown in <em>Figure 5</em>.</p>
+<div class="figure" id="id4">
+<img alt="Figure 4" src="_images/marvelmind-beacon.png" />
+<p class="caption"><span class="caption-text">Figure 4</span></p>
+</div>
+<p><em>Figure 4: Marvelmind beacon.</em></p>
+<div class="figure" id="id5">
+<img alt="Figure 5" src="_images/Figure5.png" />
+<p class="caption"><span class="caption-text">Figure 5</span></p>
+</div>
+<p><em>Figure 5: Stand used to hold Marvelmind stationary beacon in place
+above recommended height.</em></p>
+<p>Now that you have set up your beacons on top of the stands. You may turn
+them on one by one. The beacons will start showing up on the Marvelmind
+dashboard, they take approximaely 8 seconds to wake up, as green circles
+with random device addresses assigned to them, consisting of numbers
+between 1 and 99, as shown in <em>Figure 6</em>. Keep track of the numbers
+Marvelmind assigns to each beacon, as you can name them to your liking.
+You can now assign one of the beacons the coordinates (0,0,Z), Z being
+the height of the beacon, by making it the starting beacon. The menu to
+the right of the dashboard interface, <em>Figure 7</em>, has an option labeled
+<em>starting beacon tritalateration</em>. You can type the device address
+number of whichever beacon you would like to use as your point (0,0, Z)
+in terms of the x and y value, respectibly. The other beacons will now
+remap themselves around this beacon on the dashboard interface.</p>
+<p>FIX: provide guidance how to name the beacons e.g. stationary vs mobile
+beacone</p>
+<div class="figure" id="id6">
+<img alt="Figure 6" src="_images/Figure6.png" />
+<p class="caption"><span class="caption-text">Figure 6</span></p>
+</div>
+<p><em>Figure 6: Marvelmind beacon list.</em></p>
+<div class="figure" id="id7">
+<img alt="Figure 7" src="_images/Figure7.png" />
+<p class="caption"><span class="caption-text">Figure 7</span></p>
+</div>
+<p><em>Figure 7: First cell shows starting beacon trilateration.</em></p>
+<p>At the bottom of your dashboard there is a list of all 99 beacon
+addresses, as shown in <em>Figure 8</em>. Find each beacon the device address
+number of which you would like to change, and click on it and the menu
+presented to you on the right side of the dashboard interface should
+change to look like <em>Figure 9</em>. In this new menu, click the <em>Device
+address</em> option and type in whatever number, between 1 and 99, that you
+would like to assign to this specific beacon, as long as another active
+beacon does not have it. The beacon should now change device addresses.
+Do this for as many beacons as you like.</p>
+<div class="figure" id="id8">
+<img alt="Figure 8" src="_images/Figure8.png" />
+<p class="caption"><span class="caption-text">Figure 8</span></p>
+</div>
+<p><em>Figure 8: List of beacons circled red.</em></p>
+<div class="figure" id="id9">
+<img alt="Figure 9" src="_images/Figure9.png" />
+<p class="caption"><span class="caption-text">Figure 9</span></p>
+</div>
+<p><em>Figure 9: Menu you are presented with once you click a specific beacon
+to edit its settings.</em></p>
+<p>Now that you have assigned your beacons device addresses to your liking
+and have picked a starting beacon, you can click the option <em>freeze map</em>
+at the bottom right corner of the coordinate plane, <em>Figure 10</em>, and
+lock your beacons as stationary on the Marvelmind screen. Now you can
+move on to introducing mobile beacons that will be picked up by these
+stationary beacons to your environment.</p>
+<div class="figure" id="id10">
+<img alt="Figure 10" src="_images/Figure10.png" />
+<p class="caption"><span class="caption-text">Figure 10</span></p>
+</div>
+<p><em>Figure 10: “Freeze map” option circled red.</em></p>
+</div>
+<div class="section" id="marvelmind-mobile-beacon-setup">
+<h2>Marvelmind Mobile Beacon Setup<a class="headerlink" href="#marvelmind-mobile-beacon-setup" title="Permalink to this headline">¶</a></h2>
+<p>Once you have frozen the stationary beacons, you can now start
+introducing mobile beacons to Marvelmind. These mobile beacons can be
+mounted on whatever object you are trying to measure the movement of
+using Marvelmind, such as a robot. In order to introduce a beacon as a
+mobile beacon. Simply turn a beacon, or as many as you would like, on in
+addition to the frozen beacons, it will show up green just like the
+other beacons on the dashboard. Find the beacon number in the list shown
+in <em>Figure 9</em> of this newly started beacon, renumber it like
+demonstrated earlier, or keep the address if that’s your preference.
+Click on the beacon number in the list and the menu on the right should
+change again, as demonstrated in <em>Figure 8</em>. Now, there should be an
+option at the top of this menu labeled <em>Hedgehog mode</em> and it should be
+<em>disabled</em>. Click on it so it says <em>enabled</em>. The beacon should now turn
+blue on the coordinate plane, as shown in <em>Figure 11</em>.</p>
+<div class="figure" id="id11">
+<img alt="Figure 11" src="_images/Figure11.png" />
+<p class="caption"><span class="caption-text">Figure 11</span></p>
+</div>
+<p><em>Figure 11: Hedgehog beacon and its setting.</em></p>
+<p>You can now move the beacon around as it is mobile, while the frozen
+beacons remain stationary. Now the Marvelmind python program, which you
+will find in the dashboard package that you downloaded from google docs,
+can be used to track the coordinates of this beacon, essentially
+tracking whatever object it is mounted on. If you are mounting other
+objects on top of the device you are tracking in addition to the beacon,
+you will need holders for mobile beacons that allow the beacons to be
+mounted higher up than everything else mounted on the device, so that
+they do not block the sound recepters on the beacons, since that’s the
+stationary beacons’ way of receiving feedback from the mobile ones.
+<em>Figure 12</em> shows a selfie stick that can be purchased from any local
+store that seems to function very well as a holder for the beacons. Just
+make sure the beacon is not too far into the holder, because the sound
+recepters may become blocked off.</p>
+<div class="figure" id="id12">
+<img alt="Figure 12" src="_images/Figure12.png" />
+<p class="caption"><span class="caption-text">Figure 12</span></p>
+</div>
+<p><em>Figure 12: Selfie stick used as a hedgehog beacon holder (note how the
+sound receptors are elevated above the grip of the beacons).</em></p>
+</div>
+<div class="section" id="programming-in-python">
+<h2>Programming in Python<a class="headerlink" href="#programming-in-python" title="Permalink to this headline">¶</a></h2>
+<p>In order to get coordinates of the beacons from the python program.
+Unplug the modem from the Windows PC after you have frozen your
+stationary beacons and introduced the mobile beacon(s). Plug it into
+your mac computer. Run the marvelmind.py program included in the program
+package that you can download, along with example.py for reference on
+using it,
+<a class="reference external" href="https://github.com/cloudmesh/cloudmesh.robot/tree/master/tests">Here</a>,
+by typing <code class="docutils literal"><span class="pre">python</span> <span class="pre">marvelmind.py</span></code> into Terminal. If there is an error,
+open the marvelmind.py program in your python editor and scroll to line
+175, which should look like this</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">MarvelmindHedge</span><span class="p">(</span><span class="n">tty</span><span class="o">=</span><span class="s1">&#39;/dev/tty.usbmodemFD121&#39;</span><span class="p">)</span>   <span class="c1"># for macOS</span>
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal"><span class="pre">tty.usbmodemFD121</span></code> with the usb tty for your computer
+assigned to that modem.</p>
+<p>Once this issue is resolved, the program should start outputting
+coordinates of the remote beacons, as shown in <em>Figure 13</em>. You can now
+move the remote beacon(s) around and the marvelmind.py program will pick
+up on the movement, even if the dashboard on the Windows PC says there
+is no connection. You can now implement these coordinates into your
+python programs.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>(ENV3) Ss-MacBook-Pro:tests username$ python marvelmind.py
+Hedge 0: X: 0, Y: 0, Z: 0 at    time T: 0.00
+...
+Hedge 0: X: 0, Y: 0, Z: 0 at time T: 0.00
+Hedge 18: X: 200.20, Y: 229.30, Z: 12.80 at time T: 9.71
+...
+Hedge 18: X: 199.30, Y: 235.40, Z: 12.90 at time T: 13.71
+...
+Hedge 18: X: 199.30, Y: 235.50, Z: 12.90 at time T: 15.71
+Hedge 18: X: 199.30, Y: 235.50, Z: 12.90 at time T: 15.71
+Hedge 18: X: 199.30, Y: 235.50, Z: 12.90 at time T: 15.71
+Hedge 18: X: 199.30, Y: 235.50, Z: 12.90 at time T: 15.71
+</pre></div>
+</div>
+<p><em>Figure 13: Marvelmind coordinates presented as units of (X,Y,Z, and
+time elapsed since the program has been running) in MacOS Terminal. Note
+how marvelmind.py takes a little over the aforementioned 8 seconds to
+start picking up on coordinates, since that’s how long it takes the
+mobile beacon to wake up. beacons will report multiple times and we have
+removed them and replaced with …</em></p>
+<p><strong>BUG: LINK TO OUR OWN REPOSITORY DOES NOT WORK</strong></p>
+</div>
+<div class="section" id="marvelmind-updates">
+<h2>Marvelmind Updates<a class="headerlink" href="#marvelmind-updates" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="updating-marvelmind-modem">
+<h3>Updating Marvelmind modem.<a class="headerlink" href="#updating-marvelmind-modem" title="Permalink to this headline">¶</a></h3>
+<p>First, open the marvelmind dashboard with the marvelmind modem plugged
+in to a Windows PC. You should be presented with a screen that looks
+likes this:</p>
+<div class="figure">
+<img alt="" src="_images/marvelmindupdate1.png" />
+</div>
+<p>As you notice, circled at the bottom left of the dashboard, in red, is
+the <strong>version number</strong> of the modem. If the modem is not on the latest
+update, according to <a class="reference external" href="https://www.marvelmind.com">Marvelmind.com</a>,
+and you wish to be on the latest update, click on the firmware tab at
+the top left of the dashboard, as circled in this figure:</p>
+<div class="figure">
+<img alt="" src="_images/marvelmindupdate2.png" />
+</div>
+<p>Navigate to the SW folder that you unzipped upon installation, and click
+on the folder labeled after your <strong>modem version</strong>, either 4.5 or 4.9.
+Then find the modem <strong>firmware zip file</strong>, unzip it, and double click
+the <strong>hex file</strong> inside and you should be returned to the dashboard, as
+shown:</p>
+<div class="figure">
+<img alt="" src="_images/marvelmindupdate3.png" />
+</div>
+<p>Click <strong>next</strong>, and the update should start. Once the update has
+concluded, close the dashboard.</p>
+</div>
+<div class="section" id="updating-marvelmind-beacons">
+<h3>Updating Marvelmind beacons<a class="headerlink" href="#updating-marvelmind-beacons" title="Permalink to this headline">¶</a></h3>
+<p>First, open the marvelmind dashboard with the marvelmind beacon plugged
+in to a Windows PC. You should be presented with a screen that looks
+likes this:</p>
+<div class="figure">
+<img alt="" src="_images/marvelmindupdate4.png" />
+</div>
+<p>As you notice, circled at the bottom left of the dashboard, in red, is
+the <strong>version number</strong> of the beacon. If the beacon is not on the latest
+update, according to <a class="reference external" href="https://www.marvelmind.com">Marvelmind.com</a>,
+and you wish to be on the latest update, click on the firmware tab at
+the top left of the dashboard, as circled in this figure:</p>
+<div class="figure">
+<img alt="" src="_images/marvelmindupdate5.png" />
+</div>
+<p>Navigate to the SW folder that you unzipped upon installation, and click
+on the folder labeled after your <strong>modem version</strong>, either 4.5 or 4.9.
+Then find the beacon <strong>firmware zip file</strong>, unzip it, and double click
+the <strong>hex file</strong> inside and you should be returned to the dashboard, as
+shown:</p>
+<div class="figure">
+<img alt="" src="_images/marvelmindupdate6.png" />
+</div>
+<p>Click <strong>next</strong>, and the update should start. Once the update has
+concluded, close the dashboard.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="compass.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="esp8266.html" class="btn btn-neutral" title="ESP8266" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Gregor von Laszewski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

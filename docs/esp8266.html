@@ -1,0 +1,670 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ESP8266 &mdash; cm robot 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="cm robot 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Marvelmind" href="marvelmind.html"/>
+        <link rel="prev" title="Hardware for IoT Projects" href="hardware.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> cm robot
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">Preface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#contact">Contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#conventions">Conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#windows-and-sliding-doors">Windows and sliding doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#tornado">Tornado</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html#things-you-should-do">Things you should do</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#things-you-should-not-do">Things you should NOT do</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#fire">Fire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#drills">Drills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#workspace-security">Workspace Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html#workplace-organization">Workplace Organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#scissors-knifes-and-other-sharp-tools">Scissors, Knifes and other Sharp tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#soldering">Soldering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#knowledge-of-electricity">Knowledge of Electricity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#robot-car-security">Robot Car Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="security.html#robot-floor">Robot Floor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security.html#robot-table-frames">Robot Table Frames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security.html#robot-tripods">Robot Tripods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#drone-security">Drone Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="security.html#drone-tripods">Drone Tripods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security.html#drone-nets">Drone Nets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#recreational-recess-activities">Recreational Recess Activities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#file-commands">File commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#search-commands">Search commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#help">Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#instalation-of-tools">Instalation of tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#osx">OSX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#id1">OSX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#xcode">XCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#homebrew">Homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-pyenv">Install pyenv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-aquamacs">Install Aquamacs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-python-3-6-1">Install python 3.6.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#markdown">Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#aquamacs">Aquamacs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#bash">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#arduino">Arduino</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware for IoT Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#raspberry-pi-3">Raspberry Pi 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#esp8266-robot-car-kit">ESP8266 Robot Car Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#sensor-kit">Sensor Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#fish-kit">Fish Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#alternative-components">Alternative components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hardware.html#esp8266-alternatives">Esp8266 Alternatives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware.html#car-parts-alternatives">Car Parts Alternatives</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ESP8266</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-the-board">Testing the board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#erase-the-chip">Erase the chip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#putting-python-on-the-chip">Putting Python on the chip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-if-it-works">Testing if it works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#led">LED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#program">Program</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="marvelmind.html">Marvelmind</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#introduction-to-the-marvelmind-positioning-system">Introduction to the Marvelmind Positioning System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#marvelmind-environment-setup">Marvelmind Environment Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#marvelmind-stationary-beacon-setup">Marvelmind Stationary Beacon Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#marvelmind-mobile-beacon-setup">Marvelmind Mobile Beacon Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#programming-in-python">Programming in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#marvelmind-updates">Marvelmind Updates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="marvelmind.html#updating-marvelmind-modem">Updating Marvelmind modem.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="marvelmind.html#updating-marvelmind-beacons">Updating Marvelmind beacons</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="feather.html">Feather esp8266</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="feather.html#osx-terminal">OSX Terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="feather.html#check">Check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feather.html#probe">Probe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feather.html#erase">Erase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feather.html#python">Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kivy.html">Kivy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#packaging">packaging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mblock.html">mblock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Robot Camp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#table-of-content">Table of Content</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rasp.html">Raspberry PI 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#sd-card">SD CARD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#connecting">Connecting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#update">Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#vlc-on-osx">VLC on OSX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#streaming-video">STreaming video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rasp.html#linux-commandline">Linux commandline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#enable-spi">Enable SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#rtimulib2">RTIMUlib2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#compile-rtimulib-apps">compile RTIMULib Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#camera">Camera</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rasp.html#lessons-and-projects">Lessons and projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html">Trutle Graphics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#program-example">Program example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#shape">Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#links">Links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html#robot-dance-simulator">Robot Dance Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html#scratch">Scratch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html#mblock">MBlock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webrepl.html">Webrepl</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webrepl.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cm robot</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>ESP8266</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/esp8266.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="esp8266">
+<h1>ESP8266<a class="headerlink" href="#esp8266" title="Permalink to this headline">¶</a></h1>
+<p>When working with a external hardware such as the NodeMCU you will find
+a lot of information on the internet about it. It is a bit difficult at
+times to assess what you need to program it. You are exposed to many
+choices. A NodeMCU typically comes with Lua. However you have many other
+choices. Such choices include multiple programming languages such as
+Lua, MicroPython, Arduino/C, Go and others.</p>
+<p>As all of them are slightly different you need to identify which works
+best for you. In addition you need to install images, programs and
+libraries that support your specific language choice.</p>
+<p>For our first experiments we will be using MicroPython. This choice is
+motivated by the fact that Python is a well established and easy to
+learn programming language. Recently many educational institutions are
+offering Python as an introductory programming language making this
+choice even mor compelling</p>
+<p>To simplify the setup and use of the esp8266 for MicroPython we
+developed an easy to use commandline tool that allows users to set up
+their computer and interact more easily with the board. We believe that
+the interface is so simple that it can also be used in STEM activities
+and not just in the university or by advanced hobbyists.</p>
+<div class="section" id="installation-of-the-robot-interafce">
+<h2>Installation of the robot Interafce<a class="headerlink" href="#installation-of-the-robot-interafce" title="Permalink to this headline">¶</a></h2>
+<p>To more easily interface with the robot we have developed a convenient
+program that is installed as part of a command tool called cloudmesh.</p>
+<div class="section" id="install-cloudmesh-robot">
+<h3>Install Cloudmesh Robot<a class="headerlink" href="#install-cloudmesh-robot" title="Permalink to this headline">¶</a></h3>
+<p><strong>The install from pip is not yet working</strong></p>
+<blockquote>
+<div><p>To install the robot command you simply type</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install cloudmesh.robot
+</pre></div>
+</div>
+<p>This will install a program <code class="docutils literal"><span class="pre">cms</span></code> on your computer that allows you
+to easily communicate with the robot.</p>
+</div></blockquote>
+<p>Developers are however encouraged to work with the source code. Thus you
+will need to first obtain it as follows</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ mkdir github
+$ cd github
+$ git clone https://github.com/cloudmesh/cloudmesh.common.git
+$ git clone https://github.com/cloudmesh/cloudmesh.cmd5.git
+$ git clone https://github.com/cloudmesh/cloudmesh.robot.git
+$ cd cloudmesh.robot
+$ make source
+</pre></div>
+</div>
+<p>To test out if the command has been installed please type</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot welcome
+</pre></div>
+</div>
+<p>If everything works you should see an ASCII image of R2D2 and C3PO.
+Next, we still have to install some additional programs before you can
+use other commands.</p>
+<p>The installation of these commands requires administrator access. In
+case you are not an administrator you can temporarily change yourself as
+an administrator in the OSX configuration windows. Than you can execute
+the command</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot osx install
+</pre></div>
+</div>
+<p>In addition you will need to install the OSX driver for the USB
+interface to the esp8266. This is achieved with</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot osx driver
+</pre></div>
+</div>
+<p>Now please change your account to be again a standard account.</p>
+<p>Now you <strong>MUST REBOOT</strong> the machine. Without rebooting you will not be
+able to use the USB drivers.</p>
+<p>Once you have successfully installed the drivers and the commands you
+can look at the manual page of the robot command with</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms help robot
+</pre></div>
+</div>
+<p>You will see a manual page like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="n">Usage</span><span class="p">:</span>
+    <span class="n">robot</span> <span class="n">welcome</span>
+    <span class="n">robot</span> <span class="n">osx</span> <span class="n">install</span>
+    <span class="n">robot</span> <span class="n">osx</span> <span class="n">driver</span>
+    <span class="n">robot</span> <span class="n">image</span> <span class="n">fetch</span>
+    <span class="n">robot</span> <span class="n">probe</span> <span class="p">[</span><span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span>
+    <span class="n">robot</span> <span class="n">flash</span> <span class="n">erase</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+    <span class="n">robot</span> <span class="n">flash</span> <span class="n">python</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+    <span class="n">robot</span> <span class="n">test</span>
+    <span class="n">robot</span> <span class="n">run</span> <span class="n">PROGRAM</span>
+    <span class="n">robot</span> <span class="n">credentials</span> <span class="nb">set</span> <span class="n">SSID</span> <span class="n">USERNAME</span> <span class="n">PASSWORD</span>
+    <span class="n">robot</span> <span class="n">credentials</span> <span class="n">put</span>
+    <span class="n">robot</span> <span class="n">credentials</span> <span class="nb">list</span>
+    <span class="n">robot</span> <span class="n">login</span>
+    <span class="n">robot</span> <span class="nb">set</span> <span class="n">PORT</span> <span class="n">NOT</span> <span class="n">IMPLEMENTED</span>
+    <span class="n">robot</span> <span class="n">ls</span> <span class="p">[</span><span class="n">PATH</span><span class="p">]</span>
+    <span class="n">robot</span> <span class="n">put</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span><span class="p">]</span> <span class="n">SOURCE</span> <span class="p">[</span><span class="n">DESTINATION</span><span class="p">]</span>
+    <span class="n">robot</span> <span class="n">get</span> <span class="n">PATH</span>
+    <span class="n">robot</span> <span class="n">rm</span> <span class="n">PATH</span>
+    <span class="n">robot</span> <span class="n">rmdir</span> <span class="n">PATH</span>
+    <span class="n">robot</span> <span class="n">dance</span> <span class="n">FILE</span> <span class="n">IPS</span>
+    <span class="n">robot</span> <span class="n">inventory</span> <span class="nb">list</span> <span class="p">[</span><span class="o">--</span><span class="n">cat</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">path</span><span class="o">=</span><span class="n">PATH</span><span class="p">]</span> <span class="p">[</span><span class="n">ID</span><span class="p">]</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+    <span class="n">FILE</span>   <span class="n">a</span> <span class="n">file</span> <span class="n">name</span>
+
+<span class="n">Options</span><span class="p">:</span>
+    <span class="o">-</span><span class="n">f</span>      <span class="n">specify</span> <span class="n">the</span> <span class="n">file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="testing-the-board">
+<h2>Testing the board<a class="headerlink" href="#testing-the-board" title="Permalink to this headline">¶</a></h2>
+<p>Next is to connect a esp8266 with theUSB cable to the computer. After
+you connected it, please press the reset button. Before we do anything
+else with the board we test it out first. Once you have plugged it in,
+you can execute the command</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot probe
+</pre></div>
+</div>
+<p>The output of this command provides you hopefully with a table similar
+to</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+-----------+---------------------------+</span>
+<span class="o">|</span> <span class="n">Attribute</span> <span class="o">|</span> <span class="n">Value</span>                     <span class="o">|</span>
+<span class="o">+-----------+---------------------------+</span>
+<span class="o">|</span> <span class="n">chipid</span>    <span class="o">|</span> <span class="sa">b</span><span class="s1">&#39; 0x00d0f9ec&#39;</span>            <span class="o">|</span>
+<span class="o">|</span> <span class="n">mac</span>       <span class="o">|</span> <span class="sa">b</span><span class="s1">&#39; 5c:cf:7f:d0:f9:ec&#39;</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">tty</span>       <span class="o">|</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">tty</span><span class="o">.</span><span class="n">wchusbserial1410</span> <span class="o">|</span>
+<span class="o">+-----------+---------------------------+</span>
+</pre></div>
+</div>
+<p>Please note that you should only have one board attached to your
+computer.</p>
+</div>
+<div class="section" id="flashing-the-image-onto-the-robot-board">
+<h2>Flashing the image onto the robot board<a class="headerlink" href="#flashing-the-image-onto-the-robot-board" title="Permalink to this headline">¶</a></h2>
+<p>Next we need to flash the image on the robot board. Naturally we need to
+fetch the image first from the internet. We do this with the command</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ robot image fetch
+</pre></div>
+</div>
+<p>This will fetch an image that contains MicroPython into your local
+directory.</p>
+<p>Next we need to <em>flash</em> the image on the board. Your board will look
+something like this</p>
+<p><img alt="alt text" src="images/Official-font-b-DOIT-b-font-ESP-32-ESP-32S-ESP-32-Development-Board-font-b.jpg" /> <a class="reference external" href="https://www.amazon.com/KOOKYE-ESP8266-NodeMcu-ESP-12E-Expansion/dp/B01C6MR62E/ref=sr_1_3?ie=UTF8&amp;qid=1498599901&amp;sr=8-3&amp;keywords=esp8266++doit">link with motor
+shield</a></p>
+<p><img alt="alttext" src="images/esp8266-b.png" />
+<a class="reference external" href="https://www.amazon.com/Adafruit-2821-Feather-HUZZAH-ESP8266/dp/B019MGW6N6/ref=sr_1_1?ie=UTF8&amp;qid=1498599868&amp;sr=8-1&amp;keywords=esp8266++feather">link</a></p>
+<p><img alt="alttext" src="images/esp8266-b.png" />
+<a class="reference external" href="https://www.amazon.com/HiLetgo-Version-NodeMCU-Internet-Development/dp/B010O1G1ES/ref=sr_1_3?ie=UTF8&amp;qid=1498599733&amp;sr=8-3&amp;keywords=esp8266">link</a></p>
+<p>You will need to connect your board to your computer with a USB cable.
+The board has a microusb cable adapter. Make sure to obtain one as it
+may not come with the robot. The board may come with a preinstalled
+image such as Lua or some custom image from the vendor. As we try to
+program the robot in python let us place micropython on the board. This
+requires a number of steps.</p>
+<div class="section" id="erase-the-chip">
+<h3>Erase the chip<a class="headerlink" href="#erase-the-chip" title="Permalink to this headline">¶</a></h3>
+<p>First we need to erase the chip. To follow our instructions place the
+chip towards you as shown in the figure. E.g. the USB connector points
+to you.</p>
+<p>You must allow the chip to be erased by holding both buttons on the chip
+and than letting the right button be released first and than the left
+button. You will see a blue LED flashing once. Now you can flash the
+chip with the command</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot flash erase
+</pre></div>
+</div>
+</div>
+<div class="section" id="putting-python-on-the-chip">
+<h3>Putting Python on the chip<a class="headerlink" href="#putting-python-on-the-chip" title="Permalink to this headline">¶</a></h3>
+<p>To put python on the chip you need to again prepare the board for
+flashing while pressing both buttons and releasing the right button
+before releasing the left button.</p>
+<p>Now ou can place python with the command</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot flash python
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing-if-it-works">
+<h3>Testing if it works<a class="headerlink" href="#testing-if-it-works" title="Permalink to this headline">¶</a></h3>
+<p>To test running a pyton program execute</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot test
+</pre></div>
+</div>
+<p>Be careful as it overwrites the file <code class="docutils literal"><span class="pre">test.py</span></code>.</p>
+</div>
+<div class="section" id="execute-an-arbitrary-program">
+<h3>Execute an arbitrary program<a class="headerlink" href="#execute-an-arbitrary-program" title="Permalink to this headline">¶</a></h3>
+<p>Lets assume you have placed a program in the file <code class="docutils literal"><span class="pre">prg.py</span></code> than you
+can run it with the following command</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot run prg.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="interactive-python-shell-on-the-board">
+<h3>Interactive Python shell on the board<a class="headerlink" href="#interactive-python-shell-on-the-board" title="Permalink to this headline">¶</a></h3>
+<p>To get into the interactive python shell on the board you need to make
+sure that you have reset the esp8266 once after flashing. You need to
+press the reset button.</p>
+<p>Than you can use the following command to login</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cms robot login
+</pre></div>
+</div>
+</div>
+<div class="section" id="cleaning-an-reinstalling-a-development-version">
+<h3>Cleaning an reinstalling a development version<a class="headerlink" href="#cleaning-an-reinstalling-a-development-version" title="Permalink to this headline">¶</a></h3>
+<p>IN case you are a developer and you need to modify the source code, we
+found that it is sometimes necessary to clean your development directory
+and libraries. The easiest way to do this is to go to the repository
+that you like to reinstall. Let us assume it is <em>cloudmesh.robot</em>. Than
+the following commands will clean the repository</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd cloudmesh.robot
+$ pip uninstall cloudmesh.robot
+</pre></div>
+</div>
+<p>Do the pip unisntall as many times till you see an error that no more
+cloudmesh.robot versions can be found. Than execute</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ make clean
+</pre></div>
+</div>
+<p>After this you can reinstall it with</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python setup.py install; pip install -e .
+</pre></div>
+</div>
+<p>the -e flag is optional, but allows you to change the code without the
+need of recompiling. A very useful feature in python.</p>
+</div>
+</div>
+<div class="section" id="nodemcu-esp12-dev-kit-pin-definition">
+<h2>NodeMCU ESP12 Dev Kit Pin Definition<a class="headerlink" href="#nodemcu-esp12-dev-kit-pin-definition" title="Permalink to this headline">¶</a></h2>
+<p>For V1.0</p>
+<p><img alt="nodemcs" src="_images/nodemcu.png" /></p>
+<p>The GPIO numbers of teh NodeMCU, do not correspond with the actual
+numbers used in micropythons pin library. The numbers are as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Pin/GPIO</th>
+<th class="head">NodeMCU</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>15</td>
+<td>D8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="led">
+<h2>LED<a class="headerlink" href="#led" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="program">
+<h3>Program<a class="headerlink" href="#program" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+<span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+
+
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure" id="id1">
+<img alt="breadboard" src="_images/led-esp8266_bb.png" />
+<p class="caption"><span class="caption-text">breadboard</span></p>
+</div>
+<div class="figure" id="id2">
+<img alt="schema" src="_images/led-esp8266_schem.png" />
+<p class="caption"><span class="caption-text">schema</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="marvelmind.html" class="btn btn-neutral float-right" title="Marvelmind" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hardware.html" class="btn btn-neutral" title="Hardware for IoT Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Gregor von Laszewski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -63,7 +63,8 @@ html = """<!DOCTYPE html>
 <button name="RIGHT" value="ON" type="submit">RIGHT</button></br>
 <button name="MIDDLE" value="ON" type="submit">MIDDLE</button></br>
 <button name="STOP" value="ON" type="submit">STOP</button></br>
-<button name="FORWARD" value="ON" type="submit">FORWARD</button></br>
+<button name="SWIM" value="1" type="submit">FORWARD</button></br>
+<button name="SWIM" value="2" type="submit">FORWARD</button></br>
 <button name="UP" value="ON" type="submit" >UP</button></br>
 <button name="EQUAL" value="ON" type="submit" >EQUAL</button></br>
 <button name="DOWN" value="ON" type="submit">DOWN</button></br>
@@ -83,68 +84,75 @@ s.listen(5)
 
 
 
+def find_params(request):
+    pos = request.find('?')+1
+    a = request[pos:].split(" HTTP")[0]
+    params = a.split('&')
+    return (params)
 
+
+fin_zero = 0
+fin_left = 90
+fin_right = -90
+
+pitch_zero = 0
+pitch_dt = 10
+
+
+dt = 0.5
+dt_angle = 1.0
 terminate = False
 while not terminate:
+    print ("Waiting for connection")
     conn, addr = s.accept()
     print("Got a connection from %s" % str(addr))
-    request = conn.recv(1024)
-    print("Content = %s" % str(request))
-    request = str(request)
+    request = str(conn.recv(1024))
+    params = find_params(request)
 
-    LEFTON = request.find('/?LEFT=ON')
-    RIGHTON = request.find('/?RIGHT=ON')
-    MIDDLEON = request.find('/?MIDDLE=ON')
-    FORWARD = request.find('/?FORWARD=ON')
-    STOP = request.find('/?STOP=ON')
-    UP = request.find('/?UP=ON')
-    EQUAL = request.find('/?EQUAL=ON')
-    DOWN = request.find('/?DOWN=ON')
-    END = request.find('/?END=ON')
+    if request[7] == '?':
 
-    direction = 'STOP'
-    left_on = False
-    right_on = False
-    dt = 0.4
-    if END == 6:
-        terminate = True
-        break;
-    elif LEFTON == 6:
-        fin.low()
-        utime.sleep(dt)
-        fin.off()
-    elif RIGHTON == 6:
-        fin.high()
-        utime.sleep(dt)
-        fin.off()
-    elif MIDDLEON == 6:
-        fin.zero()
-        utime.sleep(dt)
-        fin.off()
-    elif STOP == 6:
-        fin.off()
-        utime.sleep(dt)
-        fin.off()
-    elif FORWARD == 6:
-        fin.swim(1, 0.5)
-        fin.off()
-    elif UP == 6:
-        print ('UP', angle)
-        if angle <= 90:
-            angle = angle + 45
-            pitch.setangle(angle, dt=1.0)
-            pitch.off()
-    elif DOWN == 6:
-        print ('DOWN', angle)
-        if angle >= -90:
-            angle = angle - 45
-            pitch.setangle(angle, dt=1.0)
-            pitch.off()
-    elif EQUAL == 6:
-        print('EQUAL', angle)
-        pitch.setangle(0, 1.0)
-        pitch.off()
+        print(params)
 
+        for param in params:
+            name, value = param.split('=')
+            if name == 'STOP':
+                fin.off()
+                pitch.off()
+                utime.sleep(dt)
+            if name == 'LEFT':
+                fin.low()
+                utime.sleep(dt)
+                fin.off()
+            elif name == 'RIGHT':
+                fin.high()
+                utime.sleep(dt)
+                fin.off()
+            elif name == 'MIDDLE':
+                fin.zero()
+                utime.sleep(dt)
+                fin.off()
+            elif name == 'SWIM':
+                value = int(value)
+                fin.swim(value, dt)
+                fin.off()
+            if name == 'UP':
+                print('UP', angle)
+                if angle <= 90:
+                    angle = angle + 45
+                    pitch.setangle(angle, dt=dt_angle)
+                    pitch.off()
+            elif name == 'DOWN':
+                print('DOWN', angle)
+                if angle >= -90:
+                    angle = angle - 45
+                    pitch.setangle(angle, dt=dt_angle)
+                    pitch.off()
+            elif name == 'EQUAL':
+                print('EQUAL', angle)
+                pitch.setangle(0, dt_angle)
+                pitch.off()
+            if name == 'END':
+                terminate = True
 
     cm.feedback(conn, html)
     conn.close()

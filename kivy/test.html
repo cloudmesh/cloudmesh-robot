@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+
+<title> HTML5 page </title>
+
+
+<script type="text/javascript">
+
+var LEFT = "LEFT"
+
+function download_file() {
+   var url = "https://raw.githubusercontent.com/cloudmesh/cloudmesh.robot/master/README.md"
+   window.location = url;
+}
+
+function click(direction) {
+   console.log(direction)
+   var url = "https://10.0.1.101/" + direction + "=ON"
+   window.location = url;
+}
+
+function Calc() {
+  alert('Hi class');
+  var Sum = function() { alert('Hi function'); };
+  Sum();
+};
+</script>
+
+</head>
+<body>
+
+<button onclick="download_file()"> ClickMe </button> 
+<button onclick="click(LEFT)"> LEFT </button> 
+
+
+</body>
+</html>

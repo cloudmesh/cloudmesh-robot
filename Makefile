@@ -30,23 +30,12 @@ endef
 endif
 
 
+all: doc
+	echo done
 
 setup:
-	# brew update
-	# brew install mongodb
-	# brew install jq
 	rm -rf ~/.cloudmesh/data/db
 	mkdir -p ~/.cloudmesh/data/db
-
-kill:
-	killall mongod
-
-mongo:
-	$(call terminal, $(MONGOD))
-
-eve:
-	$(call terminal, $(EVE))
-
 
 source:
 	pip install setuptools pip -U
@@ -58,25 +47,6 @@ source:
 	cd ../cloudmesh.robot;  make clean; python setup.py install; pip install .
 	cms help
 
-test:
-	$(call banner, "LIST SERVICE")
-	curl -s -i http://127.0.0.1:5000 
-	$(call banner, "LIST PROFILE")
-	@curl -s http://127.0.0.1:5000/profile  | jq
-	$(call banner, "LIST CLUSTER")
-	@curl -s http://127.0.0.1:5000/cluster  | jq
-	$(call banner, "LIST COMPUTER")
-	@curl -s http://127.0.0.1:5000/computer  | jq
-	$(call banner, "INSERT COMPUTER")
-	curl -d '{"name": "myCLuster",	"label": "c0","ip": "127.0.0.1","memoryGB": 16}' -H 'Content-Type: application/json'  http://127.0.0.1:5000/computer  
-	$(call banner, "LIST COMPUTER")
-	@curl -s http://127.0.0.1:5000/computer  | jq
-
-
-nosetests:
-	nosetests -v --nocapture tests/test_mongo.py
-
-
 clean:
 	rm -rf *.zip
 	rm -rf *.egg-info
@@ -87,18 +57,10 @@ clean:
 	find . -name '__pycache__' -delete
 	find . -name '*.pyc' -delete
 	find . -name '*.pye' -delete
+	find . -name '*-opt' -delete
+	find . -name '*~' -delete
 	rm -rf .tox
 	rm -f *.whl
-
-
-genie:
-	git clone https://github.com/drud/evegenie.git
-	cd evegenie; pip install -r requirements.txt
-
-json:
-	python evegenie/geneve.py sample.json
-	cp sample.settings.py $(ROOT_DIR)/settings.py
-	cat $(ROOT_DIR)/settings.py
 
 install:
 	cd ../common; python setup.py install; pip install .
@@ -149,3 +111,16 @@ tag:
 	git tag $(VERSION)
 	git commit -a -m "$(VERSION)"
 	git push
+
+#########
+# DOC
+
+doc:
+	cd documentation/source; ./convert.py
+	cd documentation; make html
+#	cp -rf documentation/images documentations/build/html
+	cp -rf documentation/build/html/* docs
+	cp -rf documentation/build/html/.nojekyll docs
+
+view:
+		open documentation/build/html/index.html
