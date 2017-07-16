@@ -151,9 +151,13 @@ class Motor(object):
             self.motor.duty(self.d)
             self.direction.low()
 
-    def backward(self):
-        self.motor.duty(self.d)
-        self.direction.high()
+    def backward(self, value=None):
+        if value is not None:
+            self.motor.duty(value)
+            self.direction.high()
+        else:
+            self.motor.duty(self.d)
+            self.direction.high()
 
     def stop(self):
         self.motor.duty(0)
