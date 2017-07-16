@@ -170,11 +170,9 @@ class RobotSwarm(object):
         lines = f.readlines()
         f.close()
         for line in lines:
-            name, position = line.split(":")
-            number, ip = name.split(" ")
-            endx, endy = position.split(",")
-            print(number, ip, endx, endy)
-            self.robots.append(Robot(number, ip, endx, endy))
+            id, ip, endx, endy = line.split(",")
+            print(ID, ip, endx, endy)
+            self.robots.append(Robot(ID, ip, endx, endy))
             print('A')
 
     def check_done(self):
