@@ -1,5 +1,4 @@
 import cm
-import cm3
 import socket
 import network
 import ubinascii
@@ -41,11 +40,11 @@ html = """<!DOCTYPE html>
 <table>
 <tr>
 <td>LEFT:</td> 
-<td><button name="TURN" value="90" type="submit">ON</button></td>
+<td><button name="LEFT" value="ON" type="submit">ON</button></td>
 </tr>
 <tr>
 <td>RIGHT:</td>
-<td><button name="TURN" value="-90" type="submit">ON</button></td>
+<td><button name="RIGHT" value="ON" type="submit">ON</button></td>
 </tr>
 <tr>
 <td>DIRECTION:</td>
@@ -75,9 +74,6 @@ def find_params(request):
 
 left = cm.Motor("left")
 right = cm.Motor("right")
-smr = cm3.SpeedMeter(15)
-sml = cm3.SpeedMeter(16)
-car = cm3.Car(left, right, sml, smr)
 
 
 dt = 0.2
@@ -101,13 +97,14 @@ while not terminate:
         for param in params:
             name, value = param.split('=')
             if name == 'STOP':
-                car.stop()
-                # right.stop()
-                # left.stop()
+                right.stop()
+                left.stop()
 
-            elif name == 'TURN':
-                value = int(value)
-                car.turn_angle(value)
+            elif name == 'LEFT':
+                right.forward()
+
+            elif name == 'RIGHT':
+                left.forward()
 
             elif name == 'BACK':
                 # value = int(value) # not yet used
@@ -127,6 +124,3 @@ while not terminate:
     cm.feedback(conn, html)
     conn.close()
     utime.sleep(dt)
-
-p1 = Pin(15, Pin.OUT)
-p2 = Pin(13, Pin.OUT)
