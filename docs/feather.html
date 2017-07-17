@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Feather esp8266 &mdash; cm robot 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="cm robot 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Kivy" href="kivy.html"/>
+        <link rel="prev" title="&lt;no title&gt;" href="compass.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> cm robot
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="preface.html">Preface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#contact">Contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#conventions">Conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#windows-and-sliding-doors">Windows and sliding doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#tornado">Tornado</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html#things-you-should-do">Things you should do</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#things-you-should-not-do">Things you should NOT do</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#fire">Fire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#drills">Drills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#workspace-security">Workspace Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html#workplace-organization">Workplace Organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#scissors-knifes-and-other-sharp-tools">Scissors, Knifes and other Sharp tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#soldering">Soldering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#knowledge-of-electricity">Knowledge of Electricity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#robot-car-security">Robot Car Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="security.html#robot-floor">Robot Floor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security.html#robot-table-frames">Robot Table Frames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security.html#robot-tripods">Robot Tripods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#drone-security">Drone Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="security.html#drone-tripods">Drone Tripods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="security.html#drone-nets">Drone Nets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#recreational-recess-activities">Recreational Recess Activities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#file-commands">File commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#search-commands">Search commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#help">Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#instalation-of-tools">Instalation of tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#osx">OSX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#id1">OSX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#xcode">XCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#homebrew">Homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-pyenv">Install pyenv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-aquamacs">Install Aquamacs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#install-python-3-6-1">Install python 3.6.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#markdown">Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#aquamacs">Aquamacs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#bash">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#arduino">Arduino</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware for IoT Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#raspberry-pi-3">Raspberry Pi 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#esp8266-robot-car-kit">ESP8266 Robot Car Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#sensor-kit">Sensor Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#fish-kit">Fish Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#alternative-components">Alternative components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hardware.html#esp8266-alternatives">Esp8266 Alternatives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware.html#car-parts-alternatives">Car Parts Alternatives</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="esp8266.html">ESP8266</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#testing-the-board">Testing the board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#erase-the-chip">Erase the chip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#putting-python-on-the-chip">Putting Python on the chip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#testing-if-it-works">Testing if it works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#led">LED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#program">Program</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="marvelmind.html">Marvelmind</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#introduction-to-the-marvelmind-positioning-system">Introduction to the Marvelmind Positioning System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#marvelmind-environment-setup">Marvelmind Environment Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#marvelmind-stationary-beacon-setup">Marvelmind Stationary Beacon Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#marvelmind-mobile-beacon-setup">Marvelmind Mobile Beacon Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#programming-in-python">Programming in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marvelmind.html#marvelmind-updates">Marvelmind Updates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="marvelmind.html#updating-marvelmind-modem">Updating Marvelmind modem.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="marvelmind.html#updating-marvelmind-beacons">Updating Marvelmind beacons</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Feather esp8266</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#osx-terminal">OSX Terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#check">Check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#probe">Probe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#erase">Erase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kivy.html">Kivy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kivy.html#packaging">packaging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mblock.html">mblock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Robot Camp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#table-of-content">Table of Content</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rasp.html">Raspberry PI 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#sd-card">SD CARD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#connecting">Connecting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#update">Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#vlc-on-osx">VLC on OSX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#streaming-video">STreaming video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rasp.html#linux-commandline">Linux commandline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#enable-spi">Enable SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#rtimulib2">RTIMUlib2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#compile-rtimulib-apps">compile RTIMULib Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rasp.html#camera">Camera</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rasp.html#lessons-and-projects">Lessons and projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html">Trutle Graphics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#program-example">Program example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#shape">Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#links">Links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html#robot-dance-simulator">Robot Dance Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html#scratch">Scratch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html#mblock">MBlock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webrepl.html">Webrepl</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webrepl.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cm robot</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Feather esp8266</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/feather.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feather-esp8266">
+<h1>Feather esp8266<a class="headerlink" href="#feather-esp8266" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference external" href="https://learn.adafruit.com/micropython-basics-blink-a-led/blink-led">Feather HUZZAH
+ESP8266</a></li>
+<li><a class="reference external" href="https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-nodemcu-lua">doc</a></li>
+</ul>
+<div class="section" id="osx-terminal">
+<h2>OSX Terminal<a class="headerlink" href="#osx-terminal" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://learn.sparkfun.com/tutorials/terminal-basics/coolterm-windows-mac-linux">CoolTerm</a></p>
+<p>download <a class="reference external" href="http://freeware.the-meiers.org/CoolTermMac.zip">http://freeware.the-meiers.org/CoolTermMac.zip</a></p>
+<div class="section" id="check">
+<h3>Check<a class="headerlink" href="#check" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">robot</span> <span class="n">login</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="probe">
+<h3>Probe<a class="headerlink" href="#probe" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">robot</span> <span class="n">probe</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="erase">
+<h3>Erase<a class="headerlink" href="#erase" title="Permalink to this headline">¶</a></h3>
+<p>Erasing the feather is simple as it has a bild in mechanism to detect if
+it is going to be erased. Hence no reset button needs to be pressed</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">robot</span> <span class="n">flash</span> <span class="n">erase</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">robot</span> <span class="n">flash</span> <span class="n">python</span>
+</pre></div>
+</div>
+<p>Flashing is conducted with 460800 baud, it will take about 15 seconds.</p>
+<p>After flashing you should try to login</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">robot</span> <span class="n">login</span>
+</pre></div>
+</div>
+<p>Set the boudrate to 115200</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">CTRL</span><span class="o">-</span><span class="n">A</span> <span class="n">CTRL</span><span class="o">-</span><span class="n">B</span>
+
+<span class="o">***</span> <span class="n">baud</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>type in</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">115200</span> <span class="o">&lt;</span><span class="n">ENTER</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Make sure that echo is switched to OFF</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">CTRL</span><span class="o">-</span><span class="n">A</span> <span class="n">CTRL</span><span class="o">-</span><span class="n">C</span>
+</pre></div>
+</div>
+<p>toogles it.</p>
+<p>Now you should see</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>Try typing in</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="kivy.html" class="btn btn-neutral float-right" title="Kivy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="compass.html" class="btn btn-neutral" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Gregor von Laszewski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

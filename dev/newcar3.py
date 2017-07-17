@@ -4,6 +4,7 @@ import socket
 import network
 import ubinascii
 import utime
+from machine import Pin
 
 
 led = cm.LED(2)
@@ -27,6 +28,7 @@ mac = ubinascii.hexlify(network.WLAN().config('mac'), ':').decode()
 utime.sleep(.5)
 led.blink(5)
 print('mac')
+
 
 html = """<!DOCTYPE html>
 <html>
@@ -64,6 +66,7 @@ utime.sleep(.5)
 
 led.blink(6)
 
+
 def find_params(request):
     pos = request.find('?')+1
     a = request[pos:].split(" HTTP")[0]
@@ -72,8 +75,8 @@ def find_params(request):
 
 left = cm.Motor("left")
 right = cm.Motor("right")
-smr = cm3.SpeedMeter(16)
-sml = cm3.SpeedMeter(15)
+smr = cm3.SpeedMeter(15)
+sml = cm3.SpeedMeter(16)
 car = cm3.Car(left, right, sml, smr)
 
 
@@ -112,7 +115,7 @@ while not terminate:
                 right.backward()
                 left.backward()
 
-            elif name == 'GO':
+            elif name == 'FORWARD':
                 # value = int(value) # not yet used
 
                 right.forward()
@@ -124,3 +127,6 @@ while not terminate:
     cm.feedback(conn, html)
     conn.close()
     utime.sleep(dt)
+
+p1 = Pin(15, Pin.OUT)
+p2 = Pin(13, Pin.OUT)

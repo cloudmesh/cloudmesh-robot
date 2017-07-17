@@ -76,7 +76,7 @@ class Car(object):
         self.right = rightmotor
         self.sml = leftspeedmeter
         self.smr = rightspeedmeter
-        self.debug(True)
+        self._debug = True
 
     def debug(self, on):
         self._debug = True
@@ -88,17 +88,38 @@ class Car(object):
         """
         ticks = abs(((((angle * math.pi) / 180) * 13.6) / (6.7 * math.pi)) * 20)
         if angle < 0:
-            self.right.forward(800)
+            self.right.forward(1000)
             self.smr.wait_ticks(ticks)
             self.right.stop()
         elif angle > 0:
-            self.left.forward(800)
+            self.left.forward(1000)
             self.sml.wait_ticks(ticks)
             self.left.stop()
+
+    def turn(self, direction):
+        """
+        Turns the direction for the given time value
+        :param direction: String, "left" or "right"
+        """
+        if direction == "left":
+            self.right.forward(800)
+        elif direction == "right":
+            self.left.forward(800)
 
     def stop(self):
         self.left.stop()
         self.right.stop()
+
+    def forward(self, value=None):
+        if value is not None:
+            self.left.forward()
+            self.right.forward()
+            utime.sleep(value)
+            self.right.stop()
+            self.left.stop()
+        else:
+            self.left.forward()
+            self.right.forward()
 
     def move(self, ticks):
 
@@ -129,11 +150,9 @@ class Car(object):
         left_count = 0
         right_count = 1
         while left_count != right_count:
-            # move this down?
-            self.left.forward()    # Bug? SHOULD THAT BE AFTER GET?
+            # car must be moving before GET is called
+            self.left.forward()
             self.right.forward()
-
-            #move this up ?
             left_count = self.sml.get()
             right_count = self.smr.get()
 
@@ -172,15 +191,3 @@ class Car(object):
                         print("left:", left_count)
                         print("right:", right_count)
         self.stop()
-
-
-##############################################
-# DrivingRobot
-##############################################
-
-
-def set_line(x0, y0, fx, fy):
-    slope = (fy - y0) / (fx - x0)
-    intercept = y0 - (x0 * slope)
-    return slope, intercept
-

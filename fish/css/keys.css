@@ -7,12 +7,12 @@
 
 #keys li {
 	position: relative;
-	display: inline-block;
-	margin-right: 10px;
+	display: block;
+	margin: 0 10px 10px 0;
 	text-decoration: none;
 	text-align: center;
 	font-size: 40px;
-	width: 60px;
+	min-width: 60px;
 	height: 60px;
 	line-height: 60px;
 	background-color: #f1f1f1;
@@ -22,16 +22,9 @@
 	cursor: pointer;
 }
 
-#keys li:nth-child(1) {
-    display: block;
-    left: 75px;
-    margin-bottom: 10px;
-}
-
-#keys li:nth-child(5) {
-    display: block;
-    left: 75px;
-    margin-top: 10px;
+#keys li.side {
+    display: inline-block;
+    float: top: 50;
 }
 
 #keys li.pressed, #keys li:active{
