@@ -331,6 +331,92 @@ Program
 
    schema
 
+Alternative boords
+------------------
+
+HUZZAH Feather esp8266
+~~~~~~~~~~~~~~~~~~~~~~
+
+Many different 8266 based alterantive boards exist. One of these boards
+is the HUZZAH Feather. IT behaves the same as the other boards, but ay
+be using differnt drivers and USB ports. The *cms robot* command line
+tool is clever enough to identify automatically if it is attached and
+uses the appropriate settings. More documentation about this board can
+be found at
+
+-  `doc <https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-nodemcu-lua>`__
+
+This site has also many other examples and you can search for them with
+keywords such as feather, esp8266, micropython.
+
+An example on how to use the LED on the *feather* is documented at
+
+-  `Feather HUZZAH
+   ESP8266 <https://learn.adafruit.com/micropython-basics-blink-a-led/blink-led>`__
+
+To place micropython on the feather you can plug in the to th eusb port.
+The good thing about this board is that you do not need to press any
+buttons as it detects the upload nicely. If not make sure to reset it or
+for flasshing press both buttons. You can do the following:
+
+Probe the board with
+
+::
+
+    cms robot probe
+
+Erasing the feather is simple as it has a bild in mechanism to detect if
+it is going to be erased. Hence no reset button needs to be pressed
+
+::
+
+    cms robot flash erase
+
+Get the python image
+
+::
+
+    cms robot fetch python
+
+Flashing is conducted with 460800 baud, it will take about 15 seconds.
+After flashing you should try to login
+
+::
+
+    cms robot login
+
+Set the boudrate to 115200
+
+::
+
+    CTRL-A CTRL-B
+
+    *** baud: 
+
+type in
+
+::
+
+    115200 <ENTER>
+
+Make sure that echo is switched to OFF
+
+::
+
+    CTRL-A CTRL-C
+
+toogles it. Now you should see
+
+::
+
+    >>>
+
+Try typing in
+
+::
+
+    print("Hello")
+
 .. |alt text| image:: images/Official-font-b-DOIT-b-font-ESP-32-ESP-32S-ESP-32-Development-Board-font-b.jpg
 .. |alttext| image:: images/feather.png
 .. |alttext| image:: images/esp8266-b.png
