@@ -117,15 +117,13 @@ class Robot(object):
         if abs(cx - self.fx) < self.epsilon and abs(cy - self.fy) < self.epsilon:
             self.done = True
 
-    def burst(self):
+    def turn(self):
         """
         calculates turn angle and sends turn command to robot
         """
-        while not self.done:
-            addr, cx, cy, cz, ct = self.update()  # get current position
-            self.check_done(cx, cy)
-            if self.done:
-                break
+        addr, cx, cy, cz, ct = self.update()  # get current position
+        self.check_done(cx, cy)
+        if not self.done:
             print('current position: ')
             print(cx, cy)
             print('last position: ')
@@ -142,14 +140,17 @@ class Robot(object):
             if delta_angle > 10:
                 print(direction)
                 self.move(direction, delta_angle)  # turn robot
-                time.sleep(1)
             else:
                 print('on track')
-            self.move('forward', .3)
-            time.sleep(.5)
             self.last_x = cx
             self.last_y = cy
-            print('burst done')
+            print('turn done')
+        else:
+            print('done')
+
+    def go(self):
+        if not self.done:
+            self.move('forward', .3)
 
 
 class RobotSwarm(object):
@@ -170,10 +171,11 @@ class RobotSwarm(object):
         lines = f.readlines()
         f.close()
         for line in lines:
-            id, ip, endx, endy = line.split(",")
-            print(ID, ip, endx, endy)
-            self.robots.append(Robot(ID, ip, endx, endy))
-            print('A')
+            name, position = line.split(":")
+            number, ip = name.split(" ")
+            endx, endy = position.split(",")
+            print(number, ip, endx, endy)
+            self.robots.append(Robot(number, ip, endx, endy))
 
     def check_done(self):
         for robot in self.robots:
@@ -187,16 +189,21 @@ class RobotSwarm(object):
         self.make_robots()
         for robot in self.robots:
             robot.move("forward", 1)
-            time.sleep(1.5)
+        time.sleep(1.5)
         while not self.done:
             for robot in self.robots:
-                robot.burst()
+                robot.turn()
+            time.sleep(.5)
+            for robot in self.robots:
+                robot.go()
+            time.sleep(.5)
             self.check_done()
 
 hedge = MarvelmindHedge('/dev/tty.usbmodem1421')
 hedge.start()
 time.sleep(2)
 print('starting')
-rs = RobotSwarm('ma.txt')
+rs = RobotSwarm('maold.txt')
 print('swarm made')
 rs.run()
+

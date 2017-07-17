@@ -175,7 +175,6 @@ class RobotSwarm(object):
             endx, endy = position.split(",")
             print(number, ip, endx, endy)
             self.robots.append(Robot(number, ip, endx, endy))
-            print('A')
 
     def check_done(self):
         for robot in self.robots:
@@ -199,6 +198,6 @@ hedge = MarvelmindHedge('/dev/tty.usbmodem1421')
 hedge.start()
 time.sleep(2)
 print('starting')
-rs = RobotSwarm('ma.txt')
+rs = RobotSwarm('maold.txt')
 print('swarm made')
 rs.run()
