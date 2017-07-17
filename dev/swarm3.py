@@ -154,10 +154,11 @@ class Robot(object):
         print('done?', self.done, self.done_number)
         if self.done and self.done_number < 1:
             print('final turn')
-            v1, v2 = self.find_vectors(self.last_x, self.last_y, self.cx, self.cy, (self.cx - 1), self.cy)
+            v1, v2 = self.find_vectors(self.last_x, self.last_y, self.cx, self.cy, self.cx, 0)
             delta_angle = int(self.find_delta(v1, v2))
             angle1 = int(self.find_angle(v1[0], v1[1]))  # get unit vector angles
             angle2 = int(self.find_angle(v2[0], v2[1]))
+            print(angle1, angle2)
             direction = self.turn_direction(angle1, angle2)
             self.move(direction, delta_angle)
             self.done_number += 1
@@ -166,7 +167,13 @@ class Robot(object):
 
     def go(self):
         if not self.done:
-            self.move('forward', .3)
+            distance = int(math.sqrt(((self.cx - self.fx) ** 2) + ((self.cy - self.fy) ** 2)))
+            if distance > 50:
+                self.move('forward', 1)
+            elif 20 <= distance <= 50:
+                self.move('forward', .5)
+            elif distance < 20:
+                self.move('forward', .3)
 
 
 class RobotSwarm(object):
