@@ -107,13 +107,11 @@ while not terminate:
                 left.forward()
 
             elif name == 'BACK':
-                # value = int(value) # not yet used
 
                 right.backward()
                 left.backward()
 
             elif name == 'FORWARD':
-                # value = int(value) # not yet used
 
                 right.forward()
                 left.forward()
@@ -124,3 +122,5 @@ while not terminate:
     cm.feedback(conn, html)
     conn.close()
     utime.sleep(dt)
+
+
