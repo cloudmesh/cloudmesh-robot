@@ -46,7 +46,7 @@ robots = {
             name: 'Santa',
             chipid: '0x0016051a',
             mac: 'a0:20:a6:16:05:1a',
-            ip: '10.0.1.224'
+            ip: '10.0.1.106'
         },
         {
             name: 'Robot',
@@ -83,6 +83,18 @@ robots = {
             chipid: '0x00dc7e41',
             mac: '5c:cf:7f:dc:7e:41',
             ip: '10.0.1.108'
+        },
+        {
+            name: 'Tessbot',
+            chipid: '0x001c02eb',
+            mac: 'a0:20:a6:1c:02:eb',
+            ip: '10.0.1.131'
+        },
+        {
+            name: 'Robi4',
+            chipid: '0x00dc7e41',
+            mac: '5c:cf:7f:dc:7d:de',
+            ip: '10.0.1.104'
         }
 
     ]
