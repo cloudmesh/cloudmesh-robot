@@ -2,3 +2,7 @@
     display: inline-block;
     margin-right: 50px;
 }
+
+#keys{
+    vertical-align: top;
+}

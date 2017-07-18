@@ -92,6 +92,40 @@ $(function(){
         sendRequest();
     });
     
+    $(document).keydown(function(evt){
+        evt.preventDefault();
+        index = -1;
+        switch(evt.key){
+            case 'ArrowUp':
+                index = 0;
+                break;
+            case 'ArrowLeft':
+                index = 1;
+                break;
+            case 'Escape':
+                index = 2;
+                break;
+            case 'ArrowRight':
+                index = 3;
+                break;
+            case 'ArrowDown':
+                index = 4;
+                break;
+        }
+        
+        if(index == -1){
+            return;
+        }
+        
+        $key = $('#keys').children().eq(index);
+        $key.trigger('click');
+        $key.addClass('pressed');
+        
+        setTimeout(function(){
+            $key.removeClass('pressed');
+        }, 200);
+    });
+    
     // new robot selected
     $('input[type=radio][name=robots]').change(function() {
         resetValues();
