@@ -102,6 +102,7 @@ $(function(){
             case 'ArrowLeft':
                 index = 1;
                 break;
+            case ' ':
             case 'Escape':
                 index = 2;
                 break;
@@ -124,6 +125,13 @@ $(function(){
         setTimeout(function(){
             $key.removeClass('pressed');
         }, 200);
+    });
+    
+    $('#run').click(function(){
+        $list = $('#commandList');
+        $.each($list.val().split('\n'), function(){
+            
+        });
     });
     
     // new robot selected
