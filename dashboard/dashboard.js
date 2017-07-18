@@ -102,6 +102,7 @@ $(function(){
             case 'ArrowLeft':
                 index = 1;
                 break;
+            case ' ':      
             case 'Escape':
                 index = 2;
                 break;
