@@ -95,6 +95,12 @@ robots = {
             chipid: '0x00dc7e41',
             mac: '5c:cf:7f:dc:7d:de',
             ip: '10.0.1.104'
+        },
+        {
+            name: 'Fluffy Cloud',
+            chipid: '0x001929c9',
+            mac: 'a0:20:a6:19:29:c9',
+            ip: '10.0.1.228'
         }
 
     ]
