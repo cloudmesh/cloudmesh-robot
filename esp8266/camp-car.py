@@ -1,70 +1,72 @@
+#
+# cp car-speed.py main.py;  cms robot put -o main.py
+#
 import cm
-import socket
 import network
-import ubinascii
-import utime
-from machine import Pin
+import time
+import socket
 
+#led = cm.LED(2)
 
-led = cm.LED(2)
+right = cm.Motor("right")
+left = cm.Motor("left")
 
-led.blink(5)
-
+#led.blink(5)
 
 credentials = cm.get_attributes('credentials.txt')
-utime.sleep(.5)
-led.blink(2)
 
-ap_if = network.WLAN(network.AP_IF)
-utime.sleep(.5)
-led.blink(3)
+print(credentials)
+
+print('starting network ...')
+
+credentials = cm.get_attributes('credentials.txt')
+
+print(credentials)
+
+# led.blink(2)
 
 net = cm.connect()
-utime.sleep(.5)
-led.blink(4)
 
-mac = ubinascii.hexlify(network.WLAN().config('mac'), ':').decode()
-utime.sleep(.5)
-led.blink(5)
-print('mac')
+# led.blink(5)
 
 
 html = """<!DOCTYPE html>
 <html>
-<head> <title>ESP8266 Car</title> </head>
+<head> 
+
+<title>Cloudmesh ESP8266 Car</title> 
+
+</head>
 <center>
 <h3>Cloudmesh.robot</h3>
 <h2>ESP8266 Car Test</h2>
 </center>
 <form>
+<center>
+
 <table>
+
 <tr>
-<td>LEFT:</td> 
-<td><button name="LEFT" value="ON" type="submit">ON</button></td>
+<td></td>
+<td><button name="FORWARD" value="ON" type="submit" >FORWARD</button></td>
+<td></td>
 </tr>
+
 <tr>
-<td>RIGHT:</td>
-<td><button name="RIGHT" value="ON" type="submit">ON</button></td>
-</tr>
-<tr>
-<td>DIRECTION:</td>
-<td><button name="FORWARD" value="10" type="submit">FORWARD</button></td>
-<td><button name="STOP" value="ON" type="submit">STOP</button></td>
-<td><button name="BACK" value="10" type="submit">BACKWARD</button></td>
-</tr>
-<tr>
-<td>END:</td> 
+<td><button name="LEFT" value="1000" type="submit">LEFT</button></td>
+<td><button name="RIGHT" value="100" type="submit">RIGHT</button></td>
 <td><button name="END" value="ON" type="submit">END</button></td>
 </tr>
+
 </table>
+<center>
 </form>
 </html>
 """
 
-utime.sleep(.5)
-
-led.blink(6)
-
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind(('', 80))
+s.listen(5)
 
 def find_params(request):
     pos = request.find('?')+1
@@ -72,55 +74,25 @@ def find_params(request):
     params = a.split('&')
     return (params)
 
-left = cm.Motor("left")
-right = cm.Motor("right")
+i = 0
 
-
-dt = 0.2
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind(('', 80))
-s.listen(5)
 terminate = False
 while not terminate:
-
-    print ("Waiting for connection")
     conn, addr = s.accept()
-    print("Got a connection from %s" % str(addr))
+
     request = str(conn.recv(1024))
-    params = find_params(request)
-
     if request[7] == '?':
-
-        print(params)
-
+        params = find_params(request)
         for param in params:
             name, value = param.split('=')
-            if name == 'STOP':
-                right.stop()
-                left.stop()
-
-            elif name == 'LEFT':
-                right.forward()
-
-            elif name == 'RIGHT':
-                left.forward()
-
-            elif name == 'BACK':
-
-                right.backward()
-                left.backward()
-
-            elif name == 'FORWARD':
-
-                right.forward()
-                left.forward()
-
-            elif name == 'END':
+            value = int(value)
+            if name == 'LEFT':
+                left.set(value)
+            if name == 'RIGHT':
+                right.set(value)
+            if name == 'END':
                 terminate = True
 
     cm.feedback(conn, html)
+
     conn.close()
-    utime.sleep(dt)
-
-
