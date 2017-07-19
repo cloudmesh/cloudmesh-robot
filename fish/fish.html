@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>Fish Control</title>
     <link rel="stylesheet" type="text/css" href="css/jquery.dynameter.css">
-    <link rel="stylesheet" type="text/css" href="css/keys.css">
     <link rel="stylesheet" type="text/css" href="css/dashboard.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
@@ -20,19 +19,18 @@
         </div>
         
         <div>
-	  <ul id='keys'>
-	            <li>&#8593;</li>
-	            <li class='side'>&#8592;</li>
-	            <img id="shark_top" src="shark_top2.png">
-	            <li class='side'>&#8594;</li>
-	            <li>|</li>
+            <ul id='keys'>
+                <li>&#8593;</li>
+                <li class='side'>&#8592;</li>
+                <img id="shark_top" src="shark_top2.png">
+                <li class='side'>&#8594;</li>
+                <li>|</li>
             </ul>
             
             <div id='calibrate'>
                 <canvas id="finGauge"></canvas>
-                <div id='readout'></div>
                 <button id='test'>Test</button>
-                <button id='offset'>Set</button>
+                <button id='offset'>Set Middle</button>
                 <button id='reset'>Reset</button>
             </div>
             <button id="end">End</button>
@@ -44,7 +42,17 @@
             <button id='down'>&#8595;</button>
         </div>
     </div>
-  
+    
+    <hr>
+    
+    <div id='commands'>
+        <div id='consoleContainer'>
+            <div id='consoleLeft'></div>
+            <div id='console' contentEditable='true'></div>
+        </div>
+        <button id='run'>Run</textarea>
+    </div>
+    
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/gauge.min.js"></script>
 	<script type="text/javascript" src="fish.js"></script>
