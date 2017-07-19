@@ -47,12 +47,6 @@ html = """<!DOCTYPE html>
 <table>
 
 <tr>
-<td></td>
-<td><button name="FORWARD" value="ON" type="submit" >FORWARD</button></td>
-<td></td>
-</tr>
-
-<tr>
 <td><button name="LEFT" value="1000" type="submit">LEFT</button></td>
 <td><button name="RIGHT" value="100" type="submit">RIGHT</button></td>
 <td><button name="END" value="ON" type="submit">END</button></td>
