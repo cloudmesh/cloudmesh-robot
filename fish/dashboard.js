@@ -149,15 +149,21 @@ function makeGauge(){
     var requestsQueue = [];
     var requestResolveCallbackQueue = [];
      
-    function nativeAjax(requestObj) {
+    function nativeAjax(url) {
         //this is your actual ajax function 
         //which will return a promise
 
         //after finishing the ajax call you call the .next() function of syncRunner
         //you need to put it in the suceess callback or in the .then of the promise
-        $.ajax(requestObj).then(function(responseData) {
+        console.log(url);
+        $.ajax({url: url, timeout: 5000}).then(function(responseData) {
 	        (requestResolveCallbackQueue.shift())(responseData);
 	        syncTaskPointer.next();
+        }).fail(function(response){
+            syncTaskPointer = null;
+            requestsQueue = [];
+            requestResolveCallbackQueue = [];
+            console.log('network failure');
         });
     }
      
@@ -171,8 +177,8 @@ function makeGauge(){
         console.log("complete");
     };
      
-    ajaxSync = function(requestObj) {
-        requestsQueue.push(requestObj);
+    ajaxSync = function(url) {
+        requestsQueue.push(url);
         if(!syncTaskPointer){
 	        syncTaskPointer = syncRunner();
 	        syncTaskPointer.next();
@@ -204,11 +210,20 @@ function makeGauge(){
             commandLine = commands[c].trim().split(' ');
             command = commandLine[0].toLowerCase();
             value = commandLine.length > 1 ? commandLine[1] : 'ON';
+            var error = ''
             
             if(regularCommands.indexOf(command) == -1 && valueCommands.indexOf(command) == -1){
-                errors.push('Invalid command "' + command + '"');
-            } else if(valueCommands.indexOf(command) != -1 && value == 'ON'){
-                errors.push('Command "' + command + '" requires value');
+                error = 'Invalid command "' + command + '"';
+            } else if(regularCommands.indexOf(command) != -1 && value != 'ON'){
+                error = 'Command "' + command + '" does not accept a value';
+            } else if(valueCommands.indexOf(command) != -1 && isNaN(value)){
+                error = 'Command "' + command + '" requires integer value';
+            } else if(command == 'angle' && Math.abs(middle - value) > 53){
+                error = 'Angle is too high or low, must be within 53 units of middle (' + middle + ')';
+            }
+            
+            if(error){
+                errors.push('Error (line ' + (c + 1) + '): ' + error);
             }
         }
         
@@ -219,7 +234,7 @@ function makeGauge(){
                 error = errors[e];
                 div = $('<div>');
                 div.addClass('error');
-                div.text('Error: ' + error);
+                div.text(error);
                 $console.append(div);
             }
         } else{
@@ -233,7 +248,6 @@ function makeGauge(){
                     console.log('wait');
                 } else {
                     url = 'http://' + curRobot.ip + '/?' + command + '=' + value;
-                    console.log(url);
                     ajaxSync(url);
                 }
             }
@@ -269,12 +283,12 @@ function sendRequest(command){
 
 function updateConsoleLeft(){
     $consoleLeft = $('#consoleLeft');
-    begin = curRobot.name + ': > ';
     rows = $console.text().split('\n').length - 1;
     rows = rows ? rows : 1;
     newText = ''
     for(var i = 0; i < rows; i++){
-        newText += begin + '\n';
+        space = (i + 1) <= 9 ? '  ' : '';
+        newText += space + (i + 1) + ' | ' + curRobot.name + ' > ' + '\n';
     }
     $consoleLeft.attr('readonly', false);
     $consoleLeft.text(newText);

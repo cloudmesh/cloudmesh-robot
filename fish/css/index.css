@@ -105,6 +105,7 @@ button{
     width: 75%;
     height: 400px;
     white-space: pre;
+    overflow: hidden;
 }
 
 #console:focus{
@@ -116,6 +117,7 @@ button{
     vertical-align: top;
     white-space: pre;
     text-align: right;
+    height: 400px;
 }
 
 #run{
