@@ -47,8 +47,10 @@ html = """<!DOCTYPE html>
 <table>
 
 <tr>
+<td><button name="FORWARD" value="1" type="submit">FORWARD</button></td>
 <td><button name="LEFT" value="1000" type="submit">LEFT</button></td>
-<td><button name="RIGHT" value="100" type="submit">RIGHT</button></td>
+<td><button name="RIGHT" value="1000" type="submit">RIGHT</button></td>
+<td><button name="STOP" value="1" type="submit">STOP</button></td>
 <td><button name="END" value="ON" type="submit">END</button></td>
 </tr>
 
@@ -80,10 +82,18 @@ while not terminate:
         for param in params:
             name, value = param.split('=')
             value = int(value)
+            if name == 'FORWARD':
+                left.forward(left.d)
+                right.forward(right.d)
             if name == 'LEFT':
                 left.set(value)
+                right.stop()
             if name == 'RIGHT':
                 right.set(value)
+                left.stop()
+            if name == 'STOP':
+                left.stop()
+                right.stop()
             if name == 'END':
                 terminate = True
 
