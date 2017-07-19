@@ -15,6 +15,9 @@ from cloudmesh.common.parameter import Parameter
 from cloudmesh.common.StopWatch import StopWatch
 from ruamel import yaml
 
+#CHANGE ME
+from cloudmesh.robot.inventory import Inventory
+
 class RobotCommand(PluginCommand):
 
 # characters from towel.blinkenlights.nl
@@ -74,6 +77,7 @@ class RobotCommand(PluginCommand):
                 robot rmdir PATH
                 robot dance FILE IPS
                 robot inventory list [--cat] [--path=PATH] [ID]
+                robot inventory export FILENAME
                 robot reset
                 
           Arguments:
@@ -412,6 +416,10 @@ class RobotCommand(PluginCommand):
             except Exception as e:
                 Error.traceback(e)
 
+        elif arguments.inventory and arguments.export:
+            filename = arguments.FILENAME
+            inventory = Inventory(path_expand('~/.cloudmesh/robot/inventory.txt'))
+            inventory.export(filename)
         elif arguments.inventory:
 
             def load_inventory(path):
