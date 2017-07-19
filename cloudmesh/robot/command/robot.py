@@ -16,7 +16,7 @@ from cloudmesh.common.StopWatch import StopWatch
 from ruamel import yaml
 
 #CHANGE ME
-from cloudmesh.robot.inventory import Inventory
+from cloudmesh.robot.lib.inventory import NetworkInventory
 
 class RobotCommand(PluginCommand):
 
@@ -417,9 +417,11 @@ class RobotCommand(PluginCommand):
                 Error.traceback(e)
 
         elif arguments.inventory and arguments.export:
+
             filename = arguments.FILENAME
-            inventory = Inventory(path_expand('~/.cloudmesh/robot/inventory.txt'))
+            inventory = NetworkInventory(path_expand('~/.cloudmesh/robot/inventory.txt'))
             inventory.export(filename)
+
         elif arguments.inventory:
 
             def load_inventory(path):

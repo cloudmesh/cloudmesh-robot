@@ -64,13 +64,13 @@ class Ampy(object):
 class Git(object):
     '''
     curl - i
-    https://api.github.com/repos/roboedu/esp8266/git/trees/4e725210660730319241866a46a31b1c953dcccf?recursive=1
+    https://lib.github.com/repos/roboedu/esp8266/git/trees/4e725210660730319241866a46a31b1c953dcccf?recursive=1
     '''
 
     def tree(self, url=None, prefix=None):
 
         if url is None:
-            url = "https://api.github.com/repos/roboedu/esp8266/git/trees/4e725210660730319241866a46a31b1c953dcccf?recursive=1"
+            url = "https://lib.github.com/repos/roboedu/esp8266/git/trees/4e725210660730319241866a46a31b1c953dcccf?recursive=1"
 
         r = requests.get(url)
         d = r.json()
