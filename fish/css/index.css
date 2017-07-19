@@ -6,7 +6,8 @@
 #finGauge{
     display: block;
     transform: rotate(180deg);
-    margin-left: -42px;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
 #container > div{
@@ -40,4 +41,88 @@ button{
 
 #shark_top{
     width: 150px;
+    margin: 10px;
+}
+
+/**********************************************************
+*                         KEYS                            *
+**********************************************************/
+
+#keys {
+    display: inline-block;
+	list-style: none;
+	position: relative;	
+	padding: 0;
+}
+
+#keys li {
+	position: relative;
+	display: block;
+	margin: 0 10px 10px 0;
+	text-decoration: none;
+	text-align: center;
+	font-size: 40px;
+	min-width: 60px;
+	height: 60px;
+	line-height: 60px;
+	background-color: #f1f1f1;
+	border: 1px solid #eee;
+	border-radius: 8px;
+	box-shadow: 0 6px 10px rgba(0,0,0,.3);
+	cursor: pointer;
+}
+
+#keys li.side {
+    display: inline-block;
+    top: -80px;
+}
+
+#keys li.pressed, #keys li:active{
+    background-color: #e1e1e1;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+    transform: translateY(4px);
+}
+
+/**********************************************************
+*                      CONSOLE                            *
+**********************************************************/
+
+#commands{
+    width: 1200px;
+    margin: auto;
+}
+
+#consoleContainer{
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+
+#console{
+    display: inline-block;
+    color: white;
+    background-color: black;
+    width: 75%;
+    height: 400px;
+    white-space: pre;
+}
+
+#console:focus{
+    outline: none;
+}
+
+#consoleLeft{
+    display: inline-block;
+    vertical-align: top;
+    white-space: pre;
+    text-align: right;
+}
+
+#run{
+    display: block;
+    font-size: 1rem;
+}
+
+#console .error{
+    color: red;
 }

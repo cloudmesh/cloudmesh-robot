@@ -1,23 +1,33 @@
 var speedThrottle = 200;
 var allowRequest = true;
 
+var lastRobot = {}
 var curRobot = {}
+
+var $console = $('#console');
 
 $(function(){    
     $robotSelect = $('#robotSelect');
+    fish = fish['fish']
     
     // create robot radio buttons
-    $.each(fish['fish'], function(i, robot){
+    $.each(fish, function(i, robot){
         var $p = $('<p>');
-        var $radio = $('<input id="' + robot.name + '" type="radio" name="robots" value="' + robot.ip + '"/>');
+        var $radio = $('<input type="radio" name="robots" value="' + i + '"/>');
         if(i == 0){
             $radio.attr('checked', 'checked');
-            curRobot.ip = $radio.val();
+            curRobot = robot;
         }
         var $label = $('<label for="' + robot.name + '">' + robot.name + '</label>');
         $p.append($radio);
         $p.append($label);
         $robotSelect.append($p);
+    });
+    
+    $('#robotSelect input:radio').click(function(){
+        lastRobot = curRobot;
+        curRobot = fish[$(this).val()];
+        updateConsoleLeft();
     });
     
     makeGauge();
@@ -61,8 +71,6 @@ function makeGauge(){
     var minValue = 29;
     var maxValue = 115;
     var middle = (maxValue + minValue) / 2;
-    
-    $readout = $('#readout');
 
     var opts = {
         angle: 0, // The span of the gauge arc
@@ -87,7 +95,6 @@ function makeGauge(){
     gauge.setMinValue(minValue);  // Prefer setter over gauge.minValue = 0
     gauge.animationSpeed = 1; // set animation speed (32 is default value)
     gauge.set(middle); // set actual value
-    $readout.text(middle);
     
     var clicked = false;
     var gaugeWidth = gauge.canvas.clientWidth;
@@ -109,7 +116,6 @@ function makeGauge(){
                 realValue = minValue;
             }
             gauge.set(value);
-            $readout.text(realValue);
         }
     });
     
@@ -132,8 +138,116 @@ function makeGauge(){
         }, 200);
         
         gauge.set(middle);
-        $readout.text(middle);
     });
+    
+    
+    
+    
+    // synchronous AJAX commands
+    // attribution: http://voidcanvas.com/synchronous-ajax-with-es6-generators/
+    var syncTaskPointer = null;
+    var requestsQueue = [];
+    var requestResolveCallbackQueue = [];
+     
+    function nativeAjax(requestObj) {
+        //this is your actual ajax function 
+        //which will return a promise
+
+        //after finishing the ajax call you call the .next() function of syncRunner
+        //you need to put it in the suceess callback or in the .then of the promise
+        $.ajax(requestObj).then(function(responseData) {
+	        (requestResolveCallbackQueue.shift())(responseData);
+	        syncTaskPointer.next();
+        });
+    }
+     
+    function* syncRunner(){
+        while(requestsQueue.length > 0){
+	        yield nativeAjax(requestsQueue.shift());	
+        }
+     
+        //set the pointer to null
+        syncTaskPointer = null;
+        console.log("complete");
+    };
+     
+    ajaxSync = function(requestObj) {
+        requestsQueue.push(requestObj);
+        if(!syncTaskPointer){
+	        syncTaskPointer = syncRunner();
+	        syncTaskPointer.next();
+        }
+        return new Promise(function(resolve, reject) {
+	        var responseFlagFunc = function (data) {
+		        resolve(data);
+	        }
+	        requestResolveCallbackQueue.push(responseFlagFunc);
+        });
+    }
+    
+    $('#run').click(function(){
+        //clear old errors
+        $('#console .error').remove();
+        
+        commands = $console.text().split('\n');
+        
+        // remove empty elements from array
+        commands = commands.filter(entry => entry.trim() != '');
+        
+        regularCommands = ['left', 'right', 'middle', 'up', 'down'];
+        valueCommands = ['swim', 'angle'];
+        
+        errors = [];
+        
+        // check for errors
+        for(var c = 0; c < commands.length; c++){
+            commandLine = commands[c].trim().split(' ');
+            command = commandLine[0].toLowerCase();
+            value = commandLine.length > 1 ? commandLine[1] : 'ON';
+            
+            if(regularCommands.indexOf(command) == -1 && valueCommands.indexOf(command) == -1){
+                errors.push('Invalid command "' + command + '"');
+            } else if(valueCommands.indexOf(command) != -1 && value == 'ON'){
+                errors.push('Command "' + command + '" requires value');
+            }
+        }
+        
+        if(errors.length){
+            var div = null;
+            
+            for(var e = 0; e < errors.length; e++){
+                error = errors[e];
+                div = $('<div>');
+                div.addClass('error');
+                div.text('Error: ' + error);
+                $console.append(div);
+            }
+        } else{
+            // send ajax requests
+            for(var i = 0; i < commands.length; i++){
+                commandLine = commands[i].trim().split(' ');
+                command = commandLine[0].toUpperCase();
+                value = commandLine.length > 1 ? commandLine[1] : 'ON';
+
+                if(command == 'WAIT'){
+                    console.log('wait');
+                } else {
+                    url = 'http://' + curRobot.ip + '/?' + command + '=' + value;
+                    console.log(url);
+                    ajaxSync(url);
+                }
+            }
+        }
+    }); 
+    
+    $console.keyup(function(evt){
+        key = evt.key.toLowerCase();
+        if(key == 'enter' || key == 'backspace' || key == 'delete'){
+            updateConsoleLeft();
+        }
+    });
+    
+    updateConsoleLeft();
 }
 
 // send AJAX request
@@ -151,4 +265,17 @@ function sendRequest(command){
             allowRequest = true;
         }, speedThrottle);
     }
+}
+
+function updateConsoleLeft(){
+    $consoleLeft = $('#consoleLeft');
+    begin = curRobot.name + ': > ';
+    rows = $console.text().split('\n').length - 1;
+    rows = rows ? rows : 1;
+    newText = ''
+    for(var i = 0; i < rows; i++){
+        newText += begin + '\n';
+    }
+    $consoleLeft.attr('readonly', false);
+    $consoleLeft.text(newText);
 }
