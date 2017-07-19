@@ -16,7 +16,7 @@ from cloudmesh.common.StopWatch import StopWatch
 from ruamel import yaml
 
 #CHANGE ME
-from cloudmesh.robot.lib.inventory import NetworkInventory
+from cloudmesh.robot.library.inventory import NetworkInventory
 
 class RobotCommand(PluginCommand):
 
