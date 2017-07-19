@@ -2,6 +2,7 @@ robots = {
     robots: [
         {
             name: 'Whipped Cream',
+            owner: ''
             chipid: '0x000eafac',
             mac: '2c:3a:e8:0e:af:ac',
             ip: '10.0.1.221'
@@ -39,8 +40,8 @@ robots = {
         {
             name: 'Dragon Slayer',
             chipid: '0x000f21f3',
-            mac: '2c:3a:e8:0f:21:f3',
-            ip: '10.0.1.223'
+            mac: '5c:cf:7f:93:19:3b',
+            ip: '10.0.1.116'
         },
         {
             name: 'Santa',
