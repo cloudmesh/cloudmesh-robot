@@ -342,7 +342,7 @@ def feedback(conn, html = ''):
     response = html
 
     response_headers = {
-        'Content-Type': 'text/plain',
+        'Content-Type': 'text/html',
         'Content-Length': len(response),
         'Access-Control-Allow-Origin': '*', 
         'Connection': 'close',
