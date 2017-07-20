@@ -40,11 +40,11 @@ setup:
 source:
 	pip install setuptools pip -U
 	$(call banner, "cloudmesh common")
-	cd ../cloudmesh.common; make clean; python setup.py install; pip install .
+	cd ../cloudmesh.common; make clean; pip install .
 	$(call banner, "cloudmesh cmd5")
-	cd ../cloudmesh.cmd5;   make clean; python setup.py install; pip install .
+	cd ../cloudmesh.cmd5;   make clean; pip install .
 	$(call banner, "cloudmesh robot")
-	cd ../cloudmesh.robot;  make clean; python setup.py install; pip install .
+	cd ../cloudmesh.robot;  make clean; pip install .
 	cms help
 
 clean:

@@ -1,6 +1,4 @@
 guizero
-cloudmesh.common
-cloudmesh.cmd5
 requests
 esptool
 pyserial
