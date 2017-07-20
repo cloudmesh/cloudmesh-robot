@@ -1,58 +1,52 @@
 fish = {
     fish: [
         {
-            name: 'fish01',
-            ip: '10.0.1.101'
+            name: '141',
+            ip: '10.0.1.141'
         },
         {
-            name: 'fishi30', //checked
-            ip: '10.0.1.130'
+            name: '142', 
+            ip: '10.0.1.142'
         },
         {
-            name: 'fishi32', //checked
-            ip: '10.0.1.132' 
+            name: '143',
+            ip: '10.0.1.143'
         },
         {
-            name: 'fishi33', //checked
-            ip: '10.0.1.133'
+            name: '144',
+            ip: '10.0.1.144'
         },
         {
-            name: 'fishi34', //checked
-            ip: '10.0.1.134' 
+            name: '145',
+            ip: '10.0.1.145'
         },
         {
-            name: 'fishi35', //checked
-            ip:  '10.0.1.135'
+            name: '146',
+            ip:  '10.0.1.146'
         },
         {
-            name: 'fishi36', //checked
-            ip:  '10.0.1.136'
+            name: '147',
+            ip:  '10.0.1.147'
         },
         {
-            name: 'fishi37', //checked
-            ip:  '10.0.1.137'
+            name: '148',
+            ip:  '10.0.1.148'
         },
         {
-            name: 'fishi38',
-            chipid: 'broken?',                       
-            mac: 'broken',                        
-            ip:  '10.0.1.138'
+            name: '149',
+            ip:  '10.0.1.149'
         },
         {
-            name: 'fishi39',
-            ip:  '10.0.1.139'
+            name: '150',
+            ip:  '10.0.1.150'
         },
         {
-            name: 'fishi42', //checked
-            ip:  '10.0.1.142'
+            name: '151',
+            ip:  '10.0.1.151'
         },
         {
-            name: 'fishi43', //checked
-            ip:  '10.0.1.143'
-        },
-        {
-            name: 'fishi44', //checked
-            ip:  '10.0.1.144'
+            name: '152',
+            ip:  '10.0.1.152'
         }
     ]
 }
