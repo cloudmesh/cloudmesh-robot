@@ -58,6 +58,35 @@ pitch_dt = 10
 dt = 0.5
 dt_angle = 1.0
 terminate = False
+
+html = """<!DOCTYPE html>
+<html>
+<head> 
+   <title>ESP8266 Fish</title> 
+</head>
+<body>
+<center>
+<h3>Cloudmesh.robot</h3>
+<h2>ESP8266 Fish</h2>
+</center>
+<form>
+<center>
+<button name="LEFT" value="ON" type="submit">LEFT</button></br>
+<button name="RIGHT" value="ON" type="submit">RIGHT</button></br>
+<button name="MIDDLE" value="ON" type="submit">MIDDLE</button></br>
+<button name="STOP" value="ON" type="submit">STOP</button></br>
+<button name="SWIM" value="1" type="submit">FORWARD</button></br>
+<button name="SWIM" value="2" type="submit">FORWARD</button></br>
+<button name="UP" value="ON" type="submit" >UP</button></br>
+<button name="EQUAL" value="ON" type="submit" >EQUAL</button></br>
+<button name="DOWN" value="ON" type="submit">DOWN</button></br>
+<button name="END" value="ON" type="submit">END</button></br>
+</center>
+</form>
+</body>
+</html>
+"""
+
 while not terminate:
     print ("Waiting for connection")
     conn, addr = s.accept()
@@ -116,6 +145,6 @@ while not terminate:
             if name == 'END':
                 terminate = True
 
-    cm.feedback(conn)
+    cm.feedback(conn, html)
     conn.close()
     utime.sleep(0.2)
