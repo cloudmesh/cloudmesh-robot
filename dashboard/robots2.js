@@ -2,7 +2,6 @@ robots = {
     robots: [
         {
             name: 'Whipped Cream',
-            owner: ''
             chipid: '0x000eafac',
             mac: '2c:3a:e8:0e:af:ac',
             ip: '10.0.1.121'
