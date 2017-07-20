@@ -5,7 +5,7 @@ robots = {
             owner: ''
             chipid: '0x000eafac',
             mac: '2c:3a:e8:0e:af:ac',
-            ip: '10.0.1.221'
+            ip: '10.0.1.121'
         },
         {
             name: 'Georgie',
@@ -17,7 +17,7 @@ robots = {
             name: 'Dragon',
             chipid: '0x000f22ab',
             mac: '2c:3a:e8:0f:22:ab',
-            ip: '10.0.1.222'
+            ip: '10.0.1.122'
         },
         {
             name: 'Reginald',
@@ -53,19 +53,19 @@ robots = {
             name: 'Robot',
             chipid: '0x000f2257',
             mac: '2c:3a:e8:0f:22:57',
-            ip: '10.0.1.225'
+            ip: '10.0.1.125'
         },
         {
             name: 'Walli',
             chipid: '0x000eb654',
             mac: '2c:3a:e8:0e:b6:54',
-            ip: '10.0.1.226'
+            ip: '10.0.1.126'
         },
         {
             name: 'Larri',
             chipid: '0x000eaea4',
             mac: '2c:3a:e8:0e:ae:a4',
-            ip: '10.0.1.227'
+            ip: '10.0.1.127'
         },
         {
             name: 'Larry',
@@ -101,7 +101,7 @@ robots = {
             name: 'Fluffy Cloud',
             chipid: '0x001929c9',
             mac: 'a0:20:a6:19:29:c9',
-            ip: '10.0.1.228'
+            ip: '10.0.1.128'
         }
 
     ]
