@@ -4,6 +4,7 @@ var allowRequest = true;
 var lastRobot = {}
 var curRobot = {}
 
+var $readout = $('#readout');
 var $console = $('#console');
 
 $(function(){    
@@ -96,6 +97,8 @@ function makeGauge(){
     gauge.animationSpeed = 1; // set animation speed (32 is default value)
     gauge.set(middle); // set actual value
     
+    $readout.text(middle);
+    
     var clicked = false;
     var gaugeWidth = gauge.canvas.clientWidth;
     var realValue = middle;
@@ -116,6 +119,7 @@ function makeGauge(){
                 realValue = minValue;
             }
             gauge.set(value);
+            $readout.text(realValue);
         }
     });
     
@@ -138,6 +142,7 @@ function makeGauge(){
         }, 200);
         
         gauge.set(middle);
+        $readout.text(middle);
     });
     
     
