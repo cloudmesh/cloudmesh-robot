@@ -130,7 +130,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#linux">Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#instalation-of-tools">Instalation of tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#installation-of-tools">Installation of tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#osx">OSX</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="setup.html#id1">OSX</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="setup.html#xcode">XCode</a></li>
@@ -160,6 +160,8 @@
 <li class="toctree-l2"><a class="reference internal" href="hardware.html#alternative-components">Alternative components</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="hardware.html#esp8266-alternatives">Esp8266 Alternatives</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hardware.html#car-parts-alternatives">Car Parts Alternatives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware.html#simple-sensors">Simple sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware.html#grove-sensors">Grove Sensors</a></li>
 </ul>
 </li>
 </ul>
@@ -478,6 +480,26 @@ qmake make -j4 sudo make install</div>
 <li><a class="reference external" href="https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/">Camera
 Tutorial</a></li>
 </ul>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:docs/rasp.md sudo apt-get install libjpeg-dev libtiff5-dev
+libjasper-dev libpng12-dev sudo apt-get install libavcodec-dev
+libavformat-dev libswscale-dev libv4l-dev</p>
+<p>sudo apt-get install libxvidcore-dev libx264-dev</p>
+<p>sudo pip install virtualenv virtualenvwrapper sudo rm -rf ~/.cache/pip</p>
+<p>copy into ~/.profile:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"># virtualenv and virtualenvwrapper&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">profile</span>
+<span class="n">echo</span> <span class="s2">&quot;export WORKON_HOME=$HOME/.virtualenvs&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">profile</span>
+<span class="n">echo</span> <span class="s2">&quot;source /usr/local/bin/virtualenvwrapper.sh&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">profile</span>
+</pre></div>
+</div>
+<p>source ~/.profile</p>
+<p>mkvirtualenv cv -p python3</p>
+<p>workon cv</p>
+<p>comandline has (cv) in front</p>
+<p>pip install numpy</p>
+<p>wget -O opencv.zip <a class="reference external" href="https://github.com/Itseez/opencv/archive/3.1.0.zip">https://github.com/Itseez/opencv/archive/3.1.0.zip</a>
+wget -O opencv_contrib.zip
+<a class="reference external" href="https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip">https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip</a> unzip
+opencv.zip unzip opencv_contrib.zip =======</p>
 </div>
 </div>
 <div class="section" id="lessons-and-projects">
@@ -487,7 +509,9 @@ Tutorial</a></li>
 <a href="#id5"><span class="problematic" id="id6">*</span></a><a class="reference external" href="https://www.raspberrypi.org/blog/an-image-processing-robot-for-robocup-junior/">PI Camera Line
 Follower</a>
 * <a class="reference external" href="https://circuitdigest.com/microcontroller-projects/web-controlled-raspberry-pi-surveillance-robot">Pi car
-flask</a></p>
+flask</a>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+6f8f00d26168f29994b24b321b9ac0c4d8a51aa8:documentation/source/rasp.md</p>
 </div>
 
 

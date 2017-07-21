@@ -186,6 +186,37 @@ Camera
 -  `Camera
    Tutorial <https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/>`__
 
+<<<<<<< HEAD:docs/rasp.md sudo apt-get install libjpeg-dev libtiff5-dev
+libjasper-dev libpng12-dev sudo apt-get install libavcodec-dev
+libavformat-dev libswscale-dev libv4l-dev
+
+sudo apt-get install libxvidcore-dev libx264-dev
+
+sudo pip install virtualenv virtualenvwrapper sudo rm -rf ~/.cache/pip
+
+copy into ~/.profile:
+
+::
+
+     echo -e "\n# virtualenv and virtualenvwrapper" >> ~/.profile
+     echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.profile
+     echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.profile
+
+source ~/.profile
+
+mkvirtualenv cv -p python3
+
+workon cv
+
+comandline has (cv) in front
+
+pip install numpy
+
+wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip
+wget -O opencv\_contrib.zip
+https://github.com/Itseez/opencv\_contrib/archive/3.1.0.zip unzip
+opencv.zip unzip opencv\_contrib.zip =======
+
 Lessons and projects
 ====================
 
@@ -195,3 +226,5 @@ Lessons and projects
 Follower <https://www.raspberrypi.org/blog/an-image-processing-robot-for-robocup-junior/>`__
 * `Pi car
 flask <https://circuitdigest.com/microcontroller-projects/web-controlled-raspberry-pi-surveillance-robot>`__
+>>>>>>>
+6f8f00d26168f29994b24b321b9ac0c4d8a51aa8:documentation/source/rasp.md

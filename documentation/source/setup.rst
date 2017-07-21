@@ -40,8 +40,8 @@ Linux
 
 The linux instalation istructions are incomplete
 
-Instalation of tools
---------------------
+Installation of tools
+---------------------
 
 Once you have installed cloudmesh robots you well be able to install a
 numebr of tools automatically with the command
@@ -67,19 +67,32 @@ OSX
 
 For OSX we have created a
 
--  `setup.sh <https://raw.githubusercontent.com/cloudmesh/cloudmesh.robot/master/bin/osx/setup.sh>`__
+-  `system.sh <http://cloudmesh.github.io/get/robot/osx/system/>`__
 
-To easily execute this script type in the terminal
+and a
+
+-  `user.sh <http://cloudmesh.github.io/get/robot/osx/user>`__
+
+The **system** script must be ran on an **Administrator** account and
+the **user** script must be ran on a **User** account.
+
+To easily execute the **system** script, type in the Administrator
+account terminal
 
 ::
 
-    curl -vs https://raw.githubusercontent.com/cloudmesh/cloudmesh.robot/master/bin/osx/setup.sh 2>&1 > setup.sh
-    sh setup.sh
+    curl -fsSL http://cloudmesh.github.io/get/robot/osx/system | sh
 
-script that allows you to install in a simple way development tools that
-you may find useful for the activities reported on in this repository.
-First we must install a number of tools on the machine connecting to the
-board.
+To easily execute the **user** script, type in the User account terminal
+
+::
+
+     curl -fsSL http://cloudmesh.github.io/get/robot/osx/user | sh
+
+These scripts allow you to install in a simple way development tools
+that you may find useful for the activities reported on in this
+repository. First we must install a number of tools on the machine
+connecting to the board.
 
 Some setup options
 

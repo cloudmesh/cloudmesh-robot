@@ -58,7 +58,12 @@ less powerful and do not caontain build in Bluetooth or WiFi.
 -  Full Linux like OS based on debian
 -  Good environment for learning Linux and Python
 -  Reasonable interfaces to IoT sensors
--  excel;ent camera support
+-  excellent camera support
+-  excelent choice of expansion papcakes including Grove Sensors that
+   make it easy to attach sensors and actuators. An example package is
+   the `Grove
+   starter <https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html>`__
+   set for about $50
 
 *Disadvantages:*
 
@@ -157,3 +162,28 @@ Car Parts Alternatives
    Chasis <https://www.amazon.com/Ardokit-Chassis-Encoder-Battery-Arduino/dp/B00K5OWHXO/ref=sr_1_3?s=electronics&ie=UTF8&qid=1499251712&sr=1-3&keywords=robot+car>`__
 -  $22.88 `Car Chasis and
    Arduino <https://www.amazon.com/VKmaker-Avoidance-tracking-Chassis-Ultrasonic/dp/B01CXVA6IO/ref=sr_1_6?s=electronics&ie=UTF8&qid=1499251770&sr=1-6&keywords=robot+car>`__
+
+Simple sensors
+~~~~~~~~~~~~~~
+
+Simple sensors can be attached to the borads with cables (that you need
+to purchase seperately). Examples include
+
+-  `Elegoo 37 sensor
+   kit <https://www.amazon.com/Elegoo-Sensor-Module-Arduino-MEGA/dp/B009OVGKTQ/ref=sr_1_5?s=electronics&ie=UTF8&qid=1500678010&sr=1-5&keywords=grove+sensor>`__
+-  `Breadboard
+   Cable <https://www.amazon.com/Breadboard-Wires-Aoyoho-Multicolored-Jumper/dp/B01GK2Q4ZQ/ref=sr_1_1?s=electronics&ie=UTF8&qid=1500678142&sr=1-1&keywords=bread+board+cab%3Be>`__
+
+Grove Sensors
+~~~~~~~~~~~~~
+
+Grove sensors have ready made cables that make it ease to attach them to
+the Raspberry PI. However they are more expensive. YOu still need a
+Raspberry PI. No soldering iron, and no breadboards required.
+
+-  `Grove Starter
+   Set <https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html>`__
+-  `Seed Studio Grove
+   Sensors <https://www.seeedstudio.com/category/Grove-c-1003.html>`__
+-  `Grove Shield for
+   NodeMCU <https://www.seeedstudio.com/Grove-Base-Shield-for-NodeMCU-p-2513.html>`__
