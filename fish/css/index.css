@@ -3,13 +3,6 @@
     margin-right: 50px;
 }
 
-#finGauge{
-    display: block;
-    transform: rotate(180deg);
-    margin-left: 5px;
-    cursor: pointer;
-}
-
 #container > div{
     display: inline-block;
     vertical-align: top;
@@ -42,6 +35,22 @@ button{
 #shark_top{
     width: 150px;
     margin: 10px;
+}
+
+/**********************************************************
+*                         GAUGE                           *
+**********************************************************/
+
+#finGauge{
+    display: block;
+    transform: rotate(180deg);
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#readout{
+    margin: 10px 15px 15px 0;
+    text-align: center;
 }
 
 /**********************************************************
