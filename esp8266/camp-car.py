@@ -87,10 +87,8 @@ while not terminate:
                 right.forward(right.d)
             if name == 'LEFT':
                 left.set(value)
-                right.stop()
             if name == 'RIGHT':
                 right.set(value)
-                left.stop()
             if name == 'STOP':
                 left.stop()
                 right.stop()
