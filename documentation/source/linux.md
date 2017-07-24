@@ -40,11 +40,11 @@ here a number of useful commands.
 ## Keyboard Shortcuts
 
 | Keys | Description |
-| --- | --- |
+| ---- | ----------- |
 | Up Arrow | Show the previous command |
 | Ctrl + Z | Stops the current command |
-|  | resume with fg in the foreground |
-|  | resume with bg in the background |
+|          | resume with fg in the foreground |
+|          | resume with bg in the background |
 | Ctrl + C | Halts the current command |
 | Ctrl + L | Clear the screen |
 | Ctrl + A | Return to the start of the command you're typing |

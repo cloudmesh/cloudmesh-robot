@@ -12,7 +12,7 @@ We see the followingarguments for using IoT hardware:
 * You can customise your choices by conducting some fun projects. 
 * You have the oprotunity to find alternative hardware choices such as the WiPy or the ESP32. You may find find cheaper or better alternatives if you buy kits when they are available. And learn in getting an overview about such devices and kits.
 
-*Note:*  Ordering from overseas suplieres may take significant time. So make sure to plan ahead. Prices given here are done to provide estimate, they may vary
+*Note:*  Ordering from overseas suplieres may take significant time. So make sure to plan ahead. Prices given here are done to provide an estimate, they may vary.
 
 ## Raspberry Pi 3
 
@@ -118,3 +118,4 @@ Grove sensors have ready made cables that make it ease to attach them to the Ras
 * [Grove Starter Set](https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html)
 * [Seed Studio Grove Sensors](https://www.seeedstudio.com/category/Grove-c-1003.html)
 * [Grove Shield for NodeMCU](https://www.seeedstudio.com/Grove-Base-Shield-for-NodeMCU-p-2513.html)
+* [Grove Cable](http://www.switchdoc.com/2016/02/tutorial-intro-to-grove-connectors-for-arduinoraspberry-pi-projects/)
