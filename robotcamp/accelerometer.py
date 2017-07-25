@@ -6,9 +6,9 @@
 #
 # Hardware:     Grove - 3-Axis magnetometer/3-axis accelometer (LMS303D)
 #
-&  # 039;&#039;&#039;
+# 039;&#039;&#039;
 ##
-&  # 039;&#039;&#039;
+# 039;&#039;&#039;
 
 import smbus
 import time
