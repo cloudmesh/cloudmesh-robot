@@ -1,3 +1,4 @@
+import yaml
 
 class NetworkInventory(object):
     def __init__(self, path):
@@ -16,24 +17,13 @@ class NetworkInventory(object):
             dhcp.write("}\n")
 
     def _create_records(self, path, dhcp):
-        complete = False
-        record = dict([ (k, None) for k in self._required.keys()])
         with open(self._inventory) as inv:
-            for line in inv:
-                line = line.replace("'", "")
-                if line and line[0] != "#":
-                    if unicode(line[0], 'utf-8').isnumeric():
-                        record = dict([ (k, None) for k in self._required.keys()])
-                        complete = False
-                    else:
-                        pair = line.split(':', 1)
-                        try:
-                            record[pair[0].strip()] = pair[1].strip()
-                            if all(map(lambda x: not isinstance(x, type(None)), record.values())) and not complete:
-                                self._write(record, path, dhcp)
-                                complete = True
-                        except IndexError:
-                            pass
+            ls = yaml.safe_load(inv)
+            for k, entry in ls.items():
+                if all([x in entry for x in self._required]):
+                    self._write(entry, path, dhcp)
+                else:
+                    raise KeyError("Badly formatted inventory in item {}".format(k))
 
     def _write(self, record, path, dhcp):
         if record:
