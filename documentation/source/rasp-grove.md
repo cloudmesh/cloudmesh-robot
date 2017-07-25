@@ -195,7 +195,7 @@ LED
 
 * [LED](https://www.dexterindustries.com/GrovePi/projects-for-the-raspberry-pi/raspberry-pi-led-tutorial/)
 
-Connect the LED To D4. An LED is the simplest possible module for a raspberry pi, as it is responsive only to the provided power. For an LED to emit light, it must be exposed to a voltage greater than some minimum value. Below this voltage, the diode is nonconductive, but above it, the diode conducts. As you increase the voltage, the conductivity of the diode increases exponentially and its brightness increases likewise. If the current through the LED becomes too high, the LED will burn out. The following code describes the LED class.
+Connect the LED To D4. An LED is the simplest possible module for a raspberry pi, as it is responsive only to the provided power. For an LED to emit light, it must be exposed to a voltage greater than some minimum value. Below this voltage, the diode is nonconductive, but above it, the diode conducts. As you increase the voltage, the conductivity of the diode increases exponentially and its brightness increases likewise. If the current through the LED becomes too high, the LED will burn out. The following code describes the LED class. The LED class has one method, blink. Since it is connected to a digital output, the voltage has only two states, on and off. This means that we cannot change the brightness of the LED.
 
 	import time
 	from grovepi import *
