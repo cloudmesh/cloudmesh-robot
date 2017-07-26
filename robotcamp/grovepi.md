@@ -454,7 +454,7 @@ The LCD screen can be used to display text. In order to use it, plug it into one
 	    on = True
 	    while on:
 	        print('To exit, type x.')
-	        message = input('Type a short message: ')
+	        message = str(input('Type a short message: '))
 	        if message.lower == 'x':
 	            on = False
 	        else:
