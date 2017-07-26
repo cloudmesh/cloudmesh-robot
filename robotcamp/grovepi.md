@@ -93,7 +93,7 @@ To set up the buzzer in the analog configuration, connect the red voltage wire t
     			pitches=[262,294,330,349,392,440,494,523, 587, 659,698,784,880,988,1047]
     			duration=0.1
     			for p in pitches:
-      				self.buzz(p, duration)  #feed the pitch and duration to the function, “buzz”
+      				self.buzz(p, duration)  #feed the pitch and duration to the function, buzz
       				time.sleep(duration * 0.5)
     			for p in reversed(pitches):
      				self.buzz(p, duration)
@@ -470,7 +470,14 @@ The LCD screen can be used to display text. In order to use it, plug it into one
 Barometer  
 ---------
 
-A barometer detects and measures pressure. 
+A barometer detects and measures pressure. Our barometers measure temperature, pressure, and altitude 
+
+	import grove_barometer_lib
+	b = grove_barometer_lib.barometer()
+	while True():
+		print ("Temp:",b.temperature," Pressure:",b.pressure," Altitude:",b.altitude)
+		b.update()
+		time.sleep(.1)
 
 		        	
 Moisture
