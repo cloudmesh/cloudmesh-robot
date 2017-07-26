@@ -68,7 +68,7 @@ To set up the buzzer in the analog configuration, connect the red voltage wire t
   			class_name = self.__class__.__name__
   			print (class_name, "finished")
 
- 		def buzz(self,pitch, duration):   #create the function “buzz” and feed it the pitch and duration)
+ 		def buzz(self,pitch, duration):   #create the function buzz and feed it the pitch and duration)
  
   			if(pitch==0):
    				time.sleep(duration)
@@ -77,7 +77,7 @@ To set up the buzzer in the analog configuration, connect the red voltage wire t
   			delay = period / 2     #calcuate the time for half of the wave  
   			cycles = int(duration * pitch)   #the number of waves to produce is the duration times the frequency
 
-  			for i in range(cycles):    #start a loop from 0 to the variable “cycles” calculated above
+  			for i in range(cycles):    #start a loop from 0 to the variable cycles calculated above
    				GPIO.output(self.buzzer_pin, True)   #set pin 18 to high
    				time.sleep(delay)    #wait with pin 18 high
    				GPIO.output(self.buzzer_pin, False)    #set pin 18 to low
@@ -94,24 +94,24 @@ To set up the buzzer in the analog configuration, connect the red voltage wire t
     			duration=0.1
     			for p in pitches:
       				self.buzz(p, duration)  #feed the pitch and duration to the function, “buzz”
-      				time.sleep(duration *0.5)
+      				time.sleep(duration * 0.5)
     			for p in reversed(pitches):
      				self.buzz(p, duration)
-      				time.sleep(duration *0.5)
+      				time.sleep(duration * 0.5)
 
   			elif(tune==2):
     			pitches=[262,330,392,523,1047]
     			duration=[0.2,0.2,0.2,0.2,0.2,0,5]
    				for p in pitches:
-     				self.buzz(p, duration[x])  #feed the pitch and duration to the function, “buzz”
-      				time.sleep(duration[x] *0.5)
+     				self.buzz(p, duration[x])  #feed the pitch and duration to the function, buzz
+      				time.sleep(duration[x] * 0.5)
       				x+=1
   			elif(tune==3):
    				pitches=[392,294,0,392,294,0,392,0,392,392,392,0,1047,262]
     			duration=[0.2,0.2,0.2,0.2,0.2,0.2,0.1,0.1,0.1,0.1,0.1,0.1,0.8,0.4]
     			for p in pitches:
       				self.buzz(p, duration[x])  #feed the pitch and duration to the func$
-     				time.sleep(duration[x] *0.5)
+     				time.sleep(duration[x] * 0.5)
       				x+=1
 
   			elif(tune==4):
@@ -127,7 +127,7 @@ To set up the buzzer in the analog configuration, connect the red voltage wire t
     			duration=[0.1,0.1,0.2]
    				for p in pitches:
    					self.buzz(p, duration[x])  #feed the pitch and duration to the func$
-      				time.sleep(duration[x] *0.5)
+      				time.sleep(duration[x] * 0.5)
       				x+=1
 
   			GPIO.setup(self.buzzer_pin, GPIO.IN)
@@ -232,6 +232,7 @@ Connect the LED To D3. An LED is the simplest possible module for a raspberry pi
 	
 	            except KeyboardInterrupt:  # Turn LED off before stopping
 	                digitalWrite(self.pin, 0)
+	                sys.exit()
 	                break
 	            except IOError:  # Print "Error" if communication error encountered
 	                print ("Error")
@@ -365,7 +366,7 @@ This code has been taken from [Advanced Code](https://github.com/DexterInd/Grove
 	        
 LCD Screen
 ----------
-The LCD screen can be used to display text. In order to use it, plug it into one of the I2C ports.  The following code will allow you to print messages on the screen.
+The LCD screen can be used to display text. In order to use it, plug it into one of the I2C ports.  The following code will allow you to print messages on the screen. This has not been tested.
 
 	import time, sys
 	
@@ -464,6 +465,12 @@ The LCD screen can be used to display text. In order to use it, plug it into one
 	            time.sleep(0.01)
 	    setRGB(0, 255, 0)
 	    setText("Goodbye")
+	    
+	    
+Barometer  
+---------
+
+A barometer detects and measures pressure. 
 
 		        	
 Moisture
