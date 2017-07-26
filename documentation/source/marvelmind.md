@@ -87,9 +87,9 @@ beacons need to be a good distance apart, 3 meters is a good measure,
 and their recommended height is at least 1.85 meters. Therefore it is
 a good idea to mount the stationary beacons on stands of heights equal
 to or greater than 1.85 meters using velcro tape, as shown in *Figure
-5*. In contrast to the original marvelmind documentation we found that,
-in our room, the beacon mounted at a ceiling does not result in better
-positioning. Hence we removed it and only run four stationary beacons. This may vary based on your environment.
+5*. In contrast to the original marvelmind documentation, we found that,
+in our room, the beacon mounted on the ceiling does not result in better
+positioning. Hence, we removed it and only run four stationary beacons in a square-shaped setup. This may vary based on your environment.
 
 ![Figure 4](images/marvelmind/marvelmind-beacon.png)
 
@@ -99,12 +99,12 @@ positioning. Hence we removed it and only run four stationary beacons. This may 
 
 *Figure 5: Stand used to hold Marvelmind stationary beacon in place above recommended height.* **Circled**: Marvelmind stationary beacon.
 
-Now that you have set up your beacons on top of the stands turn them
+Now that you have set up your beacons on top of the stands, turn them
 on. The beacons will start showing up on the Marvelmind dashboard,
 they take approximately 8 seconds to wake up, as green circles with
 random device addresses assigned to them, consisting of numbers
 between 1 and 99, as shown in *Figure 6*. Keep track of the numbers
-Marvelmind assigns to each beacon. However, we recommend that you
+Marvelmind assigns to each beacon. We recommend that you
 rename them to your liking. You can assign one of the beacons the
 coordinates (0,0,Z), Z being the height of the beacon, by making it
 the starting beacon. The menu to the right of the dashboard
@@ -116,7 +116,7 @@ around this beacon on the dashboard interface.
 
 ![Figure 6](images/marvelmind/figure6.png)
 
-*Figure 6: Marvelmind beacon list.*
+*Figure 6: Marvelmind beacons as green circles.*
 
 ![Figure 7](images/marvelmind/figure7.png)
 
@@ -177,7 +177,7 @@ in *Figure 11*.
 *Figure 11: Hedgehog beacon and its setting.*
 
 You can now move the beacon around as it is mobile, while the frozen
-beacons remain stationary. Now the Marvelmind python program, which
+beacons remain stationary. Now, the Marvelmind python program, which
 you will find in the dashboard package that you downloaded from google
 docs, can be used to track the coordinates of this beacon, essentially
 tracking whatever object it is mounted on. If you are mounting other
@@ -203,7 +203,7 @@ stationary beacons and introduced the mobile beacon(s). Plug it into
 your mac computer. Run the marvelmind.py program included in the
 program package that you can download, along with example.py for
 reference on using it,
-[Here](https://github.com/cloudmesh/cloudmesh.robot/tree/master/tests),
+[here](https://bitbucket.org/marvelmind_robotics/marvelmind.py/get/default.zip),
 by typing `python marvelmind.py` into Terminal. If there is an error,
 open the marvelmind.py program in your python editor and scroll to
 line 175, which should look like this
@@ -237,9 +237,7 @@ into your python programs.
 	Hedge 18: X: 199.30, Y: 235.50, Z: 12.90 at time T: 15.71
 	Hedge 18: X: 199.30, Y: 235.50, Z: 12.90 at time T: 15.71
 
-*Figure 13: Marvelmind coordinates presented as units of (X,Y,Z, and time elapsed since the program has been running) in MacOS Terminal. Note how marvelmind.py takes a little over the aforementioned 8 seconds to start picking up on coordinates, since that's how long it takes the mobile beacon to wake up. beacons will report multiple times and we have removed them and replaced with ...*
-
-**TODO: LINK TO OUR OWN REPOSITORY DOES NOT WORK**
+*Figure 13: Marvelmind coordinates presented as units of (X,Y,Z, and time elapsed since the program has been running) in MacOS Terminal. Note how marvelmind.py takes a little over the aforementioned 8 seconds to start picking up on coordinates, since that's how long it takes the mobile beacon to wake up.*
 
 ### Marvelmind Updates
 
