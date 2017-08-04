@@ -212,7 +212,7 @@ class RobotSwarm(object):
         self.make_robots()
         for robot in self.robots:
             robot.move("forward", 1)
-        time.sleep(1.5)
+        time.sleep(1.2)
         while not self.done:
             for robot in self.robots:
                 robot.turn()
@@ -228,6 +228,6 @@ hedge = MarvelmindHedge('/dev/tty.usbmodem1421')
 hedge.start()
 time.sleep(2)
 print('starting')
-rs = RobotSwarm('maold.txt')
+rs = RobotSwarm('ma.txt')
 print('swarm made')
 rs.run()
