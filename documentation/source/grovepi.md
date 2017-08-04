@@ -18,9 +18,9 @@ LED
 Connect the LED To a digital port. The following code describes an LED class. Since it is connected to a digital output, the voltage has only two states, on and off. The default port for the LED class is D3. The code for the `LED` class can be found here:  
 
 * [LED Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/led.py)
-
-![figure 1](images/grovepi/led.jpg)
-
+<center>
+<img src=images/grovepi/led.jpg style="width:300px ;height:200px">
+</center>
 
 Buzzer
 ------
@@ -29,7 +29,9 @@ Connect the buzzer to a digital port. The default port for the Buzzer class is D
 
 * [Buzzer Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/buzzer.py)
 
-![figure 2](images/grovepi/buzzer.jpg)
+<center>
+<img src=images/grovepi/buzzer.jpg style="width:300px ;height:250px">
+</center>
 	                
 	            
 Relay
@@ -38,12 +40,21 @@ The relay acts as a switch in a circuit. When the value on the relay is 1, it al
 
 * [Relay Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/relay.py)
 
+
+<center>
+<img src=images/grovepi/relay.jpg style="width:300px ;height:200px">
+</center>
+
 	                
 Light Sensor
 ------------
 The light sensor measures ligh intensity and returns a value between 0 and 1023. Connect the light sensor to an analog port. The default port is A0. The analog port allows the light sensor to return a range of values. The `LightSensor` class can be found here:
 
 * [LightSensor Class](https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/light.py)
+
+<center>
+<img src=images/grovepi/light.jpg style="width:300px ;height:200px">
+</center>
 	            
           
 Rotary Angle Sensor
@@ -52,12 +63,20 @@ The rotary angle sensor measures the angle to which it is turned. Connect the se
 
 * [RotarySensor Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/rotary.py)
 
+<center>
+<img src=images/grovepi/rotary.jpg style="width:300px ;height:200px">
+</center>
+
 
 Barometer
 ---------
 Connect the barometer to an I2C port. In addition to pressure, the GrovePi barometer measures temperature in Fahrenheit and Celcius. The `Barometer` class can be found here.  
 
 * [Barometer Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/barometer.py)
+
+<center>
+<img src=images/grovepi/barometer.jpg style="width:250px ;height:200px">
+</center>
 	        
 	        
 Distance Sensor
@@ -65,6 +84,10 @@ Distance Sensor
 Connect the distance sensor to a digital port. The grovepi module has a built-in function to read the distance from the distance sensor, but it is improperly calibrated, so this DistanceSensor class has a calibration based on experimental data. The `DistanceSensor` class can be found here:  
 
 * [DistanceSensor Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/distance.py)
+
+<center>
+<img src=images/grovepi/distance.jpg style="width:500px ;height:200px">
+</center>
  
 
 Temperature
@@ -73,11 +96,19 @@ The temperature sensor measures both temperature and humidity. Connect the tempe
 
 * [TemperatureSensor Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/temperature.py)
 
+<center>
+<img src=images/grovepi/temperature.jpg style="width:200px ;height:200px">
+</center>
+
 Heartbeat Sensor
 ----------------
 Connect the heartbeat sensor to an I2C port. The heartbeat sensor returns the heart rate of the wearer. The `HeartbeatSensor` class can be found here:  
 
 * [HearbeatSensor Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/heartbeat.py)
+
+<center>
+<img src=images/grovepi/heartbeat.jpg style="width:300px ;height:200px">
+</center>
 
 
 Joystick
@@ -85,6 +116,10 @@ Joystick
 Connect the joystick to an analog port. A0 is the default port. The joystick has an x, y, and click status based on the current state of the module. The `Joystick` class can be found here:  
 
 * [Joystick Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/joystick.py)
+
+<center>
+<img src=images/grovepi/joystick.jpg style="width:250px ;height:200px">
+</center>
 
 	        
 		        
@@ -94,6 +129,10 @@ The LCD screen can be used to display text and colors. In order to use it, plug 
 
 * [LCD Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/lcd.py)
 
+<center>
+<img src=images/grovepi/lcd.jpg style="width:250px ;height:200px">
+</center>
+
  		        	
 Moisture Sensor
 --------
@@ -101,9 +140,11 @@ Connect the moisture sensor to an analog port. The default port is A0. The `Mois
 
 * [MoistureSensor Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/moisture.py)
 
-An example of the implimentation of the moisture sensor from Dexter Industries can be found here:
-  
-* [MoistureSensor Project](https://github.com/DexterInd/GrovePi/blob/master/Projects/plant_monitor/plant_project.py)
+<center>
+<img src=images/grovepi/moisture.jpg style="width:250px ;height:200px">
+</center>
+
+An example of the implimentation of the moisture sensor from Dexter Industries can be found [here](https://github.com/DexterInd/GrovePi/blob/master/Projects/plant_monitor/plant_project.py). The program is meant to measure the environmental conditions that affect plant growth.
 
 
 Water Sensor
@@ -111,5 +152,9 @@ Water Sensor
 The water sensor measures the amount of water in the environment of the sensor. Connect the sensor to a digital point. D2 is the default port. The `WaterSensor` class can be found here:
 
 * [WaterSensor Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/water.py)
+
+<center>
+<img src=images/grovepi/water.jpg style="width:300px ;height:200px">
+</center>
 
 
