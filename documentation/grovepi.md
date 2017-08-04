@@ -19,6 +19,7 @@ Connect the LED To a digital port. The following code describes an LED class. Si
 
 * [LED Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/led.py)
 
+![figure 1](images/grovepi/led.jpg)
 
 
 Buzzer
@@ -27,6 +28,8 @@ Buzzer
 Connect the buzzer to a digital port. The default port for the Buzzer class is D3. You will notice that the Buzzer class and the LED class are interchangeable. This is because they work on the same digital principal. Their two values are on and off. The code for the `Buzzer` class can be found here:  
 
 * [Buzzer Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/buzzer.py)
+
+![figure 2](images/grovepi/buzzer.jpg)
 	                
 	            
 Relay
