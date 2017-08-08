@@ -18,9 +18,12 @@ LED
 Connect the LED To a digital port. The following code describes an LED class. Since it is connected to a digital output, the voltage has only two states, on and off. The default port for the LED class is D3. The code for the `LED` class can be found here:  
 
 * [LED Class] (https://github.com/cloudmesh/cloudmesh.pi/blob/master/cloudmesh/pi/led.py)
+<DOCTYPE html>
+<html>
 <center>
 <img src=images/grovepi/led.jpg>
 </center>
+</html>
 
 Buzzer
 ------
