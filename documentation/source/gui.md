@@ -2,7 +2,12 @@
 
 ## GUIZero
 
-TBD
+
+Install guizero with the following command:
+
+	sudo pip3 install guizero
+	
+For a comprehensive tutorial on guizero, [click here](https://lawsie.github.io/guizero/howto/).
 
 ## Kivy
  
