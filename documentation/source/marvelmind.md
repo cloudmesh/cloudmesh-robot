@@ -14,9 +14,7 @@ The following requirements need to be met to run it:
 * Marvelmind HW 4.5 or 4.9 package and additional beacons as needed.
 
 In our setup we use the PC to configure the beacons, but conduct all
-interaction with them thorugh a 
-
-* Mac with Mac OSX with the newest OS installed.
+interaction with them thorugh a Mac with Mac OSX with MacOS Sierra version 10.12.5.
 
 ### Marvelmind Environment Setup
 
@@ -40,8 +38,7 @@ Now, go back to
 
 and scroll down to the *STM driver* column and download the zip file
 in it. Once the download has finished, unzip the file, and install the STM
-driver for your particular windows computer. This is only required to
-be done once, and allows you to update your beacons and modems.
+driver for your particular windows computer. This should only be done once, and it allows you to update your beacons and modems.
 
 * If you would like to go straight to the beacon and modem firmware update instructions, you can **Scroll past Figure 13 at the bottom of this manual**.
 
