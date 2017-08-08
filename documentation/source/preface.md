@@ -19,7 +19,7 @@ We are actively looking for your contributions so we can integrate them.
 * Gregor von Laszewski ([laszewski@gmail.com](laszewski@gmail.com))
 * Fugang Wang (kevinwnagfg@gmail.com)
 * Syed
-* Jonathan
+* Jonathan Montgomery (jonmontgomery62@gmail.com)
 
 
 ## Contact

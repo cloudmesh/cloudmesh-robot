@@ -49,7 +49,6 @@ source
 
 ## VLC on OSX
 
-* [https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/](https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/)
 * [http://www.videolan.org/vlc/index.en_GB.html](http://www.videolan.org/vlc/index.en_GB.html)
 * [http://get.videolan.org/vlc/2.2.6/macosx/vlc-2.2.6.dmg](http://get.videolan.org/vlc/2.2.6/macosx/vlc-2.2.6.dmg)
 * [http://www.mybigideas.co.uk/RPi/RPiCamera/](http://www.mybigideas.co.uk/RPi/RPiCamera/)
@@ -57,7 +56,8 @@ source
 ## Camera on Pi
 
 	sudo apt-get install vlc
-
+	
+* [https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/](https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/)
 * [https://www.hackster.io/bestd25/pi-car-016e66](https://www.hackster.io/bestd25/pi-car-016e66)
 
 ## STreaming video
