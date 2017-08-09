@@ -1,4 +1,4 @@
-# Trutle Graphics
+# Turtle Graphics
 
 ## Demo
 
@@ -40,9 +40,9 @@ After saving it you can run it from a terminal with
     shapes: “arrow”, “turtle”, “circle”, “square”, “triangle”, “classic”
 
 
-turtle.register_shape(name, shape=None)
+	turtle.register_shape(name, shape=None)
 
-turtle.addshape(name, shape=None)
+	turtle.addshape(name, shape=None)
 
 There are three different ways to call this function:
 
