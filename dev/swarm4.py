@@ -292,7 +292,7 @@ hedge = MarvelmindHedge('/dev/tty.usbmodem1421')
 hedge.start()
 time.sleep(2)
 rs = RobotSwarm('maold.txt')
-rs.robots = [Robot('1', '10.0.1.115', '100', '100', 10, 0), Robot('2', '10.0.1.118', '10', '100', 10, 180)]
+rs.robots = [Robot('1', '10.0.1.101', '100', '100', 10, 0), Robot('2', '10.0.1.118', '10', '100', 10, 180)]
 print('Robots initialized')
 a, rs.robots[0].cx, rs.robots[0].cy, z, t = hedge.number_position(rs.robots[0].number)
 print('position gotten')
