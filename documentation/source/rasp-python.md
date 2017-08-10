@@ -34,7 +34,7 @@ Select python3.4
 	
 
 -----
-follow steps 1 and 2
+To install python 3.6.1, follow steps 1 and 2. This is unnecessary for our purposes.
 
 * [better get 3.6.1](https://gist.github.com/dschep/24aa61672a2092246eaca2824400d37f)
 
