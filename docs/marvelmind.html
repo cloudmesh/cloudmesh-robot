@@ -166,23 +166,23 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="esp8266.html">ESP8266</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#installation-of-the-robot-interface">Installation of the robot Interface</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#testing-the-board">Testing the board</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#testing-the-board">Testing the board</a></li>
 <li class="toctree-l2"><a class="reference internal" href="esp8266.html#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#erase-the-chip">Erase the chip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#putting-python-on-the-chip">Putting Python on the chip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#testing-if-it-works">Testing if it works</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
-<li class="toctree-l3"><a class="reference internal" href="esp8266.html#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#cleaning-and-reinstalling-a-development-version">Cleaning and reinstalling a development version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#led">LED</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#program">Program</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#led">LED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="esp8266.html#program">Program</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="esp8266.html#alternative-boords">Alternative boords</a><ul>
@@ -201,7 +201,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="turtle.html">Trutle Graphics</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html">Turtle Graphics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="turtle.html#demo">Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="turtle.html#program-example">Program example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="turtle.html#shape">Shape</a></li>
@@ -318,17 +318,20 @@
 <h1>Marvelmind<a class="headerlink" href="#marvelmind" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction-to-the-marvelmind-positioning-system">
 <h2>Introduction to the Marvelmind Positioning System<a class="headerlink" href="#introduction-to-the-marvelmind-positioning-system" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="marvelmind.com">Marvelmind Indoor Navigation System</a> is an
-indoor navigation system designed for providing location data to
-autonomous robots, vehicles (AGV) and copters. The precision is rated to
-be +- 2cm.</p>
-<p>The following requirements exist to run it within our Lab:</p>
+<p>The <a class="reference external" href="http://www.marvelmind.com">Marvelmind Indoor Navigation System</a>
+is an indoor navigation system designed used for providing location data
+to autonomous robots, vehicles (AGV) and copters. The precision is rated
+to be +-2cm.</p>
+<p>The following requirements need to be met to run it:</p>
 <ul class="simple">
-<li>Windows PC with Windows 10.</li>
-<li>Mac with Mac OSX Sierra.</li>
-<li>Windows Defender anti-malware software.</li>
-<li>Marvelmind HW 4.5 or 4.9 package + additional beacons as needed.</li>
+<li>One Windows PC with Windows 10 to configure the beacon.</li>
+<li>Antivirus software to assure the software you download and install is
+virus free.</li>
+<li>Marvelmind HW 4.5 or 4.9 package and additional beacons as needed.</li>
 </ul>
+<p>In our setup we use the PC to configure the beacons, but conduct all
+interaction with them thorugh a Mac with Mac OSX with MacOS Sierra
+version 10.12.5.</p>
 </div>
 <div class="section" id="marvelmind-environment-setup">
 <h2>Marvelmind Environment Setup<a class="headerlink" href="#marvelmind-environment-setup" title="Permalink to this headline">¶</a></h2>
@@ -338,46 +341,50 @@ be +- 2cm.</p>
 </ul>
 <p>Scroll down to the <em>Dashboard SW v5.31 + Beacon SW v5.63 + Modem SW
 5.63</em> hyperlink, click it, and a download should start (the version
-numbers may change based on updates). Once the zip file is finished
-downloading, make sure to run a <em>windows defender virus check</em> by
-rightclicking on the zip file and clicking “Scan with windows defender”.
-After making sure that there is no malware in the zip file, unzip it,
-and then unzip the dashboard folder, and the firmware folder for your
-particular beacon, either HW4.5 or HW4.9, included in the package.</p>
+numbers may change based on updates by Marvelmind). Once the zip file is
+finished downloading, make sure to run a <em>windows defender virus check</em>
+by rightclicking on the zip file and clicking “Scan with windows
+defender”. After making sure that there is no malware in the zip file,
+unzip it, and then unzip the dashboard folder, and the firmware folder
+for your particular beacon, either HW4.5 or HW4.9, included in the
+package.</p>
 <p>Now, go back to</p>
 <ul class="simple">
 <li><a class="reference external" href="https://www.marvelmind.com">https://www.marvelmind.com</a></li>
 </ul>
 <p>and scroll down to the <em>STM driver</em> column and download the zip file in
-it. Once the download has finished, unzip the file, and run the STM
-driver for your particular windows computer. This is only required to be
-done once, and allows you to update your beacons and modems.</p>
-<p><a class="reference external" href="marvelmindupdate.md">How to update marvelmind beacons and modems if they are not up to
-date</a></p>
+it. Once the download has finished, unzip the file, and install the STM
+driver for your particular windows computer. This should only be done
+once, and it allows you to update your beacons and modems.</p>
+<ul class="simple">
+<li>If you would like to go straight to the beacon and modem firmware
+update instructions, you can <strong>Scroll past Figure 13 at the bottom of
+this manual</strong>.</li>
+</ul>
 <p>Now, you can start using the dashboard file that you unzipped earlier.</p>
-<blockquote>
-<div>FIX: change to marvelmind/dashboard</div></blockquote>
-<p>The dashboard interface should give you an error as shown in <em>Figure 1</em>.</p>
+<p>Once you open the dashboard, you should be presented with an error, as
+shown in <em>Figure 1</em>.</p>
 <div class="figure" id="id1">
 <img alt="Figure 1" src="_images/marvelmind-dashboard.png" />
 <p class="caption"><span class="caption-text">Figure 1</span></p>
 </div>
 <p><em>Figure 1: Marvelmind error if modem is not plugged in.</em></p>
-<p>The error in <em>Figure 1</em> essentially signals that you have not plugged in
-the Marvelmind modem into your Windows PC yet, which is shown in <em>Figure
-2</em>. Without this modem, you will not be able to use the Marvelmind
-dashboard to set up your Marvelmind navigation environment.</p>
+<p>You may get the error shown in <em>Figure 1</em> if you have not plugged in the
+Marvelmind modem into your Windows PC yet. The modem is shown in <em>Figure
+2</em>. Without this modem plugged into your Windows PC with a microUSB
+cable, you will not be able to use the Marvelmind dashboard to set up
+your Marvelmind navigation environment.</p>
 <div class="figure" id="id2">
 <img alt="Figure 2" src="_images/marvelmind-receiver.png" />
 <p class="caption"><span class="caption-text">Figure 2</span></p>
 </div>
 <p><em>Figure 2: Marvelmind modem.</em></p>
-<p>Once the modem is plugged into the Windows PC using a USB cable, with
-the Marvelmind dashboard running, the error should go away. You will be
-presented with a coordinate plane, as demonstrated in <em>Figure 3</em>. There
-should be an error at the top left corner of the coordinate plane
-stating that not enough beacons are available. This error is due to the
-fact that you have not turned on enough beacons required to track
+<p>Once the modem is plugged into the Windows PC using a microUSB cable,
+with the Marvelmind dashboard running, the error should go away. You
+will be presented with a coordinate plane, as demonstrated in <em>Figure
+3</em>. There should be an error at the top left corner of the coordinate
+plane stating that not enough beacons are available. This error is due
+to the fact that you have not turned on enough beacons required to track
 movement with the dashboard environment. You will need at least two
 beacons. You now need to set up stationary and mobile beacons, as
 needed, to fit your navigational needs.</p>
@@ -398,40 +405,42 @@ beacons you should use. Keep in mind, the stationary beacons need to be
 a good distance apart, 3 meters is a good measure, and their recommended
 height is at least 1.85 meters. Therefore it is a good idea to mount the
 stationary beacons on stands of heights equal to or greater than 1.85
-meters using velcro tape, as shown in <em>Figure 5</em>.</p>
+meters using velcro tape, as shown in <em>Figure 5</em>. In contrast to the
+original marvelmind documentation, we found that, in our room, the
+beacon mounted on the ceiling does not result in better positioning.
+Hence, we removed it and only run four stationary beacons in a
+square-shaped setup. This may vary based on your environment.</p>
 <div class="figure" id="id4">
 <img alt="Figure 4" src="_images/marvelmind-beacon.png" />
 <p class="caption"><span class="caption-text">Figure 4</span></p>
 </div>
 <p><em>Figure 4: Marvelmind beacon.</em></p>
 <div class="figure" id="id5">
-<img alt="Figure 5" src="_images/Figure5.png" />
+<img alt="Figure 5" src="_images/marvelmindstand.jpg" />
 <p class="caption"><span class="caption-text">Figure 5</span></p>
 </div>
 <p><em>Figure 5: Stand used to hold Marvelmind stationary beacon in place
-above recommended height.</em></p>
-<p>Now that you have set up your beacons on top of the stands. You may turn
-them on one by one. The beacons will start showing up on the Marvelmind
-dashboard, they take approximaely 8 seconds to wake up, as green circles
-with random device addresses assigned to them, consisting of numbers
-between 1 and 99, as shown in <em>Figure 6</em>. Keep track of the numbers
-Marvelmind assigns to each beacon, as you can name them to your liking.
-You can now assign one of the beacons the coordinates (0,0,Z), Z being
-the height of the beacon, by making it the starting beacon. The menu to
-the right of the dashboard interface, <em>Figure 7</em>, has an option labeled
+above recommended height.</em> <strong>Circled</strong>: Marvelmind stationary beacon.</p>
+<p>Now that you have set up your beacons on top of the stands, turn them
+on. The beacons will start showing up on the Marvelmind dashboard, they
+take approximately 8 seconds to wake up, as green circles with random
+device addresses assigned to them, consisting of numbers between 1 and
+99, as shown in <em>Figure 6</em>. Keep track of the numbers Marvelmind assigns
+to each beacon. We recommend that you rename them to your liking. You
+can assign one of the beacons the coordinates (0,0,Z), Z being the
+height of the beacon, by making it the starting beacon. The menu to the
+right of the dashboard interface, <em>Figure 7</em>, has an option labeled
 <em>starting beacon tritalateration</em>. You can type the device address
 number of whichever beacon you would like to use as your point (0,0, Z)
 in terms of the x and y value, respectibly. The other beacons will now
 remap themselves around this beacon on the dashboard interface.</p>
-<p>FIX: provide guidance how to name the beacons e.g. stationary vs mobile
-beacone</p>
 <div class="figure" id="id6">
-<img alt="Figure 6" src="_images/Figure6.png" />
+<img alt="Figure 6" src="_images/figure6.png" />
 <p class="caption"><span class="caption-text">Figure 6</span></p>
 </div>
-<p><em>Figure 6: Marvelmind beacon list.</em></p>
+<p><em>Figure 6: Marvelmind beacons as green circles.</em></p>
 <div class="figure" id="id7">
-<img alt="Figure 7" src="_images/Figure7.png" />
+<img alt="Figure 7" src="_images/figure7.png" />
 <p class="caption"><span class="caption-text">Figure 7</span></p>
 </div>
 <p><em>Figure 7: First cell shows starting beacon trilateration.</em></p>
@@ -445,16 +454,20 @@ would like to assign to this specific beacon, as long as another active
 beacon does not have it. The beacon should now change device addresses.
 Do this for as many beacons as you like.</p>
 <div class="figure" id="id8">
-<img alt="Figure 8" src="_images/Figure8.png" />
+<img alt="Figure 8" src="_images/figure8.png" />
 <p class="caption"><span class="caption-text">Figure 8</span></p>
 </div>
 <p><em>Figure 8: List of beacons circled red.</em></p>
 <div class="figure" id="id9">
-<img alt="Figure 9" src="_images/Figure9.png" />
+<img alt="Figure 9" src="_images/figure9.png" />
 <p class="caption"><span class="caption-text">Figure 9</span></p>
 </div>
 <p><em>Figure 9: Menu you are presented with once you click a specific beacon
 to edit its settings.</em></p>
+<p><strong>Note:</strong> You may return to the modem view at any time by clicking the
+green rectangle button on the left side of the dashboard which reads
+modem VX.XX.XX, the “X” taking place of the firmware version number of
+your beacon, ours being V5.44.24 at the time this manual was written.</p>
 <p>Now that you have assigned your beacons device addresses to your liking
 and have picked a starting beacon, you can click the option <em>freeze map</em>
 at the bottom right corner of the coordinate plane, <em>Figure 10</em>, and
@@ -462,7 +475,7 @@ lock your beacons as stationary on the Marvelmind screen. Now you can
 move on to introducing mobile beacons that will be picked up by these
 stationary beacons to your environment.</p>
 <div class="figure" id="id10">
-<img alt="Figure 10" src="_images/Figure10.png" />
+<img alt="Figure 10" src="_images/figure10.png" />
 <p class="caption"><span class="caption-text">Figure 10</span></p>
 </div>
 <p><em>Figure 10: “Freeze map” option circled red.</em></p>
@@ -472,24 +485,26 @@ stationary beacons to your environment.</p>
 <p>Once you have frozen the stationary beacons, you can now start
 introducing mobile beacons to Marvelmind. These mobile beacons can be
 mounted on whatever object you are trying to measure the movement of
-using Marvelmind, such as a robot. In order to introduce a beacon as a
-mobile beacon. Simply turn a beacon, or as many as you would like, on in
-addition to the frozen beacons, it will show up green just like the
-other beacons on the dashboard. Find the beacon number in the list shown
-in <em>Figure 9</em> of this newly started beacon, renumber it like
-demonstrated earlier, or keep the address if that’s your preference.
-Click on the beacon number in the list and the menu on the right should
-change again, as demonstrated in <em>Figure 8</em>. Now, there should be an
-option at the top of this menu labeled <em>Hedgehog mode</em> and it should be
-<em>disabled</em>. Click on it so it says <em>enabled</em>. The beacon should now turn
-blue on the coordinate plane, as shown in <em>Figure 11</em>.</p>
+using Marvelmind, such as a robot. However you should make sure they are
+not obstructed much. In order to introduce a beacon as a mobile beacon,
+turn a beacon, or as many as you would like, on (make sure the
+stationary beacons are on also). Now the mobile beacon will show up
+green just like the other beacons on the dashboard. Find the beacon
+number in the list shown in <em>Figure 9</em> of this newly started beacon,
+renumber it like demonstrated earlier, or keep the randomly assigned
+address, if that’s your preference. Click on the beacon number in the
+list and the menu on the right should change again, as demonstrated in
+<em>Figure 8</em>. Now, there should be an option at the top of this menu
+labeled <em>Hedgehog mode</em> and it should be <em>disabled</em>. Click on it so it
+says <em>enabled</em>. The beacon should now turn blue on the coordinate plane,
+as shown in <em>Figure 11</em>.</p>
 <div class="figure" id="id11">
-<img alt="Figure 11" src="_images/Figure11.png" />
+<img alt="Figure 11" src="_images/figure11.png" />
 <p class="caption"><span class="caption-text">Figure 11</span></p>
 </div>
 <p><em>Figure 11: Hedgehog beacon and its setting.</em></p>
 <p>You can now move the beacon around as it is mobile, while the frozen
-beacons remain stationary. Now the Marvelmind python program, which you
+beacons remain stationary. Now, the Marvelmind python program, which you
 will find in the dashboard package that you downloaded from google docs,
 can be used to track the coordinates of this beacon, essentially
 tracking whatever object it is mounted on. If you are mounting other
@@ -503,7 +518,7 @@ store that seems to function very well as a holder for the beacons. Just
 make sure the beacon is not too far into the holder, because the sound
 recepters may become blocked off.</p>
 <div class="figure" id="id12">
-<img alt="Figure 12" src="_images/Figure12.png" />
+<img alt="Figure 12" src="_images/figure12.png" />
 <p class="caption"><span class="caption-text">Figure 12</span></p>
 </div>
 <p><em>Figure 12: Selfie stick used as a hedgehog beacon holder (note how the
@@ -517,7 +532,7 @@ stationary beacons and introduced the mobile beacon(s). Plug it into
 your mac computer. Run the marvelmind.py program included in the program
 package that you can download, along with example.py for reference on
 using it,
-<a class="reference external" href="https://github.com/cloudmesh/cloudmesh.robot/tree/master/tests">Here</a>,
+<a class="reference external" href="https://bitbucket.org/marvelmind_robotics/marvelmind.py/get/default.zip">here</a>,
 by typing <code class="docutils literal"><span class="pre">python</span> <span class="pre">marvelmind.py</span></code> into Terminal. If there is an error,
 open the marvelmind.py program in your python editor and scroll to line
 175, which should look like this</p>
@@ -526,12 +541,15 @@ open the marvelmind.py program in your python editor and scroll to line
 </div>
 <p>Replace <code class="docutils literal"><span class="pre">tty.usbmodemFD121</span></code> with the usb tty for your computer
 assigned to that modem.</p>
+<p><strong>TODO: cms robot has a probe command that automatically discovers the
+USB/tty. I SUGGEST DOCUMENTING HOW TO USE THAT INSTEAD OF MAKING IT SO
+COMPLICATED WHILE NOT USING IT. see Probe in cloudmesh.robot</strong></p>
 <p>Once this issue is resolved, the program should start outputting
 coordinates of the remote beacons, as shown in <em>Figure 13</em>. You can now
 move the remote beacon(s) around and the marvelmind.py program will pick
 up on the movement, even if the dashboard on the Windows PC says there
-is no connection. You can now implement these coordinates into your
-python programs.</p>
+is no connection. You can now access these coordinates into your python
+programs.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>(ENV3) Ss-MacBook-Pro:tests username$ python marvelmind.py
 Hedge 0: X: 0, Y: 0, Z: 0 at    time T: 0.00
 ...
@@ -550,9 +568,7 @@ Hedge 18: X: 199.30, Y: 235.50, Z: 12.90 at time T: 15.71
 time elapsed since the program has been running) in MacOS Terminal. Note
 how marvelmind.py takes a little over the aforementioned 8 seconds to
 start picking up on coordinates, since that’s how long it takes the
-mobile beacon to wake up. beacons will report multiple times and we have
-removed them and replaced with …</em></p>
-<p><strong>BUG: LINK TO OUR OWN REPOSITORY DOES NOT WORK</strong></p>
+mobile beacon to wake up.</em></p>
 </div>
 <div class="section" id="marvelmind-updates">
 <h2>Marvelmind Updates<a class="headerlink" href="#marvelmind-updates" title="Permalink to this headline">¶</a></h2>

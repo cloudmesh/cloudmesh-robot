@@ -16,15 +16,15 @@ For our first experiments we will be using MicroPython. This choice is
 motivated by the fact that Python is a well established and easy to
 learn programming language. Recently many educational institutions are
 offering Python as an introductory programming language making this
-choice even mor compelling
+choice even more compelling.
 
 To simplify the setup and use of the esp8266 for MicroPython we
 developed an easy to use commandline tool that allows users to set up
-their computer and interact more easily with the board. We believe that
+their computer to interact more easily with the board. We believe that
 the interface is so simple that it can also be used in STEM activities
 and not just in the university or by advanced hobbyists.
 
-Installation of the robot Interafce
+Installation of the robot Interface
 -----------------------------------
 
 To more easily interface with the robot we have developed a convenient
@@ -45,7 +45,7 @@ Install Cloudmesh Robot
     to easily communicate with the robot.
 
 Developers are however encouraged to work with the source code. Thus you
-will need to first obtain it as follows
+will need to first obtain it with the following commands:
 
 ::
 
@@ -57,7 +57,7 @@ will need to first obtain it as follows
     $ cd cloudmesh.robot
     $ make source
 
-To test out if the command has been installed please type
+To test out if the command has been installed, type
 
 ::
 
@@ -93,7 +93,7 @@ can look at the manual page of the robot command with
 
 ::
 
-    $ cms help robot
+    $ cms robot help
 
 You will see a manual page like this:
 
@@ -129,19 +129,36 @@ You will see a manual page like this:
         -f      specify the file
 
 Testing the board
------------------
+~~~~~~~~~~~~~~~~~
 
-Next is to connect a esp8266 with theUSB cable to the computer. After
-you connected it, please press the reset button. Before we do anything
-else with the board we test it out first. Once you have plugged it in,
-you can execute the command
+Before you can use your esp8266, you must have the appropriate drivers
+installed on your computer. Click on `this
+link <https://github.com/cloudmesh/cloudmesh.robot/blob/7859b395fd15e4d6ced679b05893c9a91957c956/documentation/source/espdrivers.md>`__
+and follow the instructions on how to install the drivers. After
+installation, **you must open a new terminal**.
+
+Next, connect the esp8266 with a USB cable to the computer. The esp8266
+should look similar to this.
+
+.. raw:: html
+
+   <center>
+
+.. raw:: html
+
+   </center>
+
+After you connected it, press the reset button. Before doing anything on
+the board, we must test it. Once you have plugged it in, execute the
+following command:
 
 ::
 
     $ cms robot probe
 
-The output of this command provides you hopefully with a table similar
-to
+This command will take about ten seconds to execute. The esp8266's led
+should flash irregularly as it is probed. When the probe is finished, an
+image similar to the following should appear in your terminal:
 
 ::
 
@@ -149,7 +166,7 @@ to
     | Attribute | Value                     |
     +-----------+---------------------------+
     | chipid    | b' 0x00d0f9ec'            |
-    | mac       | b' 5c:cf:7f:d0:f9:ec'     |
+    | mac       | b' 00:10:FA:6E:38:4A'     |
     | tty       | /dev/tty.wchusbserial1410 |
     +-----------+---------------------------+
 
@@ -159,59 +176,54 @@ computer.
 Flashing the image onto the robot board
 ---------------------------------------
 
-Next we need to flash the image on the robot board. Naturally we need to
-fetch the image first from the internet. We do this with the command
+Next we need to flash the image on the robot board. Naturally, we need
+to fetch the image first from the internet. We do this with the command
 
 ::
 
-    $ robot image fetch
+    $ cms robot image fetch
 
 This will fetch an image that contains MicroPython into your local
 directory.
 
-Next we need to *flash* the image on the board. Your board will look
-something like this
+Next we need to *flash* the image on the board.
 
-|alt text| `link with motor
-shield <https://www.amazon.com/KOOKYE-ESP8266-NodeMcu-ESP-12E-Expansion/dp/B01C6MR62E/ref=sr_1_3?ie=UTF8&qid=1498599901&sr=8-3&keywords=esp8266++doit>`__
-
-|alttext|
-`link <https://www.amazon.com/Adafruit-2821-Feather-HUZZAH-ESP8266/dp/B019MGW6N6/ref=sr_1_1?ie=UTF8&qid=1498599868&sr=8-1&keywords=esp8266++feather>`__
-
-|alttext|
-`link <https://www.amazon.com/HiLetgo-Version-NodeMCU-Internet-Development/dp/B010O1G1ES/ref=sr_1_3?ie=UTF8&qid=1498599733&sr=8-3&keywords=esp8266>`__
-
-You will need to connect your board to your computer with a USB cable.
-The board has a microusb cable adapter. Make sure to obtain one as it
-may not come with the robot. The board may come with a preinstalled
-image such as Lua or some custom image from the vendor. As we try to
-program the robot in python let us place micropython on the board. This
-requires a number of steps.
+Before you begin, make sure that the esp8266 is connected to your
+computer. The board may come with a preinstalled image such as Lua or
+some custom image from the vendor. In order to write programs in python,
+we need to the chips to run micropython. To get micropython on our
+esp8266's, a number of steps are required.
 
 Erase the chip
 ~~~~~~~~~~~~~~
 
-First we need to erase the chip. To follow our instructions place the
-chip towards you as shown in the figure. E.g. the USB connector points
-to you.
+First we need to erase the chip.
 
-You must allow the chip to be erased by holding both buttons on the chip
-and than letting the right button be released first and than the left
-button. You will see a blue LED flashing once. Now you can flash the
-chip with the command
+Run the following command in your terminal terminal, and then **do not
+proceed.**
 
 ::
 
     $ cms robot flash erase
 
+Your terminal should respond with the following query:
+
+::
+
+    /dev/tty.SLAB_USBtoUART
+    Please press the right buttons
+    continue? (Y/n)
+
+Before taking any further steps, press both buttons on the esp8266 at
+the same time. Once you have done this, type ``Y`` and press ``enter``.
+The process should take under ten seconds to complete.
+
 Putting Python on the chip
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To put python on the chip you need to again prepare the board for
-flashing while pressing both buttons and releasing the right button
-before releasing the left button.
-
-Now ou can place python with the command
+Before proceeding, you must once again press both of the buttons on the
+esp8266. Once this is done, you are ready to flash the chip with python
+with the following command:
 
 ::
 
@@ -220,19 +232,42 @@ Now ou can place python with the command
 Testing if it works
 ~~~~~~~~~~~~~~~~~~~
 
-To test running a pyton program execute
+To test the python installation, execute the following command
 
 ::
 
     $ cms robot test
 
-Be careful as it overwrites the file ``test.py``.
+Be careful as it overwrites the file ``test.py``. If the esp8266 is set
+up properly, it should return this in your terminal:
+
+::
+
+    Count to 3
+    1
+    2
+    3
 
 Execute an arbitrary program
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Lets assume you have placed a program in the file ``prg.py`` than you
-can run it with the following command
+Lets assume you have placed a program in the file ``prg.py`` with the
+command
+
+::
+
+    $ cms robot put prg.py  
+
+You must reboot the esp8266 before using a new program. This can be done
+manually by pressing the reset button on the chip, or in terminal with
+the command
+
+::
+
+    $ cms robot reset
+
+Once the chip is reset, you can run ``prg.py`` with the following
+command:
 
 ::
 
@@ -241,23 +276,20 @@ can run it with the following command
 Interactive Python shell on the board
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To get into the interactive python shell on the board you need to make
-sure that you have reset the esp8266 once after flashing. You need to
-press the reset button.
-
-Than you can use the following command to login
+To get into the interactive python shell on the board you need to reset
+the esp8266 and run the following command:
 
 ::
 
     $ cms robot login
 
-Cleaning an reinstalling a development version
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Cleaning and reinstalling a development version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IN case you are a developer and you need to modify the source code, we
 found that it is sometimes necessary to clean your development directory
 and libraries. The easiest way to do this is to go to the repository
-that you like to reinstall. Let us assume it is *cloudmesh.robot*. Than
+that you like to reinstall. Let us assume it is *cloudmesh.robot*. Then
 the following commands will clean the repository
 
 ::
@@ -266,7 +298,7 @@ the following commands will clean the repository
     $ pip uninstall cloudmesh.robot
 
 Do the pip unisntall as many times till you see an error that no more
-cloudmesh.robot versions can be found. Than execute
+cloudmesh.robot versions can be found. Then execute
 
 ::
 
@@ -282,7 +314,7 @@ the -e flag is optional, but allows you to change the code without the
 need of recompiling. A very useful feature in python.
 
 NodeMCU ESP12 Dev Kit Pin Definition
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For V1.0
 
@@ -298,10 +330,10 @@ numbers used in micropythons pin library. The numbers are as follows:
 +------------+-----------+
 
 LED
----
+~~~
 
 Program
-~~~~~~~
+^^^^^^^
 
 ::
 
@@ -417,7 +449,4 @@ Try typing in
 
     print("Hello")
 
-.. |alt text| image:: images/Official-font-b-DOIT-b-font-ESP-32-ESP-32S-ESP-32-Development-Board-font-b.jpg
-.. |alttext| image:: images/feather.png
-.. |alttext| image:: images/esp8266-b.png
 .. |nodemcs| image:: ./images/nodemcu.png

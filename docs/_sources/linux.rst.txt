@@ -1,6 +1,10 @@
 Linux
 =====
 
+See also : \*
+https://cloudmesh.github.io/classes/lesson/linux/linux.html \*
+http://www.cs.jhu.edu/~joanne/unixRC.pdf
+
 While using the computer we will interface with many programs form a
 terminal that allows us to specify comands in a commandline. We list
 here a number of useful commands.

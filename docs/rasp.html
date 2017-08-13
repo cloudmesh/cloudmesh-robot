@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="cm robot 1.0 documentation" href="index.html"/>
         <link rel="next" title="&lt;no title&gt;" href="compass.html"/>
-        <link rel="prev" title="Trutle Graphics" href="turtle.html"/> 
+        <link rel="prev" title="Turtle Graphics" href="turtle.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -167,23 +167,23 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="esp8266.html">ESP8266</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#installation-of-the-robot-interface">Installation of the robot Interface</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#testing-the-board">Testing the board</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#testing-the-board">Testing the board</a></li>
 <li class="toctree-l2"><a class="reference internal" href="esp8266.html#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#erase-the-chip">Erase the chip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#putting-python-on-the-chip">Putting Python on the chip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#testing-if-it-works">Testing if it works</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
-<li class="toctree-l3"><a class="reference internal" href="esp8266.html#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#cleaning-and-reinstalling-a-development-version">Cleaning and reinstalling a development version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#led">LED</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#program">Program</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#led">LED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="esp8266.html#program">Program</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="esp8266.html#alternative-boords">Alternative boords</a><ul>
@@ -202,7 +202,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="turtle.html">Trutle Graphics</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html">Turtle Graphics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="turtle.html#demo">Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="turtle.html#program-example">Program example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="turtle.html#shape">Shape</a></li>
@@ -365,8 +365,6 @@ your SD-Card this can take up to 40-60 minutes.</p>
 <div class="section" id="vlc-on-osx">
 <h2>VLC on OSX<a class="headerlink" href="#vlc-on-osx" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first"><a class="reference external" href="https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/">https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/</a></p>
-</li>
 <li><p class="first"><a class="reference external" href="http://www.videolan.org/vlc/index.en_GB.html">http://www.videolan.org/vlc/index.en_GB.html</a></p>
 </li>
 <li><p class="first"><a class="reference external" href="http://get.videolan.org/vlc/2.2.6/macosx/vlc-2.2.6.dmg">http://get.videolan.org/vlc/2.2.6/macosx/vlc-2.2.6.dmg</a></p>
@@ -375,6 +373,8 @@ your SD-Card this can take up to 40-60 minutes.</p>
 </li>
 <li><p class="first rubric" id="camera-on-pi">Camera on Pi</p>
 <p>sudo apt-get install vlc</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/">https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/</a></p>
 </li>
 <li><p class="first"><a class="reference external" href="https://www.hackster.io/bestd25/pi-car-016e66">https://www.hackster.io/bestd25/pi-car-016e66</a></p>
 </li>
@@ -420,7 +420,7 @@ your SD-Card this can take up to 40-60 minutes.</p>
 <span class="mi">70</span><span class="p">:</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span> <span class="o">--</span>
 </pre></div>
 </div>
-<div class="figure" id="id7">
+<div class="figure" id="id1">
 <img alt="Pinout" src="images/rasp3.png" />
 <p class="caption"><span class="caption-text">Pinout</span></p>
 </div>
@@ -437,9 +437,15 @@ your SD-Card this can take up to 40-60 minutes.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dtparam</span><span class="o">=</span><span class="n">i2c1_baudrate</span><span class="o">=</span><span class="mi">400000</span>
 </pre></div>
 </div>
-<p>reboot</p>
-<p>cd /home/pi/github/RTIMULib2/RTIMULib/IMUDrivers emacs RTIMUDefs.h</p>
-<p>Change</p>
+<p>reboot. In terminal change directories to</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">RTIMULib2</span><span class="o">/</span><span class="n">RTIMULib</span><span class="o">/</span><span class="n">IMUDrivers</span>
+</pre></div>
+</div>
+<p>and open</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">emacs</span> <span class="n">RTIMUDefs</span><span class="o">.</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>In RTIMUDefs.h change</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#define MPU9250_ID 0x71</span>
 </pre></div>
 </div>
@@ -449,8 +455,10 @@ your SD-Card this can take up to 40-60 minutes.</p>
 
 
 <span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">RTIMULib2</span><span class="o">/</span><span class="n">RTIMULib</span>
-
-<span class="n">mkdir</span> <span class="n">build</span>
+</pre></div>
+</div>
+<p>In terminal</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">build</span>
 <span class="n">cd</span> <span class="n">build</span>
 <span class="n">cmake</span> <span class="o">..</span>
 <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
@@ -461,17 +469,33 @@ your SD-Card this can take up to 40-60 minutes.</p>
 </div>
 <div class="section" id="compile-rtimulib-apps">
 <h2>compile RTIMULib Apps<a class="headerlink" href="#compile-rtimulib-apps" title="Permalink to this headline">¶</a></h2>
-<p>cd /home/pi/github/RTIMULib2/Linux/RTIMULibCal make clean; make -j4 sudo
-make install cd /home/pi/github/RTIMULib2/Linux/RTIMULibDrive make
-clean; make -j4 sudo make install cd
-/home/pi/github/RTIMULib2/Linux/RTIMULibDrive10 make clean; make -j4
-sudo make install cd /home/pi/github/RTIMULib2/Linux/RTIMULibDrive11
-make clean; make -j4 sudo make install</p>
-<div class="line-block">
-<div class="line">cd /home/pi/github/RTIMULib2/Linux/RTIMULibDemo</div>
-<div class="line">qmake clean make clean qmake make -j4 sudo make install cd
-/home/pi/github/RTIMULib2/Linux/RTIMULibDemoGL qmake clean make clean
-qmake make -j4 sudo make install</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">RTIMULib2</span><span class="o">/</span><span class="n">Linux</span><span class="o">/</span><span class="n">RTIMULibCal</span>
+<span class="n">make</span> <span class="n">clean</span><span class="p">;</span> <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">RTIMULib2</span><span class="o">/</span><span class="n">Linux</span><span class="o">/</span><span class="n">RTIMULibDrive</span>
+<span class="n">make</span> <span class="n">clean</span><span class="p">;</span> <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">RTIMULib2</span><span class="o">/</span><span class="n">Linux</span><span class="o">/</span><span class="n">RTIMULibDrive10</span>
+<span class="n">make</span> <span class="n">clean</span><span class="p">;</span> <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">RTIMULib2</span><span class="o">/</span><span class="n">Linux</span><span class="o">/</span><span class="n">RTIMULibDrive11</span>
+<span class="n">make</span> <span class="n">clean</span><span class="p">;</span> <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+
+
+<span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">RTIMULib2</span><span class="o">/</span><span class="n">Linux</span><span class="o">/</span><span class="n">RTIMULibDemo</span>
+<span class="n">qmake</span> <span class="n">clean</span>
+<span class="n">make</span> <span class="n">clean</span>
+<span class="n">qmake</span>
+<span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">RTIMULib2</span><span class="o">/</span><span class="n">Linux</span><span class="o">/</span><span class="n">RTIMULibDemoGL</span>
+<span class="n">qmake</span> <span class="n">clean</span>
+<span class="n">make</span> <span class="n">clean</span>
+<span class="n">qmake</span>
+<span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="camera">
@@ -480,11 +504,16 @@ qmake make -j4 sudo make install</div>
 <li><a class="reference external" href="https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/">Camera
 Tutorial</a></li>
 </ul>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:docs/rasp.md sudo apt-get install libjpeg-dev libtiff5-dev
-libjasper-dev libpng12-dev sudo apt-get install libavcodec-dev
-libavformat-dev libswscale-dev libv4l-dev</p>
-<p>sudo apt-get install libxvidcore-dev libx264-dev</p>
-<p>sudo pip install virtualenv virtualenvwrapper sudo rm -rf ~/.cache/pip</p>
+<p>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libjpeg</span><span class="o">-</span><span class="n">dev</span> <span class="n">libtiff5</span><span class="o">-</span><span class="n">dev</span> <span class="n">libjasper</span><span class="o">-</span><span class="n">dev</span> <span class="n">libpng12</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libavcodec</span><span class="o">-</span><span class="n">dev</span> <span class="n">libavformat</span><span class="o">-</span><span class="n">dev</span> <span class="n">libswscale</span><span class="o">-</span><span class="n">dev</span> <span class="n">libv4l</span><span class="o">-</span><span class="n">dev</span>
+
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libxvidcore</span><span class="o">-</span><span class="n">dev</span> <span class="n">libx264</span><span class="o">-</span><span class="n">dev</span>
+
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenv</span> <span class="n">virtualenvwrapper</span>
+<span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">~/.</span><span class="n">cache</span><span class="o">/</span><span class="n">pip</span>
+</pre></div>
+</div>
 <p>copy into ~/.profile:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"># virtualenv and virtualenvwrapper&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">profile</span>
 <span class="n">echo</span> <span class="s2">&quot;export WORKON_HOME=$HOME/.virtualenvs&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">profile</span>
@@ -492,26 +521,32 @@ libavformat-dev libswscale-dev libv4l-dev</p>
 </pre></div>
 </div>
 <p>source ~/.profile</p>
-<p>mkvirtualenv cv -p python3</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkvirtualenv</span> <span class="n">cv</span> <span class="o">-</span><span class="n">p</span> <span class="n">python3</span>
+</pre></div>
+</div>
 <p>workon cv</p>
 <p>comandline has (cv) in front</p>
-<p>pip install numpy</p>
-<p>wget -O opencv.zip <a class="reference external" href="https://github.com/Itseez/opencv/archive/3.1.0.zip">https://github.com/Itseez/opencv/archive/3.1.0.zip</a>
-wget -O opencv_contrib.zip
-<a class="reference external" href="https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip">https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip</a> unzip
-opencv.zip unzip opencv_contrib.zip =======</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+
+<span class="n">wget</span> <span class="o">-</span><span class="n">O</span> <span class="n">opencv</span><span class="o">.</span><span class="n">zip</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Itseez</span><span class="o">/</span><span class="n">opencv</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="mf">3.1</span><span class="o">.</span><span class="mf">0.</span><span class="n">zip</span>
+<span class="n">wget</span> <span class="o">-</span><span class="n">O</span> <span class="n">opencv_contrib</span><span class="o">.</span><span class="n">zip</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Itseez</span><span class="o">/</span><span class="n">opencv_contrib</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="mf">3.1</span><span class="o">.</span><span class="mf">0.</span><span class="n">zip</span>
+<span class="n">unzip</span> <span class="n">opencv</span><span class="o">.</span><span class="n">zip</span>
+<span class="n">unzip</span> <span class="n">opencv_contrib</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
 </div>
 </div>
+</div>
+<hr class="docutils" />
 <div class="section" id="lessons-and-projects">
 <h1>Lessons and projects<a class="headerlink" href="#lessons-and-projects" title="Permalink to this headline">¶</a></h1>
-<p><a href="#id1"><span class="problematic" id="id2">*</span></a><a class="reference external" href="https://www.raspberrypi.org/learning/getting-started-with-guis/worksheet/">Gui</a>
-<a href="#id3"><span class="problematic" id="id4">*</span></a><a class="reference external" href="https://www.raspberrypi.org/learning/getting-started-with-guis/">Solder</a>
-<a href="#id5"><span class="problematic" id="id6">*</span></a><a class="reference external" href="https://www.raspberrypi.org/blog/an-image-processing-robot-for-robocup-junior/">PI Camera Line
-Follower</a>
-* <a class="reference external" href="https://circuitdigest.com/microcontroller-projects/web-controlled-raspberry-pi-surveillance-robot">Pi car
-flask</a>
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;
-6f8f00d26168f29994b24b321b9ac0c4d8a51aa8:documentation/source/rasp.md</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.raspberrypi.org/learning/getting-started-with-guis/worksheet/">Gui</a></li>
+<li><a class="reference external" href="https://www.raspberrypi.org/learning/getting-started-with-guis/">Solder</a></li>
+<li><a class="reference external" href="https://www.raspberrypi.org/blog/an-image-processing-robot-for-robocup-junior/">PI Camera Line
+Follower</a></li>
+<li><a class="reference external" href="https://circuitdigest.com/microcontroller-projects/web-controlled-raspberry-pi-surveillance-robot">Pi car
+flask</a></li>
+</ul>
 </div>
 
 
@@ -527,7 +562,7 @@ flask</a>
         <a href="compass.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="turtle.html" class="btn btn-neutral" title="Trutle Graphics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="turtle.html" class="btn btn-neutral" title="Turtle Graphics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

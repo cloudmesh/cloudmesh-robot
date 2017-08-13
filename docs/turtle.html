@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Trutle Graphics &mdash; cm robot 1.0 documentation</title>
+  <title>Turtle Graphics &mdash; cm robot 1.0 documentation</title>
   
 
   
@@ -167,23 +167,23 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="esp8266.html">ESP8266</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#installation-of-the-robot-interafce">Installation of the robot Interafce</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="esp8266.html#installation-of-the-robot-interface">Installation of the robot Interface</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#install-cloudmesh-robot">Install Cloudmesh Robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#testing-the-board">Testing the board</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#testing-the-board">Testing the board</a></li>
 <li class="toctree-l2"><a class="reference internal" href="esp8266.html#flashing-the-image-onto-the-robot-board">Flashing the image onto the robot board</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#erase-the-chip">Erase the chip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#putting-python-on-the-chip">Putting Python on the chip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#testing-if-it-works">Testing if it works</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#execute-an-arbitrary-program">Execute an arbitrary program</a></li>
 <li class="toctree-l3"><a class="reference internal" href="esp8266.html#interactive-python-shell-on-the-board">Interactive Python shell on the board</a></li>
-<li class="toctree-l3"><a class="reference internal" href="esp8266.html#cleaning-an-reinstalling-a-development-version">Cleaning an reinstalling a development version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#cleaning-and-reinstalling-a-development-version">Cleaning and reinstalling a development version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esp8266.html#led">LED</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="esp8266.html#program">Program</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#nodemcu-esp12-dev-kit-pin-definition">NodeMCU ESP12 Dev Kit Pin Definition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="esp8266.html#led">LED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="esp8266.html#program">Program</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="esp8266.html#alternative-boords">Alternative boords</a><ul>
@@ -202,7 +202,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Trutle Graphics</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Turtle Graphics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#program-example">Program example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#shape">Shape</a></li>
@@ -296,7 +296,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Trutle Graphics</li>
+      <li>Turtle Graphics</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -315,12 +315,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trutle-graphics">
-<h1>Trutle Graphics<a class="headerlink" href="#trutle-graphics" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="turtle-graphics">
+<h1>Turtle Graphics<a class="headerlink" href="#turtle-graphics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="demo">
 <h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
 <p>Python comes with a nice demonstartion program that allows you to learn
-some simple programming concepts while movin a turtle on the screen. It
+some simple programming concepts while moving a turtle on the screen. It
 can be started with</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">turtledemo</span>
 </pre></div>
@@ -329,13 +329,15 @@ can be started with</p>
 <div class="section" id="program-example">
 <h2>Program example<a class="headerlink" href="#program-example" title="Permalink to this headline">¶</a></h2>
 <p>You can also create programs with your favorite editor and run it. Let
-us put the following code into the program turtle.py.</p>
+us put the following code into the program <code class="docutils literal"><span class="pre">turtle_demo.py</span></code>. Never
+save a file with the name <code class="docutils literal"><span class="pre">turtle.py</span></code> because python will import it
+instead of the built-in turtle import that you need.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">turtle</span>
 
 <span class="n">window</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
 <span class="n">robot</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
 
-<span class="n">robot</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">robot</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>   <span class="c1"># Moves forward 50 pixels</span>
 <span class="n">robot</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>     <span class="c1"># Rotate clockwise by 90 degrees</span>
 
 <span class="n">robot</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
@@ -353,7 +355,7 @@ us put the following code into the program turtle.py.</p>
 </pre></div>
 </div>
 <p>After saving it you can run it from a terminal with</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python turtle.py
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python turtle_demo.py
 </pre></div>
 </div>
 </div>
@@ -362,19 +364,27 @@ us put the following code into the program turtle.py.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>shapes: “arrow”, “turtle”, “circle”, “square”, “triangle”, “classic”
 </pre></div>
 </div>
-<p>turtle.register_shape(name, shape=None)</p>
-<p>turtle.addshape(name, shape=None)</p>
+<p>You can change the shape of your turtle to any of these shapes with the
+Turtle method <code class="docutils literal"><span class="pre">shape(name)</span></code>. For example, if you have an instance of
+the Turtle class called <code class="docutils literal"><span class="pre">robot</span></code>, you can make it appear as a turtle by
+calling <code class="docutils literal"><span class="pre">robot.shape(&quot;turtle&quot;)</span></code>.</p>
+<p>You can add your own shapes with the following functions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">turtle</span><span class="o">.</span><span class="n">register_shape</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">turtle</span><span class="o">.</span><span class="n">addshape</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>There are three different ways to call this function:</p>
 <p>name is the name of a gif-file and shape is None: Install the
 corresponding image shape.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">screen</span><span class="o">.</span><span class="n">register_shape</span><span class="p">(</span><span class="s2">&quot;turtle.gif&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">register_shape</span><span class="p">(</span><span class="s2">&quot;turtle.gif&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Note: Image shapes do not rotate when turning the turtle, so they do not
 display the heading of the turtle!</p>
 <p>name is an arbitrary string and shape is a tuple of pairs of
 coordinates: Install the corresponding polygon shape.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">screen</span><span class="o">.</span><span class="n">register_shape</span><span class="p">(</span><span class="s2">&quot;triangle&quot;</span><span class="p">,</span> <span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)))</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">register_shape</span><span class="p">(</span><span class="s2">&quot;triangle&quot;</span><span class="p">,</span> <span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)))</span>
 </pre></div>
 </div>
 <p>name is an arbitrary string and shape is a (compound) Shape object:

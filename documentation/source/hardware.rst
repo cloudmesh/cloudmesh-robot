@@ -2,42 +2,42 @@ Hardware for IoT Projects
 =========================
 
 When teaching programming you may find yourself in a situation that
-things can be done on your computer, but you may either not want or can
-install programs that help you to learn programming on your computer.
-However, we have a solution (or several) for you. We will have some fun
-with hardware for IoT that at the same time can be used to teach you
-some very elementary skills in programming. However, if you rather lik
-eto use your computer you certainly can do this too.
+things can be done on your computer, but you may not want to install
+programs that help you to learn programming on your computer. However,
+we have a solution (or several) for you. We will have some fun with
+hardware for IoT that at the same time can be used to teach you some
+very elementary skills in programming. However, if you would rather use
+your computer you certainly can do this too.
 
 We see the followingarguments for using IoT hardware:
 
 -  You will have fun with inexpensive hardware
 -  You will get hands on experience with IOT devices
 -  You will learn how to program in python
--  It allows you to keep your current computer unchanged
--  You will get experience with two platforms esp8266 and Rspberry PI 3
+-  You can keep your current computer unchanged
+-  You will get experience with two platforms esp8266 and Raspberry PI 3
 -  You can customise your choices by conducting some fun projects.
--  You have the oprotunity to find alternative hardware choices such as
+-  You have the opportunity to find alternative hardware choices such as
    the WiPy or the ESP32. You may find find cheaper or better
    alternatives if you buy kits when they are available. And learn in
    getting an overview about such devices and kits.
 
-*Note:* Ordering from overseas suplieres may take significant time. So
-make sure to plan ahead. Prices given here are done to provide estimate,
-they may vary
+*Note:* Ordering from overseas supplieres may take significant time, so
+make sure to plan ahead. Prices given here are done to provide an
+estimate, they may vary.
 
 Raspberry Pi 3
 --------------
 
 The raspberry PI 3 is a very good development platform. With its base
-price of $35 it is quite a bargain. YOu will need some additional
-component to make sure you can use it. Please be reminded to never
+price of $35 it is quite a bargain. You will need some additional
+components to make sure you can use it. Please be reminded to never
 connect or power the raspberry with your computers USB port. It draws
 some significant amperage and we do not want you to destroy your
 computer. We recommend that you buy a certified power adapter. The price
 is so cheap that you could even create your own mini cluster as a
 project. We do not recommend any older versions of Raspberry as they are
-less powerful and do not caontain build in Bluetooth or WiFi.
+less powerful and do not contain built-in Bluetooth or WiFi.
 
 *Configuration:*
 
@@ -61,14 +61,14 @@ less powerful and do not caontain build in Bluetooth or WiFi.
 -  excellent camera support
 -  excelent choice of expansion papcakes including Grove Sensors that
    make it easy to attach sensors and actuators. An example package is
-   the `Grove
-   starter <https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html>`__
-   set for about $50
+   the `Grove Starter
+   Kit <https://www.amazon.com/GrovePi-Starter-Kit-Dexter-Industries/dp/B00TXTZ5SQ/ref=pd_lpo_vtph_147_bs_tr_img_1?_encoding=UTF8&psc=1&refRID=45QX6XSNZAG1NT8NES79>`__
+   for about $90
 
 *Disadvantages:*
 
--  We tried the Windows IoT package and are not impressed by it. This is
-   not an issue of the Raspberry, but the Windows IoT platform
+-  We tried the Windows IoT package and were not impressed by it. This
+   is not an issue of the Raspberry, but the Windows IoT platform
 
 ESP8266 Robot Car Kit
 ---------------------
@@ -78,11 +78,11 @@ with. However, this does not apply for the ESP8266 NodeMCU. This board
 is originally flashed with *Lua*, however it can easily be reflashed
 with MicroPython. In addition it is often offered as part of a platform
 to develop a robot car. There are argubly better kits available, but the
-proice of $24 for the entire kit is hardly to beat. Unfortunately the
+proice of $24 for the entire kit is hard to beat. Unfortunately the
 version of python, as well as the limited memory make the esp8266 not a
 full fledged platform for python programming and you will quickly see
-its limitations. Interfaceing with it however as an IoT device will gain
-you a lot of insides.
+its limitations. Interfacing with it, however, as an IoT device will
+gain you a lot of insides.
 
 *Configuration:*
 
@@ -104,7 +104,8 @@ Optionally you may want to get additional sensors such as wheel Encoders
 -  Very low price for what it can do
 -  We have OSX software available that makes it easy to setup (Other
    tutorials for other platforms are available on the internet, you can
-   contribute creating documentation we distribute in class for points)
+   contribute by creating documentation we distribute in class for
+   points)
 -  
 -  
 
@@ -166,7 +167,7 @@ Car Parts Alternatives
 Simple sensors
 ~~~~~~~~~~~~~~
 
-Simple sensors can be attached to the borads with cables (that you need
+Simple sensors can be attached to the boards with cables (that you need
 to purchase seperately). Examples include
 
 -  `Elegoo 37 sensor
@@ -177,13 +178,15 @@ to purchase seperately). Examples include
 Grove Sensors
 ~~~~~~~~~~~~~
 
-Grove sensors have ready made cables that make it ease to attach them to
-the Raspberry PI. However they are more expensive. YOu still need a
-Raspberry PI. No soldering iron, and no breadboards required.
+Grove sensors have ready-made cables that make them easy to attach to
+the Raspberry PI. However, they are more expensive. You still need a
+Raspberry PI. No soldering iron and no breadboards are required.
 
--  `Grove Starter
+-  for Arduino: `Grove Starter
    Set <https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html>`__
 -  `Seed Studio Grove
    Sensors <https://www.seeedstudio.com/category/Grove-c-1003.html>`__
 -  `Grove Shield for
    NodeMCU <https://www.seeedstudio.com/Grove-Base-Shield-for-NodeMCU-p-2513.html>`__
+-  `Grove
+   Cable <http://www.switchdoc.com/2016/02/tutorial-intro-to-grove-connectors-for-arduinoraspberry-pi-projects/>`__

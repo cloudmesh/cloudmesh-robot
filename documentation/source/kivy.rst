@@ -22,4 +22,4 @@ Hello World
 packaging
 ---------
 
--  https://kivy.org/docs/guide/packaging-osx.html
+-  `https://kivy.org/docs/guide/packaging-osx.html <%5Dhttps://kivy.org/docs/guide/packaging-osx.html>`__

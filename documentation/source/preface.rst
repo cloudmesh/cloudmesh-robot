@@ -20,7 +20,7 @@ Contributors
 -  Gregor von Laszewski (`laszewski@gmail.com <laszewski@gmail.com>`__)
 -  Fugang Wang (kevinwnagfg@gmail.com)
 -  Syed
--  Jonathan
+-  Jonathan Montgomery (jonmontgomery62@gmail.com)
 
 Contact
 -------

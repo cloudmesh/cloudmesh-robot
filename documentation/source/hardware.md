@@ -33,7 +33,8 @@ The raspberry PI 3 is a very good development platform. With its base price of $
 * Good environment for learning Linux and Python
 * Reasonable interfaces to IoT sensors
 * excellent camera support
-* excelent choice of expansion papcakes including Grove Sensors that make it easy to attach sensors and actuators. An example package is the [Grove starter](https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html) set for about $50
+* excelent choice of expansion papcakes including Grove Sensors that make it easy to attach sensors and actuators. An example package is the [Grove Starter Kit](https://www.amazon.com/GrovePi-Starter-Kit-Dexter-Industries/dp/B00TXTZ5SQ/ref=pd_lpo_vtph_147_bs_tr_img_1?_encoding=UTF8&psc=1&refRID=45QX6XSNZAG1NT8NES79) for about $90
+
 
 *Disadvantages:*
 
@@ -115,7 +116,7 @@ Simple sensors can be attached to the boards with cables (that you need to purch
 
 Grove sensors have ready-made cables that make them easy to attach to the Raspberry PI. However, they are more expensive. You still need a Raspberry PI.  No soldering iron and no breadboards are required.
 
-* [Grove Starter Set](https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html)
+* for Arduino: [Grove Starter Set](https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html)
 * [Seed Studio Grove Sensors](https://www.seeedstudio.com/category/Grove-c-1003.html)
 * [Grove Shield for NodeMCU](https://www.seeedstudio.com/Grove-Base-Shield-for-NodeMCU-p-2513.html)
 * [Grove Cable](http://www.switchdoc.com/2016/02/tutorial-intro-to-grove-connectors-for-arduinoraspberry-pi-projects/)

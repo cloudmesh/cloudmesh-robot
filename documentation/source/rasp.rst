@@ -57,7 +57,6 @@ source
 VLC on OSX
 ----------
 
--  https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/
 -  http://www.videolan.org/vlc/index.en_GB.html
 -  http://get.videolan.org/vlc/2.2.6/macosx/vlc-2.2.6.dmg
 -  http://www.mybigideas.co.uk/RPi/RPiCamera/
@@ -66,6 +65,7 @@ VLC on OSX
 
    sudo apt-get install vlc
 
+-  https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/
 -  https://www.hackster.io/bestd25/pi-car-016e66
 
 STreaming video
@@ -138,11 +138,19 @@ Set the I2C bus speed to 400KHz by adding to /boot/config.txt:
 
     dtparam=i2c1_baudrate=400000
 
-reboot
+reboot. In terminal change directories to
 
-cd /home/pi/github/RTIMULib2/RTIMULib/IMUDrivers emacs RTIMUDefs.h
+::
 
-Change
+    cd /home/pi/github/RTIMULib2/RTIMULib/IMUDrivers
+
+and open
+
+::
+
+    emacs RTIMUDefs.h
+
+In RTIMUDefs.h change
 
 ::
 
@@ -158,6 +166,10 @@ To
 
     cd /home/pi/github/RTIMULib2/RTIMULib
 
+In terminal
+
+::
+
     mkdir build
     cd build
     cmake ..
@@ -168,17 +180,34 @@ To
 compile RTIMULib Apps
 ---------------------
 
-cd /home/pi/github/RTIMULib2/Linux/RTIMULibCal make clean; make -j4 sudo
-make install cd /home/pi/github/RTIMULib2/Linux/RTIMULibDrive make
-clean; make -j4 sudo make install cd
-/home/pi/github/RTIMULib2/Linux/RTIMULibDrive10 make clean; make -j4
-sudo make install cd /home/pi/github/RTIMULib2/Linux/RTIMULibDrive11
-make clean; make -j4 sudo make install
+::
 
-| cd /home/pi/github/RTIMULib2/Linux/RTIMULibDemo
-| qmake clean make clean qmake make -j4 sudo make install cd
-  /home/pi/github/RTIMULib2/Linux/RTIMULibDemoGL qmake clean make clean
-  qmake make -j4 sudo make install
+    cd /home/pi/github/RTIMULib2/Linux/RTIMULibCal
+    make clean; make -j4
+    sudo make install
+    cd /home/pi/github/RTIMULib2/Linux/RTIMULibDrive
+    make clean; make -j4
+    sudo make install
+    cd /home/pi/github/RTIMULib2/Linux/RTIMULibDrive10
+    make clean; make -j4
+    sudo make install
+    cd /home/pi/github/RTIMULib2/Linux/RTIMULibDrive11
+    make clean; make -j4
+    sudo make install
+
+
+    cd /home/pi/github/RTIMULib2/Linux/RTIMULibDemo    
+    qmake clean
+    make clean
+    qmake
+    make -j4
+    sudo make install
+    cd /home/pi/github/RTIMULib2/Linux/RTIMULibDemoGL
+    qmake clean
+    make clean
+    qmake
+    make -j4
+    sudo make install
 
 Camera
 ------
@@ -186,13 +215,17 @@ Camera
 -  `Camera
    Tutorial <https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/>`__
 
-<<<<<<< HEAD:docs/rasp.md sudo apt-get install libjpeg-dev libtiff5-dev
-libjasper-dev libpng12-dev sudo apt-get install libavcodec-dev
-libavformat-dev libswscale-dev libv4l-dev
+.
 
-sudo apt-get install libxvidcore-dev libx264-dev
+::
 
-sudo pip install virtualenv virtualenvwrapper sudo rm -rf ~/.cache/pip
+    sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+    sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+
+    sudo apt-get install libxvidcore-dev libx264-dev
+
+    sudo pip install virtualenv virtualenvwrapper
+    sudo rm -rf ~/.cache/pip
 
 copy into ~/.profile:
 
@@ -204,27 +237,31 @@ copy into ~/.profile:
 
 source ~/.profile
 
-mkvirtualenv cv -p python3
+::
+
+    mkvirtualenv cv -p python3
 
 workon cv
 
 comandline has (cv) in front
 
-pip install numpy
+::
 
-wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip
-wget -O opencv\_contrib.zip
-https://github.com/Itseez/opencv\_contrib/archive/3.1.0.zip unzip
-opencv.zip unzip opencv\_contrib.zip =======
+    pip install numpy
+
+    wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip
+    wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip
+    unzip opencv.zip
+    unzip opencv_contrib.zip
+
+=======
 
 Lessons and projects
 ====================
 
-*`Gui <https://www.raspberrypi.org/learning/getting-started-with-guis/worksheet/>`__
-*\ `Solder <https://www.raspberrypi.org/learning/getting-started-with-guis/>`__
-*`PI Camera Line
-Follower <https://www.raspberrypi.org/blog/an-image-processing-robot-for-robocup-junior/>`__
-* `Pi car
-flask <https://circuitdigest.com/microcontroller-projects/web-controlled-raspberry-pi-surveillance-robot>`__
->>>>>>>
-6f8f00d26168f29994b24b321b9ac0c4d8a51aa8:documentation/source/rasp.md
+-  `Gui <https://www.raspberrypi.org/learning/getting-started-with-guis/worksheet/>`__
+-  `Solder <https://www.raspberrypi.org/learning/getting-started-with-guis/>`__
+-  `PI Camera Line
+   Follower <https://www.raspberrypi.org/blog/an-image-processing-robot-for-robocup-junior/>`__
+-  `Pi car
+   flask <https://circuitdigest.com/microcontroller-projects/web-controlled-raspberry-pi-surveillance-robot>`__
