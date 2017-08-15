@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>jQuery DynaMeter Plugin Demos</title>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"> 
+	<link rel="stylesheet" type="text/css" href="css/jquery.dynameter.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css"><link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/other/jQuery-Plugin-To-Generate-Animated-Dynamic-Gauges-dynameter.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+	<div id="container" style="margin-top:150px;">
+		<h1>jQuery DynaMeter Plugin Demos</h1>
+		<div id="payloadMeterDiv"></div><div id="fuelMeterDiv"></div><br>
+<br>
+
+		<div id="payloadSliderDiv"></div><div id="fuelSliderDiv"></div>
+	
+		
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.dynameter.js"></script>
+	<script type="text/javascript">
+		var $myPayloadMeter, $myFuelMeter;
+		$( function () {
+			// No need to declare DynaMeter vars outside this anonymous function, 
+			// because the value-update code's also inside here.
+
+			// Initialize payload meter and slider.
+		    $myPayloadMeter = $("div#payloadMeterDiv").dynameter({
+		    	width: 200,
+		    	label: 'payload',
+		    	value: 500,
+		    	min: 0,
+		    	max: 1000,
+		    	unit: 'lbs',
+		    	regions: {
+		    		800: 'warn',
+		    		900: 'error'
+		    	}
+		    });
+		    $('div#payloadSliderDiv').slider({
+		    	min: 0,
+		    	max: 1000,
+		    	value: 500,
+		    	step: 10,
+		    	slide: function (evt, ui) {
+		    		$myPayloadMeter.changeValue(ui.value);
+		    	}
+		    });
+
+		    // Initialize score meter and slider.
+		    $myFuelMeter = $("div#fuelMeterDiv").dynameter({
+		    	width: 200,
+		    	label: 'fuel',
+		    	value: 7.5,
+		    	min: 0.0,
+		    	max: 15.0,
+		    	unit: 'gal',
+		    	regions: {
+		    		0: 'error',
+		    		.5: 'warn',
+		    		1.5: 'normal'
+		    	}
+		    });
+		    $('div#fuelSliderDiv').slider({
+		    	min: 0.0,
+		    	max: 15.0,
+		    	value: 7.5,
+		    	step: .1,
+		    	slide: function (evt, ui) {
+		    		$myFuelMeter.changeValue((ui.value).toFixed(1));
+		    	}
+		    });
+		});
+	</script>
+
+</body>
+
+</html>

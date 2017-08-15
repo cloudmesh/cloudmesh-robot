@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>jQuery DynaMeter Plugin Demos</title>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"> 
+	<link rel="stylesheet" type="text/css" href="css/jquery.dynameter.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css"><link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+	<div id="container"">
+		<h1>jQuery DynaMeter Plugin Demos</h1>
+		<div id="payloadMeterDiv"></div><div id="fuelMeterDiv"></div><br>
+<br>
+
+		<div id="payloadSliderDiv"></div><div id="fuelSliderDiv"></div>
+	
+		
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.dynameter.js"></script>
+	<script type="text/javascript">
+		var $myLeftMeter, $myRightMeter;
+		$( function () {
+			// No need to declare DynaMeter vars outside this anonymous function, 
+			// because the value-update code's also inside here.
+
+			// Initialize payload meter and slider.
+		    $myLeftMeter = $("div#payloadMeterDiv").dynameter({
+		    	width: 200,
+		    	label: 'Left',
+		    	value: 500,
+		    	min: 0,
+		    	max: 1000,
+		    	unit: 'Speed',
+		    	regions: {
+		    		800: 'warn',
+		    		900: 'error'
+		    	}
+		    });
+		    $('div#payloadSliderDiv').slider({
+		    	min: 0,
+		    	max: 1000,
+		    	value: 500,
+		    	step: 10,
+		    	slide: function (evt, ui) {
+		    		$myLeftMeter.changeValue(ui.value);
+		    	}
+		    });
+
+		    
+		});
+	</script>
+
+</body>
+
+</html>
