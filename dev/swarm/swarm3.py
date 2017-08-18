@@ -1,19 +1,23 @@
 import math
-from marvelmind import MarvelmindHedge
-import requests
 import time
+
+import requests
+
+from dev.swarm.swarm import MarvelmindHedge
 
 
 class Robot(object):
 
-    def __init__(self, number, ip, final_x, final_y, epsilon=4):
+    def __init__(self, number, ip, final_x, final_y, epsilon=10):
         self.number = int(number)
         self.ip = str(ip)
         self.fx = int(final_x)
         self.fy = int(final_y)
         self.epsilon = int(epsilon)
         self.addr, self.last_x, self.last_y, self.last_z, self.last_t = hedge.number_position(self.number)
+        self.cx, self.cy = self.last_x, self.last_y
         self.done = False
+        self.done_number = 0
 
     def update(self):
         return hedge.number_position(self.number)
@@ -121,14 +125,16 @@ class Robot(object):
         """
         calculates turn angle and sends turn command to robot
         """
-        addr, cx, cy, cz, ct = self.update()  # get current position
-        self.check_done(cx, cy)
+        self.last_x = self.cx
+        self.last_y = self.cy
+        addr, self.cx, self.cy, cz, ct = self.update()  # get current position
+        self.check_done(self.cx, self.cy)
         if not self.done:
             print('current position: ')
-            print(cx, cy)
+            print(self.cx, self.cy)
             print('last position: ')
             print(self.last_x, self.last_y)
-            v1, v2 = self.find_vectors(self.last_x, self.last_y, cx, cy, self.fx, self.fy)  # get vector positions
+            v1, v2 = self.find_vectors(self.last_x, self.last_y, self.cx, self.cy, self.fx, self.fy)  # get vector positions
             delta_angle = int(self.find_delta(v1, v2))  # get angle change
             print('angle change: ')
             print(delta_angle)
@@ -142,15 +148,34 @@ class Robot(object):
                 self.move(direction, delta_angle)  # turn robot
             else:
                 print('on track')
-            self.last_x = cx
-            self.last_y = cy
             print('turn done')
         else:
             print('done')
 
+    def if_done(self):
+        print('done?', self.done, self.done_number)
+        if self.done and self.done_number < 1:
+            print('final turn')
+            v1, v2 = self.find_vectors(self.last_x, self.last_y, self.cx, self.cy, self.cx, 0)
+            delta_angle = int(self.find_delta(v1, v2))
+            angle1 = int(self.find_angle(v1[0], v1[1]))  # get unit vector angles
+            angle2 = int(self.find_angle(v2[0], v2[1]))
+            print(angle1, angle2)
+            direction = self.turn_direction(angle1, angle2)
+            self.move(direction, delta_angle)
+            self.done_number += 1
+        else:
+            pass
+
     def go(self):
         if not self.done:
-            self.move('forward', .3)
+            distance = int(math.sqrt(((self.cx - self.fx) ** 2) + ((self.cy - self.fy) ** 2)))
+            if distance > 50:
+                self.move('forward', 1)
+            elif 20 <= distance <= 50:
+                self.move('forward', .5)
+            elif distance < 20:
+                self.move('forward', .3)
 
 
 class RobotSwarm(object):
@@ -189,7 +214,7 @@ class RobotSwarm(object):
         self.make_robots()
         for robot in self.robots:
             robot.move("forward", 1)
-        time.sleep(1.5)
+        time.sleep(1.2)
         while not self.done:
             for robot in self.robots:
                 robot.turn()
@@ -198,12 +223,13 @@ class RobotSwarm(object):
                 robot.go()
             time.sleep(.5)
             self.check_done()
+            for robot in self.robots:
+                robot.if_done()
 
 hedge = MarvelmindHedge('/dev/tty.usbmodem1421')
 hedge.start()
 time.sleep(2)
 print('starting')
-rs = RobotSwarm('maold.txt')
+rs = RobotSwarm('ma.txt')
 print('swarm made')
 rs.run()
-

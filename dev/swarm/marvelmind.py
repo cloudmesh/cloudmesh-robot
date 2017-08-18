@@ -105,6 +105,27 @@ class MarvelmindHedge(Thread):
             else:
                 pass
 
+    def list_positions(self, lon):
+        """
+        returns the positions of a list of hedge numbers as fast as possible
+        :param lon: ListOfNumbers
+        :return: ListOfCoordinates
+        """
+        done = False
+        positions = {}
+        while not done:
+            hedge, x, y, z, t = self.position()
+            hedge = str(hedge)
+            if hedge in lon:
+                positions.update({hedge: [x, y]})
+            else:
+                continue
+            if len(positions) == len(lon):
+                done = False
+            else:
+                continue
+        return positions
+
     def stop(self):
         self.terminationRequired = True
         print ("stopping")

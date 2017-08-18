@@ -1,12 +1,14 @@
 import math
-from marvelmind import MarvelmindHedge
-import requests
 import time
+
+import requests
+
+from dev.swarm.swarm import MarvelmindHedge
 
 
 class Robot(object):
 
-    def __init__(self, number, ip, final_x, final_y, epsilon=10):
+    def __init__(self, number, ip, final_x, final_y, epsilon=10, last_angle=90):
         self.number = int(number)
         self.ip = str(ip)
         self.fx = int(final_x)
@@ -16,6 +18,7 @@ class Robot(object):
         self.cx, self.cy = self.last_x, self.last_y
         self.done = False
         self.done_number = 0
+        self.last_angle = int(last_angle)
 
     def update(self):
         return hedge.number_position(self.number)
@@ -144,8 +147,10 @@ class Robot(object):
             if delta_angle > 10:
                 print(direction)
                 self.move(direction, delta_angle)  # turn robot
+                self.last_angle = angle2
             else:
                 print('on track')
+                self.last_angle = angle1
             print('turn done')
         else:
             print('done')
@@ -208,11 +213,72 @@ class RobotSwarm(object):
             else:
                 self.done = True
 
+    def crash_avoidance(self):
+        avoided = False
+        go_again = False
+        while not avoided:
+            print('checking trajectories...')
+            for robot in self.robots:
+                print('checking robot')
+                if not robot.done:
+                    print('robot is still moving')
+                    m = math.tan((robot.last_angle * math.pi) / 180)
+                    print('robot angle:', str(robot.last_angle))
+                    b = robot.cy - (m * robot.cx)
+                    b1 = b - (10 * math.sqrt(1 + (m ** 2)))
+                    b2 = b + (10 * math.sqrt(1 + (m ** 2)))
+                    print('line 1, y=' + str(m) + 'x +', str(b1))
+                    print('robot line, y=' + str(m) + 'x +', str(b))
+                    print('line 2, y=' + str(m) + 'x +', str(b2))
+                    for other in self.robots:
+                        print('checking other robot')
+                        if robot.cx == other.cx and robot.cy == other.cy:
+                            print("it's the same robot")
+                            if not go_again:
+                                avoided = True
+                        else:
+                            if other.done:
+                                print('other is done.')
+                                print('analyzing trajectory')
+                                print('robot position', str(other.cx), str(other.cy))
+                                y1 = (m * other.cx) + b1
+                                y2 = (m * other.cx) + b2
+                                if y1 < other.cy < y2 or y2 < other.cy < y1:
+                                    print('other is within parameters')
+                                    distance = math.sqrt(((other.cx - robot.cx) ** 2) + ((other.cy - robot.cy) ** 2))
+                                    if distance < 50:
+                                        print('on track for collision')
+                                        print('turning to avoid')
+                                        robot.move('left', 60)
+                                        if robot.last_angle < 300:
+                                            robot.last_angle = robot.last_angle + 60
+                                        else:
+                                            robot.last_angle = robot.last_angle - 300
+                                        avoided = False
+                                        go_again = True
+                                    else:
+                                        print('collision unlikely')
+                                        avoided = True
+
+                                else:
+                                    print('not on track for collision')
+                                    if not go_again:
+                                        avoided = True
+                            else:
+                                print('other robot is still moving')
+                                if not go_again:
+                                    avoided = True
+                else:
+                    print('robot is done')
+                    if not go_again:
+                        avoided = True
+            go_again = False
+
     def run(self):
         self.make_robots()
         for robot in self.robots:
             robot.move("forward", 1)
-        time.sleep(1.2)
+        time.sleep(1.5)
         while not self.done:
             for robot in self.robots:
                 robot.turn()
@@ -227,7 +293,17 @@ class RobotSwarm(object):
 hedge = MarvelmindHedge('/dev/tty.usbmodem1421')
 hedge.start()
 time.sleep(2)
-print('starting')
-rs = RobotSwarm('ma.txt')
-print('swarm made')
-rs.run()
+rs = RobotSwarm('maold.txt')
+rs.robots = [Robot('1', '10.0.1.101', '100', '100', 10, 0), Robot('2', '10.0.1.118', '10', '100', 10, 180)]
+print('Robots initialized')
+a, rs.robots[0].cx, rs.robots[0].cy, z, t = hedge.number_position(rs.robots[0].number)
+print('position gotten')
+rs.robots[0].done = True
+rs.robots[1].move('forward', 1)
+time.sleep(.6)
+for r in rs.robots:
+    r.turn()
+rs.crash_avoidance()
+
+
+
