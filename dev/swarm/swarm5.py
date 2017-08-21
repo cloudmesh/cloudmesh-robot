@@ -18,6 +18,11 @@ class Robot(object):
         self.mode = "far"
         self.last_angle = int(last_angle)
         self.turn_mode = True
+        self.A = None
+        self.B = None
+        self.C = None
+        self.m = None
+        self.b = None
 
     def update(self, positions):
         """
@@ -146,7 +151,6 @@ class Robot(object):
         :param positions: Dictionary
         :return: None
         """
-        self.update(positions)
         print('current position: ')
         print(self.cx, self.cy)
         print('last position: ')
@@ -171,7 +175,7 @@ class Robot(object):
     def when_done(self):
         """
         turns robot perpendicular to x axis
-        :return:
+        :return: None
         """
         print('done?', self.done)
         print('final turn')
@@ -184,6 +188,10 @@ class Robot(object):
         self.move(direction, delta_angle)
 
     def go(self):
+        """
+
+        :return:
+        """
         if not self.done:
             distance = int(math.sqrt(((self.cx - self.fx) ** 2) + ((self.cy - self.fy) ** 2)))
             if distance > 50:
@@ -206,7 +214,6 @@ class Robot(object):
         :param positions: Dictionary
         :return: None
         """
-        self.update(positions)
         if abs(self.fx - self.cx) < 10 and abs(self.fy - self.cy) < 10:
             self.done = True
         else:
@@ -217,6 +224,41 @@ class Robot(object):
                 self.turn_mode = True
                 self.move('forward', .4)
 
+    def set_line(self):
+        """
+        sets a line from current position to end position
+        :return: None
+        """
+        self.m = ((self.fy - self.cy) / (self.fx - self.cx))
+        self.b = self.fy - (self.m * self.fx)
+        self.A = 0 - self.m
+        self.B = 1
+        self.C = (self.m * self.fx) - self.fy
+
+    def line_distance(self):
+        """
+        finds distance between current position and ideal line
+        :return: Number
+        """
+        d = (abs(((0 - self.m) * self.cx) + self.cy + (self.m * self.fx) - self.fy) / math.sqrt((self.m ** 2) + 1))
+        return d
+
+    def line_side(self):
+        """
+        finds whether the robot is to the left or right of ideal line
+        :return: String
+        """
+        yexp = (self.cx * self.m) + self.b
+        if self.cy > yexp:
+            if self.m > 0:
+                return "left"
+            else:
+                return "right"
+        else:
+            if self.m > 0:
+                return "right"
+            else:
+                return "left"
 
     def move_far(self, positions):
         """
@@ -224,7 +266,22 @@ class Robot(object):
         :param positions: Dictionary
         :return: None
         """
-
+        side = self.line_side()
+        d = self.line_distance()
+        if d > 20:
+            if side == "left":
+                magnitude = -1
+            elif side == "right":
+                magnitude = 1
+        else:
+            if side == "left":
+                magnitude = 0 - (d / 20)
+            elif side == "right":
+                magnitude = d / 20  # change maximum off line distance here
+        offset = magnitude * 150
+        left_duty = 870 - offset
+        right_duty = 870 + offset
+        self.move('set', str(left_duty) + ':' + str(right_duty))
 
     def run(self, positions):
         """
@@ -269,6 +326,10 @@ class RobotSwarm(object):
         self.moving_hedge_numbers = self.hedge_numbers
 
     def check_done(self):
+        """
+        checks the values of self.done for each robot in the swarm
+        :return: Boolean
+        """
         for robot in self.robots:
             if not robot.done:
                 self.done = False
@@ -298,19 +359,35 @@ class RobotSwarm(object):
             robot.update(positions)
 
     def start(self):
+        """
+        starts robots, turns toward end positions, finds ideal lines
+        :return: None
+        """
         for robot in self.robots:
-            robot.move('forward', .5)
+            robot.first_step()
+        time.sleep(.5)
         positions = self.get_positions()
         for robot in self.robots:
+            robot.update(positions)
+        for robot in self.robots:
             robot.turn(positions)
+        for robot in self.robots:
+            robot.set_line()
 
     def run(self):
+        """
+        runs robot swarm to final positions
+        :return: None
+        """
         self.start()
-        time.sleep(.5)
         while not self.done:
-            positions = self.get_positions()
+            print('positions asked')
+            positions = self.get_positions()  # marvelmind chokes speed
+            print('positions:', positions)
             for robot in self.robots:
-                robot.run(positions)
+                print(robot, 'running')
+                robot.run(positions)  # web requests choke speed
+                print(robot, 'run')
             self.check_done()
         for robot in self.robots:
             robot.when_done()
@@ -321,3 +398,5 @@ class RobotSwarm(object):
 hedge = MarvelmindHedge('/dev/tty.usbmodem1421')
 hedge.start()
 time.sleep(2)
+swarm = RobotSwarm('swarm.txt')
+swarm.run()

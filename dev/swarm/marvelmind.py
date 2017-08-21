@@ -115,9 +115,9 @@ class MarvelmindHedge(Thread):
         positions = {}
         while not done:
             hedge, x, y, z, t = self.position()
-            hedge = str(hedge)
+            hedge = int(hedge)
             if hedge in lon:
-                positions.update({hedge: [x, y]})
+                positions.update({hedge: [int(x), int(y)]})
             else:
                 continue
             if len(positions) == len(lon):
