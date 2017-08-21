@@ -13,9 +13,8 @@ from ruamel import yaml
 import json
 import plistlib
 
+
 class UsbCommand(PluginCommand):
-
-
     @command
     def do_usb(self, args, arguments):
         """
@@ -39,16 +38,16 @@ class UsbCommand(PluginCommand):
 
         if arguments.list:
 
-            r = Shell.execute('system_profiler',  'SPUSBDataType')
+            r = Shell.execute('system_profiler', 'SPUSBDataType')
             r = r.replace("\n\n", "\n")
-            r = r.replace("        iBridge:","      iBridge:")
-            print (r)
+            r = r.replace("        iBridge:", "      iBridge:")
+            print(r)
 
-            #d = yaml.load(r)
+            # d = yaml.load(r)
 
             # d = json.loads(r)
 
-            #pprint(d)
+            # pprint(d)
 
         elif arguments.plist:
 
@@ -59,12 +58,12 @@ class UsbCommand(PluginCommand):
         elif arguments.ioreg:
 
             # r = Shell.execute('ioreg', ["-p", "IOSUP", "-w0", "-l"])
-            #r = Shell.execute('ioreg', ["-p", "IOSUP", "-w0", "-l"])
+            # r = Shell.execute('ioreg', ["-p", "IOSUP", "-w0", "-l"])
 
-            r =Shell.execute("ioreg",  ["-p", "IOUSB", "-b", "-n", "USB2.0-Serial"])
-            print (r)
+            r = Shell.execute("ioreg", ["-p", "IOUSB", "-b", "-n", "USB2.0-Serial"])
+            print(r)
 
             print(r)
 
-            #r = Shell.execute("ioreg",  ["-a", "-p", "IOUSB", "-w0", "-l", "-f"])
-            #print(plistlib.loads(r))
+            # r = Shell.execute("ioreg",  ["-a", "-p", "IOUSB", "-w0", "-l", "-f"])
+            # print(plistlib.loads(r))

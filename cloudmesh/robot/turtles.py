@@ -5,13 +5,13 @@ from cloudmesh.common.parameter import Parameter
 import turtle
 from multiprocessing import Process
 
+
 def expand(robots):
     r = Parameter.expand(robots)
     return r
 
 
 class Car(object):
-
     def __init__(self, id, name, ip, color, environment=None):
         self.car = turtle.Turtle()
         self.car.pencolor(color)
@@ -25,14 +25,12 @@ class Car(object):
             self.DT = 1000.0
         self.mode(environment)
 
-
-    def place(self,x,y):
+    def place(self, x, y):
         self.car.penup()
         self.car.setx(x)
         self.car.sety(y)
         self.car.pendown()
         self.last = turtle.pos()
-
 
     def mode(self, name):
         self.environment = name
@@ -47,58 +45,54 @@ class Car(object):
                 payload = {'LEFT': 'ON'}
             elif direction == 'right':
                 payload = {'RIGHT': 'ON'}
-            elif  direction == 'stop':
+            elif direction == 'stop':
                 payload = {'STOP': 'ON'}
             elif direction == 'forward':
                 payload = {'FORWARD': 'ON'}
             elif direction == 'backward':
                 payload = {'BACK': 'ON'}
             else:
-                print ("ERROR: unkown direction:", direction)
+                print("ERROR: unkown direction:", direction)
 
             try:
                 headers = {'User-Agent': "Car"}
                 r = requests.get('http://' + ip, headers=headers, params=payload)
             except Exception as e:
-                print (type(e), e)
+                print(type(e), e)
         elif self.environment == "turtle":
             turtle.setpos(self.last)
             if direction == 'left':
                 self.car.left(unit)
             elif direction == 'right':
                 self.car.right(unit)
-            elif  direction == 'stop':
+            elif direction == 'stop':
                 pass
             elif direction == 'forward':
-                self.car.forward(int(self.DT*unit))
+                self.car.forward(int(self.DT * unit))
             elif direction == 'backward':
                 self.car.forward(int(-1.0 * self.DT * unit))
 
             else:
-                print ("ERROR: unkown direction:", direction)
-            #self.last = turtle.pos()
+                print("ERROR: unkown direction:", direction)
+                # self.last = turtle.pos()
 
+                # for ip in ips:
+                # self.move(ip, direction)
 
+                # time.sleep(duration)
+                # for ip in ips:
+                #   self.move(ip, "stop")
 
-                #for ip in ips:
-            # self.move(ip, direction)
-
-            #time.sleep(duration)
-            #for ip in ips:
-            #   self.move(ip, "stop")
-
-        # direction = "stop"
-        # for ip in ips:
-        #    self.move(ip, direction)
+                # direction = "stop"
+                # for ip in ips:
+                #    self.move(ip, direction)
 
 
 class Cars(object):
-
     def __init__(self, ips):
         self.ips = ips
         self.cars = []
         self.lines = None
-
 
     def mode(self, name):
         self.environment = name
@@ -109,7 +103,7 @@ class Cars(object):
     def name(self, id):
         return self.ips[id][0]
 
-    def ip (self, id):
+    def ip(self, id):
         return self.ips[id][1]
 
     def distance(self, distance):
@@ -117,7 +111,7 @@ class Cars(object):
 
     def __str__(self):
         lines = []
-        for i in range(0,self.count()):
+        for i in range(0, self.count()):
             line = "# Car {}: {} {}".format(i, self.ips[i][0], self.ips[i][1])
             lines.append(line)
         return '\n'.join(lines)
@@ -126,17 +120,17 @@ class Cars(object):
         f = open(filename)
         self.lines = f.read().splitlines()
         f.close()
-        print ("# SCRIPT")
+        print("# SCRIPT")
         for line in self.lines:
-            print ("#    ", line)
-        print ("# END SCRIPT")
+            print("#    ", line)
+        print("# END SCRIPT")
 
     def add(self, car):
         self.cars.append(car)
 
     def run(self):
         for line in self.lines:
-            print ("#", line)
+            print("#", line)
             if line == "\n" or line.startswith("#"):
                 pass
             else:
@@ -155,8 +149,7 @@ class Cars(object):
                 elif "place" in line:
                     command, x, y, robots = line.split()
                     for r in expand(robots):
-                        self.cars[int(r)].place(float(x),float(y))
-
+                        self.cars[int(r)].place(float(x), float(y))
 
                 elif "forward" in line or "backward" in line or "left" in line or "right" in line:
                     direction, duration, robots = line.strip().split(' ')
@@ -164,12 +157,13 @@ class Cars(object):
                     distance = self.DT * duration
 
                     for r in expand(robots):
-                        print (" ",  direction,  duration, r)
-                        self.cars[int(r)].move(direction,duration)
+                        print(" ", direction, duration, r)
+                        self.cars[int(r)].move(direction, duration)
                 else:
                     pass
 
-#def names(ips):
+
+# def names(ips):
 #    print (ips.keys())
 
 if __name__ == "__main__":
@@ -186,10 +180,10 @@ if __name__ == "__main__":
 
     print(cars)
 
-    wn = turtle.Screen()        # creates a graphics window
+    wn = turtle.Screen()  # creates a graphics window
 
-    #def a():
-    for i in range(0,len(ips)):
+    # def a():
+    for i in range(0, len(ips)):
         car = Car(i, "robi" + str(i), ips[i], colors[i])
         cars.add(car)
 
@@ -198,4 +192,3 @@ if __name__ == "__main__":
     cars.run()
 
     wn.exitonclick()
-

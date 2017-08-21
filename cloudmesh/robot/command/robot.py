@@ -15,19 +15,17 @@ from cloudmesh.common.parameter import Parameter
 from cloudmesh.common.StopWatch import StopWatch
 from ruamel import yaml
 
-#CHANGE ME
+# CHANGE ME
 from cloudmesh.robot.library.inventory import NetworkInventory
 
+
 class RobotCommand(PluginCommand):
-
-# characters from towel.blinkenlights.nl
-
+    # characters from towel.blinkenlights.nl
 
     class Banner(object):
 
         @classmethod
         def show(cls):
-
             banner = textwrap.dedent("""
                 +-----------------------------------+
                 |                        /~\        |                  
@@ -47,8 +45,6 @@ class RobotCommand(PluginCommand):
                 +------------------------------------
                 """)
             return banner
-
-
 
     @command
     def do_robot(self, args, arguments):
@@ -94,7 +90,7 @@ class RobotCommand(PluginCommand):
         arguments.dryrun = arguments["--dryrun"]
 
         def _run(command):
-            print (command)
+            print(command)
             if arguments.dryrun:
                 print(command)
             else:
@@ -111,26 +107,25 @@ class RobotCommand(PluginCommand):
 
             p = Probe()
             Console.error("If you do not see a >>> please press the reset button.")
-            print (p)
+            print(p)
 
             data = {
                 'tty': p.tty,
                 'baudrate': "115200"
             }
 
-            #if 'tty.SLAB_USBtoUART' in p.tty:
+            # if 'tty.SLAB_USBtoUART' in p.tty:
             #    data["baudrate"] = "9600"
-            #else:
+            # else:
             #    data["baudrate"] = "115200"
-
 
             os.system("picocom --imap lfcrlf -b {baudrate} {tty}".format(**data))
 
         elif arguments.flash and arguments.erase:
 
             p = Probe()
-            print (p.tty)
-            print ("Please press the right buttons")
+            print(p.tty)
+            print("Please press the right buttons")
 
             _continue("continue?")
             command = "esptool.py --port {} erase_flash".format(p.tty)
@@ -139,13 +134,13 @@ class RobotCommand(PluginCommand):
         elif arguments.flash and arguments.python:
 
             p = Probe()
-            print (p.tty)
-            print ("Please press the right buttons")
+            print(p.tty)
+            print("Please press the right buttons")
 
             _continue("continue?")
 
             d = {
-                "baud": str(9600*6),
+                "baud": str(9600 * 6),
                 "dir": ".",
                 "image": "esp8266-20170108-v1.8.7.bin",
                 "port": p.tty}
@@ -153,19 +148,20 @@ class RobotCommand(PluginCommand):
             if 'tty.SLAB_USBtoUART' in p.tty:
                 d["baud"] = str(460800)
 
-            command = "esptool.py --port {port} --baud {baud} write_flash --flash_size=detect -fm dio 0x00000 {image}".format(**d)
+            command = "esptool.py --port {port} --baud {baud} write_flash --flash_size=detect -fm dio 0x00000 {image}".format(
+                **d)
             _run(command)
-            #"esptool.py --port /dev/tty.wchusbserial1410 --baud 9600 write_flash --flash_size=detect -fm dio 0x00000 esp8266-20170108-v1.8.7.bin"
+            # "esptool.py --port /dev/tty.wchusbserial1410 --baud 9600 write_flash --flash_size=detect -fm dio 0x00000 esp8266-20170108-v1.8.7.bin"
 
         elif arguments.osx and arguments.install:
 
             o = sys.platform
 
-            print (o)
+            print(o)
 
             if sys.platform == 'darwin':
                 if Shell.command_exists("brew"):
-                   pass
+                    pass
                 else:
                     os.system(
                         '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
@@ -181,9 +177,9 @@ class RobotCommand(PluginCommand):
                         if r is None:
                             r = Brew.install(package)
                         else:
-                            print ("    [OK]",  package, "already installed")
+                            print("    [OK]", package, "already installed")
                     except Exception as e:
-                        print ("Error", e, type(e))
+                        print("Error", e, type(e))
                 #
                 # INSTALLING LIBRARIES WITH BREW
                 #
@@ -202,7 +198,7 @@ class RobotCommand(PluginCommand):
                 # INSTALLING CASK LIBRARIES AND COMMANDS WITH BREW
                 #
                 # libusb-compat
-                for package in ["adafruit-arduino", "pycharm-ce"]: # "aquamacs"
+                for package in ["adafruit-arduino", "pycharm-ce"]:  # "aquamacs"
                     try:
                         print("installing", package)
 
@@ -215,12 +211,11 @@ class RobotCommand(PluginCommand):
                 Console.error("Linux not yet supported. Install lua and picocom.")
             return ""
 
-
         elif arguments.osx and arguments.driver:
 
-            os.system("brew tap mengbo/ch340g-ch34g-ch34x-mac-os-x-driver https://github.com/mengbo/ch340g-ch34g-ch34x-mac-os-x-driver")
+            os.system(
+                "brew tap mengbo/ch340g-ch34g-ch34x-mac-os-x-driver https://github.com/mengbo/ch340g-ch34g-ch34x-mac-os-x-driver")
             os.system("brew cask install wch-ch34x-usb-serial-driver")
-
 
         elif arguments.probe:
 
@@ -229,7 +224,7 @@ class RobotCommand(PluginCommand):
                 p = Probe()
                 d = p.probe()
 
-                print (Printer.attribute(d, output=output_format))
+                print(Printer.attribute(d, output=output_format))
 
             except Exception as e:
 
@@ -242,12 +237,12 @@ class RobotCommand(PluginCommand):
             try:
 
                 if os.path.isfile("esp8266-20170108-v1.8.7.bin"):
-                    print ("... image already downloaded")
+                    print("... image already downloaded")
                 else:
                     os.system("wget http://micropython.org/resources/firmware/esp8266-20170108-v1.8.7.bin")
 
-                #g = Git()
-                #r = g.fetch()
+                    # g = Git()
+                    # r = g.fetch()
 
             except Exception as e:
 
@@ -324,7 +319,7 @@ class RobotCommand(PluginCommand):
                 ampy.put(arguments.SOURCE, dest=arguments.DESTINATION, optimize=optimize)
                 t.stop("put")
                 t.print("Time:", "put")
-                print("Rate:", "{0:.2f}".format(size/t.get("put")/1024), "KB/s")
+                print("Rate:", "{0:.2f}".format(size / t.get("put") / 1024), "KB/s")
             except Exception as e:
                 Error.traceback(e)
 
@@ -335,7 +330,7 @@ class RobotCommand(PluginCommand):
                 filename = path_expand("~/.cloudmesh/robot/credentials.txt.robot")
                 ampy.get("credentials.txt", filename)
                 r = Shell.cat(filename)
-                print (r)
+                print(r)
                 os.remove(filename)
             except Exception as e:
                 Error.traceback(e)
@@ -345,7 +340,7 @@ class RobotCommand(PluginCommand):
                 p = Probe()
                 ampy = Ampy(p.tty)
                 r = ampy.ls()
-                print (r)
+                print(r)
             except Exception as e:
                 Error.traceback(e)
 
@@ -375,14 +370,14 @@ class RobotCommand(PluginCommand):
 
         elif arguments.dance:
 
-            pprint (arguments)
+            pprint(arguments)
 
             from cloudmesh.robot.turtles import Car, Cars
             import turtle
 
             iplist = Parameter.expand(arguments.IPS)
 
-            print (iplist)
+            print(iplist)
 
             ips = []
             i = 1
@@ -390,7 +385,7 @@ class RobotCommand(PluginCommand):
                 spec = [i, ip]
                 ips.append(spec)
                 i = i + 1
-            print ("IPS", ips)
+            print("IPS", ips)
 
             try:
 
@@ -405,9 +400,8 @@ class RobotCommand(PluginCommand):
 
                 # def a():
                 for i in range(0, len(ips)):
-                    car = Car(i+1, "robi" + str(i+1), ips[i], colors[i])
+                    car = Car(i + 1, "robi" + str(i + 1), ips[i], colors[i])
                     cars.add(car)
-
 
                 cars.run()
 
@@ -437,12 +431,11 @@ class RobotCommand(PluginCommand):
 
             path = path_expand(arguments["--path"] or "~/.cloudmesh/robot/inventory.txt")
 
-            print (path)
+            print(path)
 
             if not os.path.isfile(path):
-                print ("ERROR: file does not exist")
+                print("ERROR: file does not exist")
                 sys.exit(1)
-
 
             if arguments.ID:
                 d = load_inventory(path)
@@ -457,14 +450,14 @@ class RobotCommand(PluginCommand):
                 with open(path) as stream:
                     try:
                         content = stream.read()
-                        print (content)
+                        print(content)
                     except Exception as e:
-                        print ("problem loading file", e)
+                        print("problem loading file", e)
 
             else:
 
                 d = load_inventory(path)
-                table = Printer.dict(d, order=['id', 'name', 'ip', 'mac',  'chipid'])
+                table = Printer.dict(d, order=['id', 'name', 'ip', 'mac', 'chipid'])
 
                 print(table)
 

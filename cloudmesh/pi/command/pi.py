@@ -14,7 +14,7 @@ from cloudmesh.common.parameter import Parameter
 from cloudmesh.common.StopWatch import StopWatch
 from ruamel import yaml
 
-pi_image= """echo \"$(tput setaf 2)
+pi_image = """echo \"$(tput setaf 2)
    .~~.   .~~.
   '. \ ' ' / .'$(tput setaf 1)
    .~ .~~~..~.
@@ -42,18 +42,15 @@ banner = textwrap.dedent("""
 
 
 class PiCommand(PluginCommand):
-
-# characters from towel.blinkenlights.nl
-
+    # characters from towel.blinkenlights.nl
 
     class Banner(object):
 
         @classmethod
         def show(cls):
             os.system(pi_image)
-            #return banner
+            # return banner
             return ""
-
 
     @command
     def do_pi(self, args, arguments):
@@ -83,7 +80,7 @@ class PiCommand(PluginCommand):
         arguments.dryrun = arguments["--dryrun"]
 
         def _run(command):
-            print (command)
+            print(command)
             if arguments.dryrun:
                 print(command)
             else:
@@ -105,11 +102,9 @@ class PiCommand(PluginCommand):
 
             pass
 
-
             # _continue("continue?")
             # command = "esptool.py --port {} erase_flash".format(p.tty)
             # _run(command)
-
 
         elif arguments.reboot:
 
@@ -124,6 +119,4 @@ class PiCommand(PluginCommand):
             else:
                 os.system("wget " + url)
 
-
             pass
-

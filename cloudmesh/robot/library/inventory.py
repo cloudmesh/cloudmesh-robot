@@ -1,5 +1,6 @@
 import yaml
 
+
 class NetworkInventory(object):
     def __init__(self, path):
         self._inventory = path
@@ -11,9 +12,9 @@ class NetworkInventory(object):
             dhcp.write("subnet 10.0.0.0 netmask 255.255.0.0 {\n")
             dhcp.write("  option subnet-mask 255.255.0.0;\n")
             dhcp.write("  range 10.0.1.10 10.0.1.254;\n\n")
-        
+
             self._create_records(path, dhcp)
-        
+
             dhcp.write("}\n")
 
     def _create_records(self, path, dhcp):
@@ -32,8 +33,10 @@ class NetworkInventory(object):
             dhcp.write("    fixed-address {};\n".format(record["ip"]))
             dhcp.write("  }\n")
 
+
 if __name__ == "__main__":
     import sys
-    assert(len(sys.argv) == 3)
+
+    assert (len(sys.argv) == 3)
     inv = NetworkInventory(sys.argv[1])
     inv.export(sys.argv[2])

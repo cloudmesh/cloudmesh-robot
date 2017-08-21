@@ -1,8 +1,7 @@
 from __future__ import print_function
 
 
-class vehicle(object):
-
+class Vehicle(object):
     def __init__(self, name, history):
         """
         createa vehicle, history is a file to which we save the position
@@ -55,10 +54,9 @@ class vehicle(object):
         """
         pass
 
-
     def drive_to(self, x, y, z, dt=0.1):
         """
-        drives to the postion x,y,z
+        drives to the position x,y,z
         :param x: 
         :param y: 
         :param z: ignore for now 
@@ -69,7 +67,7 @@ class vehicle(object):
 
     def set_origin(self):
         """
-        sets the origion to the current position
+        sets the origen to the current position
         :return: 
         """
         pass
@@ -96,9 +94,8 @@ class vehicle(object):
 
     def get_position(self, i):
         """
-        get the ith postion
+        get the ith position
         :param i: 
         :return: 
         """
-        return self.name, 0.0,0.0,0.0,0.0
-
+        return self.name, 0.0, 0.0, 0.0, 0.0

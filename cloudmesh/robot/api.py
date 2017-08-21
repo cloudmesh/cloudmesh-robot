@@ -15,7 +15,7 @@ class Ampy(object):
 
     def ls(self, path=None):
         if path is None:
-            path ="/"
+            path = "/"
         return self._execute("ls", path)
 
     def rm(self, path):
@@ -40,7 +40,7 @@ class Ampy(object):
             src = data['opt']
             dest = os.path.basename(src.replace('-opt', ''))
         else:
-            print ("normal")
+            print("normal")
         if dest is None:
             dest = os.path.basename(src)
 
@@ -85,7 +85,6 @@ class Git(object):
                 self.files.append(path)
         return self.files
 
-
     def dict(self, prefix=None):
 
         r = {}
@@ -104,12 +103,14 @@ class Git(object):
 
     def fetch(self):
         self.tree(prefix="images/")
-        os.system ("mkdir -p ~/.cloudmesh/roboedu/images")
+        os.system("mkdir -p ~/.cloudmesh/roboedu/images")
         for f in self.files:
             os.system("cd ~/.cloudmesh/roboedu/images; wget https://github.com/roboedu/esp8266/raw/master/" + f)
 
+
 class ProbeException(Exception):
     pass
+
 
 class Probe(object):
     # !/usr/bin/env python
@@ -126,28 +127,26 @@ class Probe(object):
 
         if len(tty) > 1:
             Console.error("ERROR: more than one tty found")
-            print ("TTY:", tty)
+            print("TTY:", tty)
             # raise  ProbeException("ERROR: tty not found")
             sys.exit(1)
         elif len(tty) == 0:
-            #raise  ProbeException("ERROR: tty not found")
+            # raise  ProbeException("ERROR: tty not found")
             Console.error("ERROR: no tty found")
             sys.exit(1)
         self.tty = tty[0]
-
 
     def probe(self):
 
         id = self._run("esptool.py -p " + self.tty + " chip_id")
         mac = self._run("esptool.py -p " + self.tty + " read_mac")
 
-        for i in range(0,len(id)):
+        for i in range(0, len(id)):
             if id[i].startswith(b'Chip ID:'):
                 found_id = id[i]
                 break
 
-
-        for i in range(0,len(mac)):
+        for i in range(0, len(mac)):
             if mac[i].startswith(b'MAC:'):
                 found_mac = mac[i]
                 break
@@ -159,8 +158,8 @@ class Probe(object):
         }
         return data
 
-class Network(object):
 
+class Network(object):
     def __init__(self, ssid=None, username=None, password=None):
         self.filename = path_expand("~/.cloudmesh/robot/credentials.txt")
         Shell.mkdir(path_expand("~/.cloudmesh/robot"))
@@ -173,15 +172,13 @@ class Network(object):
             for e in self.credentials:
                 f.write(e + ": " + self.credentials[e] + "\n")
 
-
     def __str__(self):
         with open(self.filename, 'r') as f:
             contents = f.read()
 
-        print (contents)
+        print(contents)
 
+# p = Probe()
 
-#p = Probe()
-
-#data = p.probe(tty)
-#pprint(data)
+# data = p.probe(tty)
+# pprint(data)
