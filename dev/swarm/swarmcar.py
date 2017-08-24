@@ -51,6 +51,7 @@ html = """<!DOCTYPE html>
 <tr>
 <td>DIRECTION:</td>
 <td><button name="FORWARD" value="2" type="submit">FORWARD</button></td>
+<td><button name="SET" value="1000:1000" type="submit">SET</button></td>
 <td><button name="STOP" value="ON" type="submit">STOP</button></td>
 <td><button name="BACK" value="10" type="submit">BACKWARD</button></td>
 </tr>
@@ -111,16 +112,19 @@ while not terminate:
                 car.turn_angle(value)
 
             elif name == 'BACK':
-                value = int(value)
+                # value = int(value) # not yet used
+
                 right.backward()
                 left.backward()
-                utime.sleep(value)
-                right.stop()
-                left.stop()
 
             elif name == 'FORWARD':
-                value = float(value)  # not yet used
+                value = float(value)
                 car.forward(value)
+
+            elif name == 'SET':
+                dl, dr = value.split(':')
+                left.forward(dl)
+                right.forward(dr)
 
             elif name == 'END':
                 terminate = True
@@ -128,4 +132,3 @@ while not terminate:
     cm.feedback(conn, html)
     conn.close()
     utime.sleep(dt)
-

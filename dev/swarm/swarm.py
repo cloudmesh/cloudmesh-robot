@@ -1,7 +1,9 @@
 import math
-from marvelmind import MarvelmindHedge
-import requests
 import time
+
+import requests
+
+from swarm.marvelmind import MarvelmindHedge
 
 
 class Robot(object):

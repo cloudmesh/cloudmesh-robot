@@ -1,8 +1,7 @@
 import time
+
 import requests
-import os
-from marvelmind import MarvelmindHedge
-import cm
+
 """
 # assume start at 0 0
 move 0 1
