@@ -13,7 +13,14 @@ class Robot(object):
         self.endy = int(endy)
         self.line = []
         self.last_position = []
+        self.last_angle = None
         self.done = False
+
+    def distance_to_go(self, positions):
+        x = positions[self.number][0]
+        y = positions[self.number][1]
+        d = math.sqrt(((x - self.endx) ** 2) + ((y - self.endy) ** 2))
+        return d
 
     def find_vectors(self, positions):
         """
@@ -175,32 +182,41 @@ class Robot(object):
             else:
                 return "left"
 
+    def go_far(self, positions):
+        max = 15
+        print('robot not done')
+        side = self.line_side(positions)
+        print('side', side)
+        d = self.distance(positions)
+        print('distance:', str(d))
+        if d > max:
+            if side == "left":
+                magnitude = -1
+            elif side == "right":
+                magnitude = 1
+        else:
+            if side == "left":
+                magnitude = 0 - (d / max)
+            elif side == "right":
+                magnitude = d / max  # change maximum off line distance here
+        offset = magnitude * 150
+        left_duty = int(870 - offset)
+        right_duty = int(870 + offset)
+        print('left_duty:', str(left_duty))
+        print('right_duty:', str(right_duty))
+        self.move('set', str(right_duty) + '-' + str(left_duty))
+        self.last_position = positions[self.number]
+
+    def go_close(self, positions):
+        self.align(positions)
+
+
     def run(self, positions):
         self.check_done(positions)
+        d = self.distance_to_go(positions)
         if not self.done:
-            max = 15
-            print('robot not done')
-            side = self.line_side(positions)
-            print('side', side)
-            d = self.distance(positions)
-            print('distance:', str(d))
-            if d > max:
-                if side == "left":
-                    magnitude = -1
-                elif side == "right":
-                    magnitude = 1
-            else:
-                if side == "left":
-                    magnitude = 0 - (d / max)
-                elif side == "right":
-                    magnitude = d / max  # change maximum off line distance here
-            offset = magnitude * 150
-            left_duty = int(870 - offset)
-            right_duty = int(870 + offset)
-            print('left_duty:', str(left_duty))
-            print('right_duty:', str(right_duty))
-            self.move('set', str(right_duty) + '-' + str(left_duty))
-            time.sleep(.5)
+            # if far self.go_far(positions)
+            # if close self.go_close(positions)
         else:
             pass
 
