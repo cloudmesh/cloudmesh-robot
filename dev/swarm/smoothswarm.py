@@ -25,7 +25,9 @@ class Robot(object):
         elif direction == 'forward':
             payload = {'FORWARD': str(value)}
         elif direction == "set":
+            print('sending payload:', str({'SET': value}))
             payload = {'SET': value}
+            print('payload sent')
         else:
             print ("ERROR: unknown direction:", direction)
 
@@ -41,7 +43,8 @@ class Robot(object):
         else:
             x = positions[self.number][0]
             y = positions[self.number][1]
-            if abs(x - self.endx) < 20 and abs(y - self.endy) < 20:
+            d = math.sqrt(((self.endx - x) ** 2) + ((self.endy - y) ** 2))
+            if d < 30:
                 self.done = True
                 self.move('stop')
 
@@ -72,22 +75,29 @@ class Robot(object):
     def run(self, positions):
         self.check_done(positions)
         if not self.done:
+            max = 15
+            print('robot not done')
             side = self.line_side(positions)
+            print('side', side)
             d = self.distance(positions)
-            if d > 20:
+            print('distance:', str(d))
+            if d > max:
                 if side == "left":
                     magnitude = -1
                 elif side == "right":
                     magnitude = 1
             else:
                 if side == "left":
-                    magnitude = 0 - (d / 20)
+                    magnitude = 0 - (d / max)
                 elif side == "right":
-                    magnitude = d / 20  # change maximum off line distance here
+                    magnitude = d / max  # change maximum off line distance here
             offset = magnitude * 150
-            left_duty = 870 - offset
-            right_duty = 870 + offset
-            self.move('set', str(left_duty) + '-' + str(right_duty))
+            left_duty = int(870 - offset)
+            right_duty = int(870 + offset)
+            print('left_duty:', str(left_duty))
+            print('right_duty:', str(right_duty))
+            self.move('set', str(right_duty) + '-' + str(left_duty))
+            time.sleep(.5)
         else:
             pass
 
@@ -95,6 +105,7 @@ class Robot(object):
 class RobotSwarm(object):
 
     def __init__(self, file):
+        print('building')
         self.file = file
         self.robots = []
 
@@ -108,6 +119,7 @@ class RobotSwarm(object):
             name, position = line.split(":")
             number, ip = name.split(" ")
             endx, endy = position.split(",")
+            endy = endy.rstrip()
             print(number, ip, endx, endy)
             self.robots.append(Robot(number, ip, endx, endy))
         ###################
@@ -119,6 +131,7 @@ class RobotSwarm(object):
             self.robot_numbers.append(robot.number)
         self.moving_robots = self.robot_numbers
         self.done = False
+        print('built')
 
     def get_positions(self):
         """
@@ -137,10 +150,11 @@ class RobotSwarm(object):
             y = positions[robot.number][1]
             m = ((robot.endy - y) / (robot.endx - x))
             b = robot.endy - (m * robot.endx)
-            a = 0 - m
-            b = 1
-            c = (m * robot.endx) - robot.endy
-            robot.line = [a, b, c, m, b]
+            A = 0 - m
+            B = 1
+            C = 0 - b
+            robot.line = [A, B, C, m, b]
+            print(str(robot.line))
 
     def check_done(self):
         print('check done')
@@ -154,7 +168,9 @@ class RobotSwarm(object):
     def go(self):
         print('go')
         positions = self.get_positions()
+        print('positions:', str(positions))
         for robot in self.robots:
+            print('robot: ', str(robot.number))
             robot.run(positions)
 
     def run(self):
@@ -162,6 +178,11 @@ class RobotSwarm(object):
         t0 = time.time()
         while not self.done:
             t = time.time() - t0
+            print(t)
+            if t > 10:
+                for robot in self.robots:
+                    robot.move('stop')
+                    break
             print('run:', str(t))
             self.go()
             self.check_done()
@@ -172,4 +193,5 @@ class RobotSwarm(object):
 hedge = MarvelmindHedge(tty='/dev/tty.usbmodem1421')
 hedge.start()
 time.sleep(2)
-
+swarm = RobotSwarm('swarm.txt')
+swarm.run()
